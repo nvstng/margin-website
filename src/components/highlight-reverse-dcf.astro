@@ -1,0 +1,68 @@
+---
+const SIGNUP_URL = '#signup';
+---
+
+<section class="py-24 lg:py-32 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div class="reveal">
+        <p class="text-xs text-gold-400 tracking-widest uppercase mb-4">Reverse DCF</p>
+        <h2 class="font-display text-4xl md:text-5xl font-light text-cream leading-tight mb-6">
+          Know the growth rate<br />
+          <em class="font-semibold not-italic">the market expects</em>
+        </h2>
+        <p class="text-muted leading-relaxed mb-6">
+          Instead of forecasting cash flows forward, Reverse DCF works backward.
+          Enter the current market price and your discount rate — Margin tells you the
+          implied growth rate baked into the stock's valuation.
+        </p>
+        <p class="text-muted leading-relaxed mb-8">
+          Compare that against your own growth thesis. If the market's expectation seems
+          too optimistic, you know to wait. If it's too pessimistic, you've found an edge.
+        </p>
+        <a
+          href={SIGNUP_URL}
+          class="inline-flex items-center gap-2 text-sm font-medium text-gold-400 hover:text-gold-300 transition-colors group"
+        >
+          Try Reverse DCF
+          <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+          </svg>
+        </a>
+      </div>
+
+      <div class="reveal reveal-delay-2">
+        <div class="relative rounded-xl border border-border bg-navy-800/40 overflow-hidden">
+          <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold-400/30 to-transparent"></div>
+          <div class="p-6">
+            <p class="text-xs text-muted tracking-widest uppercase mb-6">Reverse DCF Calculator</p>
+            <div class="space-y-3 mb-6">
+              {[
+                { label: 'Current Market Price', value: '₹2,340', sub: 'Live quote' },
+                { label: 'Discount Rate', value: '12%', sub: 'Your required return' },
+                { label: 'Terminal Growth Rate', value: '4%', sub: 'Long-term assumption' },
+              ].map((row) => (
+                <div class="flex items-center justify-between py-3 border-b border-border/50">
+                  <div>
+                    <p class="text-sm text-ink">{row.label}</p>
+                    <p class="text-xs text-muted">{row.sub}</p>
+                  </div>
+                  <span class="font-display text-lg text-cream">{row.value}</span>
+                </div>
+              ))}
+            </div>
+            <div class="rounded-lg bg-navy-950/60 border border-gold-400/20 p-5">
+              <p class="text-xs text-muted mb-1">Implied Growth Rate</p>
+              <p class="font-display text-4xl font-semibold text-gold-400">18.4%</p>
+              <p class="text-xs text-muted mt-2">Market expects ~18% annual growth for next 10 years</p>
+            </div>
+            <div class="mt-4 flex items-center gap-2 text-xs text-muted">
+              <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+              Your thesis: 14% — market may be overpricing growth
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

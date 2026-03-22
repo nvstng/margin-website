@@ -1,0 +1,118 @@
+---
+const tabs = [
+  {
+    id: 'upload',
+    label: 'Upload',
+    heading: 'Import from your broker in seconds',
+    body: 'Upload holdings and trade history from Zerodha, Groww, or Upstox as CSV or Excel. You can upload multiple files from different brokerages — Margin merges them automatically.',
+    detail: 'Supported: Zerodha · Groww · Upstox',
+  },
+  {
+    id: 'configure',
+    label: 'Configure',
+    heading: 'Set up your investment framework',
+    body: 'Define your custom price anchors (Buy, Add, Reduce, Exit), set target allocation percentages, configure your discount rate, and tag stocks by theme or sector.',
+    detail: 'Takes about 5 minutes',
+  },
+  {
+    id: 'analyse',
+    label: 'Analyse',
+    heading: 'Run valuations and dig into fundamentals',
+    body: 'Perform DCF, Reverse DCF, and Segmental (Sum-of-Parts) valuations per stock. Calculate XIRR, capital gains, and tax across individual stocks, lists, or your full portfolio.',
+    detail: 'NSE fundamentals included',
+  },
+  {
+    id: 'dashboard',
+    label: 'Dashboard',
+    heading: 'Monitor everything at a glance',
+    body: 'Bring your valuations, price anchors, allocation gaps, and XIRR together into a single customisable dashboard. Everything you need to act — in one view.',
+    detail: 'Fully customisable columns',
+  },
+];
+---
+
+<section class="py-24 lg:py-32">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="mb-16 reveal">
+      <p class="text-xs text-gold-400 tracking-widest uppercase mb-3">Workflow</p>
+      <h2 class="font-display text-4xl md:text-5xl font-light text-cream">
+        How it <em class="font-semibold not-italic">works</em>
+      </h2>
+    </div>
+
+    <div class="reveal reveal-delay-1" data-tabs>
+      <div class="flex gap-1 p-1 rounded-lg bg-navy-800/60 border border-border mb-8 w-fit">
+        {tabs.map((tab, i) => (
+          <button
+            class={`tab-btn px-5 py-2.5 text-sm font-medium rounded-md transition-all duration-200 ${i === 0 ? 'bg-navy-600 text-cream' : 'text-muted hover:text-ink'}`}
+            data-tab={tab.id}
+          >
+            {tab.label}
+          </button>
+        ))}
+      </div>
+
+      <div class="relative">
+        {tabs.map((tab, i) => (
+          <div
+            class={`tab-panel ${i === 0 ? 'block' : 'hidden'} grid grid-cols-1 lg:grid-cols-5 gap-10 items-center`}
+            data-panel={tab.id}
+          >
+            <div class="lg:col-span-2">
+              <div class="flex items-center justify-center w-10 h-10 rounded-full border border-gold-400/30 text-gold-400 font-display text-lg font-semibold mb-6">
+                {i + 1}
+              </div>
+              <h3 class="font-display text-3xl font-light text-cream mb-4 leading-tight">
+                {tab.heading}
+              </h3>
+              <p class="text-muted leading-relaxed mb-4">{tab.body}</p>
+              <p class="text-xs text-gold-400 tracking-wide">{tab.detail}</p>
+            </div>
+            <div class="lg:col-span-3">
+              <div class="rounded-xl border border-border bg-navy-800/40 overflow-hidden">
+                <div class="flex items-center gap-1.5 px-4 py-3 border-b border-border">
+                  <span class="w-2.5 h-2.5 rounded-full bg-navy-600"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-navy-600"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-navy-600"></span>
+                  <span class="ml-2 text-xs text-muted">margin · {tab.label.toLowerCase()}</span>
+                </div>
+                <div class="aspect-video flex items-center justify-center bg-navy-950/40">
+                  <div class="text-center">
+                    <div class="w-12 h-12 mx-auto mb-3 rounded-full border border-border flex items-center justify-center">
+                      <span class="font-display text-xl text-gold-400/60">{i + 1}</span>
+                    </div>
+                    <p class="text-xs text-muted">Screenshot coming soon</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const buttons = document.querySelectorAll('.tab-btn');
+  const panels = document.querySelectorAll('.tab-panel');
+
+  buttons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const target = btn.getAttribute('data-tab');
+
+      buttons.forEach((b) => {
+        b.classList.remove('bg-navy-600', 'text-cream');
+        b.classList.add('text-muted');
+      });
+      btn.classList.add('bg-navy-600', 'text-cream');
+      btn.classList.remove('text-muted');
+
+      panels.forEach((panel) => {
+        const id = panel.getAttribute('data-panel');
+        panel.classList.toggle('hidden', id !== target);
+        panel.classList.toggle('block', id === target);
+      });
+    });
+  });
+</script>

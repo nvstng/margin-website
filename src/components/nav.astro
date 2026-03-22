@@ -1,0 +1,88 @@
+---
+const SIGNUP_URL = '#signup';
+---
+
+<nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" data-nav>
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="flex items-center justify-between h-18 py-4">
+      <a href="/" class="flex-shrink-0">
+        <img
+          src="/assets/images/margin-logos-2-1-removebg-preview-296x98.png"
+          alt="Margin"
+          class="h-10"
+        />
+      </a>
+
+      <ul class="hidden md:flex items-center gap-8">
+        <li><a href="#features" class="text-sm text-muted hover:text-ink transition-colors duration-200 tracking-wide">Features</a></li>
+        <li><a href="#pricing" class="text-sm text-muted hover:text-ink transition-colors duration-200 tracking-wide">Pricing</a></li>
+        <li><a href="#privacy" class="text-sm text-muted hover:text-ink transition-colors duration-200 tracking-wide">Privacy</a></li>
+        <li><a href="https://www.youtube.com/@margin-fundamental" target="_blank" rel="noopener" class="text-sm text-muted hover:text-ink transition-colors duration-200 tracking-wide">Stock Stories</a></li>
+      </ul>
+
+      <div class="flex items-center gap-4">
+        <a
+          href={SIGNUP_URL}
+          class="hidden md:inline-flex items-center px-5 py-2 text-sm font-medium text-navy-900 bg-gold-400 hover:bg-gold-300 rounded transition-colors duration-200 tracking-wide"
+        >
+          Start for free
+        </a>
+        <button
+          id="nav-toggle"
+          class="md:hidden p-2 text-muted hover:text-ink transition-colors"
+          aria-label="Toggle menu"
+        >
+          <svg id="icon-open" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M3.75 17.25h16.5" />
+          </svg>
+          <svg id="icon-close" class="w-5 h-5 hidden" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div id="mobile-menu" class="hidden md:hidden border-t border-border bg-navy-900">
+    <div class="px-6 py-4 flex flex-col gap-4">
+      <a href="#features" class="text-sm text-muted hover:text-ink transition-colors">Features</a>
+      <a href="#pricing" class="text-sm text-muted hover:text-ink transition-colors">Pricing</a>
+      <a href="#privacy" class="text-sm text-muted hover:text-ink transition-colors">Privacy</a>
+      <a href="https://www.youtube.com/@margin-fundamental" target="_blank" rel="noopener" class="text-sm text-muted hover:text-ink transition-colors">Stock Stories</a>
+      <a href={SIGNUP_URL} class="inline-flex items-center justify-center px-5 py-2.5 text-sm font-medium text-navy-900 bg-gold-400 rounded transition-colors">
+        Start for free
+      </a>
+    </div>
+  </div>
+</nav>
+
+<script>
+  const nav = document.querySelector('[data-nav]') as HTMLElement;
+  const toggle = document.getElementById('nav-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const iconOpen = document.getElementById('icon-open');
+  const iconClose = document.getElementById('icon-close');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 40) {
+      nav.classList.add('bg-navy-900/95', 'backdrop-blur-md', 'border-b', 'border-border');
+    } else {
+      nav.classList.remove('bg-navy-900/95', 'backdrop-blur-md', 'border-b', 'border-border');
+    }
+  });
+
+  toggle?.addEventListener('click', () => {
+    const isOpen = !mobileMenu?.classList.contains('hidden');
+    mobileMenu?.classList.toggle('hidden');
+    iconOpen?.classList.toggle('hidden', !isOpen);
+    iconClose?.classList.toggle('hidden', isOpen);
+  });
+
+  document.querySelectorAll('#mobile-menu a').forEach((link) => {
+    link.addEventListener('click', () => {
+      mobileMenu?.classList.add('hidden');
+      iconOpen?.classList.remove('hidden');
+      iconClose?.classList.add('hidden');
+    });
+  });
+</script>

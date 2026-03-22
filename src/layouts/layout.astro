@@ -1,0 +1,80 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+}
+const {
+  title = 'Margin — Your Personal Investment Cockpit',
+  description = 'Track your Indian equity portfolio with DCF valuation, XIRR, capital gains tax calculations, and custom price anchors. Built for serious NSE & BSE investors.',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="shortcut icon" href="/assets/images/margin-logos-2-1-removebg-preview-296x98.png" type="image/x-icon" />
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Sora:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * { box-sizing: border-box; }
+      html { color-scheme: dark; }
+      ::selection { background: rgba(232, 184, 75, 0.3); color: #F2EBD9; }
+      ::-webkit-scrollbar { width: 6px; }
+      ::-webkit-scrollbar-track { background: #060E1A; }
+      ::-webkit-scrollbar-thumb { background: #1A2D4A; border-radius: 3px; }
+      ::-webkit-scrollbar-thumb:hover { background: #E8B84B; }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(28px);
+        transition: opacity 0.65s ease, transform 0.65s ease;
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .reveal-delay-1 { transition-delay: 0.1s; }
+      .reveal-delay-2 { transition-delay: 0.2s; }
+      .reveal-delay-3 { transition-delay: 0.3s; }
+      .reveal-delay-4 { transition-delay: 0.4s; }
+      .reveal-delay-5 { transition-delay: 0.5s; }
+
+      .gold-line::after {
+        content: '';
+        display: block;
+        width: 48px;
+        height: 2px;
+        background: #E8B84B;
+        margin-top: 16px;
+      }
+    </style>
+  </head>
+  <body class="bg-navy-900 text-ink font-sans antialiased">
+    <slot />
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add('visible');
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+      document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+    </script>
+  </body>
+</html>

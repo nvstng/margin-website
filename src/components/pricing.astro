@@ -1,0 +1,52 @@
+---
+const SIGNUP_URL = '#signup';
+---
+
+<section id="pricing" class="py-24 lg:py-32 bg-navy-800/20">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="mb-16 reveal text-center">
+      <p class="text-xs text-gold-400 tracking-widest uppercase mb-3">Pricing</p>
+      <h2 class="font-display text-4xl md:text-5xl font-light text-cream">
+        Simple, <em class="font-semibold not-italic">straightforward</em>
+      </h2>
+    </div>
+
+    <div class="max-w-lg mx-auto reveal reveal-delay-1">
+      <div class="relative rounded-2xl border border-gold-400/30 bg-navy-800/60 overflow-hidden">
+        <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold-400/60 to-transparent"></div>
+        <div class="absolute top-6 right-6">
+          <span class="px-3 py-1 text-xs font-medium text-navy-900 bg-gold-400 rounded-full">Current plan</span>
+        </div>
+        <div class="p-10">
+          <p class="font-display text-6xl font-light text-cream mb-1">Free</p>
+          <p class="text-muted text-sm mb-8">No credit card required. Ever.</p>
+          <ul class="space-y-4 mb-10">
+            {[
+              'Unlimited stocks',
+              'DCF & Reverse DCF valuations',
+              'XIRR & capital gains calculations',
+              'Custom price anchors',
+              'Stock lists & tags',
+              'Rich notes per stock',
+              'NSE & BSE support',
+              'Import from Zerodha, Groww, Upstox',
+            ].map((item) => (
+              <li class="flex items-center gap-3 text-sm text-muted">
+                <svg class="w-4 h-4 text-gold-400 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                </svg>
+                {item}
+              </li>
+            ))}
+          </ul>
+          <a
+            href={SIGNUP_URL}
+            class="block w-full text-center px-8 py-4 text-sm font-semibold text-navy-900 bg-gold-400 hover:bg-gold-300 rounded-lg transition-colors duration-200 tracking-wide"
+          >
+            Get started — it's free
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
