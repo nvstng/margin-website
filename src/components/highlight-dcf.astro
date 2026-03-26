@@ -1,0 +1,67 @@
+---
+const SIGNUP_URL = '#signup';
+---
+
+<section class="py-24 lg:py-32 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div class="reveal lg:order-2">
+        <p class="text-xs text-gold-400 tracking-widest uppercase mb-4">DCF Valuation</p>
+        <h2 class="font-display text-4xl md:text-5xl font-light text-cream leading-tight mb-6">
+          Project earnings forward,<br />
+          <em class="font-semibold not-italic">find the fair value</em>
+        </h2>
+        <p class="text-muted leading-relaxed mb-6">
+          DCF in Margin lets you build a full financial model — project revenue growth, operating margins,
+          depreciation, tax, capex, and working capital year by year.
+        </p>
+        <p class="text-muted leading-relaxed mb-8">
+          Discount the resulting free cash flows back to today to get an intrinsic value. Compare it
+          against the current price to decide whether the stock is worth buying, holding, or avoiding.
+        </p>
+        <a
+          href={SIGNUP_URL}
+          class="inline-flex items-center gap-2 text-sm font-medium text-gold-400 hover:text-gold-300 transition-colors group"
+        >
+          Try DCF Valuation
+          <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+          </svg>
+        </a>
+      </div>
+
+      <div class="reveal reveal-delay-2 lg:order-1">
+        <div class="relative rounded-xl border border-border bg-navy-800/40 overflow-hidden">
+          <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold-400/30 to-transparent"></div>
+          <div class="p-6">
+            <p class="text-xs text-muted tracking-widest uppercase mb-6">DCF Model Inputs</p>
+            <div class="space-y-3 mb-6">
+              {[
+                { label: 'Revenue Growth Rate', value: '18%', sub: 'Next 5 years' },
+                { label: 'Operating Margin', value: '22%', sub: 'Stabilising assumption' },
+                { label: 'Discount Rate', value: '12%', sub: 'Your required return' },
+              ].map((row) => (
+                <div class="flex items-center justify-between py-3 border-b border-border/50">
+                  <div>
+                    <p class="text-sm text-ink">{row.label}</p>
+                    <p class="text-xs text-muted">{row.sub}</p>
+                  </div>
+                  <span class="font-display text-lg text-cream">{row.value}</span>
+                </div>
+              ))}
+            </div>
+            <div class="rounded-lg bg-navy-950/60 border border-gold-400/20 p-5">
+              <p class="text-xs text-muted mb-1">Intrinsic Value (per share)</p>
+              <p class="font-display text-4xl font-semibold text-gold-400">₹1,840</p>
+              <p class="text-xs text-muted mt-2">vs current price ₹2,340 — 22% premium to fair value</p>
+            </div>
+            <div class="mt-4 flex items-center gap-2 text-xs text-muted">
+              <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+              Adjust growth or margin assumptions to stress-test your thesis
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
