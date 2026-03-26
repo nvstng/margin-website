@@ -6,6 +6,7 @@ const tabs = [
     heading: 'Import from your broker in seconds',
     body: 'Upload holdings and trade history from Zerodha, Groww, or Upstox as CSV or Excel. You can upload multiple files from different brokerages — Margin merges them automatically.',
     detail: 'Supported: Zerodha · Groww · Upstox',
+    image: '/assets/images/margin-upload.png',
   },
   {
     id: 'configure',
@@ -13,6 +14,7 @@ const tabs = [
     heading: 'Set up your investment framework',
     body: 'Define your custom price anchors (Buy, Add, Reduce, Exit), set target allocation percentages, configure your discount rate, and tag stocks by theme or sector.',
     detail: 'Takes about 5 minutes',
+    image: '/assets/images/margin-configure.png',
   },
   {
     id: 'analyse',
@@ -20,6 +22,7 @@ const tabs = [
     heading: 'Run valuations and dig into fundamentals',
     body: 'Perform DCF and Reverse DCF valuations per stock. Calculate XIRR, capital gains, and tax across individual stocks, lists, or your full portfolio.',
     detail: 'NSE fundamentals included',
+    image: '/assets/images/margin-analyse.png',
   },
   {
     id: 'dashboard',
@@ -27,6 +30,7 @@ const tabs = [
     heading: 'Monitor everything at a glance',
     body: 'Bring your valuations, price anchors, allocation gaps, and XIRR together into a single customisable dashboard. Everything you need to act — in one view.',
     detail: 'Fully customisable columns',
+    image: '/assets/images/margin-dashboard.png',
   },
 ];
 ---
@@ -76,14 +80,7 @@ const tabs = [
                   <span class="w-2.5 h-2.5 rounded-full bg-navy-600"></span>
                   <span class="ml-2 text-xs text-muted">margin · {tab.label.toLowerCase()}</span>
                 </div>
-                <div class="aspect-video flex items-center justify-center bg-navy-950/40">
-                  <div class="text-center">
-                    <div class="w-12 h-12 mx-auto mb-3 rounded-full border border-border flex items-center justify-center">
-                      <span class="font-display text-xl text-gold-400/60">{i + 1}</span>
-                    </div>
-                    <p class="text-xs text-muted">Screenshot coming soon</p>
-                  </div>
-                </div>
+                <img src={tab.image} alt={tab.label} class="w-full" />
               </div>
             </div>
           </div>
