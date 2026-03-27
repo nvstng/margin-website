@@ -33,22 +33,43 @@ const YOUTUBE_URL = 'https://www.youtube.com/@margin-fundamental';
           </a>
         </div>
 
-        <div class="reveal reveal-delay-2 flex justify-center lg:justify-end">
-          <div class="relative">
-            <div class="w-64 h-40 rounded-2xl bg-navy-950 border border-border flex items-center justify-center shadow-xl">
-              <div class="text-center">
-                <div class="w-14 h-14 mx-auto mb-3 rounded-full bg-red-600/90 flex items-center justify-center shadow-lg shadow-red-600/30">
-                  <svg class="w-6 h-6 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M8 5v14l11-7z"/>
-                  </svg>
-                </div>
-                <p class="text-xs text-muted">@margin-fundamental</p>
-              </div>
-            </div>
-            <div class="absolute -bottom-3 -right-3 w-32 h-20 rounded-xl bg-navy-800 border border-border flex items-center justify-center opacity-60">
-              <p class="text-xs text-muted text-center leading-tight px-2">Stock<br/>Stories</p>
-            </div>
+        <div class="reveal reveal-delay-2 flex flex-col gap-4">
+          <p class="text-xs text-muted">A sample of what's on the channel — more stories added regularly.</p>
+          <div class="rounded-xl overflow-hidden border border-border aspect-video">
+            <iframe
+              width="100%"
+              height="100%"
+              src="https://www.youtube.com/embed/DYadzT6llyU?si=RBg11l4zW68EnQur"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
           </div>
+          <div class="rounded-xl overflow-hidden border border-border aspect-video">
+            <iframe
+              width="100%"
+              height="100%"
+              src="https://www.youtube.com/embed/VQx7tqjmFzo?si=HavpahAfMvNeLyw-"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <a
+            href={YOUTUBE_URL}
+            target="_blank"
+            rel="noopener"
+            class="inline-flex items-center gap-2 text-sm text-gold-400 hover:text-gold-300 transition-colors group"
+          >
+            See all Stock Stories on YouTube
+            <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+            </svg>
+          </a>
         </div>
       </div>
     </div>
