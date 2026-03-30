@@ -1,0 +1,154 @@
+---
+import Layout from '../layouts/layout.astro';
+import Nav from '../components/nav.astro';
+import Footer from '../components/footer.astro';
+---
+
+<Layout
+  title="How Privacy Vault Protects You — Margin"
+  description="Understand how Margin uses Privacy Vault to protect your personal data compared to a traditional database approach."
+>
+  <Nav />
+
+  <main class="pt-32 pb-24">
+    <div class="max-w-3xl mx-auto px-6 lg:px-8">
+
+      <div class="reveal mb-16">
+        <p class="text-xs text-gold-400 tracking-widest uppercase mb-4">Data Privacy</p>
+        <h1 class="font-display text-5xl md:text-6xl font-light text-cream leading-tight mb-6">
+          Why Privacy Vault<br />
+          <em class="font-semibold not-italic">is different</em>
+        </h1>
+        <p class="text-muted text-lg leading-relaxed">
+          Most apps store your personal data in a regular database — fast to build, but easy to
+          breach. Margin uses a Privacy Vault, a fundamentally different architecture that isolates
+          sensitive fields behind separate encryption keys so even a database leak exposes nothing useful.
+        </p>
+      </div>
+
+      <div class="mb-20 reveal reveal-delay-1">
+        <h2 class="font-display text-2xl font-light text-cream mb-6 gold-line">The traditional approach</h2>
+        <p class="text-muted leading-relaxed mb-6">
+          In a conventional setup, all data — your name, email, portfolio holdings, transaction
+          history — lives together in the same database tables. A single SQL query can join them.
+          That is convenient for engineers, but it means:
+        </p>
+        <ul class="space-y-4 mb-6">
+          {[
+            'A compromised database credential exposes everything at once.',
+            'An insider with read access to the database can see your personal details alongside your financial data.',
+            'Any misconfigured query or API can accidentally leak PII alongside non-sensitive records.',
+            'Regulatory audits are harder — there is no clear boundary between sensitive and non-sensitive data.',
+          ].map((point) => (
+            <li class="flex items-start gap-3 text-sm text-muted">
+              <svg class="w-4 h-4 text-red-400/70 mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+              {point}
+            </li>
+          ))}
+        </ul>
+
+        <div class="bg-navy-800/40 border border-border rounded-xl p-6 font-mono text-xs text-muted leading-relaxed overflow-x-auto">
+          <p class="text-gold-400/60 mb-2">-- Traditional: everything in one place</p>
+          <p>SELECT u.name, u.email, p.stock, p.quantity</p>
+          <p>FROM users u</p>
+          <p>JOIN portfolios p ON u.id = p.user_id;</p>
+          <p class="mt-3 text-red-400/60">-- One breach = name + email + holdings exposed together</p>
+        </div>
+      </div>
+
+      <div class="mb-20 reveal">
+        <h2 class="font-display text-2xl font-light text-cream mb-6 gold-line">How Privacy Vault works</h2>
+        <p class="text-muted leading-relaxed mb-6">
+          A Privacy Vault (we use <a href="https://databunker.org" target="_blank" rel="noopener noreferrer" class="text-gold-400 hover:text-gold-300 transition-colors">Databunker</a>)
+          extracts personally identifiable information — name, email, phone — out of the main
+          database entirely. It stores them in an isolated, encrypted store with its own access
+          controls and encryption keys.
+        </p>
+        <p class="text-muted leading-relaxed mb-6">
+          Your main database only holds a random token that references the vault record.
+          That token is meaningless on its own — it cannot be reverse-engineered back to your
+          identity without the vault's separate keys.
+        </p>
+
+        <div class="bg-navy-800/40 border border-border rounded-xl p-6 font-mono text-xs text-muted leading-relaxed overflow-x-auto mb-6">
+          <p class="text-gold-400/60 mb-2">-- With Privacy Vault: PII is isolated</p>
+          <p>portfolios table:</p>
+          <p class="pl-4">user_token: <span class="text-cream">a3f8c2d1-...</span>  <span class="text-muted/50">(random, meaningless)</span></p>
+          <p class="pl-4">stock: RELIANCE</p>
+          <p class="pl-4">quantity: 50</p>
+          <p class="mt-3">vault (separate system, separate keys):</p>
+          <p class="pl-4">token: <span class="text-cream">a3f8c2d1-...</span></p>
+          <p class="pl-4">name: <span class="text-gold-400/70">[encrypted]</span></p>
+          <p class="pl-4">email: <span class="text-gold-400/70">[encrypted]</span></p>
+          <p class="mt-3 text-emerald-400/60">-- Breach of main DB = tokens with no identity attached</p>
+        </div>
+
+        <ul class="space-y-4">
+          {[
+            'PII is encrypted with keys that are separate from your application database.',
+            'Access to portfolio data does not grant access to personal identity — the two are decoupled.',
+            'The vault maintains its own audit log of every access to sensitive fields.',
+            'Data deletion requests (right to erasure) are handled at the vault level without touching the main database.',
+          ].map((point) => (
+            <li class="flex items-start gap-3 text-sm text-muted">
+              <svg class="w-4 h-4 text-gold-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+              </svg>
+              {point}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="mb-20 reveal">
+        <h2 class="font-display text-2xl font-light text-cream mb-8 gold-line">Side by side</h2>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm border-collapse">
+            <thead>
+              <tr class="border-b border-border">
+                <th class="text-left px-4 py-3 text-xs text-gold-400 tracking-widest uppercase font-normal w-1/3">Scenario</th>
+                <th class="text-left px-4 py-3 text-xs text-muted tracking-widest uppercase font-normal w-1/3">Traditional DB</th>
+                <th class="text-left px-4 py-3 text-xs text-gold-400 tracking-widest uppercase font-normal w-1/3">Privacy Vault</th>
+              </tr>
+            </thead>
+            <tbody>
+              {[
+                ['Database breach', 'Name, email & holdings exposed', 'Only meaningless tokens exposed'],
+                ['Insider access', 'Full user records visible', 'PII requires separate vault key'],
+                ['Data deletion request', 'Must hunt & purge across tables', 'Delete vault record — done'],
+                ['Audit trail for PII access', 'Manual logging or none', 'Built-in per-field access log'],
+                ['Regulatory compliance', 'Engineer effort required', 'Isolation enforced by design'],
+              ].map(([scenario, traditional, vault]) => (
+                <tr class="border-b border-border/50">
+                  <td class="px-4 py-4 text-muted">{scenario}</td>
+                  <td class="px-4 py-4 text-red-400/70 text-xs">{traditional}</td>
+                  <td class="px-4 py-4 text-emerald-400/80 text-xs">{vault}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <div class="bg-navy-800/30 border border-border rounded-xl p-8">
+          <p class="text-xs text-gold-400 tracking-widest uppercase mb-4">What this means for you</p>
+          <p class="text-cream font-display text-xl font-light leading-relaxed mb-4">
+            Even if someone broke into Margin's database, they would find portfolio records
+            tied to random tokens — no names, no emails, nothing that identifies you.
+          </p>
+          <p class="text-muted text-sm leading-relaxed">
+            Your broker login credentials are never stored at all. Trade files you upload are
+            processed in memory and never persisted to third-party systems. Privacy Vault is
+            the last line of defence for the only personal data we do hold.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
