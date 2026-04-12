@@ -74,4 +74,64 @@ const YOUTUBE_URL = 'https://www.youtube.com/@margin-fundamental';
       </div>
     </div>
   </div>
+
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 mt-8">
+    <div class="relative rounded-2xl border border-border bg-navy-800/30 overflow-hidden">
+      <div class="absolute inset-0 bg-dot-grid bg-dot-md opacity-50 pointer-events-none"></div>
+      <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold-400/20 to-transparent"></div>
+
+      <div class="relative px-10 py-16 lg:px-16 lg:py-20 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div class="reveal">
+          <p class="text-xs text-gold-400 tracking-widest uppercase mb-4">Industry Stories</p>
+          <h2 class="font-display text-4xl md:text-5xl font-light text-cream leading-tight mb-6">
+            Industries decoded,<br />
+            <em class="font-semibold not-italic">top to bottom</em>
+          </h2>
+          <p class="text-muted leading-relaxed mb-8">
+            We go beyond individual stocks to explore the industries they operate in —
+            understanding sector dynamics, competitive forces, and structural tailwinds
+            that shape long-term outcomes for fundamental investors.
+          </p>
+          <a
+            href={YOUTUBE_URL}
+            target="_blank"
+            rel="noopener"
+            class="inline-flex items-center gap-3 px-7 py-3.5 text-sm font-medium text-navy-900 bg-gold-400 hover:bg-gold-300 rounded-lg transition-colors duration-200"
+          >
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+            </svg>
+            Watch on YouTube
+          </a>
+        </div>
+
+        <div class="reveal reveal-delay-2 flex flex-col gap-4">
+          <p class="text-xs text-muted">A sample of what's on the channel — more stories added regularly.</p>
+          <div class="rounded-xl overflow-hidden border border-border aspect-video">
+            <iframe
+              width="100%"
+              height="100%"
+              src="https://www.youtube.com/embed/lBMbb9rL8gY?si=uifQRYGA_wfghbMW"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <a
+            href={YOUTUBE_URL}
+            target="_blank"
+            rel="noopener"
+            class="inline-flex items-center gap-2 text-sm text-gold-400 hover:text-gold-300 transition-colors group"
+          >
+            See all Industry Stories on YouTube
+            <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
