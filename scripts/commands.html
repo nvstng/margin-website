@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>margin-website — Commands</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #0d1117;
+      color: #c9d1d9;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      font-size: 14px;
+      padding: 40px 24px;
+      min-height: 100vh;
+    }
+
+    h1 {
+      font-size: 20px;
+      font-weight: 600;
+      color: #f0f6fc;
+      margin-bottom: 32px;
+      letter-spacing: 0.02em;
+    }
+
+    h1 span {
+      color: #58a6ff;
+    }
+
+    section {
+      margin-bottom: 36px;
+    }
+
+    h2 {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #8b949e;
+      margin-bottom: 12px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #21262d;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    tr + tr td {
+      border-top: 1px solid #161b22;
+    }
+
+    td {
+      padding: 10px 12px;
+      vertical-align: top;
+    }
+
+    td:first-child {
+      width: 42%;
+      white-space: nowrap;
+    }
+
+    code {
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: 13px;
+      background: #161b22;
+      color: #79c0ff;
+      padding: 3px 8px;
+      border-radius: 4px;
+      border: 1px solid #21262d;
+      display: inline-block;
+    }
+
+    .desc {
+      color: #8b949e;
+      line-height: 1.5;
+      padding-top: 2px;
+    }
+
+    .note {
+      font-size: 12px;
+      color: #484f58;
+      margin-top: 4px;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+
+    .tag-dev  { background: #1f3d2b; color: #3fb950; }
+    .tag-prod { background: #1f2d3d; color: #58a6ff; }
+  </style>
+</head>
+<body>
+
+  <h1>margin-website <span>/</span> commands</h1>
+
+  <section>
+    <h2>Development</h2>
+    <table>
+      <tr>
+        <td><code>npm run dev</code> <span class="tag tag-dev">local</span></td>
+        <td>
+          <div class="desc">Start the Astro dev server with hot reload.</div>
+          <div class="note">Runs on http://localhost:4321 by default.</div>
+        </td>
+      </tr>
+      <tr>
+        <td><code>npm run preview</code></td>
+        <td>
+          <div class="desc">Preview the production build locally.</div>
+          <div class="note">Run <code style="font-size:12px;padding:1px 5px;">npm run build</code> first.</div>
+        </td>
+      </tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>Build</h2>
+    <table>
+      <tr>
+        <td><code>npm ci</code></td>
+        <td>
+          <div class="desc">Install exact dependencies from <code style="font-size:12px;padding:1px 5px;">package-lock.json</code>.</div>
+          <div class="note">Use this instead of <code style="font-size:12px;padding:1px 5px;">npm install</code> for reproducible builds.</div>
+        </td>
+      </tr>
+      <tr>
+        <td><code>npm run build</code> <span class="tag tag-prod">prod</span></td>
+        <td>
+          <div class="desc">Compile and emit static site into <code style="font-size:12px;padding:1px 5px;">dist/</code>.</div>
+        </td>
+      </tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>Package &amp; Deploy</h2>
+    <table>
+      <tr>
+        <td><code>npm run package:local</code></td>
+        <td>
+          <div class="desc">Full build + package into a deployable tarball.</div>
+          <div class="note">Runs <code style="font-size:12px;padding:1px 5px;">scripts/package-local.sh</code> — output at <code style="font-size:12px;padding:1px 5px;">/tmp/margin-artifacts/margin-website-deploy.tar.gz</code></div>
+        </td>
+      </tr>
+      <tr>
+        <td><code>bash scripts/package-local.sh</code></td>
+        <td>
+          <div class="desc">Same as above, invoked directly.</div>
+          <div class="note">Steps: <code style="font-size:12px;padding:1px 5px;">npm ci</code> → <code style="font-size:12px;padding:1px 5px;">npm run build</code> → tar into <code style="font-size:12px;padding:1px 5px;">/tmp/margin-artifacts/</code></div>
+        </td>
+      </tr>
+    </table>
+  </section>
+
+</body>
+</html>
