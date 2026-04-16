@@ -1,0 +1,71 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/layout.astro';
+import Nav from '../../components/nav.astro';
+import Footer from '../../components/footer.astro';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf()
+);
+
+function formatDate(date: Date) {
+  return date.toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' });
+}
+---
+
+<Layout
+  title="Insights — Margin"
+  description="Practical guides on DCF valuation, XIRR, portfolio analysis, and fundamental investing for serious Indian equity investors."
+>
+  <Nav />
+
+  <main class="pt-32 pb-24">
+    <div class="max-w-4xl mx-auto px-6 lg:px-8">
+
+      <div class="reveal mb-16">
+        <p class="text-xs text-gold-400 tracking-widest uppercase mb-4">Insights</p>
+        <h1 class="font-display text-5xl md:text-6xl font-light text-cream leading-tight mb-6">
+          For the serious<br />
+          <em class="font-semibold not-italic">Indian investor</em>
+        </h1>
+        <p class="text-muted text-lg leading-relaxed max-w-2xl">
+          Practical guides on DCF valuation, XIRR, capital gains, and the mindset of
+          fundamental investing in Indian equities. No tips, no noise.
+        </p>
+      </div>
+
+      <div class="space-y-6">
+        {posts.map((post, i) => (
+          <article class={`reveal reveal-delay-${Math.min(i + 1, 5)} group`}>
+            <a href={`/blog/${post.slug}`} class="block bg-navy-800/30 border border-border hover:border-gold-400/30 rounded-xl p-8 transition-all duration-300 hover:bg-navy-800/50">
+              <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4">
+                <span class="inline-block text-xs text-gold-400 tracking-widest uppercase">
+                  {post.data.category}
+                </span>
+                <div class="flex items-center gap-4 text-xs text-muted shrink-0">
+                  <span>{post.data.readingTime}</span>
+                  <span>{formatDate(post.data.publishedAt)}</span>
+                </div>
+              </div>
+              <h2 class="font-display text-2xl md:text-3xl font-light text-cream group-hover:text-gold-200 transition-colors duration-200 mb-3 leading-snug">
+                {post.data.title}
+              </h2>
+              <p class="text-muted text-sm leading-relaxed mb-5">
+                {post.data.description}
+              </p>
+              <span class="inline-flex items-center gap-2 text-sm text-gold-400 group-hover:text-gold-300 transition-colors duration-200">
+                Read article
+                <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+                </svg>
+              </span>
+            </a>
+          </article>
+        ))}
+      </div>
+
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
