@@ -24,7 +24,7 @@ npm run build
 log "Packaging margin-website..."
 rm -rf deploy/
 mkdir -p deploy/margin-website
-cp -r dist/           deploy/margin-website/
+cp -r dist            deploy/margin-website/
 cp    package.json    deploy/margin-website/
 tar -czvf "$ARTIFACTS_DIR/margin-website-deploy.tar.gz" deploy/
 rm -rf deploy/
