@@ -9,6 +9,7 @@ const blog = defineCollection({
     author: z.string().default('Margin Team'),
     category: z.string(),
     readingTime: z.string(),
+    ogImage: z.string().optional(),
   }),
 });
 

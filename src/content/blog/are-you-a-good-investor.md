@@ -5,6 +5,7 @@ publishedAt: 2026-06-12
 author: "Margin Team"
 category: "Mindset"
 readingTime: "7 min read"
+ogImage: "/assets/images/good-investor-vs-index.png"
 ---
 
 If one is managing one's own or other people's money, this is an important thing to ponder. Am I a good investor? Will my decisions lead to meaningful alpha over what a conservative index fund delivers?
