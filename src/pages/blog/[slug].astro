@@ -53,6 +53,13 @@ function formatDate(date: Date) {
         </div>
       </header>
 
+      <!-- Hero image -->
+      {post.data.ogImage && (
+        <div class="reveal mb-12">
+          <img src={post.data.ogImage} alt={post.data.title} class="w-full rounded-xl border border-border" />
+        </div>
+      )}
+
       <!-- Article body -->
       <div class="reveal prose-margin">
         <Content />
