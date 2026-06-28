@@ -5,7 +5,6 @@ publishedAt: 2026-06-28
 author: "Margin Team"
 category: "Mindset"
 readingTime: "8 min read"
-draft: true
 ---
 
 Warren Buffet said investing is simple but not easy. Since it is simple one can explain it, and he has done so over decades. This goes something like buy good businesses and hold them for the long term. Ignore noise and volatility.
