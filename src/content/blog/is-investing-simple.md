@@ -9,7 +9,7 @@ readingTime: "8 min read"
 
 Warren Buffet said investing is simple but not easy. Since it is simple one can explain it, and he has done so over decades. This goes something like buy good businesses and hold them for the long term. Ignore noise and volatility.
 
-But I think investing is simple only if your return expectations are around index returns. So if you expect to make around 13 to 16% returns, which is somewhat more than index returns, investing can be quite simple.
+But investing is simple only if return expectations are around index returns. If you expect to make around 13 to 16% returns, which is somewhat more than index returns, investing can be quite simple.
 
 First, let us step back and try to understand two versions of Buffet.
 
@@ -27,7 +27,7 @@ So what we know about the simplicity of investing is from version 2 of Buffet, w
 
 Not lay person simple. There are a number of prolific, but relatively smaller number of investors, who have made such returns. They have done so over long periods of time, so it is not a fluke. There should be a method. Most of these people do not speak to the public in the same detail and length as Buffet and Munger have done over the years. One reason is that it is not easy to explain. But some of the people who do speak publicly are not as simple to follow for a lay person, like it is with Buffet, again because the subject is complex now.
 
-If you follow their work over time and work on your own skills (accounting, business patterns, market psychology and so on), and do real practice, you can start to understand their process and method better. Since these practitioners have not been able to simplify this, I will not attempt to either. But I will try to only explain why it is not simple.
+If you follow their work over time and work on your own skills (accounting, business patterns, market psychology and so on), and do real practice, you can start to understand their process and method better. Since these practitioners have not been able to simplify this, this piece will not attempt to either — the aim here is only to explain why it is not simple.
 
 ## Why is holding a good company for longer periods not adequate?
 
@@ -37,17 +37,17 @@ Making large returns, for long periods of time, at the portfolio level is very d
 
 Take a rough example. Say you have a 20-stock equal-weight portfolio. One stock compounds at 30% — genuinely exceptional. The other 19 compound at the index, call it 13%. Your blended return: (1 × 30% + 19 × 13%) ÷ 20 = 13.85%. One extraordinary holding barely moves the needle above index. To reach 25% at the portfolio level, the remaining 19 stocks must still average roughly 24.7% — you needed them all to be exceptional anyway. The one multi-bagger did almost nothing on its own.
 
-Maybe there are people like that, but I haven't come across them who make 25 to 30% returns just by picking a lot (much more than 1 or 2) of stocks and holding them for long periods of time.
+Maybe there are people like that, but investors who make 25 to 30% returns just by picking a lot (much more than 1 or 2) of stocks and holding them for long periods of time are hard to find.
 
 ## Why is high returns investing not simple?
 
-As far as I have understood, making such high returns requires incorporating other factors into your buy, sell and hold decisions. There are two distinct paths to 25-30% returns: re-rating, and high underlying business growth. Of the two, re-rating is more tractable for most investors — and cycles are what drive it.
+Making such high returns requires incorporating other factors into buy, sell and hold decisions. There are two distinct paths to 25-30% returns: re-rating, and high underlying business growth. Of the two, re-rating is more tractable for most investors — and cycles are what drive it.
 
 ### Cycles
 
 Most businesses, sectors, and economies go through cycles. Very broadly one has to play these cycles to their advantage. Roughly getting them right is the key, as precision cannot be achieved in spotting these cycles. There can be a world of difference in roughly getting them right versus not paying any attention to these cycles at all and holding through cycles.
 
-In the "investing is simple" world view, this has a bad name which people call market timing. I agree that trying to time the market with no fundamental basis is a pointless, rather negative impact, exercise. But a deeper understanding of the topic will reveal that there are real factors behind these cycles and understanding them can be quite beneficial. Let me give one recent example.
+In the "investing is simple" world view, this has a bad name which people call market timing. Trying to time the market with no fundamental basis is indeed a pointless, rather negative impact, exercise. But a deeper understanding of the topic will reveal that there are real factors behind these cycles and understanding them can be quite beneficial. Here is one recent example.
 
 Formal and large hotels are doing well since 2023 because Covid destroyed this business and supply went off because many didn't survive. When Covid got over this supply is coming back but it takes 2 to 3 years to set up a new hotel. During this period supply will remain constrained, giving a pricing advantage to these large hotels. These hotel chains are going through a positive cycle today but when supply catches up the cycle will turn.
 

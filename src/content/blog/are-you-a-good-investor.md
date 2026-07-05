@@ -8,7 +8,7 @@ readingTime: "7 min read"
 ogImage: "/assets/images/testing-long-term-investor-skill.png"
 ---
 
-If one is managing one's own or other people's money, this is an important thing to ponder. Am I a good investor? Will my decisions lead to meaningful alpha over what a conservative index fund delivers?
+If one is managing one's own or other people's money, this is an important thing to ponder. Is one a good investor? Will one's decisions lead to meaningful alpha over what a conservative index fund delivers?
 
 Let's take the example of a growth at reasonable prices (GARP) investor. Such an investor invests in high growth companies which are also available at reasonable prices. In short, the investor seeks mispricing in businesses that have strong growth prospects, so that one doesn't get stuck in neglected stocks for long periods due to low growth.
 
