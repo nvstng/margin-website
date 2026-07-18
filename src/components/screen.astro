@@ -1,0 +1,74 @@
+---
+const SCREEN_URL = 'https://go.marginapp.in/content/quick-preview';
+
+const verdicts = [
+  { label: 'Yes', color: 'text-emerald-400 border-emerald-400/40 bg-emerald-400/5' },
+  { label: 'Maybe', color: 'text-amber-400 border-amber-400/40 bg-amber-400/5' },
+  { label: 'No', color: 'text-muted border-border bg-navy-950/40' },
+  { label: 'Never', color: 'text-muted border-border bg-navy-950/40' },
+];
+---
+
+<section class="py-24 lg:py-32 overflow-hidden bg-navy-800/20">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+      <div class="reveal order-2 lg:order-1">
+        <div class="relative mx-auto max-w-sm">
+          <div class="absolute -inset-2 bg-gold-glow opacity-40 pointer-events-none"></div>
+          <div class="absolute inset-x-3 -bottom-3 h-full rounded-xl border border-border bg-navy-800/40"></div>
+          <div class="absolute inset-x-1.5 -bottom-1.5 h-full rounded-xl border border-border bg-navy-800/60"></div>
+          <div class="relative rounded-xl border border-border bg-navy-800 overflow-hidden shadow-2xl shadow-black/40">
+            <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold-400/40 to-transparent"></div>
+            <div class="p-6">
+              <div class="flex items-center justify-between mb-6">
+                <span class="text-xs text-muted tracking-widest uppercase">Quick story</span>
+                <span class="text-xs text-muted">3 / 40</span>
+              </div>
+              <h3 class="font-display text-2xl text-cream mb-1">A midcap compounder</h3>
+              <p class="text-sm text-muted mb-6">Consumer · NSE</p>
+              <div class="rounded-lg bg-navy-950/50 border border-border/60 p-4 mb-6">
+                <p class="text-xs text-muted mb-1">EBITDA margin</p>
+                <p class="font-display text-2xl font-semibold text-cream">18% – 22%</p>
+              </div>
+              <div class="flex items-center gap-2 mb-6">
+                <span class="px-2 py-0.5 text-xs text-muted border border-border rounded">Full story</span>
+                <span class="px-2 py-0.5 text-xs text-muted border border-border rounded">Video</span>
+              </div>
+              <div class="grid grid-cols-2 gap-2">
+                {verdicts.map((v) => (
+                  <span class={`text-center px-3 py-2 text-sm font-medium border rounded-lg ${v.color}`}>{v.label}</span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal reveal-delay-2 order-1 lg:order-2">
+        <p class="text-xs text-gold-400 tracking-widest uppercase mb-4">Screen</p>
+        <h2 class="font-display text-4xl md:text-5xl font-light text-cream leading-tight mb-6">
+          Screen the market,<br />
+          <em class="font-semibold not-italic">one card at a time</em>
+        </h2>
+        <p class="text-muted leading-relaxed mb-6">
+          Flip through a deck of quick stories — the essentials of each business at a glance.
+          Give a fast verdict on every one: Yes, Maybe, No, or Never.
+        </p>
+        <p class="text-muted leading-relaxed mb-8">
+          Margin remembers your calls and picks up where you left off. Everything you say Yes
+          or Maybe to lands in your Screened list, ready to dig into.
+        </p>
+        <a
+          href={SCREEN_URL}
+          class="inline-flex items-center gap-2 text-sm font-medium text-gold-400 hover:text-gold-300 transition-colors group"
+        >
+          Start screening
+          <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
