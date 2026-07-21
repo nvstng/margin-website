@@ -7,23 +7,23 @@ import SocialShare from '../../components/social-share.astro';
 import ProseStyles from '../../components/prose-styles.astro';
 
 export async function getStaticPaths() {
-  const posts = await getCollection('blog');
-  return posts.map((post) => ({
-    params: { slug: post.slug },
-    props: { post },
+  const guides = await getCollection('guide');
+  return guides.map((guide) => ({
+    params: { slug: guide.slug },
+    props: { guide },
   }));
 }
 
-const { post } = Astro.props;
-const { Content } = await post.render();
-const pageUrl = new URL(`/blog/${post.slug}`, Astro.site ?? Astro.url.origin).href;
+const { guide } = Astro.props;
+const { Content } = await guide.render();
+const pageUrl = new URL(`/guides/${guide.slug}`, Astro.site ?? Astro.url.origin).href;
 
 function formatDate(date: Date) {
   return date.toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' });
 }
 ---
 
-<Layout title={`${post.data.title} — Margin Insights`} description={post.data.description} ogImage={post.data.ogImage}>
+<Layout title={`${guide.data.title} — Margin Guides`} description={guide.data.description} ogImage={guide.data.ogImage}>
   <Nav />
 
   <main class="pt-32 pb-24">
@@ -31,43 +31,45 @@ function formatDate(date: Date) {
 
       <!-- Back link -->
       <div class="reveal mb-10">
-        <a href="/blog" class="inline-flex items-center gap-2 text-sm text-muted hover:text-gold-400 transition-colors duration-200">
+        <a href="/guides" class="inline-flex items-center gap-2 text-sm text-muted hover:text-gold-400 transition-colors duration-200">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
           </svg>
-          All Insights
+          All Guides
         </a>
       </div>
 
       <!-- Header -->
       <header class="reveal mb-12">
-        <p class="text-xs text-gold-400 tracking-widest uppercase mb-5">{post.data.category}</p>
+        <p class="text-xs text-gold-400 tracking-widest uppercase mb-5">{guide.data.feature}</p>
         <h1 class="font-display text-4xl md:text-5xl lg:text-6xl font-light text-cream leading-tight mb-8">
-          {post.data.title}
+          {guide.data.title}
         </h1>
         <div class="flex items-center gap-6 text-sm text-muted border-t border-border pt-6">
-          <span>{post.data.author}</span>
-          <span class="w-1 h-1 rounded-full bg-border"></span>
-          <span>{formatDate(post.data.publishedAt)}</span>
-          <span class="w-1 h-1 rounded-full bg-border"></span>
-          <span>{post.data.readingTime}</span>
+          <span>Updated {formatDate(guide.data.updatedAt)}</span>
+          {guide.data.readingTime && (
+            <>
+              <span class="w-1 h-1 rounded-full bg-border"></span>
+              <span>{guide.data.readingTime}</span>
+            </>
+          )}
         </div>
       </header>
 
       <!-- Hero image -->
-      {post.data.ogImage && (
+      {guide.data.ogImage && (
         <div class="reveal mb-12">
-          <img src={post.data.ogImage} alt={post.data.title} class="w-full rounded-xl border border-border" />
+          <img src={guide.data.ogImage} alt={guide.data.title} class="w-full rounded-xl border border-border" />
         </div>
       )}
 
-      <!-- Article body -->
+      <!-- Guide body -->
       <div class="reveal prose-margin">
         <Content />
       </div>
 
       <!-- Social share -->
-      <SocialShare title={post.data.title} url={pageUrl} />
+      <SocialShare title={guide.data.title} url={pageUrl} />
 
       <!-- CTA -->
       <div class="reveal mt-20 bg-navy-800/30 border border-gold-400/20 rounded-xl p-8 text-center">
@@ -79,7 +81,7 @@ function formatDate(date: Date) {
           Margin gives you DCF valuation, Reverse DCF, XIRR, and capital gains tracking — all in one place. Free, no credit card required.
         </p>
         <a
-          href="/#signup"
+          href="https://go.marginapp.in"
           class="inline-flex items-center px-6 py-3 text-sm font-medium text-navy-900 bg-gold-400 hover:bg-gold-300 rounded transition-colors duration-200 tracking-wide"
         >
           Start for free

@@ -1,0 +1,77 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/layout.astro';
+import Nav from '../../components/nav.astro';
+import Footer from '../../components/footer.astro';
+
+const guides = await getCollection('guide');
+
+const groups = [...new Map(
+  guides.map((g) => [g.data.feature, [] as typeof guides])
+).entries()].map(([feature]) => ({
+  feature,
+  items: guides
+    .filter((g) => g.data.feature === feature)
+    .sort((a, b) => a.data.order - b.data.order),
+}));
+---
+
+<Layout
+  title="Guides — Margin"
+  description="Product guides that explain how Margin's features map to the concepts of fundamental investing — DCF valuation, Reverse DCF, XIRR, capital gains, and more."
+>
+  <Nav />
+
+  <main class="pt-32 pb-24">
+    <div class="max-w-4xl mx-auto px-6 lg:px-8">
+
+      <div class="reveal mb-16">
+        <p class="text-xs text-gold-400 tracking-widest uppercase mb-4">Guides</p>
+        <h1 class="font-display text-5xl md:text-6xl font-light text-cream leading-tight mb-6">
+          Learn Margin<br />
+          <em class="font-semibold not-italic">feature by feature</em>
+        </h1>
+        <p class="text-muted text-lg leading-relaxed max-w-2xl">
+          Practical walkthroughs of what each Margin feature does, the investing concept
+          behind it, and how to use it well. This is the product manual, grounded in the
+          domain. For broader thinking on investing, see
+          <a href="/blog" class="text-gold-400 hover:text-gold-300 transition-colors">Insights</a>.
+        </p>
+      </div>
+
+      <div class="space-y-16">
+        {groups.map((group, gi) => (
+          <section class={`reveal reveal-delay-${Math.min(gi + 1, 5)}`}>
+            <h2 class="font-display text-2xl font-light text-cream mb-6 gold-line">
+              {group.feature}
+            </h2>
+            <div class="space-y-4">
+              {group.items.map((guide) => (
+                <article class="group">
+                  <a href={`/guides/${guide.slug}`} class="block bg-navy-800/30 border border-border hover:border-gold-400/30 rounded-xl p-6 transition-all duration-300 hover:bg-navy-800/50">
+                    <div class="flex items-start justify-between gap-4">
+                      <div>
+                        <h3 class="font-display text-xl font-light text-cream group-hover:text-gold-200 transition-colors duration-200 mb-2 leading-snug">
+                          {guide.data.title}
+                        </h3>
+                        <p class="text-muted text-sm leading-relaxed">
+                          {guide.data.description}
+                        </p>
+                      </div>
+                      <svg class="w-5 h-5 text-gold-400 shrink-0 mt-1 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+                      </svg>
+                    </div>
+                  </a>
+                </article>
+              ))}
+            </div>
+          </section>
+        ))}
+      </div>
+
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

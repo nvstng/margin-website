@@ -1,0 +1,125 @@
+<style is:global>
+  .prose-margin h2 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.75rem;
+    font-weight: 300;
+    color: #F2EBD9;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #1A2D4A;
+  }
+  .prose-margin h3 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.35rem;
+    font-weight: 400;
+    color: #D8E4F0;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+  .prose-margin p {
+    color: #8AABCC;
+    font-size: 1rem;
+    line-height: 1.85;
+    margin-bottom: 1.5rem;
+  }
+  .prose-margin strong {
+    color: #D8E4F0;
+    font-weight: 500;
+  }
+  .prose-margin em {
+    color: #D8E4F0;
+    font-style: italic;
+  }
+  .prose-margin ul {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+    list-style: none;
+  }
+  .prose-margin ul li {
+    color: #8AABCC;
+    font-size: 1rem;
+    line-height: 1.85;
+    margin-bottom: 0.5rem;
+    position: relative;
+    padding-left: 0.5rem;
+  }
+  .prose-margin ul li::before {
+    content: '—';
+    position: absolute;
+    left: -1.25rem;
+    color: #E8B84B;
+    font-size: 0.85rem;
+  }
+  .prose-margin ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+    list-style: decimal;
+  }
+  .prose-margin ol li {
+    color: #8AABCC;
+    font-size: 1rem;
+    line-height: 1.85;
+    margin-bottom: 0.5rem;
+    padding-left: 0.25rem;
+  }
+  .prose-margin ol li::marker {
+    color: #E8B84B;
+  }
+  .prose-margin blockquote {
+    border-left: 2px solid #E8B84B;
+    margin: 2rem 0;
+    padding: 0.5rem 0 0.5rem 1.5rem;
+    background: rgba(10, 24, 40, 0.4);
+    border-radius: 0 8px 8px 0;
+  }
+  .prose-margin blockquote p {
+    margin-bottom: 0;
+    color: #D8E4F0;
+    font-style: italic;
+  }
+  .prose-margin code {
+    font-family: 'Sora', monospace;
+    font-size: 0.875rem;
+    background: rgba(10, 24, 40, 0.8);
+    border: 1px solid #1A2D4A;
+    border-radius: 4px;
+    padding: 0.1em 0.4em;
+    color: #E8B84B;
+  }
+  .prose-margin hr {
+    border: none;
+    border-top: 1px solid #1A2D4A;
+    margin: 2.5rem 0;
+  }
+  .prose-margin img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid #1A2D4A;
+    border-radius: 8px;
+    background: #000;
+    margin: 0;
+  }
+  .prose-margin p:has(img) {
+    margin: 2rem 0 0.75rem;
+  }
+  .prose-margin p:has(img) + p:has(em:only-child) {
+    text-align: center;
+    font-size: 0.85rem;
+    margin-top: 0;
+  }
+  .prose-margin p:has(img) + p:has(em:only-child) em {
+    color: #8AABCC;
+  }
+  .prose-margin a {
+    color: #E8B84B;
+    text-decoration: underline;
+    text-decoration-color: rgba(232, 184, 75, 0.3);
+    transition: color 0.2s;
+  }
+  .prose-margin a:hover {
+    color: #F5D070;
+  }
+</style>
