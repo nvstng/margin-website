@@ -1,19 +1,19 @@
 ---
 title: "The stock's story as a starting point of research"
-description: "Why a structured narrative of the business, its financial health, and its recent story is a better entry point into research than a screen of ratios."
+description: "Why a structured narrative of the business, its financial health, and its recent story gives every number you look at afterwards its context."
 feature: "Research"
 order: 1
 updatedAt: 2026-07-20
 readingTime: "6 min read"
 ---
 
-Research has to start somewhere. Starting with a spreadsheet of ratios tends to anchor you on numbers before you understand the business they describe. Margin's stock story is designed to be the other kind of starting point: a structured narrative you read first, so that every number you look at afterwards has context.
+Research has to start somewhere. Margin's stock story is designed to be that starting point: a structured narrative you read first, so that every number you look at afterwards has context.
 
 ## The concept behind the feature
 
-A business is easier to understand as a story than as a table. Why does it exist, why do customers keep paying it, how healthy are its finances, and what has actually happened to it lately. Once you hold that narrative, ratios stop being abstract. A margin figure means something because you know what drives it. A drop in growth means something because you know what changed.
+A business becomes easier to understand as a story: why it exists, why customers keep paying it, how healthy its finances are, and what has actually happened to it lately. Once you hold that narrative, ratios stop being abstract. A margin figure means something because you know what drives it. A drop in growth means something because you know what changed.
 
-Starting from the story also protects you from a common trap: mistaking a cheap number for a good opportunity. A low valuation on a business you do not understand is not an opportunity, it is an unknown.
+Starting from the story also protects you from a common trap: treating a cheap number as a good opportunity. A low valuation on a business you do not understand stays an unknown until you understand it.
 
 ## What Margin's stock story covers
 
@@ -24,6 +24,12 @@ Each stock story is organised into a few consistent sections:
 - **The stock's recent story**, what has actually been happening lately
 
 Alongside the story, the research library carries related reports: valuation normalisation for what earnings look like through the cycle, a segment story that breaks the business down part by part, and an industry story on the sector's structural forces.
+
+## How Margin does the work for you
+
+Building a picture of a business normally means going through many different sources across the internet and stitching them together yourself. Margin does that gathering for you and uses AI to assemble it into a full, coherent story of the business, so you start from a finished narrative rather than a pile of tabs.
+
+Each story is also available as audio you can listen to. That lets you put idle time to productive use, taking in the research while you commute, walk, or do something else.
 
 ## Using it well
 

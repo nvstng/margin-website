@@ -27,6 +27,6 @@ Because it reads from the same DCF and reverse DCF assumptions you set on each s
 
 ## Using it well
 
-Let the dashboard, not the ticker, drive review. A holding whose expected return has fallen well below your hurdle is a candidate to trim or exit, regardless of whether it is up or down since you bought it. A holding whose expected return has risen after a sell off, with the thesis intact, is a candidate to add.
+Let the dashboard drive review. A holding whose expected return has fallen well below your hurdle is a candidate to trim or exit, regardless of whether it is up or down since you bought it. A holding whose expected return has risen after a sell off, with the thesis intact, is a candidate to add.
 
 Set a return threshold you are unwilling to hold below, and use the dashboard to enforce it. This turns valuation from a one time exercise at purchase into a standing discipline. To keep the underlying assumptions honest, revisit the [stock story](/guides/stock-story-research-starting-point) whenever the business materially changes.
