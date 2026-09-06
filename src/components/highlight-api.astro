@@ -1,27 +1,43 @@
 ---
 const SIGNUP_URL = 'https://go.marginapp.in';
+const tags = ['Personal API tokens', 'llms.txt', 'Valuation from your assumptions', 'Limited reads', 'Revoke anytime'];
+const calls = [
+  { verb: 'POST', path: '/web/stockOfInterest/upload/json' },
+  { verb: 'POST', path: '/web/dividends/upload/csv' },
+  { verb: 'POST', path: '/web/fundsLedger/upload/json' },
+  { verb: 'POST', path: '/web/projection/dcf' },
+];
 ---
 
 <section class="py-24 lg:py-32 overflow-hidden">
   <div class="max-w-7xl mx-auto px-6 lg:px-8">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
       <div class="reveal lg:order-2">
-        <p class="text-xs text-gold-400 tracking-widest uppercase mb-4">API & AI Agents</p>
+        <p class="text-xs text-gold-400 tracking-widest uppercase mb-4">API &amp; AI Agents</p>
         <h2 class="font-display text-4xl md:text-5xl font-light text-cream leading-tight mb-6">
-          Let an agent do<br />
-          <em class="font-semibold not-italic">the data entry</em>
+          Point an agent<br />
+          <em class="font-semibold not-italic">at your portfolio</em>
         </h2>
         <p class="text-muted leading-relaxed mb-6">
-          Create an API token and point your AI agent — or any script — at Margin.
-          It can upload your holdings, tradebooks, and stock lists on your behalf,
-          so you never have to wrangle broker files by hand.
+          Create an API token and an AI agent, or any script of your own, can carry the whole
+          bookkeeping side: import holdings and tradebooks, record a year of dividends, send the funds
+          statement, build and name lists, set target allocation, and mark a stock studied, tracked or
+          rejected as you screen.
+        </p>
+        <p class="text-muted leading-relaxed mb-6">
+          It can do the valuation work too. An agent can compute a DCF from assumptions you give it,
+          solve a reverse DCF for the growth the current price implies, save a forward projection
+          against a stock, and move that projection to another quarter. Publishing a stock story video
+          to YouTube runs through the same token.
         </p>
         <p class="text-muted leading-relaxed mb-8">
-          Agents fetch setup instructions from a machine-readable <code class="text-gold-300">llms.txt</code>.
-          Tokens never expire and you can revoke any of them, any time.
+          Agents read setup instructions from a machine-readable <code class="text-gold-300">llms.txt</code>
+          that spells out what each upload replaces and what it leaves alone. Tokens never expire and you
+          can revoke any of them at any time. A token cannot clear your data, and the row-by-row reads of
+          the ledger and of dividends stay closed to it.
         </p>
         <div class="flex flex-wrap gap-2 mb-8">
-          {['Personal API tokens', 'AI-agent friendly', 'llms.txt', 'Revoke anytime'].map((tag) => (
+          {tags.map((tag) => (
             <span class="px-3 py-1 text-xs text-muted border border-border rounded-full">{tag}</span>
           ))}
         </div>
@@ -43,17 +59,24 @@ const SIGNUP_URL = 'https://go.marginapp.in';
             <span class="w-2.5 h-2.5 rounded-full bg-navy-600"></span>
             <span class="w-2.5 h-2.5 rounded-full bg-navy-600"></span>
             <span class="w-2.5 h-2.5 rounded-full bg-navy-600"></span>
-            <span class="ml-2 text-xs text-muted">agent · upload</span>
+            <span class="ml-2 text-xs text-muted">agent · session</span>
           </div>
           <div class="p-6 font-mono text-xs leading-relaxed">
             <p class="text-muted"># point your agent at</p>
             <p class="text-gold-300 mb-4">go.marginapp.in/llms.txt</p>
-            <p class="text-muted mb-1"><span class="text-emerald-400">POST</span> /web/holdings</p>
             <p class="text-muted mb-1">Authorization: Bearer <span class="text-cream">mgn_••••••••</span></p>
-            <p class="text-muted mb-4">Content-Type: text/csv</p>
-            <div class="rounded-lg bg-navy-950/60 border border-emerald-400/20 p-4 flex items-center gap-3">
-              <span class="w-2 h-2 rounded-full bg-emerald-400 shrink-0"></span>
+            <div class="my-4 space-y-1">
+              {calls.map((call) => (
+                <p class="text-muted"><span class="text-emerald-400">{call.verb}</span> {call.path}</p>
+              ))}
+            </div>
+            <div class="rounded-lg bg-navy-950/60 border border-emerald-400/20 p-4 flex items-start gap-3 mb-2">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 mt-1 shrink-0"></span>
               <span class="text-cream">142 holdings imported across 3 accounts</span>
+            </div>
+            <div class="rounded-lg bg-navy-950/60 border border-amber-400/20 p-4 flex items-start gap-3">
+              <span class="w-2 h-2 rounded-full bg-amber-400 mt-1 shrink-0"></span>
+              <span class="text-muted">FY 2026 dividends: 2 stocks unmatched, nothing written yet</span>
             </div>
           </div>
         </div>

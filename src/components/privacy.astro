@@ -1,6 +1,8 @@
 ---
 const points = [
   'Your broker login credentials are never stored',
+  'Your funds statement is read in the browser, and the file itself is never uploaded',
+  'Row descriptions are optional, and hashed on arrival when you do send them',
   'Sensitive data is encrypted with Privacy Vault (Databunker)',
   'Only you can access your portfolio data',
   'Trade files are processed and never exposed to third parties',
@@ -16,10 +18,18 @@ const points = [
           Your portfolio data<br />
           <em class="font-semibold not-italic">stays yours</em>
         </h2>
+        <p class="text-muted leading-relaxed mb-6">
+          We use Privacy Vault, a secure encrypted store, to protect personally identifiable
+          information like your name and email. Where a regular database would hold those fields
+          in the clear, Privacy Vault locks them with separate encryption keys.
+        </p>
         <p class="text-muted leading-relaxed mb-8">
-          We use Privacy Vault — a secure encrypted store — to protect personally
-          identifiable information like your name and email. Unlike a regular database,
-          Privacy Vault locks sensitive fields with separate encryption keys.
+          The funds statement gets stricter treatment, because its description column carries your
+          client code, payment references and bank account. Margin reads that file in your browser
+          and sends only the dated amounts, so the file never leaves your machine. Sending the
+          description at all is your choice, and when you do, the server hashes it on arrival and
+          keeps the hash alone. Nothing reads the wording back, no endpoint returns it, and there is
+          no text search over the ledger.
         </p>
         <ul class="space-y-3 mb-8">
           {points.map((point) => (
@@ -50,8 +60,12 @@ const points = [
           <div class="absolute inset-0 flex items-center justify-center">
             <div class="w-28 h-28 rounded-full bg-navy-800 border border-gold-400/30 flex items-center justify-center shadow-lg shadow-gold-400/10">
               <img
-                src="/assets/images/u1966326774-create-an-image-which-shows-a-safe-with-door-part-74d4d03c-76ec-4526-b40b-db910e8f334d-2-1024x1024.png"
+                src="/assets/images/privacy-vault.webp"
                 alt="Privacy Vault"
+                width="256"
+                height="256"
+                loading="lazy"
+                decoding="async"
                 class="w-20 h-20 rounded-full object-cover opacity-80"
               />
             </div>

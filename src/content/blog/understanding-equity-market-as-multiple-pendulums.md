@@ -31,7 +31,7 @@ Here we break down the businesses by their industry, sectors, and themes, and th
 
 This approach is the most sensible because it is based on the idea that there is a bull market somewhere due to strong business tailwinds in those industry segments. Similarly, there is a bear market in some. This allows one to take action and stay invested, instead of taking a cash call or a do-nothing call. If one can learn how to gauge the fundamentals of different industry segments, then one can orient their portfolio accordingly. As one industry segment goes from strong to weak, one can exit and move allocation to another segment that is looking up. Industry cycles usually last for a few years, so this switching of industries can happen slowly as trends become more and more obvious. The number of industries with positive momentum may not always be the same, but it is unlikely they will become zero.
 
-![Nifty Bank, Nifty IT, and Nifty Pharma indexed returns, Feb 2020 to Jul 2026](/assets/images/pharma-it-banknifty-cycles.png)
+![Nifty Bank, Nifty IT, and Nifty Pharma indexed returns, Feb 2020 to Jul 2026](/assets/images/pharma-it-banknifty-cycles.webp)
 
 *Pharma and IT rallied together after the Covid crash, went sideways through 2022-23 while banks caught up, then peaked together in early 2025. Between early and mid-2026 the two split apart: IT gave back gains from ~140% to 70%, banks eased off too, and pharma alone broke out to +199%.*
 

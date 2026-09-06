@@ -1,7 +1,7 @@
 ---
 const SIGNUP_URL = 'https://go.marginapp.in';
 const YOUTUBE_URL = 'https://www.youtube.com/@margin-fundamental';
-const brokerages = ['Zerodha', 'Groww', 'Upstox', 'AngelOne'];
+const brokerages = ['Zerodha', 'Groww', 'Upstox', 'AngelOne', 'Any broker, generic CSV'];
 const exchanges = ['NSE', 'BSE'];
 ---
 
@@ -22,8 +22,9 @@ const exchanges = ['NSE', 'BSE'];
     </h1>
 
     <p class="max-w-2xl mx-auto text-base md:text-lg text-muted leading-relaxed mb-10">
-      Stop managing your portfolio in spreadsheets. Margin gives you DCF valuations, XIRR,
-      capital gains tracking, and custom price anchors — all in one place.
+      Stop managing your portfolio in spreadsheets. Margin holds your DCF and reverse DCF
+      valuations, your XIRR over any period, your dividends, your capital gains, what you have
+      actually contributed, and your own price anchors, in one place.
     </p>
 
     <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-14">
@@ -54,11 +55,19 @@ const exchanges = ['NSE', 'BSE'];
         <span class="w-3 h-3 rounded-full bg-navy-600"></span>
         <span class="ml-2 text-xs text-muted">margin · dashboard</span>
       </div>
-      <img src="/assets/images/margin-dashboard.png" alt="Margin dashboard" class="w-full" />
+      <img
+        src="/assets/images/margin-dashboard.webp"
+        alt="Margin dashboard"
+        width="2400"
+        height="999"
+        fetchpriority="high"
+        decoding="async"
+        class="w-full"
+      />
     </div>
 
     <div class="mt-10 flex flex-col items-center gap-3">
-      <p class="text-xs text-muted tracking-widest uppercase">Imports from</p>
+      <p class="text-xs text-muted tracking-widest uppercase">Holdings and trades from</p>
       <div class="flex flex-wrap justify-center gap-2">
         {brokerages.map((b) => (
           <span class="px-3 py-1 text-xs font-medium text-ink border border-border rounded-full bg-navy-800/50">

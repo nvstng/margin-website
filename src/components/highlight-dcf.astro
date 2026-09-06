@@ -1,5 +1,6 @@
 ---
 const SIGNUP_URL = 'https://go.marginapp.in';
+const tags = ['What-if price', 'Reference ratios', 'Fill down a row', 'Notes on a valuation', 'Filter by list', 'Search by name'];
 ---
 
 <section class="py-24 lg:py-32 overflow-hidden">
@@ -12,13 +13,29 @@ const SIGNUP_URL = 'https://go.marginapp.in';
           <em class="font-semibold not-italic">find the fair value</em>
         </h2>
         <p class="text-muted leading-relaxed mb-6">
-          DCF in Margin lets you build a full financial model — project revenue growth, operating margins,
-          depreciation, tax, capex, and working capital year by year.
+          DCF in Margin lets you build a full financial model, projecting revenue growth, operating
+          margins, depreciation, tax, capex and working capital year by year. Discount the resulting
+          free cash flows back to today for an intrinsic value, and read it against the market price
+          to decide whether the stock is worth buying, holding, or leaving alone.
+        </p>
+        <p class="text-muted leading-relaxed mb-6">
+          The grid is built for the way the work actually goes. Fill a ratio down the projection years
+          with a drift per year in basis points rather than typing each cell. Keep your own reference
+          ratios beside the model, so the multiple or margin you judge a business by is on screen while
+          you set the assumption. Attach a note to the valuation recording what you were underwriting
+          and why.
         </p>
         <p class="text-muted leading-relaxed mb-8">
-          Discount the resulting free cash flows back to today to get an intrinsic value. Compare it
-          against the current price to decide whether the stock is worth buying, holding, or avoiding.
+          A what-if price lets you override the quote, by an amount or by a percentage, and watch
+          enterprise value, market cap and the summary move with it, without that price being saved
+          into the valuation. Every valuation stays anchored to the quarter it was valued for, so a
+          number you look at a year later still tells you what it was built on.
         </p>
+        <div class="flex flex-wrap gap-2 mb-8">
+          {tags.map((tag) => (
+            <span class="px-3 py-1 text-xs text-muted border border-border rounded-full">{tag}</span>
+          ))}
+        </div>
         <a
           href={SIGNUP_URL}
           class="inline-flex items-center gap-2 text-sm font-medium text-gold-400 hover:text-gold-300 transition-colors group"
@@ -37,9 +54,9 @@ const SIGNUP_URL = 'https://go.marginapp.in';
             <p class="text-xs text-muted tracking-widest uppercase mb-6">DCF Model Inputs</p>
             <div class="space-y-3 mb-6">
               {[
-                { label: 'Revenue Growth Rate', value: '18%', sub: 'Next 5 years' },
+                { label: 'Revenue Growth Rate', value: '18%', sub: 'Filled down, −50 bps a year' },
                 { label: 'Operating Margin', value: '22%', sub: 'Stabilising assumption' },
-                { label: 'Discount Rate', value: '12%', sub: 'Your required return' },
+                { label: 'Discount Rate', value: '12%', sub: 'Market cap ₹18,400 Cr' },
               ].map((row) => (
                 <div class="flex items-center justify-between py-3 border-b border-border/50">
                   <div>
@@ -50,14 +67,28 @@ const SIGNUP_URL = 'https://go.marginapp.in';
                 </div>
               ))}
             </div>
-            <div class="rounded-lg bg-navy-950/60 border border-gold-400/20 p-5">
-              <p class="text-xs text-muted mb-1">Intrinsic Value (per share)</p>
-              <p class="font-display text-4xl font-semibold text-gold-400">₹1,840</p>
-              <p class="text-xs text-muted mt-2">vs current price ₹2,340 — 22% premium to fair value</p>
+            <div class="rounded-lg bg-navy-950/50 border border-border/60 p-4 mb-4">
+              <p class="text-[11px] text-muted tracking-widest uppercase mb-3">Reference Ratios</p>
+              <div class="space-y-1.5">
+                {[
+                  { name: 'Sector median P/E', value: '32' },
+                  { name: 'Own 5-yr median EV/EBITDA', value: '18' },
+                ].map((ratio) => (
+                  <div class="flex items-baseline justify-between text-xs">
+                    <span class="text-muted uppercase tracking-wide">{ratio.name}</span>
+                    <span class="text-cream font-medium">{ratio.value}</span>
+                  </div>
+                ))}
+              </div>
             </div>
-            <div class="mt-4 flex items-center gap-2 text-xs text-muted">
-              <span class="w-2 h-2 rounded-full bg-amber-400"></span>
-              Adjust growth or margin assumptions to stress-test your thesis
+            <div class="rounded-lg bg-navy-950/60 border border-gold-400/20 p-5">
+              <p class="text-xs text-muted mb-1">Intrinsic value per share, valued for Q1 FY 2026-27</p>
+              <p class="font-display text-4xl font-semibold text-gold-400">₹1,840</p>
+              <p class="text-xs text-muted mt-2">Against the quoted ₹2,340, a 22% premium to fair value</p>
+            </div>
+            <div class="mt-4 flex items-start gap-2 text-xs text-muted">
+              <span class="w-2 h-2 rounded-full bg-amber-400 mt-1 shrink-0"></span>
+              <span>What-if price ₹2,100 (−10.3%) is applied to the summary and is not saved with the valuation.</span>
             </div>
           </div>
         </div>

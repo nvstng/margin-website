@@ -5,7 +5,7 @@ publishedAt: 2026-06-12
 author: "Margin Team"
 category: "Mindset"
 readingTime: "7 min read"
-ogImage: "/assets/images/testing-long-term-investor-skill.png"
+ogImage: "/assets/images/testing-long-term-investor-skill.jpg"
 ---
 
 If one is managing one's own or other people's money, this is an important thing to ponder. Is one a good investor? Will one's decisions lead to meaningful alpha over what a conservative index fund delivers?
@@ -18,7 +18,7 @@ One may say, why not measure one's XIRR and let the data speak for itself? But t
 
 Let's take an investor who indeed ends up making 20% annualised return over 20 years. The look-back XIRR for that investor is likely to look like the diagram below, where the x-axis is the number of years in the journey and the y-axis is the look-back XIRR. Look-back XIRR is simply one's XIRR recalculated at the end of each year.
 
-![Look-back XIRR for a 20% investor, converging over 20 years](/assets/images/good-investor-xirr-dispersion.png)
+![Look-back XIRR for a 20% investor, converging over 20 years](/assets/images/good-investor-xirr-dispersion.webp)
 
 *Look-back XIRR is not a steady straight line.*
 
@@ -32,7 +32,7 @@ It is only in year 8 to 10 that one starts to get genuine signal, consistently a
 
 Consider another investor who is not as good, but holds the same conviction in one's approach. This investor converges to around 10%, while the index itself delivers 13%. In the long run, this investor would have been better off doing nothing active at all.
 
-![Look-back XIRR of a mediocre investor (green) versus the index (blue)](/assets/images/second-investor-vs-index.png)
+![Look-back XIRR of a mediocre investor (green) versus the index (blue)](/assets/images/second-investor-vs-index.webp)
 
 *Green: investor look-back XIRR. Blue: index look-back XIRR.*
 
@@ -48,7 +48,7 @@ As the weight of time increases, a 20 to 30% swing in portfolio value doesn't ha
 
 One must not compare the long-term average of an index with one's own annual returns. What matters is what the index does when one's clock starts. So let's discuss it by comparing against the plot of the index.
 
-![Look-back XIRR of the investor versus the index, both converging](/assets/images/good-investor-vs-index.png)
+![Look-back XIRR of the investor versus the index, both converging](/assets/images/good-investor-vs-index.webp)
 
 *Green: investor look-back XIRR. Blue: benchmark index look-back XIRR.*
 
