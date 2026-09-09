@@ -31,7 +31,7 @@ Here we break down the businesses by their industry, sectors, and themes, and th
 
 This approach is the most sensible because it is based on the idea that there is a bull market somewhere due to strong business tailwinds in those industry segments. Similarly, there is a bear market in some. This allows one to take action and stay invested, instead of taking a cash call or a do-nothing call. If one can learn how to gauge the fundamentals of different industry segments, then one can orient their portfolio accordingly. As one industry segment goes from strong to weak, one can exit and move allocation to another segment that is looking up. Industry cycles usually last for a few years, so this switching of industries can happen slowly as trends become more and more obvious. The number of industries with positive momentum may not always be the same, but it is unlikely they will become zero.
 
-![Nifty Bank, Nifty IT, and Nifty Pharma indexed returns, Feb 2020 to Jul 2026](/assets/images/pharma-it-banknifty-cycles.webp)
+![Nifty Bank, Nifty IT, and Nifty Pharma indexed returns, Feb 2020 to Jul 2026](../../assets/images/pharma-it-banknifty-cycles.webp)
 
 *Pharma and IT rallied together after the Covid crash, went sideways through 2022-23 while banks caught up, then peaked together in early 2025. Between early and mid-2026 the two split apart: IT gave back gains from ~140% to 70%, banks eased off too, and pharma alone broke out to +199%.*
 
@@ -39,7 +39,7 @@ The amount of money that one needs to keep idle also becomes much less, since th
 
 One can also calibrate how one focuses their time. Industries going through a downturn require much less time, as one needs to check whether the cycle is turning or not. On the other hand, one can spend a lot more time understanding businesses in emerging sectors.
 
-![Rows of pendulums caught at different points in their swing, forming a wave](/assets/images/multiple-pendulums.webp)
+![Rows of pendulums caught at different points in their swing, forming a wave](../../assets/images/multiple-pendulums.webp)
 
 *Each industry is its own pendulum, at a different point in its swing.*
 

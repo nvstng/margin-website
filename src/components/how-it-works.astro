@@ -1,4 +1,9 @@
 ---
+import uploadImage from '../assets/images/margin-upload.webp';
+import configureImage from '../assets/images/margin-configure.webp';
+import analyseImage from '../assets/images/margin-analyse.webp';
+import dashboardImage from '../assets/images/margin-dashboard.webp';
+
 const tabs = [
   {
     id: 'upload',
@@ -6,9 +11,7 @@ const tabs = [
     heading: 'Import from your broker in seconds',
     body: 'Upload holdings and trade history from Zerodha, Groww, Upstox or AngelOne as CSV or Excel, and from any other broker through a generic CSV layout. Send several files from several accounts and Margin merges them. Dividends and the funds statement come in as uploads of their own.',
     detail: 'Holdings and trades: Zerodha · Groww · Upstox · AngelOne · generic CSV. Dividends and funds statement: Zerodha today',
-    image: '/assets/images/margin-upload.webp',
-    width: 1600,
-    height: 819,
+    image: uploadImage,
   },
   {
     id: 'configure',
@@ -16,9 +19,7 @@ const tabs = [
     heading: 'Set up your investment framework',
     body: 'Define your custom price anchors (Buy, Add, Reduce, Exit), set target allocation percentages, configure your discount rate, and tag stocks by theme or sector.',
     detail: 'Takes about 5 minutes',
-    image: '/assets/images/margin-configure.webp',
-    width: 1600,
-    height: 952,
+    image: configureImage,
   },
   {
     id: 'analyse',
@@ -26,9 +27,7 @@ const tabs = [
     heading: 'Run valuations and dig into fundamentals',
     body: 'Run DCF and Reverse DCF valuations per stock. Read XIRR, capital gains and tax over the period you choose, for one stock, any list, or the full portfolio, and read the money-weighted return on what you have actually contributed.',
     detail: 'NSE fundamentals included',
-    image: '/assets/images/margin-analyse.webp',
-    width: 1600,
-    height: 917,
+    image: analyseImage,
   },
   {
     id: 'dashboard',
@@ -36,9 +35,7 @@ const tabs = [
     heading: 'Monitor everything at a glance',
     body: 'Bring your valuations, price anchors, allocation gaps, and XIRR together into a single customisable dashboard. Everything you need to act — in one view.',
     detail: 'Fully customisable columns',
-    image: '/assets/images/margin-dashboard.webp',
-    width: 2400,
-    height: 999,
+    image: dashboardImage,
   },
 ];
 ---
@@ -89,10 +86,10 @@ const tabs = [
                   <span class="ml-2 text-xs text-muted">margin · {tab.label.toLowerCase()}</span>
                 </div>
                 <img
-                  src={tab.image}
+                  src={tab.image.src}
                   alt={tab.label}
-                  width={tab.width}
-                  height={tab.height}
+                  width={tab.image.width}
+                  height={tab.image.height}
                   loading="lazy"
                   decoding="async"
                   class="w-full"

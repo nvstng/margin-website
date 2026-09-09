@@ -1,0 +1,300 @@
+---
+import Layout from '../layouts/layout.astro';
+import Nav from '../components/nav.astro';
+import Footer from '../components/footer.astro';
+import ProseStyles from '../components/prose-styles.astro';
+
+const LAST_UPDATED = '9 September 2026';
+const SUPPORT_EMAIL = 'support@marginapp.in';
+---
+
+<Layout
+  title="Terms of Use — Margin"
+  description="The terms on which Yuktibyte Products Private Limited provides Margin, the personal investment cockpit for Indian equity investors."
+>
+  <Nav />
+  <ProseStyles />
+
+  <main class="pt-32 pb-24">
+    <div class="max-w-3xl mx-auto px-6 lg:px-8">
+
+      <div class="reveal mb-12">
+        <p class="text-xs text-gold-400 tracking-widest uppercase mb-4">Legal</p>
+        <h1 class="font-display text-5xl md:text-6xl font-light text-cream leading-tight mb-6">
+          Terms of <em class="font-semibold not-italic">Use</em>
+        </h1>
+        <p class="text-muted text-lg leading-relaxed">
+          These terms govern your use of Margin and of the marginapp.in websites. Please read them
+          before you create an account. By signing up or using the service, you agree to them.
+        </p>
+        <p class="text-xs text-muted/70 tracking-widest uppercase mt-6">Last updated {LAST_UPDATED}</p>
+      </div>
+
+      <div class="bg-navy-800/30 border border-gold-400/30 rounded-xl p-6 mb-16 reveal reveal-delay-1">
+        <p class="text-xs text-gold-400 tracking-widest uppercase mb-3">Read this first</p>
+        <p class="text-cream text-sm leading-relaxed">
+          Margin is a record-keeping and analysis tool. It is not investment advice. Yuktibyte
+          Products Private Limited is not registered with SEBI as an investment adviser, a research
+          analyst, a portfolio manager or a stock broker, and nothing in the product or on these
+          websites is a recommendation to buy, sell or hold any security. Every valuation, expected
+          return and verdict you see is arithmetic run on assumptions that you chose. Your investment
+          decisions, and their outcomes, are entirely your own.
+        </p>
+      </div>
+
+      <div class="prose-margin reveal">
+
+        <h2>1. Who you are contracting with</h2>
+        <p>
+          Margin is operated by Yuktibyte Products Private Limited, a company incorporated in India
+          under CIN U62099KA2025PTC196482, with its registered office in Bengaluru, Karnataka. In
+          these terms, "we", "us" and "our" mean Yuktibyte Products Private Limited, and "you" means
+          the person using the service. Our company details are listed on the
+          <a href="/company">Company</a> page.
+        </p>
+        <p>
+          "Margin" or "the service" means the application at go.marginapp.in, the websites at
+          marginapp.in, the research library, the Screen tool, the API, and any related content we
+          publish, including guides, insights and stock and industry story videos.
+        </p>
+
+        <h2>2. Accepting these terms</h2>
+        <p>
+          You accept these terms when you create an account or otherwise use the service. If you are
+          using Margin on behalf of a company, a partnership or a trust, you confirm that you are
+          authorised to bind that entity, and these terms then apply to it. If you do not agree with
+          any part of these terms, please do not use Margin.
+        </p>
+
+        <h2>3. Eligibility and your account</h2>
+        <ul>
+          <li>You must be at least 18 years old and legally able to enter into a contract under Indian law.</li>
+          <li>You agree to give accurate account information and to keep it current.</li>
+          <li>You are responsible for everything done through your account, including anything done with an API token you created.</li>
+          <li>You must keep your login credentials and API tokens confidential, and tell us promptly if you believe either has been compromised.</li>
+          <li>An account is for one person. Please do not share your login with others or create accounts on behalf of people who have not asked you to.</li>
+        </ul>
+
+        <h2>4. What Margin does, and what it does not do</h2>
+        <p>
+          Margin holds your holdings and trades, your dividends, your funds statement, your DCF and
+          reverse DCF valuations, your price anchors, your target allocation, your lists, tags and
+          notes, and it computes returns, capital gains and tax figures from them. It is a cockpit
+          for information you supply and assumptions you set.
+        </p>
+        <p>Margin does not do the following, and you should not rely on it as though it did:</p>
+        <ul>
+          <li>It does not give investment, legal, accounting or tax advice, and it does not consider your financial position, risk appetite or objectives.</li>
+          <li>It does not execute, route or place trades, and it holds no client funds or securities.</li>
+          <li>It is not a substitute for your broker's contract notes, your demat statement, or the filings and disclosures a company makes.</li>
+          <li>It is not a substitute for a chartered accountant. Capital gains and tax figures are computed from the trades and rates available to us, and they are an aid to your own filing rather than a return you can file as it stands.</li>
+        </ul>
+        <p>
+          You are responsible for verifying anything you act on. Where a number matters to a decision
+          or to a filing, check it against your broker, your depository or your own records.
+        </p>
+
+        <h2>5. Your data and the files you upload</h2>
+        <p>
+          Your portfolio data stays yours. You keep all rights in the holdings, tradebooks, dividend
+          records, funds statements, valuations, notes, tags and lists you put into Margin. You grant
+          us a limited licence to store and process that content for the sole purpose of operating
+          the service for you, including computing valuations and returns, and supporting you when
+          you ask for help.
+        </p>
+        <p>
+          You confirm that you have the right to upload what you upload. Please do not put another
+          person's portfolio, personal details or broker statements into Margin unless that person
+          has authorised you to do so.
+        </p>
+        <p>
+          How we handle personal data, and the way the funds statement in particular is read in your
+          browser and hashed on arrival, is described in our
+          <a href="/#privacy">privacy summary</a> and in
+          <a href="/privacy-vault">how Privacy Vault protects you</a>. Those pages are part of these
+          terms by reference.
+        </p>
+
+        <h2>6. Market data, valuations and research</h2>
+        <p>
+          Prices in Margin come from the exchange bhavcopy at the close. They are end of day rather
+          than live, and Margin shows you the date of the quote you are reading. Corporate actions,
+          symbol changes and exchange revisions can take time to reflect, and data from any upstream
+          source can be delayed, incomplete or wrong.
+        </p>
+        <p>
+          A DCF, a reverse DCF, a forward projection, an expected return or a what-if price is a
+          calculation over inputs you supply. Change an assumption and the answer changes. These
+          outputs carry no forecast of any actual result, and past returns computed inside Margin say
+          nothing about future ones.
+        </p>
+        <p>
+          Research library reports, quick previews used in Screen, guides, insights and videos are
+          published for information and education. They are prepared from public sources and from
+          our own reading of a business, they can contain errors, they go out of date, and they are
+          not tailored to you. A Yes, Maybe, No or Never you record in Screen is your own note to
+          yourself and carries no view of ours.
+        </p>
+
+        <h2>7. API tokens and automated access</h2>
+        <p>
+          You may create personal API tokens so that an AI agent or a script of your own can work
+          with your data, following the machine-readable instructions we publish. When you do:
+        </p>
+        <ul>
+          <li>The token acts as you, and you are responsible for every call made with it, including calls made by an agent or a third-party tool you have connected.</li>
+          <li>Please keep tokens secret. Do not commit them to a repository, paste them into a shared prompt, or hand them to a service you do not trust.</li>
+          <li>You may revoke a token at any time, and we may revoke or rate-limit a token that is being used in a way that threatens the stability of the service or the security of other users.</li>
+          <li>Uploads through the API replace or extend data as documented. You are responsible for understanding what a given call overwrites before you automate it.</li>
+          <li>We may set and change rate limits, quotas and the shape of API endpoints. Automated clients should tolerate change.</li>
+        </ul>
+
+        <h2>8. Acceptable use</h2>
+        <p>While using Margin, you agree not to:</p>
+        <ul>
+          <li>Resell, sublicense, redistribute or publicly republish the research library, Screen previews, guides or other content we produce, or use them to build a competing dataset or product.</li>
+          <li>Scrape, crawl or bulk-extract content or data beyond what the API and the interface are meant to provide.</li>
+          <li>Reverse engineer, decompile or attempt to derive the source of the service, except to the extent Indian law expressly permits.</li>
+          <li>Probe, scan or test the security of the service, circumvent authentication or rate limits, or access data that is not yours.</li>
+          <li>Upload malware, or content that is unlawful, infringing or that you have no right to share.</li>
+          <li>Use the service in a way that degrades it for other users, or that breaches SEBI regulations, exchange rules, or any other applicable law.</li>
+          <li>Present output from Margin to other people as regulated investment advice, or use it to run an advisory or research business without the registrations that business requires.</li>
+        </ul>
+
+        <h2>9. Our intellectual property</h2>
+        <p>
+          The software, interface, design, brand, and the content we author, including research
+          reports, guides, insights and videos, belong to Yuktibyte Products Private Limited or to
+          our licensors. We grant you a personal, non-exclusive, non-transferable, revocable licence
+          to use the service and to read that content for your own investing. Everything not granted
+          in these terms is reserved.
+        </p>
+        <p>
+          You may quote a short extract of our published writing with attribution and a link. Please
+          ask us first for anything more.
+        </p>
+        <p>
+          If you send us feedback, feature ideas or bug reports, we may use them freely to improve
+          Margin, without obligation or payment to you.
+        </p>
+
+        <h2>10. Pricing and the free plan</h2>
+        <p>
+          Margin is currently offered on a free inaugural plan, with no card required. That plan is
+          introductory and its terms will change. We may introduce paid plans, move features between
+          plans, or set limits on usage. We will give you notice before a change starts to affect an
+          existing account, and you will always have the choice to export your data and stop using
+          the service instead of accepting a new price.
+        </p>
+        <p>
+          Where charges do apply in future, they will be stated at the point of purchase along with
+          taxes, billing period and any refund terms, and those stated terms will govern that
+          purchase.
+        </p>
+
+        <h2>11. Availability and changes to the service</h2>
+        <p>
+          Margin is a young product under active development. We may add, change or remove features,
+          adjust how a calculation is presented, or take the service down for maintenance. We do not
+          promise any particular level of uptime, and we do not offer a service level agreement on
+          the free plan. Where a change would remove something you depend on, we will try to give
+          reasonable notice.
+        </p>
+
+        <h2>12. Suspension, termination and deletion</h2>
+        <p>
+          You may stop using Margin at any time and ask us to delete your account. On deletion, we
+          remove your personal data from the vault and your portfolio records from our systems,
+          except where we must retain something to meet a legal obligation, and except for backups
+          that expire on their normal cycle.
+        </p>
+        <p>
+          We may suspend or terminate an account that breaches these terms, that puts the security or
+          stability of the service at risk, or where we are required to do so by law. Where the
+          circumstances allow it, we will tell you why and give you a chance to put things right, and
+          we will give you a reasonable window to export your data.
+        </p>
+
+        <h2>13. Disclaimer of warranties</h2>
+        <p>
+          The service is provided on an "as is" and "as available" basis. To the fullest extent
+          permitted by law, we disclaim all warranties, express or implied, including any warranty of
+          merchantability, fitness for a particular purpose, non-infringement, and any warranty that
+          the service will be uninterrupted, secure, error-free, or that data, prices, valuations,
+          returns, capital gains or tax figures within it will be accurate, complete or current.
+        </p>
+
+        <h2>14. Limitation of liability</h2>
+        <p>
+          To the fullest extent permitted by law, we are not liable for any investment loss, trading
+          loss, lost profit, lost opportunity, loss of data, or any indirect, incidental, special,
+          consequential or punitive damages arising out of your use of Margin, whether the claim is
+          framed in contract, tort or otherwise, and whether or not we were told such loss was
+          possible.
+        </p>
+        <p>
+          Our total aggregate liability for all claims relating to the service in any twelve month
+          period is limited to the greater of the fees you actually paid us for the service in that
+          period, or one thousand rupees.
+        </p>
+        <p>
+          Nothing in these terms limits liability that cannot be limited under Indian law, including
+          liability for fraud or for wilful misconduct.
+        </p>
+
+        <h2>15. Indemnity</h2>
+        <p>
+          You agree to indemnify and hold harmless Yuktibyte Products Private Limited, its directors,
+          employees and contractors, against claims, damages, losses and reasonable legal costs
+          arising from your breach of these terms, your misuse of the service, your use of an API
+          token, or content you uploaded that you had no right to upload.
+        </p>
+
+        <h2>16. Third-party services and links</h2>
+        <p>
+          Margin works alongside services we do not control, including your broker, the exchanges,
+          Databunker for the privacy vault, YouTube for story videos, and any AI agent or script you
+          connect through an API token. We are not responsible for those services, their terms, their
+          availability or their content, and a link from our site is not an endorsement. Your use of
+          them is governed by their own terms.
+        </p>
+
+        <h2>17. Changes to these terms</h2>
+        <p>
+          We may update these terms as the product and the law change. When we do, we will revise the
+          date at the top of this page, and for a material change we will notify you in the app or by
+          email before it takes effect. Continuing to use Margin after a change takes effect means
+          you accept the revised terms.
+        </p>
+
+        <h2>18. Governing law and jurisdiction</h2>
+        <p>
+          These terms are governed by the laws of India. The courts at Bengaluru, Karnataka have
+          exclusive jurisdiction over any dispute arising out of them, and you and we submit to that
+          jurisdiction.
+        </p>
+
+        <h2>19. General</h2>
+        <ul>
+          <li>If a provision of these terms is held unenforceable, the rest continues in force.</li>
+          <li>Our not enforcing a provision on one occasion does not waive our right to enforce it later.</li>
+          <li>You may not assign these terms without our written consent. We may assign them as part of a merger, an acquisition or a sale of assets.</li>
+          <li>These terms, together with the privacy pages referred to in section 5, are the entire agreement between you and us about the service.</li>
+        </ul>
+
+        <h2>20. Contact and grievances</h2>
+        <p>
+          For questions about these terms, a data request, or a grievance under the Information
+          Technology Act, 2000 and the Digital Personal Data Protection Act, 2023, write to
+          <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a>, addressed to the Grievance
+          Officer, Yuktibyte Products Private Limited, Bengaluru, Karnataka, India. We aim to
+          acknowledge a grievance within 24 hours and to resolve it within 15 days.
+        </p>
+
+      </div>
+
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

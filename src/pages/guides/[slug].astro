@@ -23,7 +23,7 @@ function formatDate(date: Date) {
 }
 ---
 
-<Layout title={`${guide.data.title} — Margin Guides`} description={guide.data.description} ogImage={guide.data.ogImage}>
+<Layout title={`${guide.data.title} — Margin Guides`} description={guide.data.description} ogImage={guide.data.ogImage?.src}>
   <Nav />
 
   <main class="pt-32 pb-24">
@@ -59,7 +59,14 @@ function formatDate(date: Date) {
       <!-- Hero image -->
       {guide.data.ogImage && (
         <div class="reveal mb-12">
-          <img src={guide.data.ogImage} alt={guide.data.title} class="w-full rounded-xl border border-border" />
+          <img
+            src={guide.data.ogImage.src}
+            alt={guide.data.title}
+            width={guide.data.ogImage.width}
+            height={guide.data.ogImage.height}
+            decoding="async"
+            class="w-full rounded-xl border border-border"
+          />
         </div>
       )}
 

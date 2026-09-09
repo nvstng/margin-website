@@ -1,4 +1,6 @@
 ---
+import dashboardImage from '../assets/images/margin-dashboard.webp';
+
 const SIGNUP_URL = 'https://go.marginapp.in';
 const YOUTUBE_URL = 'https://www.youtube.com/@margin-fundamental';
 const brokerages = ['Zerodha', 'Groww', 'Upstox', 'AngelOne', 'Any broker, generic CSV'];
@@ -56,10 +58,10 @@ const exchanges = ['NSE', 'BSE'];
         <span class="ml-2 text-xs text-muted">margin · dashboard</span>
       </div>
       <img
-        src="/assets/images/margin-dashboard.webp"
+        src={dashboardImage.src}
         alt="Margin dashboard"
-        width="2400"
-        height="999"
+        width={dashboardImage.width}
+        height={dashboardImage.height}
         fetchpriority="high"
         decoding="async"
         class="w-full"

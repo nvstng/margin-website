@@ -1,4 +1,6 @@
 ---
+import privacyVaultImage from '../assets/images/privacy-vault.webp';
+
 const points = [
   'Your broker login credentials are never stored',
   'Your funds statement is read in the browser, and the file itself is never uploaded',
@@ -60,10 +62,10 @@ const points = [
           <div class="absolute inset-0 flex items-center justify-center">
             <div class="w-28 h-28 rounded-full bg-navy-800 border border-gold-400/30 flex items-center justify-center shadow-lg shadow-gold-400/10">
               <img
-                src="/assets/images/privacy-vault.webp"
+                src={privacyVaultImage.src}
                 alt="Privacy Vault"
-                width="256"
-                height="256"
+                width={privacyVaultImage.width}
+                height={privacyVaultImage.height}
                 loading="lazy"
                 decoding="async"
                 class="w-20 h-20 rounded-full object-cover opacity-80"

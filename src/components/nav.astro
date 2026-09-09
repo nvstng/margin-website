@@ -1,4 +1,6 @@
 ---
+import marginLogo from '../assets/images/margin-logo.png';
+
 const SIGNUP_URL = 'https://go.marginapp.in';
 ---
 
@@ -7,9 +9,11 @@ const SIGNUP_URL = 'https://go.marginapp.in';
     <div class="flex items-center justify-between h-18 py-4">
       <a href="/" class="flex-shrink-0">
         <img
-          src="/assets/images/margin-logo.png"
+          src={marginLogo.src}
           alt="Margin"
-          class="h-10"
+          width={marginLogo.width}
+          height={marginLogo.height}
+          class="h-10 w-auto"
         />
       </a>
 
