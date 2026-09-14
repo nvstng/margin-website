@@ -5,6 +5,6 @@ export default defineConfig({
   site: 'https://marginapp.in',
   integrations: [tailwind()],
   server: {
-    port: 3006,
+    port: 3201,
   },
 });
