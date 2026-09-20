@@ -1,0 +1,225 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/layout.astro';
+import Nav from '../../components/nav.astro';
+import Footer from '../../components/footer.astro';
+import TokenScope from '../../components/token-scope.astro';
+import { groupByTask } from '../../domain/recipe';
+
+const SIGNUP_URL = 'https://go.marginapp.in';
+const TOKENS_URL = 'https://go.marginapp.in/settings';
+const LLMS_URL = 'https://go.marginapp.in/llms.txt';
+
+const groups = groupByTask(await getCollection('recipe'));
+
+const rules = [
+  {
+    title: 'Margin computes, the agent carries',
+    body: 'Every derived figure comes from the server. An agent that works out its own EPS or intrinsic value produces a saved valuation that disagrees with what the app shows you, and the disagreement is silent.',
+  },
+  {
+    title: 'Nothing writes without your go-ahead',
+    body: 'Reads are free and repeatable, so a skill can explore as much as it likes. Every write is shown as a diff first and waits for you to say go ahead.',
+  },
+  {
+    title: 'The contract is fetched, never remembered',
+    body: 'Margin publishes its own API guide for agents. A skill reads it at the start of every run, because a skill carrying its own copy of the endpoints goes wrong quietly when the contract moves.',
+  },
+  {
+    title: 'Your credentials stay on your machine',
+    body: 'Your agent talks to your broker and to Margin separately, from where you run it. Margin never sees your broker login in any of this.',
+  },
+];
+---
+
+<Layout
+  title="Agent recipes · Margin"
+  description="Margin publishes an API and a machine-readable guide for AI agents, so you can hand the repetitive parts of portfolio bookkeeping and valuation to a skill you write once. Worked recipes to start from."
+>
+  <Nav />
+
+  <main class="pt-32 pb-24">
+    <div class="max-w-4xl mx-auto px-6 lg:px-8">
+
+      <div class="reveal mb-16">
+        <p class="text-xs text-gold-400 tracking-widest uppercase mb-4">Agents</p>
+        <h1 class="font-display text-5xl md:text-6xl font-light text-cream leading-tight mb-6">
+          Hand the repetitive part<br />
+          <em class="font-semibold not-italic">to an agent</em>
+        </h1>
+        <p class="text-muted text-lg leading-relaxed max-w-2xl mb-6">
+          A portfolio takes a surprising amount of clerical work to keep honest. Holdings go stale
+          the week you buy something. A year of dividends sits in a console export until you
+          remember to fetch it. The valuation you spent an evening on stays in a spreadsheet
+          because retyping it into anything else costs another hour.
+        </p>
+        <p class="text-muted text-lg leading-relaxed max-w-2xl">
+          None of that needs your judgement. It needs your credentials, a few rules about what
+          replaces what, and someone patient enough to check the result. Margin publishes an API
+          and a machine-readable guide written for AI agents, so you can write that patience down
+          once as a skill and run it whenever you want.
+        </p>
+      </div>
+
+      <div class="reveal reveal-delay-1 mb-20">
+        <div class="relative rounded-xl border border-border bg-navy-800/40 overflow-hidden">
+          <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold-400/30 to-transparent"></div>
+          <div class="flex items-center gap-1.5 px-4 py-3 border-b border-border">
+            <span class="w-2.5 h-2.5 rounded-full bg-navy-600"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-navy-600"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-navy-600"></span>
+            <span class="ml-2 text-xs text-muted">agent · session</span>
+          </div>
+          <div class="p-6 font-mono text-xs leading-relaxed">
+            <p class="text-muted mb-1"># reads the contract, then your two accounts</p>
+            <p class="text-gold-300 mb-4">{LLMS_URL}</p>
+            <p class="text-muted mb-4">142 holdings at the broker, 139 on record in Margin</p>
+            <div class="rounded-lg bg-navy-950/60 border border-amber-400/20 p-4 flex items-start gap-3 mb-2">
+              <span class="w-2 h-2 rounded-full bg-amber-400 mt-1 shrink-0"></span>
+              <span class="text-muted">
+                2 stocks added, 1 sold out, 4 quantities moved. Write them under
+                <span class="text-cream">Zerodha</span>, replacing what is there?
+              </span>
+            </div>
+            <div class="rounded-lg bg-navy-950/60 border border-emerald-400/20 p-4 flex items-start gap-3">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 mt-1 shrink-0"></span>
+              <span class="text-cream">Imported. Read back and matched on ISIN, 142 of 142.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section class="reveal reveal-delay-2 mb-20">
+        <h2 class="font-display text-3xl font-light text-cream mb-8 gold-line">
+          The rules the recipes share
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+          {rules.map((rule) => (
+            <div class="bg-navy-800/30 border border-border rounded-xl p-6">
+              <h3 class="font-display text-lg text-cream mb-3 leading-snug">{rule.title}</h3>
+              <p class="text-muted text-sm leading-relaxed">{rule.body}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section id="scope" class="reveal mb-20 scroll-mt-28">
+        <h2 class="font-display text-3xl font-light text-cream mb-4 gold-line">
+          What a token can reach
+        </h2>
+        <p class="text-muted leading-relaxed max-w-2xl mb-8">
+          An API token is deliberately narrower than your own login. It can read the summaries a
+          skill needs to verify its own work and write the records you hand it, and the operations
+          that would lose data or expose the detail of your ledger are reserved for you in the app.
+        </p>
+        <TokenScope />
+      </section>
+
+      <section id="recipes" class="reveal mb-16 scroll-mt-28">
+        <h2 class="font-display text-3xl font-light text-cream mb-4 gold-line">
+          The recipes
+        </h2>
+        <p class="text-muted leading-relaxed max-w-2xl mb-10">
+          Each one explains what the job is, which calls it makes, and the specific thing that
+          goes wrong when you get it slightly wrong. Each ends with a skill you can copy into
+          your own project and adapt. They are written to be read and changed rather than run
+          unaltered, because your broker, your accounts and your own tolerance for a script
+          writing to them are all yours to set.
+        </p>
+
+        <div class="space-y-14">
+          {groups.map((group) => (
+            <div>
+              <h3 class="text-xs text-gold-400 tracking-widest uppercase mb-5">{group.task}</h3>
+              <div class="space-y-4">
+                {group.items.map((recipe) => (
+                  <article class="group">
+                    <a href={`/agents/${recipe.slug}`} class="block bg-navy-800/30 border border-border hover:border-gold-400/30 rounded-xl p-6 transition-all duration-300 hover:bg-navy-800/50">
+                      <div class="flex items-start justify-between gap-4">
+                        <div>
+                          <h4 class="font-display text-xl font-light text-cream group-hover:text-gold-200 transition-colors duration-200 mb-2 leading-snug">
+                            {recipe.data.title}
+                          </h4>
+                          <p class="text-muted text-sm leading-relaxed mb-4">
+                            {recipe.data.description}
+                          </p>
+                          <p class="flex items-start gap-2 text-xs text-muted/80 leading-relaxed mb-4">
+                            <svg class="w-3.5 h-3.5 text-amber-400/70 mt-px shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Z" />
+                            </svg>
+                            Writes: {recipe.data.writes}
+                          </p>
+                          <div class="flex flex-wrap items-center gap-2">
+                            {recipe.data.connects.map((system) => (
+                              <span class="px-2.5 py-0.5 text-[11px] text-muted border border-border rounded-full">{system}</span>
+                            ))}
+                            {recipe.data.readingTime && (
+                              <span class="text-[11px] text-muted/60">{recipe.data.readingTime}</span>
+                            )}
+                          </div>
+                        </div>
+                        <svg class="w-5 h-5 text-gold-400 shrink-0 mt-1 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+                        </svg>
+                      </div>
+                    </a>
+                  </article>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="reveal mb-16">
+        <h2 class="font-display text-3xl font-light text-cream mb-6 gold-line">
+          Getting started
+        </h2>
+        <ol class="space-y-4 text-muted leading-relaxed list-decimal pl-5 marker:text-gold-400">
+          <li>
+            Create a token in Margin at <a href={TOKENS_URL} class="text-gold-400 hover:text-gold-300 transition-colors">Settings</a>,
+            on the API Tokens tab. It starts with <code class="text-gold-300">mgn_</code>.
+          </li>
+          <li>
+            Save it somewhere private on your own machine, readable only by you, and have your
+            skills read it from there rather than pasting it into a prompt.
+          </li>
+          <li>
+            Point your agent at <a href={LLMS_URL} class="text-gold-400 hover:text-gold-300 transition-colors">go.marginapp.in/llms.txt</a>.
+            It covers every operation a token can perform, including the ones no recipe here uses.
+          </li>
+          <li>
+            Pick the recipe closest to the job you keep doing by hand, and start with its read
+            steps only. Add the write once you trust what the read shows you.
+          </li>
+        </ol>
+      </section>
+
+      <div class="reveal bg-navy-800/30 border border-gold-400/20 rounded-xl p-8">
+        <p class="text-xs text-gold-400 tracking-widest uppercase mb-4">A word on trust</p>
+        <p class="text-muted text-sm leading-relaxed mb-4">
+          These recipes hand a program your broker session and a token that writes to your
+          portfolio. Read a skill before you run it, the same way you would read a script that
+          touches your accounts. The ones here ask for your go-ahead before every write and show
+          you the diff first, and a skill you adapt should keep that shape.
+        </p>
+        <p class="text-muted text-sm leading-relaxed">
+          Margin never sees your broker credentials in any of this. Your agent talks to your
+          broker and to Margin separately, on your machine, with credentials you hold.
+        </p>
+      </div>
+
+      <div class="reveal mt-16 text-center">
+        <a
+          href={SIGNUP_URL}
+          class="inline-flex items-center px-6 py-3 text-sm font-medium text-navy-900 bg-gold-400 hover:bg-gold-300 rounded transition-colors duration-200 tracking-wide"
+        >
+          Create an API token
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

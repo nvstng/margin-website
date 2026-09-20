@@ -1,0 +1,59 @@
+---
+---
+
+<style is:global>
+  .prose-margin .code-block {
+    position: relative;
+  }
+  .prose-margin .code-block .copy-code {
+    position: absolute;
+    top: 2.5rem;
+    right: 0.75rem;
+    padding: 0.3rem 0.65rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.05em;
+    color: #5A7A9E;
+    background: rgba(5, 16, 28, 0.95);
+    border: 1px solid #1A2D4A;
+    border-radius: 4px;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.2s, color 0.2s, border-color 0.2s;
+  }
+  .prose-margin .code-block:hover .copy-code,
+  .prose-margin .code-block .copy-code:focus-visible {
+    opacity: 1;
+  }
+  .prose-margin .code-block .copy-code:hover {
+    color: #E8B84B;
+    border-color: rgba(232, 184, 75, 0.4);
+  }
+  @media (hover: none) {
+    .prose-margin .code-block .copy-code {
+      opacity: 1;
+    }
+  }
+</style>
+
+<script>
+  document.querySelectorAll('.prose-margin pre').forEach((pre) => {
+    const wrapper = document.createElement('div');
+    wrapper.className = 'code-block';
+    pre.parentNode?.insertBefore(wrapper, pre);
+    wrapper.appendChild(pre);
+
+    const button = document.createElement('button');
+    button.className = 'copy-code';
+    button.type = 'button';
+    button.textContent = 'Copy';
+    wrapper.appendChild(button);
+
+    button.addEventListener('click', async () => {
+      await navigator.clipboard.writeText(pre.textContent ?? '');
+      button.textContent = 'Copied';
+      setTimeout(() => {
+        button.textContent = 'Copy';
+      }, 2000);
+    });
+  });
+</script>

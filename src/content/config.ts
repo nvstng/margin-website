@@ -26,4 +26,19 @@ const guide = defineCollection({
   }),
 });
 
-export const collections = { blog, guide };
+const recipe = defineCollection({
+  type: 'content',
+  schema: ({ image }) => z.object({
+    title: z.string(),
+    description: z.string(),
+    task: z.string(),
+    order: z.number().default(0),
+    updatedAt: z.coerce.date(),
+    readingTime: z.string().optional(),
+    connects: z.array(z.string()).default([]),
+    writes: z.string(),
+    ogImage: image().optional(),
+  }),
+});
+
+export const collections = { blog, guide, recipe };

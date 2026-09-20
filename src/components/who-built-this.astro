@@ -1,0 +1,56 @@
+---
+const facts = [
+  { label: 'Registered as', value: 'Yuktibyte Products Private Limited' },
+  { label: 'CIN', value: 'U62099KA2025PTC196482' },
+  { label: 'Based in', value: 'Bangalore, India' },
+];
+---
+
+<section class="py-20 lg:py-24">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="reveal rounded-2xl border border-border bg-navy-800/30 px-6 py-10 sm:px-10 lg:px-14 lg:py-14">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
+        <div>
+          <p class="text-xs text-gold-400 tracking-widest uppercase mb-4">Who is behind this</p>
+          <h2 class="font-display text-3xl md:text-4xl font-light text-cream leading-tight mb-6">
+            A named company,<br />
+            <em class="font-semibold not-italic">on the record</em>
+          </h2>
+          <p class="text-muted leading-relaxed mb-4">
+            Margin asks you to upload the record of your portfolio, so it is fair to want to know
+            who is receiving it. We are a company registered in India with our identification
+            number published on this site, and the terms you sign up under are written out rather
+            than summarised.
+          </p>
+          <p class="text-muted leading-relaxed">
+            Margin is not an advisory service and is not registered as one. It makes no
+            recommendations, sells no tips and takes no view on any stock. Every assumption behind
+            a number it shows you is one you entered.
+          </p>
+        </div>
+
+        <div class="flex flex-col justify-between gap-8">
+          <dl class="space-y-4">
+            {facts.map((fact) => (
+              <div class="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4 border-b border-border/60 pb-4">
+                <dt class="text-xs text-muted tracking-widest uppercase sm:w-28 shrink-0">{fact.label}</dt>
+                <dd class="text-sm text-cream">{fact.value}</dd>
+              </div>
+            ))}
+          </dl>
+          <div class="flex flex-wrap gap-x-8 gap-y-3">
+            <a href="/company" class="inline-flex items-center gap-2 text-sm font-medium text-gold-400 hover:text-gold-300 transition-colors group">
+              About the company
+              <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+              </svg>
+            </a>
+            <a href="/terms" class="inline-flex items-center gap-2 text-sm text-muted hover:text-ink transition-colors">
+              Terms of use
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

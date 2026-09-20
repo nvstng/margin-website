@@ -6,6 +6,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "og:image": "node scripts/generate-og-image.mjs",
     "package:local": "bash scripts/package-local.sh"
   },
   "dependencies": {

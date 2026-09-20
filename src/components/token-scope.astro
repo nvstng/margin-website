@@ -1,0 +1,71 @@
+---
+const columns = [
+  {
+    heading: 'Reads',
+    tone: 'emerald',
+    note: 'Free, repeatable and safe to run as often as a skill likes.',
+    items: [
+      'Holdings, with your own price anchors and target allocation on each',
+      'Trade and dividend counts, and the summary totals per financial year',
+      'Which years of the funds statement are on record, and which are missing',
+      'Net contribution, itemised charges and the money-weighted return',
+      'Saved valuations, their names and the quarter each speaks for',
+      'Stock lists, research boards, screening verdicts and stock search',
+      'When each kind of data was last uploaded, per trading account',
+    ],
+  },
+  {
+    heading: 'Writes',
+    tone: 'amber',
+    note: 'Checked before anything is stored, so a rejected write leaves the account untouched.',
+    items: [
+      'Holdings, tradebooks, dividends and the funds statement',
+      'DCF and reverse DCF valuations, their notes and their quarter',
+      'Stock lists and target allocation across the book',
+      'Screening verdicts of study, track or reject',
+      'Research boards, their columns and their cards',
+      'Stock story videos to the Margin YouTube channel',
+    ],
+  },
+  {
+    heading: 'Closed to a token',
+    tone: 'navy',
+    note: 'Reserved for you, signed in to the Margin app.',
+    items: [
+      'Clearing holdings, dividends or a year of the ledger',
+      'Deleting a research board',
+      'Reading your funds statement row by row',
+      'Reading dividends payout by payout or stock by stock',
+      'The dashboard the web app reads for itself',
+    ],
+  },
+];
+
+const tones = {
+  emerald: 'border-emerald-400/25 text-emerald-400',
+  amber: 'border-amber-400/25 text-amber-400',
+  navy: 'border-border text-muted',
+};
+---
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+  {columns.map((column) => (
+    <div class={`rounded-xl border bg-navy-800/30 p-6 ${tones[column.tone as keyof typeof tones].split(' ')[0]}`}>
+      <p class={`text-xs tracking-widest uppercase mb-2 ${tones[column.tone as keyof typeof tones].split(' ')[1]}`}>
+        {column.heading}
+      </p>
+      <p class="text-xs text-muted/70 leading-relaxed mb-5">{column.note}</p>
+      <ul class="space-y-2.5">
+        {column.items.map((item) => (
+          <li class="text-sm text-muted leading-relaxed">{item}</li>
+        ))}
+      </ul>
+    </div>
+  ))}
+</div>
+
+<p class="text-xs text-muted/70 leading-relaxed mt-4">
+  Two operations need a privilege beyond the token itself: generating quick stories and
+  publishing a video to the channel. An account without the privilege gets a refusal that names
+  it, and no token can grant itself one.
+</p>

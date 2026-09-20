@@ -31,25 +31,33 @@ const calls = [
           to YouTube runs through the same token.
         </p>
         <p class="text-muted leading-relaxed mb-8">
-          Agents read setup instructions from a machine-readable <code class="text-gold-300">llms.txt</code>
-          that spells out what each upload replaces and what it leaves alone. Tokens never expire and you
-          can revoke any of them at any time. A token cannot clear your data, and the row-by-row reads of
-          the ledger and of dividends stay closed to it.
+          Agents read their instructions from a machine-readable <code class="text-gold-300">llms.txt</code>
+          that spells out what each upload replaces and what it leaves alone, so a skill works against the
+          current contract rather than a copy of it. The recipes page sets out exactly what a token can
+          read, what it can write, and what stays closed to it.
         </p>
         <div class="flex flex-wrap gap-2 mb-8">
           {tags.map((tag) => (
             <span class="px-3 py-1 text-xs text-muted border border-border rounded-full">{tag}</span>
           ))}
         </div>
-        <a
-          href={SIGNUP_URL}
-          class="inline-flex items-center gap-2 text-sm font-medium text-gold-400 hover:text-gold-300 transition-colors group"
-        >
-          Create an API token
-          <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-          </svg>
-        </a>
+        <div class="flex flex-wrap items-center gap-x-8 gap-y-4">
+          <a
+            href="/agents"
+            class="inline-flex items-center gap-2 text-sm font-medium text-gold-400 hover:text-gold-300 transition-colors group"
+          >
+            See the agent recipes
+            <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+            </svg>
+          </a>
+          <a
+            href={SIGNUP_URL}
+            class="inline-flex items-center gap-2 text-sm text-muted hover:text-ink transition-colors"
+          >
+            Create an API token
+          </a>
+        </div>
       </div>
 
       <div class="reveal reveal-delay-2 lg:order-1">

@@ -1,0 +1,72 @@
+---
+const faqs = [
+  {
+    question: 'Does Margin connect to my broker account?',
+    answer:
+      'No. You download holdings, trades, dividends and the funds statement from your broker and upload them, and Margin never asks for a broker login or holds one. If you would rather not do that by hand, you can create an API token and point an agent of your own at it, and even then your broker credentials stay on your machine.',
+  },
+  {
+    question: 'Are the prices live?',
+    answer:
+      'No. Prices come from the NSE and BSE end of day files, so they do not move during the session. Margin shows the date of the quote beside any value it reports, and it tells you when a total is missing a stock it has no price for.',
+  },
+  {
+    question: 'Which brokers can I import from?',
+    answer:
+      'Holdings and trades come in from Zerodha, Groww, Upstox and AngelOne as downloaded, and from any other broker through a generic CSV layout. Dividend statements are read from Zerodha today. The funds statement is read from Zerodha as downloaded, and from other brokers through a column mapping you set once.',
+  },
+  {
+    question: 'I hold the same stock at two brokers. Does that work?',
+    answer:
+      'Yes. Send a file per account and Margin merges them, adding the quantities and averaging the cost by quantity. Each holding still shows the split by broker underneath, and you can ask for returns, gains and allocation one trading account at a time.',
+  },
+  {
+    question: 'Does it cover mutual funds or US stocks?',
+    answer:
+      'No. Margin covers listed equities on NSE and BSE. Everything in it, from the valuation grid to the capital gains rates, is built for that and would be wrong applied elsewhere.',
+  },
+  {
+    question: 'Does Margin tell me what to buy?',
+    answer:
+      'No. There are no recommendations, no target prices of ours and no tips. Margin computes what your own assumptions imply and shows it against the market price, and every anchor on a stock is one you set yourself.',
+  },
+  {
+    question: 'Can I delete what I have uploaded?',
+    answer:
+      'Yes. Holdings, trades, dividends and the funds statement can each be cleared from inside the app, in whole or a year or a broker at a time, and you can delete the account and everything in it. An API token deliberately cannot do any of that.',
+  },
+];
+---
+
+<section id="faq" class="py-24 lg:py-32">
+  <div class="max-w-4xl mx-auto px-6 lg:px-8">
+    <div class="mb-14 reveal gold-line">
+      <p class="text-xs text-gold-400 tracking-widest uppercase mb-3">Questions</p>
+      <h2 class="font-display text-4xl md:text-5xl font-light text-cream">
+        Before you <em class="font-semibold not-italic">sign up</em>
+      </h2>
+    </div>
+
+    <div class="divide-y divide-border border-y border-border">
+      {faqs.map((faq) => (
+        <details class="group reveal">
+          <summary class="flex items-start justify-between gap-6 py-6 cursor-pointer list-none">
+            <h3 class="font-display text-xl font-light text-cream group-hover:text-gold-200 transition-colors duration-200 leading-snug">
+              {faq.question}
+            </h3>
+            <svg class="w-5 h-5 text-gold-400 shrink-0 mt-1 transition-transform duration-200 group-open:rotate-45" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+            </svg>
+          </summary>
+          <p class="text-muted leading-relaxed pb-6 max-w-2xl">{faq.answer}</p>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+</style>

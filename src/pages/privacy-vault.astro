@@ -5,7 +5,7 @@ import Footer from '../components/footer.astro';
 ---
 
 <Layout
-  title="How Privacy Vault Protects You — Margin"
+  title="How Privacy Vault Protects You · Margin"
   description="Understand how Margin uses Privacy Vault to protect your personal data compared to a traditional database approach."
 >
   <Nav />
@@ -20,25 +20,26 @@ import Footer from '../components/footer.astro';
           <em class="font-semibold not-italic">is different</em>
         </h1>
         <p class="text-muted text-lg leading-relaxed">
-          Most apps store your personal data in a regular database — fast to build, but easy to
-          breach. Margin uses a Privacy Vault, a fundamentally different architecture that isolates
-          sensitive fields behind separate encryption keys so even a database leak exposes nothing useful.
+          A normal application database keeps your name and email in the same tables as everything
+          else, which is quick to build and leaks everything at once. Margin keeps those fields in a
+          Privacy Vault instead, behind their own encryption keys, so a leak of the main database
+          hands over nothing that identifies you.
         </p>
       </div>
 
       <div class="mb-20 reveal reveal-delay-1">
         <h2 class="font-display text-2xl font-light text-cream mb-6 gold-line">The traditional approach</h2>
         <p class="text-muted leading-relaxed mb-6">
-          In a conventional setup, all data — your name, email, portfolio holdings, transaction
-          history — lives together in the same database tables. A single SQL query can join them.
-          That is convenient for engineers, but it means:
+          In a conventional setup your name, email, portfolio holdings and transaction history all
+          live in the same database tables, and a single SQL query joins them. That is convenient for
+          engineers, and it means:
         </p>
         <ul class="space-y-4 mb-6">
           {[
             'A compromised database credential exposes everything at once.',
             'An insider with read access to the database can see your personal details alongside your financial data.',
             'Any misconfigured query or API can accidentally leak PII alongside non-sensitive records.',
-            'Regulatory audits are harder — there is no clear boundary between sensitive and non-sensitive data.',
+            'Regulatory audits are harder, because no boundary separates sensitive data from the rest.',
           ].map((point) => (
             <li class="flex items-start gap-3 text-sm text-muted">
               <svg class="w-4 h-4 text-red-400/70 mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -62,14 +63,14 @@ import Footer from '../components/footer.astro';
         <h2 class="font-display text-2xl font-light text-cream mb-6 gold-line">How Privacy Vault works</h2>
         <p class="text-muted leading-relaxed mb-6">
           A Privacy Vault (we use <a href="https://databunker.org" target="_blank" rel="noopener noreferrer" class="text-gold-400 hover:text-gold-300 transition-colors">Databunker</a>)
-          extracts personally identifiable information — name, email, phone — out of the main
-          database entirely. It stores them in an isolated, encrypted store with its own access
-          controls and encryption keys.
+          moves personally identifiable information, meaning your name, email and phone, out of the
+          main database entirely. It holds them in an isolated encrypted store with its own access
+          controls and its own encryption keys.
         </p>
         <p class="text-muted leading-relaxed mb-6">
           Your main database only holds a random token that references the vault record.
-          That token is meaningless on its own — it cannot be reverse-engineered back to your
-          identity without the vault's separate keys.
+          The token means nothing on its own, and without the vault's separate keys it cannot be
+          worked back to your identity.
         </p>
 
         <div class="bg-navy-800/40 border border-border rounded-xl p-6 font-mono text-xs text-muted leading-relaxed overflow-x-auto mb-6">
@@ -88,7 +89,7 @@ import Footer from '../components/footer.astro';
         <ul class="space-y-4">
           {[
             'PII is encrypted with keys that are separate from your application database.',
-            'Access to portfolio data does not grant access to personal identity — the two are decoupled.',
+            'Access to portfolio data does not grant access to personal identity, because the two are held apart.',
             'The vault maintains its own audit log of every access to sensitive fields.',
             'Data deletion requests (right to erasure) are handled at the vault level without touching the main database.',
           ].map((point) => (
@@ -117,7 +118,7 @@ import Footer from '../components/footer.astro';
               {[
                 ['Database breach', 'Name, email & holdings exposed', 'Only meaningless tokens exposed'],
                 ['Insider access', 'Full user records visible', 'PII requires separate vault key'],
-                ['Data deletion request', 'Must hunt & purge across tables', 'Delete vault record — done'],
+                ['Data deletion request', 'Must hunt & purge across tables', 'Delete the vault record, done'],
                 ['Audit trail for PII access', 'Manual logging or none', 'Built-in per-field access log'],
                 ['Regulatory compliance', 'Engineer effort required', 'Isolation enforced by design'],
               ].map(([scenario, traditional, vault]) => (
@@ -136,8 +137,8 @@ import Footer from '../components/footer.astro';
         <div class="bg-navy-800/30 border border-border rounded-xl p-8">
           <p class="text-xs text-gold-400 tracking-widest uppercase mb-4">What this means for you</p>
           <p class="text-cream font-display text-xl font-light leading-relaxed mb-4">
-            Even if someone broke into Margin's database, they would find portfolio records
-            tied to random tokens — no names, no emails, nothing that identifies you.
+            Someone who broke into Margin's database would find portfolio records tied to random
+            tokens, with no names and no emails to attach them to.
           </p>
           <p class="text-muted text-sm leading-relaxed">
             Your broker login credentials are never stored at all. Trade files you upload are

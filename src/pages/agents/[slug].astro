@@ -1,0 +1,145 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/layout.astro';
+import Nav from '../../components/nav.astro';
+import Footer from '../../components/footer.astro';
+import SocialShare from '../../components/social-share.astro';
+import ProseStyles from '../../components/prose-styles.astro';
+import CopyCode from '../../components/copy-code.astro';
+import { inReadingOrder } from '../../domain/recipe';
+
+export async function getStaticPaths() {
+  const ordered = inReadingOrder(await getCollection('recipe'));
+
+  return ordered.map((recipe, i) => ({
+    params: { slug: recipe.slug },
+    props: {
+      recipe,
+      previous: ordered[i - 1] ?? null,
+      next: ordered[i + 1] ?? null,
+      siblings: ordered.filter((r) => r.data.task === recipe.data.task && r.slug !== recipe.slug),
+    },
+  }));
+}
+
+const { recipe, previous, next, siblings } = Astro.props;
+const { Content } = await recipe.render();
+const pageUrl = new URL(`/agents/${recipe.slug}`, Astro.site ?? Astro.url.origin).href;
+
+function formatDate(date: Date) {
+  return date.toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' });
+}
+---
+
+<Layout title={`${recipe.data.title} · Margin Agent Recipes`} description={recipe.data.description} ogImage={recipe.data.ogImage?.src}>
+  <Nav />
+
+  <main class="pt-32 pb-24">
+    <div class="max-w-3xl mx-auto px-6 lg:px-8">
+
+      <div class="reveal mb-10">
+        <a href="/agents" class="inline-flex items-center gap-2 text-sm text-muted hover:text-gold-400 transition-colors duration-200">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+          </svg>
+          All recipes
+        </a>
+      </div>
+
+      <header class="reveal mb-12">
+        <p class="text-xs text-gold-400 tracking-widest uppercase mb-5">{recipe.data.task}</p>
+        <h1 class="font-display text-4xl md:text-5xl lg:text-6xl font-light text-cream leading-tight mb-8">
+          {recipe.data.title}
+        </h1>
+
+        <dl class="border-t border-border pt-6 space-y-4">
+          <div class="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4">
+            <dt class="text-xs text-muted tracking-widest uppercase sm:w-32 shrink-0">Connects</dt>
+            <dd class="flex flex-wrap gap-2">
+              {recipe.data.connects.map((system) => (
+                <span class="px-2.5 py-0.5 text-xs text-muted border border-border rounded-full">{system}</span>
+              ))}
+            </dd>
+          </div>
+          <div class="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4">
+            <dt class="text-xs text-muted tracking-widest uppercase sm:w-32 shrink-0">Writes</dt>
+            <dd class="text-sm text-muted leading-relaxed">{recipe.data.writes}</dd>
+          </div>
+          <div class="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4">
+            <dt class="text-xs text-muted tracking-widest uppercase sm:w-32 shrink-0">Updated</dt>
+            <dd class="text-sm text-muted">
+              {formatDate(recipe.data.updatedAt)}
+              {recipe.data.readingTime && <span class="text-muted/60"> · {recipe.data.readingTime}</span>}
+            </dd>
+          </div>
+        </dl>
+      </header>
+
+      <div class="reveal prose-margin">
+        <Content />
+      </div>
+
+      <SocialShare title={recipe.data.title} url={pageUrl} />
+
+      {siblings.length > 0 && (
+        <section class="reveal mt-16">
+          <h2 class="font-display text-2xl font-light text-cream mb-6 gold-line">
+            Also under {recipe.data.task.toLowerCase()}
+          </h2>
+          <div class="space-y-3">
+            {siblings.map((sibling) => (
+              <a href={`/agents/${sibling.slug}`} class="group block bg-navy-800/30 border border-border hover:border-gold-400/30 rounded-xl p-5 transition-all duration-300 hover:bg-navy-800/50">
+                <h3 class="font-display text-lg font-light text-cream group-hover:text-gold-200 transition-colors duration-200 mb-1.5 leading-snug">
+                  {sibling.data.title}
+                </h3>
+                <p class="text-muted text-sm leading-relaxed">{sibling.data.description}</p>
+              </a>
+            ))}
+          </div>
+        </section>
+      )}
+
+      <nav class="reveal mt-12 grid grid-cols-1 sm:grid-cols-2 gap-4 border-t border-border pt-8">
+        {previous ? (
+          <a href={`/agents/${previous.slug}`} class="group block">
+            <p class="text-xs text-muted tracking-widest uppercase mb-2">Previous</p>
+            <p class="text-sm text-ink group-hover:text-gold-300 transition-colors leading-snug">
+              {previous.data.title}
+            </p>
+          </a>
+        ) : <span></span>}
+        {next && (
+          <a href={`/agents/${next.slug}`} class="group block sm:text-right">
+            <p class="text-xs text-muted tracking-widest uppercase mb-2">Next</p>
+            <p class="text-sm text-ink group-hover:text-gold-300 transition-colors leading-snug">
+              {next.data.title}
+            </p>
+          </a>
+        )}
+      </nav>
+
+      <div class="reveal mt-16 bg-navy-800/30 border border-gold-400/20 rounded-xl p-8 text-center">
+        <p class="text-xs text-gold-400 tracking-widest uppercase mb-4">Try it</p>
+        <h2 class="font-display text-3xl font-light text-cream mb-4">
+          You need a token to start
+        </h2>
+        <p class="text-muted text-sm leading-relaxed mb-6 max-w-md mx-auto">
+          Create one in Margin under Settings, on the API Tokens tab. Tokens never expire and you
+          can revoke any of them at any time.
+        </p>
+        <a
+          href="https://go.marginapp.in/settings"
+          class="inline-flex items-center px-6 py-3 text-sm font-medium text-navy-900 bg-gold-400 hover:bg-gold-300 rounded transition-colors duration-200 tracking-wide"
+        >
+          Create an API token
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<ProseStyles />
+<CopyCode />
