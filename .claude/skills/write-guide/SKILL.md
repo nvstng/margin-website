@@ -71,7 +71,13 @@ Structure the body in screen order, the order a user meets things, not the order
 
 For each region, split the bullets into **what you set** and **what Margin computes**. Readers skim for the first list.
 
-Every `##` heading becomes an entry in the sticky left-hand index, so keep headings short and specific. Aim for 10 to 16 sections on a full screen guide.
+The UI is documentation too. Where a control is labelled and a user can follow it unaided, do not restate it: skip lists of dropdown options, card labels, table columns, filter names, button positions and confirmation dialogs. Write down only what the screen does not print: the rule behind a validation message, which rows a figure is summed from, what a setting must stay consistent with, what an upload or save does and does not change, and what a gap or a wrong input does to the numbers downstream. Before adding a sentence, ask whether the reader would learn it by looking at the screen; if so, cut it. A guide for a screen with many rules is usually 1500 to 2500 words.
+
+Every `##` heading becomes an entry in the sticky left-hand index, so keep headings short and specific. Aim for 8 to 14 sections on a full screen guide.
+
+When the feature is an upload and the reader's broker may not be on the list, do not explain unsupported brokers in the guide. Link to `/guides/unsupported-broker-formats`, which covers the reason (the file format has not been shown to us yet), what to send and how, in one place.
+
+Do not name a brokerage in a feature guide as the one that is supported ("for Zerodha it goes in as Console exports it"). The list grows, and every such sentence goes stale when it does. Write "a supported brokerage" and let `/guides/unsupported-broker-formats` hold the list, which is the one place to update. Naming a brokerage is fine where the sentence is about that brokerage's own quirk, such as a date format only it uses.
 
 Writing rules for guides:
 
@@ -85,13 +91,15 @@ Writing rules for guides:
 
 Screenshots need the app signed in, and sign-in is Google OAuth that only the user can complete. Ask them to sign in at `http://localhost:3101` in the Chrome window the extension opens, or in their own Chrome (the session is shared across the profile). Do not attempt to sign in yourself.
 
-Once in, drive the app to each state and capture with the `computer` tool's `zoom` action on the exact region, `save_to_disk: true`. Zoom gives a crisp crop at device pixel ratio; a scaled full screenshot does not. Capture one image per idea:
+Once in, drive the app to each state and capture with the `computer` tool's `zoom` action on the exact region, `save_to_disk: true`. Zoom gives a crisp crop at device pixel ratio; a scaled full screenshot does not. Capture one image per idea, and only for ideas the prose keeps. The same rule as the prose applies: an image of a labelled dialog or a menu of options is the UI repeating itself, so favour states that show a rule in action:
 
 - the main grid or table, showing which cells are editable
-- each context menu, open on a realistic cell
-- each dialog, filled in with values that make the preview interesting rather than defaults
+- a validation failing, with the message that explains the rule
+- a result or warning produced by a gap, a duplicate or a wrong input
+- a filter or setting combined in a way the reader would not find alone
 - assumption panels with a non-default state showing (a what-if price applied, a warning visible)
-- summary cards or panels that the guide asks the reader to check
+
+Four to six images is usual for a full screen guide. Delete any captured image the final prose does not reference.
 
 Enter values to reach the state you want, then **navigate away or reload without pressing Save**. The user's data must be as they left it. Say so in the final summary.
 

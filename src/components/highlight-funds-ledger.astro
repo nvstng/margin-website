@@ -38,15 +38,26 @@ const tags = ['Money in and out', 'Net invested', 'Money-weighted return', 'Per 
         <p class="text-xs text-muted/80 mb-8">
           Zerodha statements are read as downloaded. Other brokers go in through a generic column mapping.
         </p>
-        <a
-          href={SIGNUP_URL}
-          class="inline-flex items-center gap-2 text-sm font-medium text-gold-400 hover:text-gold-300 transition-colors group"
-        >
-          See what you have contributed
-          <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-          </svg>
-        </a>
+        <div class="flex flex-wrap items-center gap-x-8 gap-y-3">
+          <a
+            href={SIGNUP_URL}
+            class="inline-flex items-center gap-2 text-sm font-medium text-gold-400 hover:text-gold-300 transition-colors group"
+          >
+            See what you have contributed
+            <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+            </svg>
+          </a>
+          <a
+            href="/guides/funds-statement-ledger"
+            class="inline-flex items-center gap-2 text-sm text-muted hover:text-cream transition-colors group"
+          >
+            Read the guide
+            <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+            </svg>
+          </a>
+        </div>
       </div>
 
       <div class="reveal reveal-delay-2 lg:order-1">
