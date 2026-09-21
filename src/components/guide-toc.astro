@@ -1,0 +1,95 @@
+---
+interface Heading {
+  depth: number;
+  slug: string;
+  text: string;
+}
+interface Props {
+  headings: Heading[];
+}
+const { headings } = Astro.props;
+const sections = headings.filter((heading) => heading.depth === 2);
+---
+
+<nav class="guide-toc" aria-label="On this page">
+  <p class="guide-toc-label">On this page</p>
+  <ol>
+    {sections.map((heading) => (
+      <li>
+        <a href={`#${heading.slug}`} data-toc-link={heading.slug}>{heading.text}</a>
+      </li>
+    ))}
+  </ol>
+</nav>
+
+<style>
+  .guide-toc {
+    position: sticky;
+    top: 7rem;
+    max-height: calc(100vh - 8rem);
+    overflow-y: auto;
+    padding-right: 1rem;
+  }
+  .guide-toc-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #E8B84B;
+    margin: 0 0 1rem;
+  }
+  .guide-toc ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-left: 1px solid #1A2D4A;
+  }
+  .guide-toc li {
+    margin: 0;
+  }
+  .guide-toc a {
+    display: block;
+    padding: 0.35rem 0 0.35rem 1rem;
+    margin-left: -1px;
+    border-left: 1px solid transparent;
+    font-size: 0.8rem;
+    line-height: 1.4;
+    color: #5A7A9E;
+    text-decoration: none;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .guide-toc a:hover {
+    color: #D8E4F0;
+  }
+  .guide-toc a.active {
+    color: #F2EBD9;
+    border-left-color: #E8B84B;
+  }
+</style>
+
+<script>
+  const links = Array.from(document.querySelectorAll<HTMLAnchorElement>('[data-toc-link]'));
+  const headings = links
+    .map((link) => document.getElementById(link.dataset.tocLink ?? ''))
+    .filter((heading): heading is HTMLElement => heading !== null);
+
+  function setActive(slug: string) {
+    links.forEach((link) => link.classList.toggle('active', link.dataset.tocLink === slug));
+  }
+
+  function currentSection() {
+    const offset = window.innerHeight * 0.3;
+    let current = headings[0];
+    headings.forEach((heading) => {
+      if (heading.getBoundingClientRect().top <= offset) current = heading;
+    });
+    return current;
+  }
+
+  function update() {
+    const heading = currentSection();
+    if (heading) setActive(heading.id);
+  }
+
+  window.addEventListener('scroll', update, { passive: true });
+  update();
+</script>
