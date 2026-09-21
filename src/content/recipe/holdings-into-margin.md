@@ -15,13 +15,13 @@ Holdings move every time you buy or sell, so the copy Margin holds goes stale be
 
     POST /web/stockOfInterest/upload/json
 
-The body carries the positions and a `brokerageName`. Everything else in this recipe follows from one property of that field.
+The body carries the positions and a `brokerageName`, and everything else in this recipe follows from how that field behaves.
 
-## The part worth getting right
+## What the brokerage name decides
 
-An import replaces what is on record **under the brokerage name you send**, and leaves every other brokerage alone. Send a name you have not used before and the same portfolio is recorded a second time rather than replacing the first, and nothing in the response tells you it happened. The `changes` count in the response covers only what moved under the name you sent, so it looks correct either way.
+An import replaces what is on record **under the brokerage name you send**, and leaves every other brokerage alone. Send a name you have not used before and the same portfolio is recorded a second time instead of replacing the first, with nothing in the response to tell you it happened. The `changes` count in the response covers only what moved under the name you sent, so it looks correct either way.
 
-So the first call is not the upload:
+So the upload is not the first call to make:
 
     GET /web/brokerage/summary
 
@@ -29,15 +29,15 @@ The names it returns are the ones your earlier imports used, and matching is cas
 
 ## Checking it landed
 
-Read `GET /web/holdings` before the import as well as after, and compare the two. Match entries on `isin` rather than on `stockSymbol`, because symbols get reused and renamed across listings while the ISIN stays put. A stock you do not hold has no entry at all, so a disappearance is a real change rather than a zero.
+Read `GET /web/holdings` before the import as well as after, and compare the two. Match entries on `isin` and not on `stockSymbol`, because symbols get reused and renamed across listings while the ISIN stays put. A stock you do not hold has no entry at all, so an entry disappearing is a real change and not a quantity falling to zero.
 
 ## Where an agent should stop and ask
 
-Getting your go-ahead before the upload matters more here than the reading does. The read is free and repeatable, and the write replaces a portfolio. A sensible skill shows you the diff it is about to cause, names the brokerage it will write under, and waits.
+Getting your go-ahead matters more before the upload than before the read, since the read is free and repeatable while the write replaces a portfolio. A sensible skill shows you the diff it is about to cause and names the brokerage it will write under, then waits for you to approve it.
 
 ## A skill to start from
 
-This is illustrative rather than something to run unchanged. Your broker, your account names and your own preferences all belong in it. Save it as `.claude/skills/holdings-to-margin/SKILL.md` in the project you keep your investing work in.
+This is illustrative and not something to run unchanged. Your broker, your account names and your own preferences all belong in it. Save it as `.claude/skills/holdings-to-margin/SKILL.md` in the project you keep your investing work in.
 
 ```markdown
 ---
@@ -93,4 +93,4 @@ not on `stockSymbol`. Report what actually changed rather than repeating the
 response's own counts.
 ```
 
-The instruction to fetch `llms.txt` on every run is doing real work. Margin's contract has changed under skills written against it before, and a skill that carries its own copy of the endpoints goes wrong quietly.
+The instruction to fetch `llms.txt` on every run is doing real work. Margin's contract has changed under skills written against it before, and a skill carrying its own copy of the endpoints breaks in ways that are hard to spot.

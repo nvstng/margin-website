@@ -13,17 +13,17 @@ The spreadsheet recipe assumes you already have a model. This one is for the fir
 
 The mechanics are the same as the spreadsheet route. Margin computes, the agent carries assumptions across, and the save stores what came back. What changes is where the base year comes from and how the forward assumptions get set.
 
-## The base year is read, the forward years are argued
+## Reading the base year, setting the forward years
 
 A company's published financials give you the trailing twelve month figures the `baseYear` field wants: revenue, operating profit, other income, depreciation, interest, tax and EPS. An agent can read those off a fundamentals page and convert them to one consistent unit.
 
-Nothing on that page tells you what the next ten years look like. Historic growth is the obvious anchor and the obvious trap, since it is the reason a stock is priced the way it is and extrapolating it usually reproduces the current price rather than testing it. The useful shape is for the agent to propose a small set of assumptions, say where each one came from, and let you move them before anything is saved.
+Nothing on that page tells you what the next ten years look like. Historic growth is the obvious anchor to reach for, and also the one to be careful with, since it is the reason a stock is priced the way it is and extrapolating it tends to reproduce the current price instead of testing it. Have the agent propose a small set of assumptions, say where each one came from, and let you move them before anything is saved.
 
-Because `POST /web/projection/dcf` saves nothing and touches no account data, this can be a conversation. Three scenarios cost three calls and leave no trace.
+Because `POST /web/projection/dcf` saves nothing and touches no account data, this can be a conversation. Three scenarios cost three calls and leave nothing behind in the account.
 
 ## Say when a number could not be sourced
 
-An agent reading a web page will sometimes not find depreciation, or will find a figure in millions on a page whose other rows are in crores. The instruction that matters is to stop and say so. A skill that fills a gap with a plausible number produces a valuation that looks complete and is not, and the fabricated input is invisible in the output.
+An agent reading a web page will sometimes not find depreciation, or will find a figure in millions on a page whose other rows are in crores. Instruct it to stop and say so. A skill that fills a gap with a plausible number produces a valuation that looks complete when it is not, and the fabricated input leaves no trace in the output.
 
 ## A skill to start from
 
@@ -55,8 +55,8 @@ EPS sits on the same basis as the profit figures.
 one and stop. Do not substitute a plausible value, and do not derive one from a
 ratio unless the user asks for it.
 
-Watch for mixed units on one page. A row in millions among rows in crores is the
-error that survives all the way to a saved valuation.
+Watch for mixed units on one page. A row in millions among rows in crores will
+survive every later step and end up in the saved valuation.
 
 ## 2. Propose the forward assumptions
 
@@ -64,9 +64,9 @@ Offer a small set: revenue growth, operating margin, tax rate, cash conversion,
 discount rate and the terminal pair. For each, say where it came from, whether
 that is the company's own history, a sector norm, or a plain assumption.
 
-Historic growth is an anchor and not an answer. Extrapolating it tends to
-reproduce the current price rather than test it, so put it to the user as one
-scenario rather than the scenario.
+Treat historic growth as an anchor and not an answer. Extrapolating it tends to
+reproduce the current price instead of testing it, so put it to the user as one
+scenario among several.
 
 Terminal growth must be below the terminal discount rate. The two go together;
 sending one without the other is a 400.

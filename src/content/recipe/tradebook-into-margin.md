@@ -9,11 +9,11 @@ connects: ["Broker console", "Margin"]
 writes: "Adds trades for the years you upload"
 ---
 
-Holdings say what you own now. Trades say what you paid and when, which is what a return figure needs. Margin computes XIRR and realised gains from the tradebook, so a year missing from the record shifts both.
+A holdings file says what you own now, while the tradebook says what you paid for it and when, which is what a return figure needs. Margin computes XIRR and realised gains from the tradebook, so a year missing from the record shifts both.
 
 ## Why this one drives a browser
 
-Broker trading APIs are built for placing orders, so their trade endpoints usually return only the current day, and the rows often carry no ISIN. A tradebook with history lives in the broker's reporting console behind a login, as a download. An agent with browser control can open that page, set the financial year, download the file and hand it to Margin. Everything else in this recipe is the same shape as the holdings upload.
+Broker trading APIs are built for placing orders, so their trade endpoints usually return only the current day, and the rows often carry no ISIN. A tradebook with history lives in the broker's reporting console behind a login, as a download. An agent with browser control can open that page, set the financial year, download the file and hand it to Margin. Everything else in this recipe works the same way as the holdings upload.
 
 ## What the agent does
 
@@ -22,11 +22,11 @@ Broker trading APIs are built for placing orders, so their trade endpoints usual
 
 Both are multipart. `files` takes up to ten files of ten megabytes each, so several years and several accounts can go in one request. `brokerageName` is exactly one of `Zerodha`, `AngelOne`, `Groww`, `Upstox` or `Other`.
 
-The response is a progress stream of concatenated JSON objects rather than a single document, and the last one carries a `data` field with `insertedTradesCount` per financial year, `insertedStocks`, and `stocksNotFound` for rows skipped because the stock is unknown. A skill should read the final object and summarise those three, because a silent success with forty skipped rows is the failure worth catching.
+The response is a progress stream of concatenated JSON objects rather than a single document, and the last one carries a `data` field with `insertedTradesCount` per financial year, `insertedStocks`, and `stocksNotFound` for rows skipped because the stock is unknown. A skill should read the final object and summarise those three, because an upload that reports success while skipping forty rows is the case you most need to catch.
 
-## Adds rather than replaces
+## An upload adds, it does not replace
 
-A tradebook upload adds trades. It does not clear the year first, which is what makes re-uploading a wider date range safe in some cases and duplicating in others. For the generic `Other` format the server derives a trade id from the row when `trade_id` is blank, so the same rows uploaded twice do not duplicate. For broker formats the file carries real trade ids and the same protection applies. Uploading a hand-edited file with the ids stripped is where duplicates come from.
+A tradebook upload adds trades. It does not clear the year first, which is what makes re-uploading a wider date range safe in some cases and duplicating in others. For the generic `Other` format the server derives a trade id from the row when `trade_id` is blank, so the same rows uploaded twice do not duplicate. For broker formats the file carries real trade ids and the same protection applies. Duplicates come from uploading a hand-edited file with the ids stripped out.
 
 ## The date field to watch
 
@@ -91,6 +91,6 @@ ten file limit.
 
 The response is concatenated JSON objects, not one document. Read the final
 object's `data` and report `insertedTradesCount` per year, and every entry of
-`stocksNotFound`. Skipped rows are the outcome worth surfacing; do not report the
-upload as clean when the list is non-empty.
+`stocksNotFound`. Always surface skipped rows, and do not report the upload as
+clean when the list is non-empty.
 ```

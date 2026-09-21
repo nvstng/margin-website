@@ -66,7 +66,7 @@ Keyboard navigation works across the grid. The cell selection is not drawn, so t
 
 ## Filling a value down the years
 
-Typing the same margin into ten rows is the part of a DCF that goes wrong quietly. The grid gives you three ways to avoid it, on the Margin, Ratio, Rate, Multiplier and Shares increase columns.
+Typing the same margin into ten rows by hand is where a DCF picks up errors you never notice. The grid gives you three ways to avoid it, on the Margin, Ratio, Rate, Multiplier and Shares increase columns.
 
 **1. Ctrl/Cmd+Enter while editing**
 
@@ -84,7 +84,7 @@ Typing the same margin into ten rows is the part of a DCF that goes wrong quietl
 
 **3. Right-click, Fill down with options**
 
-This is for assumptions that should drift rather than stay flat, such as a margin you expect to compress as competition arrives, or a growth ratio that fades as the base gets larger.
+Use this for an assumption that should drift over the years instead of staying flat, such as a margin you expect to compress as competition arrives, or a growth ratio that fades as the base gets larger.
 
 The dialog takes three inputs:
 
@@ -110,7 +110,7 @@ The same rules are written into the **INSTRUCTIONS** panel at the top of the scr
 
 ![The collapsible instructions panel at the top of the DCF screen listing the editing and fill down rules](../../assets/images/dcf-instructions.webp)
 
-*The in-app version of this section, one click away while you work.*
+*The same rules in the app, one click away while you work.*
 
 ## Discount rate
 
@@ -141,7 +141,7 @@ The two cards at the bottom of the screen show, for both the profit basis and th
 
 *Half the value here comes from the terminal number, on both bases.*
 
-Read the third line every time. If 80% of the value sits in the terminal number, the perpetuity assumption is carrying the valuation and the years you spent projecting barely move it. Adding more forecast years, or cutting terminal growth, brings the share down.
+Read the third line every time. If 80% of the value sits in the terminal number, then the perpetuity assumption is carrying the valuation and the years you spent projecting barely move it. Adding more forecast years, or cutting terminal growth, brings that share down.
 
 ## Enterprise value and the what-if price
 
@@ -200,16 +200,16 @@ Two panels sit between the header and the grid.
 
 ![The valuation summary panel showing revenue growth bands, operating margin bands and the price to sales and price to earnings trends](../../assets/images/dcf-valuation-summary.webp)
 
-*Thirty years of assumptions in four lines. The P/E falls from 91x today to 25x by Year 5 on these numbers.*
+*Thirty years of assumptions condensed into four lines. The P/E falls from 91x today to 25x by Year 5 on these numbers.*
 
-The multiple trend is the fastest check on a projection. If the price you are paying today only looks sensible at a Year 8 P/E of 12, you are being asked to wait eight years for the business to grow into the price.
+The multiple trend is a quick check on a projection. If the price you are paying today only looks sensible at a Year 8 P/E of 12, you are being asked to wait eight years for the business to grow into the price.
 
 ## Name and note
 
 - **Valuation Name** sits next to the stock symbol in the header. Name it for the case it represents, such as Base, Bear, or Post capex cycle.
 - **Note** is a rich text field at the bottom. Record what you were underwriting: why the margin holds, what the growth depends on, what would make you abandon the view.
 
-The note is the part you will thank yourself for. Assumptions age, and six months later the number is unreadable without the reasoning behind it.
+Write the note even when the reasoning feels obvious at the time. Assumptions age, and six months later the number is unreadable without the reasoning behind it.
 
 ## CSV in and out
 
@@ -217,7 +217,7 @@ The toolbar in the header handles bulk edits.
 
 - **Download Grid** exports the grid as you see it, all columns and groups included.
 - **Upload CSV** applies a file to the screen. It is parsed and recalculated in your browser, and nothing reaches the server until you press Save.
-- The **info icon** opens the format, with **Download current as CSV** inside it. Exporting the current valuation is the easiest way to get a file in the right shape to edit.
+- The **info icon** opens the format, with **Download current as CSV** inside it. Exporting the current valuation gives you a file already in the right layout to edit.
 - The file has four sections, `[valuation]`, `[ttm]`, `[terminal]` and `[projections]`. Every section except `[valuation]` is optional, so you can upload only the part you want to change. The screen resizes to the years present in `[projections]`.
 
 Building a model in a spreadsheet and bringing it in is covered in the [spreadsheet DCF recipe](/recipes/spreadsheet-dcf-into-margin).

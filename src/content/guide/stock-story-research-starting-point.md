@@ -1,19 +1,19 @@
 ---
 title: "The stock's story as a starting point of research"
-description: "Why a structured narrative of the business, its financial health, and its recent story gives every number you look at afterwards its context."
+description: "Why reading a structured narrative of the business, its financial health and its recent story first gives context to every number you look at afterwards."
 feature: "Research"
 order: 1
 updatedAt: 2026-07-20
 readingTime: "6 min read"
 ---
 
-Research has to start somewhere. Margin's stock story is designed to be that starting point: a structured narrative you read first, so that every number you look at afterwards has context.
+Margin's stock story is built to be the first thing you read on a company: a structured narrative that gives context to every number you look at afterwards.
 
 ## The concept behind the feature
 
-A business becomes easier to understand as a story: why it exists, why customers keep paying it, how healthy its finances are, and what has actually happened to it lately. Once you hold that narrative, ratios stop being abstract. A margin figure means something because you know what drives it. A drop in growth means something because you know what changed.
+A business becomes easier to understand as a story: why it exists, why customers keep paying it, how healthy its finances are, and what has actually happened to it lately. Once you hold that narrative, the ratios stop being abstract, because you know what drives a margin figure and what changed when growth dropped.
 
-Starting from the story also protects you from a common trap: treating a cheap number as a good opportunity. A low valuation on a business you do not understand stays an unknown until you understand it.
+Starting from the story also guards against reading a cheap number as an opportunity, since a low valuation on a business you do not understand tells you nothing until you understand the business.
 
 ## What Margin's stock story covers
 
@@ -29,10 +29,10 @@ Alongside the story, the research library carries related reports: valuation nor
 
 Building a picture of a business normally means going through many different sources across the internet and stitching them together yourself. Margin does that gathering for you and uses AI to assemble it into a full, coherent story of the business, so you start from a finished narrative rather than a pile of tabs.
 
-Each story is also available as audio you can listen to. That lets you put idle time to productive use, taking in the research while you commute, walk, or do something else.
+Each story is also available as audio, so you can take the research in while you commute or walk.
 
 ## Using it well
 
-Read the whole story before you form a view, and read it before you open the valuation tools. Let it generate questions. The sections you find yourself doubting or wanting more on are exactly where your own deeper research should go.
+Read the whole story before you form a view, and read it before you open the valuation tools. Read it for the questions it raises too: the sections you find yourself doubting or wanting more on are where your own deeper research should go.
 
 If the stock you follow is not covered yet, request it, and Margin notifies you inside the app the moment its research is ready. Once the story convinces you, move to valuation and to [tracking the expected return](/guides/tracking-expected-returns-dashboard).

@@ -30,8 +30,8 @@ const points = [
           client code, payment references and bank account. Margin reads that file in your browser
           and sends only the dated amounts, so the file never leaves your machine. Sending the
           description at all is your choice, and when you do, the server hashes it on arrival and
-          keeps the hash alone. Nothing reads the wording back, no endpoint returns it, and there is
-          no text search over the ledger.
+          keeps only the hash. No endpoint returns the wording and there is no text search over the
+          ledger.
         </p>
         <ul class="space-y-3 mb-8">
           {points.map((point) => (

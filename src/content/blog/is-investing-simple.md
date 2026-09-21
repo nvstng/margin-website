@@ -27,7 +27,7 @@ So what we know about the simplicity of investing is from version 2 of Buffet, w
 
 Not lay person simple. There are a number of prolific, but relatively smaller number of investors, who have made such returns. They have done so over long periods of time, so it is not a fluke. There should be a method. Most of these people do not speak to the public in the same detail and length as Buffet and Munger have done over the years. One reason is that it is not easy to explain. But some of the people who do speak publicly are not as simple to follow for a lay person, like it is with Buffet, again because the subject is complex now.
 
-If you follow their work over time and work on your own skills (accounting, business patterns, market psychology and so on), and do real practice, you can start to understand their process and method better. Since these practitioners have not been able to simplify this, this piece will not attempt to either — the aim here is only to explain why it is not simple.
+If you follow their work over time and work on your own skills (accounting, business patterns, market psychology and so on), and do real practice, you can start to understand their process and method better. Since these practitioners have not been able to simplify this, this piece will not attempt to either. The aim here is only to explain why it is not simple.
 
 ## Why is holding a good company for longer periods not adequate?
 
@@ -35,13 +35,13 @@ There are so many 20 to 30 year multi-baggers like HDFC Bank, Bajaj Finance, Inf
 
 Making large returns, for long periods of time, at the portfolio level is very different from having 1 or 2 multi-baggers like above. Even if one has 1 or 2 stocks like above in a portfolio of 15 to 20 stocks, that doesn't translate into making such returns at the portfolio level. This means many other stocks in the portfolio also need to fire at the 20 to 25% level, for long periods.
 
-Take a rough example. Say you have a 20-stock equal-weight portfolio. One stock compounds at 30% — genuinely exceptional. The other 19 compound at the index, call it 13%. Your blended return: (1 × 30% + 19 × 13%) ÷ 20 = 13.85%. One extraordinary holding barely moves the needle above index. To reach 25% at the portfolio level, the remaining 19 stocks must still average roughly 24.7% — you needed them all to be exceptional anyway. The one multi-bagger did almost nothing on its own.
+Take a rough example. Say you have a 20-stock equal-weight portfolio. One stock compounds at 30% and the other 19 compound at the index, call it 13%. The blended return is (1 × 30% + 19 × 13%) ÷ 20 = 13.85%, which is barely above the index. For the portfolio to reach 25%, the remaining 19 stocks would have to average roughly 24.7%, so the single 30% holding is not what gets you there.
 
 Maybe there are people like that, but investors who make 25 to 30% returns just by picking a lot (much more than 1 or 2) of stocks and holding them for long periods of time are hard to find.
 
 ## Why is high returns investing not simple?
 
-Making such high returns requires incorporating other factors into buy, sell and hold decisions. There are two distinct paths to 25-30% returns: re-rating, and high underlying business growth. Of the two, re-rating is more tractable for most investors — and cycles are what drive it.
+Making such high returns requires incorporating other factors into buy, sell and hold decisions. There are two distinct paths to 25-30% returns: re-rating, and high underlying business growth. Of the two, re-rating is the more tractable one for most investors, and cycles are what drive it.
 
 ### Cycles
 
@@ -57,16 +57,16 @@ Since most businesses are cyclic, one should pay attention to them. Why do cycle
 
 Cycles lead to re-rating and de-rating of PE ratios. Due to smaller size, or lack of understanding of tailwinds, or other reasons in a sector or business, stocks may trade at a lower PE ratio. But sooner or later the broader market starts understanding the business potential and prices them right. Pricing them right is another way of saying that going forward it is going to give returns in the vicinity of index returns. In other words there is no alpha available anymore. This process is also called re-rating. Re-rating is the process in which a business with the same growth potential gets a higher price to earnings ratio.
 
-During the period of re-rating the investor makes returns from re-rating as well as from the profit growth. After re-rating one makes money only from profit growth. It is important to appreciate that even a company growing at 10% can give you 25% returns while it is getting re-rated — but re-rating is a one-time repricing, not a recurring return source. Once the market has fully valued the business, returns fall back to the underlying profit growth.
+During the period of re-rating the investor makes returns from re-rating as well as from the profit growth. After re-rating one makes money only from profit growth. It is important to appreciate that even a company growing at 10% can give you 25% returns while it is getting re-rated. Re-rating is a one-time repricing though, so once the market has fully valued the business, returns fall back to the underlying profit growth.
 
 ### High Growth
 
-The second path is simpler to state: find a business growing earnings at 25-30% and hold it. At a stable PE, your returns track the earnings growth directly — no re-rating required.
+The second path is simpler to state: find a business growing earnings at 25 to 30% and hold it. At a stable PE your returns track the earnings growth directly, with no re-rating needed.
 
-The difficulty is everything around that statement. Businesses sustaining 25-30% earnings growth for 10 or more years are genuinely rare. Identifying one before the market has priced in the growth is the hard part — by the time the growth is obvious, the PE has already expanded and much of the return is behind you. This requires deep understanding of the business model, the competitive dynamics, and the size of the addressable market relative to where the company currently sits.
+The difficulty is in everything around that statement. Businesses sustaining 25 to 30% earnings growth for 10 or more years are rare, and identifying one before the market has priced in the growth is the hard part, because by the time the growth is obvious the PE has already expanded and much of the return is behind you. Doing that requires deep understanding of the business model, the competitive dynamics, and the size of the addressable market relative to where the company currently sits.
 
-Then there is the holding problem. Any business growing that fast will go through stretches that feel alarming — a competitive threat, a macro headwind, a bad quarter. Conviction sufficient to hold through those periods is not the same as optimism; it comes from the analytical work done upfront. Without it, most people sell at exactly the wrong moment.
+Then there is the holding problem. Any business growing that fast will go through stretches that feel alarming, whether from a competitive threat, a macro headwind or a bad quarter. The conviction needed to hold through those periods comes from the analytical work done upfront, and an investor who has not done that work tends to sell at the worst possible time.
 
-Finally, high growth does not last forever. At some point the business runs out of runway and the growth rate moderates. Recognising that inflection and acting on it is a separate skill from identifying the business in the first place.
+Finally, high growth does not last forever. At some point the business runs out of runway and the growth rate moderates, and recognising that inflection and acting on it is a separate skill from identifying the business in the first place.
 
-What this means is that neither path — re-rating through cycles nor identifying high-growth compounders — is something a lay person can execute without significant work. Simply buying good businesses and holding onto them for many years is not adequate. Selling, entry points, understanding cycles, and deeply understanding business growth trajectories all become important, and each adds complexity.
+What this means is that neither path, re-rating through cycles or identifying high-growth compounders, is something a lay person can execute without significant work. Simply buying good businesses and holding onto them for many years is not adequate. Selling, entry points, understanding cycles, and deeply understanding business growth trajectories all become important, and each adds complexity.

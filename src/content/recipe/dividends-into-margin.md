@@ -19,13 +19,13 @@ The file comes from the broker's console, where it usually sits with the interes
 
 ## The stocks it cannot place
 
-The response carries `stocksNotFound`, the payouts whose stock Margin could not match. The temptation is to have the agent resolve them by similarity, and this is the wrong instinct. A symbol that looks close is often a different company, and a symbol like `MODISNME6` is usually a delisted or renamed listing with no stock to pick at all.
+The response carries `stocksNotFound`, the payouts whose stock Margin could not match. Do not have the agent resolve them by similarity. A symbol that looks close is often a different company, and a symbol like `MODISNME6` is usually a delisted or renamed listing with no stock to pick at all.
 
-The right shape is to search and then ask:
+Have it search and then ask:
 
     GET /web/stock/find/{text}
 
-Search each unmatched entry by symbol, and by ISIN when the symbol finds nothing. Put the candidates to the user and let them choose, which is the same choice the Margin web app offers on this screen. When a search returns nothing, the skill should say so plainly rather than picking the nearest match.
+Search each unmatched entry by symbol, and by ISIN when the symbol finds nothing. Put the candidates to the user and let them choose, which is the same choice the Margin web app offers on this screen. When a search returns nothing, the skill should say so plainly instead of picking the nearest match.
 
 ## Verifying without reading rows back
 

@@ -9,22 +9,22 @@ readingTime: "5 min read"
 
 The main attribute of any risk-based investment decision is the conviction in the decision. Any investing strategy that is not backed by conviction will quite surely fail in the medium term. Thankfully it is very simple to test the quality of your decision before implementing it.
 
-Lets start with a very simple one — which mutual fund should one choose. Before you make the final decision to put in your money ask yourself a very simple question — would you stay invested if in 9–12 months the fund is down 15%, or will you start looking for something else.
+Lets start with a very simple one, which mutual fund should one choose. Before you make the final decision to put in your money ask yourself a very simple question. Would you stay invested if in 9 to 12 months the fund is down 15%, or will you start looking for something else.
 
-If your answer is you may start looking for something else, or even stay in cash or go to another asset class — then your decision is wrong and you should not invest. Thats all, you now have a very simple test that allows you to make most investment decisions.
+If your answer is you may start looking for something else, or even stay in cash or go to another asset class, then your decision is wrong and you should not invest. Thats all, you now have a very simple test that allows you to make most investment decisions.
 
-**Conviction Test: Will you stay invested if you are down 15–20% in a year?**
+**Conviction Test: Will you stay invested if you are down 15 to 20% in a year?**
 
-You may object that you still want to invest somewhere — what should you do then? There are only two options.
+You may object that you still want to invest somewhere, so what should you do then? There are only two options.
 
 1. Develop conviction in the asset you want to invest in.
 2. Go into an asset where you already have conviction.
 
 ## How to develop conviction?
 
-This is something you will have to figure out — but essentially this will mean research, learning and applying both to do valuation. You have to do this till you have the conviction in your return expectations from that asset (i.e. you pass the imagined conviction test).
+This is something you will have to figure out, but essentially this will mean research, learning and applying both to do valuation. You have to do this till you have the conviction in your return expectations from that asset (i.e. you pass the imagined conviction test).
 
-This isn't to say that passing conviction test guarantees the return you expect. Conviction is about having a firm theory to base your future decisions on rather than on your own returns on the asset (which are dependent on price movement). This also means that you do exit when you lose conviction in that asset — but not without that.
+This isn't to say that passing conviction test guarantees the return you expect. Conviction is about having a firm theory to base your future decisions on rather than on your own returns on the asset (which are dependent on price movement). This also means that you do exit when you lose conviction in that asset, but not without that.
 
 ## Going into an asset where you have conviction
 
@@ -42,13 +42,13 @@ Now you withdraw again and go to fund #3. Fund #3 gives average return of 10% in
 
 You can see that you have made almost no money in three years.
 
-Even more important — you are three years down in your investing journey and still roughly at the same place about how to manage your money. While this may not happen to you in year 1, it is likely to happen very soon.
+Even more important, you are three years down in your investing journey and still roughly at the same place about how to manage your money. While this may not happen to you in year 1, it is likely to happen very soon.
 
 ## Instead of developing conviction, should you hire an expert instead?
 
-This might seem like a different choice than the previous one, but on the conviction question — it is the same choice. Lets again take the conviction test. What happens if the funds suggested or managed for you by the expert goes down 15% in a year? Would you still believe he/she is an expert? Or will you look for another expert?
+This might seem like a different choice than the previous one, but on the conviction question it is the same choice. Lets again take the conviction test. What happens if the funds suggested or managed for you by the expert goes down 15% in a year? Would you still believe he/she is an expert? Or will you look for another expert?
 
-There is no escaping the conviction problem — whether it is fund, institution, individual, self, or asset class. You need to have conviction in that choice. e.g. If you invest in stocks chosen by yourself, do you have conviction in yourself? Does it pass the conviction test?
+There is no escaping the conviction problem, whether it is fund, institution, individual, self, or asset class. You need to have conviction in that choice. e.g. If you invest in stocks chosen by yourself, do you have conviction in yourself? Does it pass the conviction test?
 
 Again, you have only two right choices: develop conviction, or invest where you have conviction.
 
@@ -58,4 +58,4 @@ Again, you have only two right choices: develop conviction, or invest where you 
 - Conviction in self
 - Conviction in each selected equity stock (you have to do many of these all the time)
 
-It is highly demanding — if you are not fooling around. When your returns are much lower than expected you may lose conviction in the asset class, self, or a stock pick. Losing conviction in a particular stock should be expected, but losing conviction in yourself means that you should not be doing this yourself. Hence a thorough conviction test is needed.
+It is highly demanding, if you are not fooling around. When your returns are much lower than expected you may lose conviction in the asset class, self, or a stock pick. Losing conviction in a particular stock should be expected, but losing conviction in yourself means that you should not be doing this yourself. Hence a thorough conviction test is needed.

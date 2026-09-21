@@ -21,9 +21,9 @@ import Footer from '../components/footer.astro';
         </h1>
         <p class="text-muted text-lg leading-relaxed">
           A normal application database keeps your name and email in the same tables as everything
-          else, which is quick to build and leaks everything at once. Margin keeps those fields in a
-          Privacy Vault instead, behind their own encryption keys, so a leak of the main database
-          hands over nothing that identifies you.
+          else. It is quick to build, and one breach of it exposes every field together. Margin
+          keeps those fields in a Privacy Vault instead, behind their own encryption keys, so a
+          leak of the main database hands over nothing that identifies you.
         </p>
       </div>
 
@@ -118,9 +118,9 @@ import Footer from '../components/footer.astro';
               {[
                 ['Database breach', 'Name, email & holdings exposed', 'Only meaningless tokens exposed'],
                 ['Insider access', 'Full user records visible', 'PII requires separate vault key'],
-                ['Data deletion request', 'Must hunt & purge across tables', 'Delete the vault record, done'],
+                ['Data deletion request', 'Must hunt & purge across tables', 'Deleting the vault record is enough'],
                 ['Audit trail for PII access', 'Manual logging or none', 'Built-in per-field access log'],
-                ['Regulatory compliance', 'Engineer effort required', 'Isolation enforced by design'],
+                ['Regulatory compliance', 'Engineer effort required', 'Isolation built into the storage layer'],
               ].map(([scenario, traditional, vault]) => (
                 <tr class="border-b border-border/50">
                   <td class="px-4 py-4 text-muted">{scenario}</td>
@@ -141,9 +141,9 @@ import Footer from '../components/footer.astro';
             tokens, with no names and no emails to attach them to.
           </p>
           <p class="text-muted text-sm leading-relaxed">
-            Your broker login credentials are never stored at all. Trade files you upload are
-            processed in memory and never persisted to third-party systems. Privacy Vault is
-            the last line of defence for the only personal data we do hold.
+            Your broker login credentials are never stored at all, and trade files you upload are
+            processed in memory and never persisted to third-party systems. Privacy Vault covers
+            the only personal data we do hold.
           </p>
         </div>
       </div>

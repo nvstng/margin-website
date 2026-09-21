@@ -22,7 +22,7 @@ Let's take an investor who indeed ends up making 20% annualised return over 20 y
 
 *Look-back XIRR is not a steady straight line.*
 
-The psychological experience of this investor is telling. One is taken through a roller coaster ride in the initial years. At year 3 with a look-back XIRR of 28%, the feeling is of being superhuman. At year 6 with 13%, the same investor wonders if any of it was real.
+The psychological experience of this investor is a roller coaster ride in the initial years. A look-back XIRR of 28% at year 3 feels like proof of skill, and three years later the same investor is sitting at 13% and wondering whether any of it was real.
 
 The early years are extremely noisy and oscillate between euphoria and disappointment. As time passes, the dispersion reduces and the look-back XIRR starts stabilizing around the investor's underlying skill level.
 
@@ -36,9 +36,9 @@ Consider another investor who is not as good, but holds the same conviction in o
 
 *Green: investor look-back XIRR. Blue: index look-back XIRR.*
 
-The troubling part is the early years. Around year 2, this investor's look-back XIRR briefly rises above the index. For that window, the evidence says the active approach is working. It is not. The early volatility creates these crossings, and one in year 2 has no way to know whether that outperformance is signal or noise.
+The early years are where this gets difficult. Around year 2, this investor's look-back XIRR briefly rises above the index, so for that window the evidence appears to say the active approach is working, when it is not. The early volatility is what creates these crossings, and one in year 2 has no way to tell whether that outperformance is signal or noise.
 
-The difficult truth is that for many years, one may simply not know whether one possesses skill or merely confidence. Conviction is necessary but insufficient. Long-term realized outcomes are the only reliable evidence.
+So for many years one may simply not know whether what one has is skill or only confidence. Conviction is necessary and it is not sufficient, and the realized outcome over a long period is the only reliable evidence.
 
 ## Why does the chart dissipate with time?
 
@@ -56,6 +56,6 @@ Indexes like NIFTY 50 and NIFTY 250 give lower returns but are also less volatil
 
 ---
 
-This is a brutally long test of conviction and expertise. The feedback loop is slow and the early signals are deceptive.
+All of this makes for a very long test of conviction and expertise, where the feedback loop is slow and the early signals are deceptive.
 
-A practical way to manage this uncertainty is to start with a smaller allocation of one's total portfolio in self-managed equity, perhaps 10 to 20 percent. This keeps the cost of being wrong low, while still allowing real participation in the process. As the years accumulate and the look-back XIRR begins to stabilize above a meaningful threshold, one can grow that allocation.
+A practical way to manage that uncertainty is to start with a smaller allocation of one's total portfolio in self-managed equity, perhaps 10 to 20 percent, which keeps the cost of being wrong low while still putting one through the real process. As the years accumulate and the look-back XIRR begins to stabilize above a meaningful threshold, one can grow that allocation.

@@ -7,7 +7,7 @@ category: "Valuation"
 readingTime: "6 min read"
 ---
 
-Valuation isn't as simple as it is made out to be via the ratios like P/E, EV/EBITDA, Price/Sales, and methods like Reverse DCF. It isn't safe to create a right portfolio using these metrics. Your individual stocks may do well — but overall portfolio must do well — hence valuation methodology matters immensely.
+Valuation isn't as simple as it is made out to be via the ratios like P/E, EV/EBITDA, Price/Sales, and methods like Reverse DCF. It isn't safe to create a right portfolio using these metrics. Your individual stocks may do well, but it is the overall portfolio that has to do well, and hence valuation methodology matters immensely.
 
 We value a company to make educated estimates about what is expected return in X years. Valuation mandates fully grasping all these three somewhat complex but important concepts.
 
@@ -33,17 +33,17 @@ A common suggestion is to buy below intrinsic value. But there are serious probl
 
 The discount rate commonly suggested is about 8–10%. If you buy at intrinsic value and the growth in business is 10% then you should expect to make <10% in return. What went wrong even after buying at intrinsic value? It is the fact that such a stock has to be bought much below intrinsic value. How much below? You cannot know without doing maths (i.e. a good DCF).
 
-Secondly, if the return expectation is 20% — what discount rate should be used? 20%? At 20% most stocks will seem pricey — try it out. So what gives?
+Secondly, if the return expectation is 20%, what discount rate should be used? 20%? At 20% most stocks will seem pricey. Try it out. So what gives?
 
 One can assume that the market may be using index like returns as the discount rate. But then does that mean only market returns are on offer (e.g. Nifty 50)? So what should one do?
 
-There is an interplay between return expectations, discount rate used by market, and duration of your holding. Investors must resolve this interplay themselves — by grasping the maths at play here.
+There is an interplay between return expectations, discount rate used by market, and duration of your holding. Investors must resolve this interplay themselves, by grasping the maths at play here.
 
 Hint: you will hold the stock for a shorter duration than the market will hold it. Market holds a stock forever. So you can use different discount rates for your holding and non-holding periods.
 
 ## Enterprise value (EV)
 
-Should one look at market cap (i.e. price) or enterprise value? If you are using the current price for valuation based entry point — you are making a mistake. This is a relatively simple concept but often overlooked in India — it is more commonly used in the US.
+Should one look at market cap (i.e. price) or enterprise value? If you are using the current price for a valuation based entry point, you are making a mistake. This is a relatively simple concept but often overlooked in India, while it is more commonly used in the US.
 
 Let us say a 1000 Cr market cap company has 0 debt and 200 Cr in cash. The EV is 800 Cr, so the effective price of the stock is 80% of what it is trading at. Why? Because, as an owner of a company you become the part owner of 200 Cr cash as well. So you are paying less.
 
@@ -57,6 +57,6 @@ Markets tend to offer complicated stocks whose valuation needs to be done carefu
 
 **A company with high debt today but actively repaying the debt.** The interest costs are high today and enterprise value and market cap differ significantly.
 
-**A software product business that is spending in R&D today.** If the thesis plays out as expected the cost will stop growing, while the sales will keep growing (note #1 is a special case of this — just that over there starting cash flow is negative).
+**A software product business that is spending in R&D today.** If the thesis plays out as expected the cost will stop growing, while the sales will keep growing (note #1 is a special case of this, just that over there starting cash flow is negative).
 
-Understanding what kind of return these stocks may give requires a very good grasp of financial concepts and their implementation in numbers. This is best described as financial sympathy — like mechanical sympathy.
+Understanding what kind of return these stocks may give requires a very good grasp of financial concepts and their implementation in numbers. This is best described as financial sympathy, along the lines of mechanical sympathy.

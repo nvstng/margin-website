@@ -24,7 +24,7 @@ Each one lands on the same per-stock screen described below, scoped to that one 
 
 ## Reading the portfolio table
 
-The table's **Held**, **Per Trades** and **Gap** columns are the whole reconciliation in three numbers. Held is what your demat import says you hold today. Per Trades is what your tradebook adds up to, buys less sells. Gap is the difference, and a stock needs attention only when that gap is more than half a share, since anything smaller is rounding rather than a real mismatch.
+The table's **Held**, **Per Trades** and **Gap** columns are the whole reconciliation in three numbers. Held is what your demat import says you hold today. Per Trades is what your tradebook adds up to, buys less sells. Gap is the difference, and a stock needs attention only when that gap is more than half a share, since anything smaller is rounding and not a real mismatch.
 
 Four summary cards sit above the table: how many stocks were checked, how many need attention, how many corporate actions are still waiting to be recorded, and how many stocks have never had their corporate actions synced against the exchange feeds at all. The last figure matters on its own, separately from the gap count, because a stock with no synced action data can be hiding a split or bonus the check has not even looked for yet.
 
@@ -36,7 +36,7 @@ Two controls narrow what you see. **Only stocks needing attention** is on by def
 
 ## What can cause a gap
 
-A gap with no corporate action listed against it is not something this screen can name, only flag, and it comes down to a handful of causes: a tradebook upload you never made, shares transferred in from another demat account, an IPO allotment that never went through a trade, or trades from before your tradebook's start date. The per-stock screen says as much when it finds a gap with nothing to attach it to. None of these show up as a recordable action, because Margin has no feed to check them against, only the missing shares themselves.
+A gap with no corporate action listed against it is one the screen can flag but cannot explain, and it usually comes down to a handful of causes: a tradebook upload you never made, shares transferred in from another demat account, an IPO allotment that never went through a trade, or trades from before your tradebook's start date. The per-stock screen says as much when it finds a gap with nothing to attach it to. None of these show up as a recordable action, because Margin has no feed to check them against, only the missing shares themselves.
 
 Where a corporate action feed has been synced for the stock, the picture is different. Margin already knows a split, bonus, demerger or buyback fell inside your holding period, and the recorded gap on the other side of it tells you whether you have accounted for it yet.
 
@@ -44,13 +44,13 @@ Where a corporate action feed has been synced for the stock, the picture is diff
 
 A split or a bonus does not touch your tradebook. Nothing about it looks like a buy or a sell, so unless you enter it yourself, your trade history keeps counting the shares you had before the corporate action while your demat account holds the shares you have after it, and the two drift apart by exactly the ratio.
 
-A split or bonus corrupts more than quantity. Average cost is computed from quantity too, so a 1:1 bonus that is never recorded leaves your tradebook thinking you paid twice the real price per share. That understates every gain calculated from it and, on the sell side, overstates the tax paid. Margin names each corporate action by the type the exchange feed reports, shown as a chip carrying its label, its ex date and its ratio, for example a Split chip reading its ratio as a multiple. An outlined chip with a check mark has been recorded; a filled one is still waiting.
+The damage goes past the quantity. Average cost is computed from quantity too, so a 1:1 bonus that is never recorded leaves your tradebook holding twice the real price per share, which understates every gain calculated from it and, on the sell side, overstates the tax paid. Margin names each corporate action by the type the exchange feed reports, shown as a chip carrying its label, its ex date and its ratio, for example a Split chip reading its ratio as a multiple. An outlined chip with a check mark has been recorded; a filled one is still waiting.
 
 ## Recording a corporate action for one stock
 
 On a stock's own screen, under **Corporate actions while held**, each pending action gets a **Record** button, next to a note of what your tradebook held on the ex date, the quantity the credit is worked out from. Clicking it opens a small form with the inputs that action needs. A split or bonus asks for the shares held on the ex date and the ratio, both pre-filled from the feed. A buyback asks for the shares accepted, the price and the payout date, none of which the feed carries, so you supply them from your broker's buyback statement.
 
-**Preview** shows the trades this would add to your tradebook before anything is saved, alongside the gap now, what these trades add, and the gap after, coloured green when it fully closes and red when it does not. A gap left open after recording means something else also moved the shares, and is worth a second look rather than assumed away. If the ratio does not divide your holding evenly, the leftover fraction is called out too, since that fraction is what the company pays out in cash rather than in shares.
+**Preview** shows the trades this would add to your tradebook before anything is saved, alongside the gap now, what these trades add, and the gap after, coloured green when it fully closes and red when it does not. A gap left open after recording means something else also moved the shares, so look into it before you record. If the ratio does not divide your holding evenly, the leftover fraction is called out too, since that fraction is what the company pays out in cash rather than in shares.
 
 ![The record form for a Bonus action, showing the generated buy trade at nil cost, the gap now, before and after figures, and the notes about the remaining gap and the fractional share](../../assets/images/consistency-record-bonus-preview.webp)
 
@@ -68,7 +68,7 @@ Not every pending action makes it into this plan. One that the feed carries no u
 
 ![The bulk record plan listing five stocks with pending splits and bonuses, one unticked because it would open a new gap, and a note below naming two actions the plan could not work out](../../assets/images/consistency-bulk-rescale-plan.webp)
 
-*Four of five stocks are ticked. KAMAHOLD is left unticked because recording its bonus would move its gap from -2 to -10, away from zero rather than toward it. Two more actions on other stocks are skipped outright, both because the tradebook held nothing on their ex date.*
+*Four of five stocks are ticked. KAMAHOLD is left unticked because recording its bonus would move its gap from -2 to -10, away from zero instead of toward it. Two more actions on other stocks are skipped outright, both because the tradebook held nothing on their ex date.*
 
 ## Undoing a recorded action
 
@@ -80,15 +80,15 @@ If you hold the same stock across more than one broker, the trading account pick
 
 ## Before you trust XIRR, gains or allocation
 
-An unresolved gap shows up well past this screen. The Unrealised Gains screen says outright that its long term and short term gains are worked out from the tradebook, adjusted for whichever corporate actions have been synced or recorded, and that where the tradebook and the demat holding disagree, the figures for that stock cannot be trusted until the gap is resolved. It doesn't soften this into a wrong number, either: a gapped stock's LTCG and STCG columns are left blank rather than shown, next to a **Resolve** button in place of the figures, and its own **Needs Attention** card carries the same count this screen does. Wherever a stock's XIRR is shown, the same **Data gap** warning follows it.
+An unresolved gap shows up well past this screen. The Unrealised Gains screen says outright that its long term and short term gains are worked out from the tradebook, adjusted for whichever corporate actions have been synced or recorded, and that where the tradebook and the demat holding disagree, the figures for that stock cannot be trusted until the gap is resolved. It shows no number in place of a wrong one: a gapped stock's LTCG and STCG columns are left blank, with a **Resolve** button where the figures would be, and its own **Needs Attention** card carries the same count this screen does. Wherever a stock's XIRR is shown, the same **Data gap** warning follows it.
 
 The cost your allocation screen compares against your target is drawn from the same trade history, so a stock whose cost is wrong because of an unrecorded split or bonus carries that error into its allocation gap too, even though nothing on that screen names it directly.
 
 ![The Unrealised Gains screen banner explaining that gains come from the tradebook adjusted for synced or recorded corporate actions, and that a disagreement leaves the figures untrustworthy, with a gapped stock's LTCG and STCG columns left blank next to a Resolve button](../../assets/images/consistency-unrealised-gains-gap.webp)
 
-*AMAGI carries a one share gap, so its LTCG and STCG columns are blank rather than wrong. Eleven of forty-seven stocks need attention here today.*
+*AMAGI carries a one share gap, so its LTCG and STCG columns are blank instead of wrong. Eleven of forty-seven stocks need attention here today.*
 
-This whole check rarely takes long. Clearing the table takes well under a minute for most portfolios, and the bulk tool above closes a year's worth of splits and bonuses in one pass. What that minute buys you is trusting the number the next time you look at a return, a gain or a gap to target, instead of wondering whether a forgotten bonus is sitting underneath it.
+Clearing the table takes well under a minute for most portfolios, and the bulk tool above closes a year's worth of splits and bonuses in one pass. Afterwards you can read a return, a gain or an allocation gap without having to wonder whether a forgotten bonus is sitting underneath it.
 
 ## Where to go next
 

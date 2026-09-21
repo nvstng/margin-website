@@ -9,9 +9,9 @@ connects: ["Spreadsheet", "Margin"]
 writes: "Saves a forward projection against one stock"
 ---
 
-Most people who value stocks have a spreadsheet. It holds years of assumptions, a layout they trust, and formulas they have argued with. Moving one of those into Margin by hand is an hour of typing per company, which is why valuations stay in the sheet and the portfolio never sees them.
+If you value stocks, the model is probably already in a spreadsheet, with years of assumptions in a layout you trust. Moving one of those into Margin by hand is an hour of typing per company, which is why valuations stay in the sheet and the portfolio never sees them.
 
-An agent can read the sheet and make the calls. The interesting part is what it must not do.
+An agent can read the sheet and make the calls. What it must not do is compute anything.
 
 ## The agent never computes the valuation
 
@@ -21,11 +21,11 @@ Margin computes the DCF:
 
 This turns assumptions into every derived figure and saves nothing, so an agent can call it freely to check a mapping or compare two scenarios. Revenue per year, PAT, EPS, present values, intrinsic value and the implied return all come back from that one call.
 
-The save endpoint stores rows verbatim. An agent that computes EPS itself and saves its own number produces a projection that disagrees with what the app shows when you open it, and the disagreement is silent. Reading the sheet's formulas and reimplementing them in the skill is the same failure with more steps. The skill's job is to carry assumptions across and let the server derive the rest.
+The save endpoint stores rows verbatim. An agent that computes EPS itself and saves its own number produces a projection that disagrees with what the app shows when you open it, and nothing flags the disagreement. Reimplementing the sheet's formulas in the skill leads to the same place by a longer route. The skill carries the assumptions across and the server derives the rest.
 
 ## What the compute call needs
 
-The body has four parts, and the units are where mappings go wrong:
+The body has four parts, and the units are where a mapping usually goes wrong:
 
 - `baseYear`, the trailing twelve month year zero everything grows from, with `revenue`, `operatingProfit`, `otherIncome`, `depreciation`, `interest`, `tax` and `eps`. Absolute figures in one consistent unit, and the share count is derived as PAT divided by EPS, so EPS has to sit on the same unit basis as the profit figures.
 - `years`, one row per projected year with `revenueGrowthRate`, `operatingMargin`, `otherIncomeRatio`, `depreciationRatio`, `interestRatio`, `taxRate`, `cashFlowMultiplier` and `numberOfSharesGrowth`. Rates and ratios are whole percents here, so `15` means fifteen percent, while `cashFlowMultiplier` is a plain multiplier where `0.8` means eighty percent of profit converts to cash.
@@ -41,11 +41,11 @@ Saving needs a `stockOfInterestId` rather than a stock id, and one call resolves
     POST /web/stockOfInterest/track/{stockId}
     POST /web/projection/stockOfInterest
 
-The track call returns `alreadyTracked`, which is false when the stock was not in any list, holding or trade and has just been added to the account. Worth telling the user, since it means the skill changed more than a valuation.
+The track call returns `alreadyTracked`, which is false when the stock was not in any list, holding or trade and has just been added to the account. Tell the user when this happens, since it means the skill changed more than a valuation.
 
 ## What to report back
 
-The compute response carries `terminalValuePercentage` on each intrinsic value. A valuation that is mostly terminal value rests on the growth assumption rather than on the years you forecast, and reporting that share is more useful than reporting intrinsic value alone. `priceAsOf` is worth reading too, because a quote can be several days old for a thinly traded stock and the implied return is only as current as the price it was compared against.
+The compute response carries `terminalValuePercentage` on each intrinsic value. A valuation that is mostly terminal value rests on the growth assumption and not on the years you forecast, so report that share alongside the intrinsic value. `priceAsOf` is worth reading too, because a quote can be several days old for a thinly traded stock and the implied return is only as current as the price it was compared against.
 
 ## A skill to start from
 
@@ -88,7 +88,7 @@ Saves nothing, so call it as often as needed. Show the user the intrinsic values
 `terminalValuePercentage`, `price` and `priceAsOf` before asking whether to save.
 
 Report `terminalValuePercentage`. A valuation that is mostly terminal value rests
-on the growth assumption rather than on the forecast years.
+on the growth assumption and not on the forecast years.
 
 ## 3. Resolve the stock
 
@@ -104,4 +104,4 @@ comes back false the stock has just been added to the account, so say so.
 Send the rows the compute call returned. Do not adjust them.
 ```
 
-Reading the live contract on every run matters more for this recipe than for the upload ones, because the payload has more fields and two of them were once spelled differently. A skill carrying a stale field list gets a 400 that names a field the author never wrote.
+Reading the live contract on every run matters more for this recipe than for the upload ones, because the payload has more fields and two of them were once spelled differently. A skill carrying a stale field list gets back a 400 naming a field its author never wrote.

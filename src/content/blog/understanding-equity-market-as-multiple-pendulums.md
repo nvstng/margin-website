@@ -7,9 +7,9 @@ category: "Markets"
 readingTime: "5 min read"
 ---
 
-Equity market commentators regularly pronounce that the market is expensive, and at other times that it is cheap. At a very broad level such a call may even be right, but it is not really helpful to know. Take a recurring pattern in market commentary: a bubble gets called in some pocket of the market — small and mid caps, say — and the call gets repeated for months on end. Without going into whether any particular call was right or wrong — the question is — what does one do with this information. The obvious impression from such statements is that one should sit out, or take a cash position. That instinct can be the wrong one.
+Equity market commentators regularly pronounce that the market is expensive, and at other times that it is cheap. At a very broad level such a call may even be right, but it is not really helpful to know. Take a recurring pattern in market commentary: a bubble gets called in some pocket of the market, say small and mid caps, and the call gets repeated for months on end. Leaving aside whether any particular call was right or wrong, the question is what one does with this information. The obvious impression from such statements is that one should sit out or take a cash position, and acting on that impression is often the wrong move.
 
-That is not because the statement is right or wrong, but because it is too broad to be acted upon, and hence should not be acted upon. It needs a further drill-down, unless one is a very broad index investor. Whether the call is expensive or cheap, as soon as one digs deeper one will see that not everything is equally expensive, and not everything is equally cheap. No one needs to buy the entire market. People invest in direct equities, indexes based on market capitalisation, thematic indexes, custom indexes (e.g. small cap), mutual funds, and so on.
+The problem is not whether the statement is right or wrong. It is too broad to be acted upon, and hence should not be acted upon. It needs a further drill-down, unless one is a very broad index investor. Whether the call is expensive or cheap, as soon as one digs deeper one will see that not everything is equally expensive, and not everything is equally cheap. No one needs to buy the entire market. People invest in direct equities, indexes based on market capitalisation, thematic indexes, custom indexes (e.g. small cap), mutual funds, and so on.
 
 Then, is there another way to make sense of the market than thinking at the level of all the stocks, or does each stock have its own independent pathway with no room for abstraction?
 
@@ -17,15 +17,15 @@ There are three abstract models worth examining here.
 
 ## Market cap based
 
-It breaks down the overall market of stocks by market cap (i.e. small, mid, and large). This is not very helpful, as it doesn't establish the connection between market cap and the fortune of the companies in them. A technology business and a chemical business, even in the same market cap group, don't tell us why they should share the same fundamentals and hence be expensive or cheap. Such a grouping may fit some stocks but not others. So it functions as a lazy model.
+It breaks down the overall market of stocks by market cap (i.e. small, mid, and large). This is not very helpful, as it doesn't establish the connection between market cap and the fortune of the companies in them. A technology business and a chemical business, even in the same market cap group, don't tell us why they should share the same fundamentals and hence be expensive or cheap. Such a grouping may fit some stocks but not others, which makes it a lazy model to work with.
 
 ## Liquidity
 
-These are used by investors who rely on macro-economic understanding to gauge the profile of the market. The idea is that the direction and quantum of liquidity determines how markets and market segments will behave. Liquidity-based investing is far more complex than it appears, because it depends on a large number of variables — interest rates, currency flows, government borrowing, global risk appetite — interacting with each other in unpredictable ways.
+These are used by investors who rely on macro-economic understanding to gauge the profile of the market. The idea is that the direction and quantum of liquidity determines how markets and market segments will behave. Liquidity-based investing is far more complex than it appears, because it depends on a large number of variables, among them interest rates, currency flows, government borrowing and global risk appetite, all interacting with each other in unpredictable ways.
 
 ## Themes, industry, and sectors
 
-Here we break down the businesses by their industry, sectors, and themes, and then try to understand what is happening in them. The idea is that businesses in the same industry have similar business drivers (demand, supply, and regulation), and hence their stock prices are likely to be more closely related. At any point in time, some industries are strengthening while others are weakening — the point is to read that correlation rather than treat the market as one number.
+Here we break down the businesses by their industry, sectors, and themes, and then try to understand what is happening in them. The idea is that businesses in the same industry have similar business drivers (demand, supply, and regulation), and hence their stock prices are likely to be more closely related. At any point in time some industries are strengthening while others are weakening, and reading that correlation tells you more than treating the market as one number.
 
 ## Why this approach works
 
@@ -43,4 +43,4 @@ One can also calibrate how one focuses their time. Industries going through a do
 
 *Each industry is its own pendulum, at a different point in its swing.*
 
-A very high-level picture of the market then becomes that of dozens of pendulums swinging from cheap to expensive, or from fear to greed — far more useful than watching just one.
+A very high-level picture of the market then becomes that of dozens of pendulums swinging from cheap to expensive, or from fear to greed, which is a good deal more useful than watching just one.

@@ -7,23 +7,23 @@ updatedAt: 2026-07-20
 readingTime: "5 min read"
 ---
 
-Screening by numbers is rarely a real choice. The market has thousands of listed companies, and a numeric filter is the only tool that runs across all of them, so a P/E below some threshold or revenue growth above another becomes the way in. What is possible ends up being what is used.
+Screening by numbers is what most of us fall back on, because a numeric filter is the only thing that runs across thousands of listed companies. A P/E below some threshold, or revenue growth above another, becomes the way in simply because it is the filter that can be applied at that scale.
 
-That leaves two questions the filter never answers. First, what is it missing? Every threshold has false negatives, good businesses quietly dropped because they did not fit the numbers you happened to pick. Second, why would that filter surface good companies at all? No number describes what makes a business worth owning. Low P/E, low PEG, high growth, each turns up some companies worth your time and many that are not, because the same figure can come from a strong business or a broken one.
+Two questions go unanswered when you do this. The first is what the filter drops. Every threshold has false negatives, good businesses excluded because they did not fit the particular numbers you picked. The second is why the filter should surface good companies at all, given that no number describes what makes a business worth owning. Low P/E, low PEG and high growth each turn up some companies worth your time and many that are not, because the same figure can come from a strong business or a broken one.
 
-So a numeric screen is a hack, a way to avoid the hard thing: getting into enough detail about a company to actually judge it. Qualitative screening is that hard thing, done fast enough to run across the whole market. It asks the real question first. Is this the kind of business I want, before I worry about the exact price, growth, margins and the rest of the numbers.
+A numeric screen is therefore a way of avoiding the harder work, which is getting into enough detail about a company to judge it. Qualitative screening is that harder work done quickly enough to run across the whole market, and it asks whether this is the kind of business you want before you get to the exact price, growth, margins and the rest of the numbers.
 
 ## The concept behind the feature
 
 What decides a long term outcome sits outside any filter: the durability of the franchise, the honesty of the management, the structure of the industry, whether the recent numbers are representative or a one off. Each of these is a judgement you have to form for yourself, and forming it is the work a screen is meant to help with, not skip.
 
-Qualitative screening is the habit of forming that judgement quickly across many companies. The point is coverage. A business you never look at is an opportunity you never had, so the aim is to pass every listed company through this first human test. Margin's workflow is built to make that scale to the whole market.
+Qualitative screening is the habit of forming that judgement quickly across many companies, and what it buys you is coverage. A business you never look at is an opportunity you never had, so the aim is to pass every listed company through this first human test.
 
-Put rough numbers on it. At 2 minutes a stock, and often far less since many get rejected in 15 to 30 seconds, you clear 15 stocks in under 30 minutes. Do that daily and you pass every listed company through the screen inside a year. The only question left is what workflow makes that pace possible.
+The rough arithmetic is manageable. At 2 minutes a stock, and often far less since many get rejected in 15 to 30 seconds, you clear 15 stocks in under 30 minutes. Do that daily and every listed company goes through the screen inside a year. Margin's workflow exists to make that pace possible.
 
 ## How Margin's screen works
 
-Margin turns this into a deck of quick stories. Each card is a short summary of one business and its industry: what it does, where it sits in its industry, its financial health, its recent story. That is enough to decide whether this is an interesting business worth your time. You give a fast verdict on every card:
+Margin presents this as a deck of quick stories. Each card is a short summary of one business and its industry: what it does, where it sits in its industry, its financial health, and its recent story. Reading one card is enough to decide whether the business is worth your time. You give a fast verdict on every card:
 
 - **Yes**, a business worth digging into
 - **Maybe**, interesting but you are unsure
@@ -34,7 +34,7 @@ Margin remembers every call and picks up where you left off. Everything you mark
 
 ## Using it well
 
-Screen in short, frequent sessions rather than long ones. Snap judgements are the point. If a card makes you hesitate for more than a few seconds, that hesitation is itself the answer, mark it Maybe and move on.
+Screen in short, frequent sessions rather than long ones, and make the judgements quickly. If a card makes you hesitate for more than a few seconds, take the hesitation as your answer, mark it Maybe and move on.
 
 The screen is built for your phone, so you can do it casually, a few cards while you wait for something, and still make steady progress through the market.
 

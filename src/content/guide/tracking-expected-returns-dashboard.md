@@ -1,19 +1,19 @@
 ---
 title: "Tracking expected returns via the dashboard"
-description: "How the Margin dashboard turns your valuation assumptions into a live expected return for each holding, so you always know what you are underwriting."
+description: "How the Margin dashboard reads your valuation assumptions against the current price to give an expected return for each holding, and how to use that figure when you review the portfolio."
 feature: "Dashboard"
 order: 1
 updatedAt: 2026-07-20
 readingTime: "5 min read"
 ---
 
-Buying a stock is really buying a future return. The problem is that once a position is in the portfolio, the expected return that justified it tends to fade from view, while the market price stays loud. The Margin dashboard keeps the expected return in front of you, so the number that mattered when you bought still matters while you hold.
+You buy a stock for the return you expect from it, but once the position is in the portfolio that expected return tends to fade from view while the market price stays in front of you every day. The Margin dashboard keeps the expected return on screen alongside the price, so the figure that decided the purchase is still available while you hold.
 
 ## The concept behind the feature
 
-Your expected return on a stock is not fixed. It moves as the price moves and as your view of the business updates. A stock you bought for a 15 percent expected return might, after a sharp rally, now only offer 6 percent at the current price, even though nothing about the business has changed. Without tracking this, you cannot tell the difference between a holding that is still working and one that has quietly become expensive.
+Your expected return on a stock is not fixed. It moves as the price moves and as your view of the business updates. A stock you bought for a 15 percent expected return might, after a sharp rally, offer only 6 percent at the current price, even though nothing about the business has changed. Unless that figure is recalculated and shown to you, a holding that has become expensive looks the same as one that is still working.
 
-Expected return is the bridge between your valuation work and your portfolio decisions. The dashboard is where that bridge lives.
+Expected return is what connects your valuation work to your portfolio decisions, and the dashboard is where the two meet.
 
 ## What the dashboard shows
 
@@ -27,6 +27,6 @@ Because it reads from the same DCF and reverse DCF assumptions you set on each s
 
 ## Using it well
 
-Let the dashboard drive review. A holding whose expected return has fallen well below your hurdle is a candidate to trim or exit, regardless of whether it is up or down since you bought it. A holding whose expected return has risen after a sell off, with the thesis intact, is a candidate to add.
+Use the dashboard to drive your review. A holding whose expected return has fallen well below your hurdle is a candidate to trim or exit, regardless of whether it is up or down since you bought it. A holding whose expected return has risen after a sell off, with the thesis intact, is a candidate to add.
 
-Set a return threshold you are unwilling to hold below, and use the dashboard to enforce it. This turns valuation from a one time exercise at purchase into a standing discipline. To keep the underlying assumptions honest, revisit the [stock story](/guides/stock-story-research-starting-point) whenever the business materially changes.
+Set a return threshold you are unwilling to hold below and use the dashboard to enforce it, so that the valuation keeps working after the purchase instead of being done once and filed away. To keep the underlying assumptions honest, revisit the [stock story](/guides/stock-story-research-starting-point) whenever the business materially changes.

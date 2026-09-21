@@ -15,7 +15,7 @@ The screen sits under **Portfolio** and then **Ledger** in the top navigation. U
 
 Margin reads one financial year per file, and the file must carry the broker's own **Opening Balance** and **Closing Balance** lines, because those two figures are what every row is checked against. For a supported brokerage the upload dialog tells you where the file is downloaded from, and it goes in exactly as the broker exports it. [When Margin cannot read your broker's file](/guides/unsupported-broker-formats) lists the supported brokerages.
 
-Download every year you have held the account. A year left out is not an approximation, it is a hole, and the section on years on record explains what that does to the totals.
+Download every year you have held the account. A year left out leaves a hole in the record rather than a rough approximation of it, and the section on years on record explains what that does to the totals.
 
 ## Which trading account the file belongs to
 
@@ -29,8 +29,8 @@ The file is read in the format of the trading account's brokerage, so the accoun
 The **Expected file format** panel in the dialog lists the columns for the chosen brokerage, with an example row and a **Download template** button for the Other layout. Three things about the content matter more than the headers:
 
 - **Type** is the column everything is read from, and each row must be one of five kinds. A file from a supported brokerage already uses the wordings Margin expects. In the Other layout the accepted wordings are **Bank Receipts**, **Deposit** or **Money In** for money arriving from your bank; **Bank Payments**, **Withdrawal** or **Money Out** for money paid back to it; **Book Voucher** or **Settlement** for a trade settlement; **Journal Entry** or **Charge** for a fee posted on its own; and **Square Off**. Any other wording stops the file at that line, and the message names the list.
-- A deposit filed as a settlement is not an error the upload can see. Net invested is built from the money in and money out rows only, so a row with the wrong type is silently left out of it. Get the type column right before anything else.
-- The opening balance plus every credit less every debit must equal the closing balance, to the paisa. When it does not, the file card says so and by how much, and the file is not sent. Rows are missing from the download, so the fix is to download the year again. Editing the file does not make it balance.
+- A deposit filed as a settlement is not an error the upload can see. Net invested is built from the money in and money out rows only, so a row carrying the wrong type drops out of the figure with no warning. Check the type column before anything else.
+- The opening balance plus every credit less every debit must equal the closing balance, to the paisa. When it does not, the file card says so and by how much, and the file is not sent. The cause is rows missing from the download, so download the year again instead of editing the file to make it add up.
 
 ![A file card showing the statement does not balance error, with the opening balance, credits, debits, derived closing balance and the gap spelled out](../../assets/images/funds-file-does-not-balance.webp)
 
@@ -53,7 +53,7 @@ Each year gets a result line with the entries recorded and the money in, money o
 
 ![The upload result for two years, each with entries recorded and money in, money out and net added, followed by the batch table](../../assets/images/funds-upload-result.webp)
 
-*FY 2022-23 and FY 2024-25 recorded in one go. The second result already warns that FY 2023-24 is missing between them.*
+*FY 2022-23 and FY 2024-25 recorded in one go, with the second result already warning that FY 2023-24 is missing between them.*
 
 An upload only ever adds rows. It never deletes or rewrites a year, so a file sent under the wrong account stays until you clear that year from the **Years On Record** tab.
 
@@ -66,7 +66,7 @@ Only two of the five row types move money between you and the broker.
 - **Net invested** is money in less money out.
 - **Average a year** on the summary cards is net invested divided by the number of financial years in the by-year table.
 
-Settlements, charges and square offs move money within the brokerage account, from cash to stock or from cash to the broker, and they are left out. This is why the figure is called net invested: it says what you put in. What those rupees are worth today is a different number.
+Settlements, charges and square offs move money within the brokerage account, from cash to stock or from cash to the broker, and they are left out. Net invested is named for what it measures, the money you put in, and it says nothing about what those rupees are worth today.
 
 Margin keeps no statement balances, so it cannot tell what part of net invested is deployed in stock and what part is still sitting as cash with the broker, and net invested counts both.
 
@@ -78,7 +78,7 @@ The by-year table under the period picker carries a **Cumulative** column, the r
 
 ![The net investment by financial year table with FY 2024-25 and FY 2022-23, and no row for the year between](../../assets/images/funds-by-year-table.webp)
 
-*Two years on record and nothing between them. Cumulative goes from 11.5 lakh straight to 27.8 lakh, and whatever moved in FY 2023-24 is not in it.*
+*Two years on record with nothing between them. Cumulative goes from 11.5 lakh straight to 27.8 lakh, and whatever moved in FY 2023-24 is not in it.*
 
 ## Charges by year
 
@@ -86,11 +86,11 @@ A row the broker posts as a fee on its own is typed **Charge**, and the ledger k
 
 ![All Entries filtered to Type Charge and FY 2024-25, showing five charge rows and a totals line of 417.72 debited](../../assets/images/funds-charges-filter.webp)
 
-*Five charges in a year, 417.72 rupees between them. The ledger cannot say what any of them was for.*
+*Five charges in a year, totalling 417.72 rupees. The ledger cannot say what any of them was for.*
 
 Two limits on what this can tell you:
 
-- Brokerage and STT are netted inside the settlement amounts of each trade and are not itemised anywhere in the statement, so the charge total is only the separately posted fees. It is not the cost of trading. Read total brokerage from the tradebook or the broker's P&L report.
+- Brokerage and STT are netted inside the settlement amounts of each trade and are not itemised anywhere in the statement, so this total covers only the separately posted fees and falls well short of what trading actually cost you. Read total brokerage from the tradebook or the broker's P&L report.
 - Margin stores no description of a charge, so there is no breakdown by kind and nothing to search by wording. To find out what a row was for, go back to the statement you downloaded.
 
 An agent working through the Margin API reads the same figures per year from the charges endpoint, with the same limitation attached.
@@ -103,7 +103,7 @@ Margin keeps no balances, so the only completeness check it can run is a gap bet
 
 ![The Years On Record tab for one trading account with a warning that FY 2023-24 is missing, and a table of the two years that have rows](../../assets/images/funds-years-on-record.webp)
 
-*One brokerage, two years, one gap. The bin icon at the end of each row clears that year.*
+*One brokerage with two years on record and a gap between them. The bin icon at the end of each row clears that year.*
 
 A gap distorts more than that year's row. Net invested, the cumulative column, average a year and the money-weighted return on the return side are all summed from the rows on record, so whatever moved in or out during the missing year is absent from every total after it. Upload the missing year and the totals correct themselves.
 

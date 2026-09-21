@@ -9,11 +9,11 @@ connects: ["Margin", "Broker"]
 writes: "Creates, updates and removes alerts in your broker account"
 ---
 
-A watchlist tells you a price moved. It cannot tell you whether the move made the stock worth buying, because the price you would buy at depends on what you think the business is worth, and that number lives in your valuation rather than in your broker.
+A watchlist tells you a price moved, but not whether the move made the stock worth buying, because the price you would buy at depends on what you think the business is worth, and that number sits in your valuation and not in your broker.
 
-This recipe closes the gap. Every stock you track in Margin has a saved DCF. That DCF implies a return at any given price, so it also implies the price at which the return would reach whatever threshold you use. An agent can compute that price for each stock and write it into your broker as an alert.
+This recipe carries it across. Every stock you track in Margin has a saved DCF. That DCF implies a return at any given price, so it also implies the price at which the return would reach whatever threshold you use. An agent can compute that price for each stock and write it into your broker as an alert.
 
-## Two halves, and only one needs solving
+## Two halves, one of which needs no computation
 
 Stocks on a watch list carry a valuation, and the alert price has to be derived from it. Stocks you hold often carry a price you set yourself, and Margin returns those directly:
 
@@ -33,13 +33,13 @@ The intrinsic value at a given year is a function of the assumptions and not of 
 
 ## Reconcile, do not recreate
 
-The failure mode here is a skill that deletes every alert and writes the set again on each run. Alerts you created by hand disappear, and the broker's alert count drifts if a delete half-fails.
+A skill that deletes every alert and writes the set again on each run will destroy alerts you created by hand, and the broker's alert count drifts if a delete half-fails.
 
-Reconciliation is the shape worth building. Read the alerts that exist, build the plan from Margin, and diff the two into four buckets: create, update, keep and delete. Show the diff, then apply only what the user approves. Keeping a stable naming convention for skill-created alerts is what lets the next run tell its own alerts from yours.
+Build it as a reconciliation instead. Read the alerts that exist, build the plan from Margin, and diff the two into four buckets: create, update, keep and delete. Show the diff, then apply only what the user approves. A stable naming convention for skill-created alerts is what lets the next run tell its own alerts from yours.
 
 ## Notification only
 
-Alerts that notify and nothing else. Broker alert APIs can attach an order to an alert, and a skill that computes a target price should not also place the trade. The point of the recipe is to bring the price in front of you at the moment it matters, leaving the decision where it belongs.
+Broker alert APIs can attach an order to an alert, and a skill that computes a target price should not also place the trade. The recipe exists to put the price in front of you at the moment it matters, and the decision after that is yours to make.
 
 ## A skill to start from
 

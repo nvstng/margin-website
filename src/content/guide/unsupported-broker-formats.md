@@ -22,13 +22,13 @@ Every upload in Margin starts by asking which brokerage the file came from, beca
 
 ## Why a broker is missing
 
-The reason is always the same: Margin does not know the file format for that broker yet. Nothing about the broker is unsupported in principle. A layout is added once someone shows us a real export from that broker, so the list above grows one statement at a time.
+In every case it is because Margin has not been shown that broker's file format yet. A layout gets added once someone sends in a real export, so the list above grows one statement at a time.
 
-Formats also drift. A broker can rename a column or change a date format between one year's export and the next, and the first person to download the new shape sees an upload refused, which is sent in through the same route as a new broker.
+Formats also drift. A broker can rename a column or change a date format between one year's export and the next, and the first person to download the new version sees an upload refused. That goes in through the same route as a new broker.
 
 ## What to send
 
-Margin needs the shape of the file, and nothing that identifies you.
+Margin needs the layout of the file and nothing that identifies you.
 
 - The header row, exactly as the file has it.
 - One or two data rows, with amounts, names and dates changed if you prefer. What matters is the position of each field and how the dates and numbers are written.
@@ -55,7 +55,7 @@ The format is mapped on Margin's side and the broker is added to the layouts the
 
 ## Meanwhile, the Other layout
 
-You do not have to wait for holdings, trades or the funds statement. Add a trading account with a brokerage of **Other**, open the upload dialog for it, and the **Expected file format** panel lists the columns. Save your broker's export as a CSV with those headers and it goes in like any other file. The one thing to keep in mind is that the Other account is a separate ledger from the broker's own name, so once the broker is added you can either carry on with the Other account or move to a new one.
+You do not have to wait for holdings, trades or the funds statement. Add a trading account with a brokerage of **Other**, open the upload dialog for it, and the **Expected file format** panel lists the columns. Save your broker's export as a CSV with those headers and it goes in like any other file. Keep in mind that the Other account is a separate ledger from the broker's own name, so once the broker is added you can either carry on with the Other account or move to a new one.
 
 Dividends have no Other layout, so a dividend statement from a broker outside the supported list waits for its format to be added.
 

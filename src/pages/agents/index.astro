@@ -26,7 +26,7 @@ const headings = [
 const rules = [
   {
     title: 'Margin computes, the agent carries',
-    body: 'Every derived figure comes from the server. An agent that works out its own EPS or intrinsic value produces a saved valuation that disagrees with what the app shows you, and the disagreement is silent.',
+    body: 'Every derived figure comes from the server. An agent that works out its own EPS or intrinsic value produces a saved valuation that disagrees with what the app shows you, and nothing flags the disagreement.',
   },
   {
     title: 'Nothing writes without your go-ahead',
@@ -34,7 +34,7 @@ const rules = [
   },
   {
     title: 'The contract is fetched, never remembered',
-    body: 'Margin publishes its own API guide for agents. A skill reads it at the start of every run, because a skill carrying its own copy of the endpoints goes wrong quietly when the contract moves.',
+    body: 'Margin publishes its own API guide for agents. A skill reads it at the start of every run, because a skill carrying its own copy of the endpoints breaks in hard-to-spot ways when the contract moves.',
   },
   {
     title: 'Your credentials stay on your machine',
@@ -65,15 +65,15 @@ const rules = [
           <em class="font-semibold not-italic">to an agent</em>
         </h1>
         <p class="text-muted text-lg leading-relaxed max-w-2xl mb-6">
-          A portfolio takes a surprising amount of clerical work to keep honest. Holdings go stale
-          the week you buy something. A year of dividends sits in a console export until you
-          remember to fetch it. The valuation you spent an evening on stays in a spreadsheet
+          Keeping a portfolio record honest takes a surprising amount of clerical work. Holdings go
+          stale the week you buy something, a year of dividends sits in a console export until you
+          remember to fetch it, and the valuation you spent an evening on stays in a spreadsheet
           because retyping it into anything else costs another hour.
         </p>
         <p class="text-muted text-lg leading-relaxed max-w-2xl">
-          None of that needs your judgement. It needs your credentials, a few rules about what
-          replaces what, and someone patient enough to check the result. Margin publishes an API
-          and a machine-readable guide written for AI agents, so you can write that patience down
+          None of that work needs your judgement. What it needs is your credentials, a few rules
+          about what replaces what, and the patience to check the result. Margin publishes an API
+          and a machine-readable guide written for AI agents, so you can write those steps down
           once as a skill and run it whenever you want.
         </p>
       </div>
@@ -151,11 +151,11 @@ const rules = [
           The recipes
         </h2>
         <p class="text-muted leading-relaxed max-w-2xl mb-10">
-          Each one explains what the job is, which calls it makes, and the specific thing that
-          goes wrong when you get it slightly wrong. Each ends with a skill you can copy into
-          your own project and adapt. They are written to be read and changed rather than run
-          unaltered, because your broker, your accounts and your own tolerance for a script
-          writing to them are all yours to set.
+          Each one explains what the job is, which calls it makes, and what specifically goes
+          wrong when you get a detail slightly wrong. Each ends with a skill you can copy into
+          your own project and adapt. They are written to be read and changed, not run unaltered,
+          because your broker, your accounts and your own tolerance for a script writing to them
+          are all yours to set.
         </p>
 
         <div class="space-y-14">
@@ -213,7 +213,7 @@ const rules = [
           </li>
           <li>
             Save it somewhere private on your own machine, readable only by you, and have your
-            skills read it from there rather than pasting it into a prompt.
+            skills read it from there instead of pasting it into a prompt.
           </li>
           <li>
             Point your agent at <a href={LLMS_URL} class="text-gold-400 hover:text-gold-300 transition-colors">go.marginapp.in/llms.txt</a>.
@@ -230,9 +230,9 @@ const rules = [
         <p class="text-xs text-gold-400 tracking-widest uppercase mb-4">A word on trust</p>
         <p class="text-muted text-sm leading-relaxed mb-4">
           These recipes hand a program your broker session and a token that writes to your
-          portfolio. Read a skill before you run it, the same way you would read a script that
+          portfolio. Read a skill before you run it, the same way you would read any script that
           touches your accounts. The ones here ask for your go-ahead before every write and show
-          you the diff first, and a skill you adapt should keep that shape.
+          you the diff first, and a skill you adapt should keep doing both.
         </p>
         <p class="text-muted text-sm leading-relaxed">
           Margin never sees your broker credentials in any of this. Your agent talks to your
