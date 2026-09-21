@@ -4,6 +4,8 @@ import Layout from '../../layouts/layout.astro';
 import Nav from '../../components/nav.astro';
 import Footer from '../../components/footer.astro';
 import TokenScope from '../../components/token-scope.astro';
+import AgentTopology from '../../components/agent-topology.astro';
+import GuideToc from '../../components/guide-toc.astro';
 import { groupByTask } from '../../domain/recipe';
 
 const SIGNUP_URL = 'https://go.marginapp.in';
@@ -11,6 +13,15 @@ const TOKENS_URL = 'https://go.marginapp.in/settings';
 const LLMS_URL = 'https://go.marginapp.in/llms.txt';
 
 const groups = groupByTask(await getCollection('recipe'));
+
+const headings = [
+  { depth: 2, slug: 'how-it-fits', text: 'How the pieces fit' },
+  { depth: 2, slug: 'rules', text: 'The rules the recipes share' },
+  { depth: 2, slug: 'scope', text: 'What a token can reach' },
+  { depth: 2, slug: 'recipes', text: 'The recipes' },
+  { depth: 2, slug: 'getting-started', text: 'Getting started' },
+  { depth: 2, slug: 'trust', text: 'A word on trust' },
+];
 
 const rules = [
   {
@@ -39,7 +50,13 @@ const rules = [
   <Nav />
 
   <main class="pt-32 pb-24">
-    <div class="max-w-4xl mx-auto px-6 lg:px-8">
+    <div class="max-w-6xl mx-auto px-6 lg:px-8 lg:grid lg:grid-cols-[14rem_minmax(0,48rem)] lg:gap-16 lg:justify-center">
+
+      <aside class="hidden lg:block">
+        <GuideToc headings={headings} />
+      </aside>
+
+      <div class="min-w-0">
 
       <div class="reveal mb-16">
         <p class="text-xs text-gold-400 tracking-widest uppercase mb-4">Agents</p>
@@ -89,7 +106,21 @@ const rules = [
         </div>
       </div>
 
-      <section class="reveal reveal-delay-2 mb-20">
+      <section id="how-it-fits" class="reveal reveal-delay-2 mb-20 scroll-mt-28">
+        <h2 class="font-display text-3xl font-light text-cream mb-4 gold-line">
+          How the pieces fit
+        </h2>
+        <p class="text-muted leading-relaxed max-w-2xl mb-10">
+          The agent runs on your machine, on whatever subscription you already pay for, with only
+          the file system, browser and web access you choose to give it. It reaches your broker
+          with a login it holds there and Margin with a token it holds there, and the two never
+          meet. Margin keeps your data and does every computation. The web app is where you sign
+          in to see the same figures and to do the few things a token is not allowed to.
+        </p>
+        <AgentTopology />
+      </section>
+
+      <section id="rules" class="reveal mb-20 scroll-mt-28">
         <h2 class="font-display text-3xl font-light text-cream mb-8 gold-line">
           The rules the recipes share
         </h2>
@@ -171,7 +202,7 @@ const rules = [
         </div>
       </section>
 
-      <section class="reveal mb-16">
+      <section id="getting-started" class="reveal mb-16 scroll-mt-28">
         <h2 class="font-display text-3xl font-light text-cream mb-6 gold-line">
           Getting started
         </h2>
@@ -195,7 +226,7 @@ const rules = [
         </ol>
       </section>
 
-      <div class="reveal bg-navy-800/30 border border-gold-400/20 rounded-xl p-8">
+      <div id="trust" class="reveal bg-navy-800/30 border border-gold-400/20 rounded-xl p-8 scroll-mt-28">
         <p class="text-xs text-gold-400 tracking-widest uppercase mb-4">A word on trust</p>
         <p class="text-muted text-sm leading-relaxed mb-4">
           These recipes hand a program your broker session and a token that writes to your
@@ -218,6 +249,7 @@ const rules = [
         </a>
       </div>
 
+      </div>
     </div>
   </main>
 

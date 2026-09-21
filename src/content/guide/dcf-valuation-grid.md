@@ -20,11 +20,11 @@ This guide walks through the screen in the order you use it.
 
 ## The TTM block
 
-Above the grid sits **Trailing 12 Months (TTM)**. Margin fills it from the company's reported numbers, and every projected year is built off it.
+Above the grid sits **Trailing 12 Months (TTM)**. Margin does not fill this in for you. You type in the company's trailing twelve month numbers yourself, and every projected year is built off what you enter.
 
-- **Revenue, Operating Profit, Other Income, Depreciation, Interest, Tax** and **EPS** can all be edited.
-- **PAT** and **Shares (Cr)** are computed and read only. Shares comes from PAT divided by EPS, so correcting EPS corrects the share count.
-- Edit these when the reported numbers include something you do not want to project forward, such as a one off gain or an exceptional write off.
+- **Revenue, Operating Profit, Other Income, Depreciation, Interest, Tax** and **EPS** are the fields you fill in.
+- **PAT** and **Shares (Cr)** are computed and read only. Shares comes from PAT divided by EPS, so getting EPS right also gets the share count right.
+- Leave out anything you do not want to project forward, such as a one off gain or an exceptional write off.
 - Everything in the grid moves when you change a TTM field, because Year 0 is the TTM year.
 
 ![The Trailing 12 Months block above the grid, with the Valued For quarter and the grid buttons below it](../../assets/images/dcf-ttm-block.webp)

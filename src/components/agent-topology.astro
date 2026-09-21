@@ -1,0 +1,120 @@
+---
+const machineTools = [
+  { x: 215, title: 'File system', note: 'skill, token' },
+  { x: 313, title: 'Browser', note: 'broker login' },
+  { x: 411, title: 'Web search', note: 'filings, news' },
+];
+
+const steps = [
+  { tone: 'gold', title: 'Fetch the contract', body: 'The agent reads llms.txt from Margin before anything else, so it works against the current API rather than a remembered copy.' },
+  { tone: 'emerald', title: 'Read both sides', body: 'It pulls holdings from your broker through your browser session, and the record Margin already holds through your token.' },
+  { tone: 'amber', title: 'Show you the diff', body: 'What differs is laid out as a proposed write and the agent stops there. Nothing has changed yet on either side.' },
+  { tone: 'amber', title: 'Write on your go-ahead', body: 'Margin checks the payload first, so a rejected write leaves the account exactly as it was.' },
+  { tone: 'emerald', title: 'Read back and verify', body: 'The agent reads the summary again and matches it against what it sent. The figures it reports are the ones the web app shows you.' },
+];
+
+const dots = {
+  gold: 'bg-gold-400',
+  emerald: 'bg-emerald-400',
+  amber: 'bg-amber-400',
+};
+---
+
+<div class="overflow-x-auto -mx-6 px-6 lg:mx-0 lg:px-0">
+  <svg
+    viewBox="0 0 900 580"
+    class="w-full min-w-[720px] font-sans"
+    role="img"
+    aria-label="How you, the agent on your machine, your broker and Margin connect"
+  >
+    <defs>
+      <marker id="arrow-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M 0 0 L 10 5 L 0 10 z" class="fill-muted" />
+      </marker>
+      <marker id="arrow-gold" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M 0 0 L 10 5 L 0 10 z" class="fill-gold-400" />
+      </marker>
+    </defs>
+
+    <rect x="190" y="40" width="330" height="310" rx="14" class="fill-navy-800 stroke-border" fill-opacity="0.25" stroke-dasharray="5 5" />
+    <text x="206" y="62" class="fill-gold-400 text-[10px] tracking-[0.2em] uppercase">Your machine</text>
+
+    <rect x="560" y="40" width="320" height="455" rx="14" class="fill-navy-800 stroke-border" fill-opacity="0.25" stroke-dasharray="5 5" />
+    <text x="576" y="62" class="fill-gold-400 text-[10px] tracking-[0.2em] uppercase">Margin</text>
+
+    <rect x="20" y="95" width="130" height="90" rx="10" class="fill-navy-800 stroke-gold-400" stroke-opacity="0.4" />
+    <text x="85" y="122" text-anchor="middle" class="fill-cream text-[15px] font-display font-semibold">You</text>
+    <text x="85" y="146" text-anchor="middle" class="fill-muted text-[11px]">prompt the agent</text>
+    <text x="85" y="160" text-anchor="middle" class="fill-muted text-[11px]">read each diff</text>
+    <text x="85" y="174" text-anchor="middle" class="fill-muted text-[11px]">say go ahead</text>
+
+    <rect x="215" y="80" width="260" height="110" rx="10" class="fill-navy-800 stroke-border" />
+    <text x="345" y="108" text-anchor="middle" class="fill-cream text-[15px] font-display font-semibold">AI agent</text>
+    <text x="345" y="130" text-anchor="middle" class="fill-muted text-[11px]">Claude Code, Codex or any agent</text>
+    <text x="345" y="146" text-anchor="middle" class="fill-muted text-[11px]">on your subscription, not Margin's</text>
+    <text x="345" y="170" text-anchor="middle" class="fill-gold-300 text-[11px]">mgn_ token kept in a private file</text>
+
+    <path d="M 345 190 V 228 M 257 228 H 453 M 257 228 V 250 M 355 228 V 250 M 453 228 V 250" class="stroke-border" fill="none" stroke-width="1.5" />
+    {machineTools.map((tool) => (
+      <>
+        <rect x={tool.x} y="250" width="84" height="64" rx="8" class="fill-navy-800 stroke-border" />
+        <text x={tool.x + 42} y="278" text-anchor="middle" class="fill-cream text-[12px]">{tool.title}</text>
+        <text x={tool.x + 42} y="296" text-anchor="middle" class="fill-muted text-[10px]">{tool.note}</text>
+      </>
+    ))}
+    <text x="215" y="338" class="fill-muted text-[10px] italic">only the access you grant</text>
+
+    <rect x="215" y="410" width="280" height="70" rx="10" class="fill-navy-800 stroke-border" />
+    <text x="355" y="437" text-anchor="middle" class="fill-cream text-[14px] font-display font-semibold">Your broker</text>
+    <text x="355" y="457" text-anchor="middle" class="fill-muted text-[11px]">Zerodha · Groww · Upstox · AngelOne</text>
+    <line x1="355" y1="314" x2="355" y2="410" class="stroke-muted" stroke-width="1.5" marker-start="url(#arrow-muted)" marker-end="url(#arrow-muted)" />
+    <text x="365" y="380" class="fill-muted text-[10px]">your login, never sent to Margin</text>
+
+    <rect x="595" y="80" width="260" height="110" rx="10" class="fill-navy-800 stroke-gold-400" stroke-opacity="0.4" />
+    <text x="725" y="108" text-anchor="middle" class="fill-cream text-[15px] font-display font-semibold">API</text>
+    <text x="725" y="130" text-anchor="middle" class="fill-muted text-[11px]">go.marginapp.in</text>
+    <text x="725" y="146" text-anchor="middle" class="fill-muted text-[11px]">reads free, writes checked first</text>
+    <text x="725" y="170" text-anchor="middle" class="fill-gold-300 text-[11px]">llms.txt: the contract, every run</text>
+
+    <rect x="595" y="225" width="260" height="110" rx="10" class="fill-navy-800 stroke-border" />
+    <text x="725" y="252" text-anchor="middle" class="fill-cream text-[14px] font-display font-semibold">Your data</text>
+    <text x="725" y="274" text-anchor="middle" class="fill-muted text-[11px]">holdings · trades · dividends</text>
+    <text x="725" y="290" text-anchor="middle" class="fill-muted text-[11px]">funds statement · valuations</text>
+    <text x="725" y="306" text-anchor="middle" class="fill-muted text-[11px]">lists · boards · verdicts</text>
+    <text x="725" y="322" text-anchor="middle" class="fill-muted text-[11px]">every figure is computed here</text>
+    <line x1="725" y1="190" x2="725" y2="225" class="stroke-muted" stroke-width="1.5" marker-start="url(#arrow-muted)" marker-end="url(#arrow-muted)" />
+
+    <rect x="595" y="375" width="260" height="100" rx="10" class="fill-navy-800 stroke-border" />
+    <text x="725" y="402" text-anchor="middle" class="fill-cream text-[14px] font-display font-semibold">Web app</text>
+    <text x="725" y="424" text-anchor="middle" class="fill-muted text-[11px]">the same figures, and the</text>
+    <text x="725" y="440" text-anchor="middle" class="fill-muted text-[11px]">operations closed to a token:</text>
+    <text x="725" y="456" text-anchor="middle" class="fill-muted text-[11px]">clearing, deleting, reading row by row</text>
+    <line x1="725" y1="335" x2="725" y2="375" class="stroke-muted" stroke-width="1.5" marker-start="url(#arrow-muted)" marker-end="url(#arrow-muted)" />
+
+    <line x1="150" y1="130" x2="215" y2="130" class="stroke-muted" stroke-width="1.5" marker-end="url(#arrow-muted)" />
+    <text x="182" y="122" text-anchor="middle" class="fill-muted text-[10px]">prompt</text>
+    <line x1="215" y1="152" x2="150" y2="152" class="stroke-muted" stroke-width="1.5" marker-end="url(#arrow-muted)" />
+    <text x="182" y="168" text-anchor="middle" class="fill-muted text-[10px]">the diff</text>
+
+    <line x1="475" y1="120" x2="595" y2="120" class="stroke-gold-400" stroke-width="1.5" marker-end="url(#arrow-gold)" />
+    <text x="535" y="110" text-anchor="middle" class="fill-gold-400 text-[10px]">read · write</text>
+    <line x1="595" y1="150" x2="475" y2="150" class="stroke-gold-400" stroke-width="1.5" marker-end="url(#arrow-gold)" />
+    <text x="535" y="166" text-anchor="middle" class="fill-gold-400 text-[10px]">computed figures</text>
+
+    <path d="M 85 185 V 545 H 725 V 475" class="stroke-muted" fill="none" stroke-width="1.5" marker-end="url(#arrow-muted)" />
+    <text x="400" y="535" text-anchor="middle" class="fill-muted text-[10px]">sign in to check what the agent wrote, and for the operations closed to a token</text>
+  </svg>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-5 gap-4 mt-12">
+  {steps.map((step, i) => (
+    <div class="bg-navy-800/30 border border-border rounded-xl p-5">
+      <div class="flex items-center gap-2 mb-3">
+        <span class={`w-2 h-2 rounded-full ${dots[step.tone as keyof typeof dots]}`}></span>
+        <span class="text-[11px] text-muted tracking-widest uppercase">Step {i + 1}</span>
+      </div>
+      <h3 class="font-display text-lg text-cream mb-2 leading-snug">{step.title}</h3>
+      <p class="text-muted text-sm leading-relaxed">{step.body}</p>
+    </div>
+  ))}
+</div>
