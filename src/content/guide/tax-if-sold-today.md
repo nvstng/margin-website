@@ -35,9 +35,7 @@ Margin does not treat a holding as one average position. It rebuilds it as lots,
 
 Corporate actions move lots around the way the tax rules do. A split or a consolidation reapportions the existing cost across the new share count and leaves the acquisition date alone, so shares you have held for years stay long term through a split. Bonus shares cost nothing and form their own lot dated the ex date, which starts a fresh twelve month clock on them while the original shares keep theirs. A demerger cuts the parent's cost per share by the fraction apportioned away. Margin can only do this for the corporate actions it has synced from the exchange feeds or that you have recorded yourself, which is why an unrecorded bonus distorts the split between the two bands as well as the totals.
 
-## The rates Margin applies
-
-The bands and rates come from a table of capital gain rates that is effective by date, and Margin reads the row in force today, because the sale it is pricing is a sale made today. For India that is 20% on gains from shares held up to twelve months and 12.5% beyond twelve months, both applying to sales from April 2024. Gains realised before that date fell under 15% and 10%, which is why the same screen would have shown different figures two years ago and will follow the table again when a rate changes.
+## How the tax figure is worked out
 
 Each lot's gain is its quantity times the difference between the last quote and its cost per share, and the tax is that gain times the band's rate. No exemption threshold is deducted, no surcharge or cess is added, no charges on the sale are taken off the proceeds, and nothing is set off against losses from outside this portfolio. Read the figure as the size of the tax event you would trigger, and expect your filed number to differ.
 

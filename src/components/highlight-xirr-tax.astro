@@ -39,8 +39,8 @@ const tags = ['Since inception', 'Trailing', 'Calendar year', 'Financial year', 
               <p class="text-xs text-muted mb-3">Gain breakdown, current FY</p>
               <div class="space-y-2">
                 {[
-                  { label: 'Short-term, 20%', pct: 40, color: 'bg-amber-400' },
-                  { label: 'Long-term, 12.5%', pct: 60, color: 'bg-emerald-500' },
+                  { label: 'Short-term', pct: 40, color: 'bg-amber-400' },
+                  { label: 'Long-term', pct: 60, color: 'bg-emerald-500' },
                 ].map((row) => (
                   <div class="flex items-center gap-3">
                     <div class="flex-1 h-1.5 rounded-full bg-navy-700 overflow-hidden">
@@ -77,9 +77,9 @@ const tags = ['Since inception', 'Trailing', 'Calendar year', 'Financial year', 
           cash flows never turn around inside the period, and the rate is left blank for that period.
         </p>
         <p class="text-muted leading-relaxed mb-8">
-          On sales it separates short-term from long-term capital gains and applies the rate in force
-          on the date of the sale: 20% and 12.5% from April 2024, and 15% and 10% for gains realised
-          before that.
+          On sales it separates short-term from long-term capital gains and applies the rate that was
+          in force on the date of the sale, so a sale from years ago is taxed at the rate of its own
+          year and not today's.
         </p>
         <div class="flex flex-wrap gap-2 mb-8">
           {tags.map((tag) => (
