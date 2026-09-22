@@ -29,7 +29,7 @@ A holding you added by hand through **Add**, without a tradebook behind it, stil
 
 ## Unallocated
 
-**Unallocated** is the gap between what you said a stock should be and what it is. The Allocation screen holds a target percentage for each stock. Margin multiplies that target by the cost of the whole portfolio, subtracts what you have actually paid for the holding, and shows the difference in rupees, with the same gap as a percentage of portfolio cost in small type beside it.
+**Unallocated** is the gap between what you said a stock should be and what it is. The [Allocation screen](/guides/target-allocation) holds a target percentage for each stock. Margin multiplies that target by the cost of the whole portfolio, subtracts what you have actually paid for the holding, and shows the difference in rupees, with the same gap as a percentage of portfolio cost in small type beside it.
 
 - A positive figure is room left to buy. A negative one, shown in red, means you hold more than the target allows.
 - The percentage beside it is the gap as a share of the whole portfolio, so 3.0% next to 16.11L means the gap is three percent of everything you have invested. Reading it against the target itself tells you how far along you are: a 3.0% gap on a 3.0% target means you have barely started.
@@ -146,3 +146,4 @@ The sort, the trading account you picked, and anything typed into a dialog you t
 - [Tracking expected returns via the dashboard](/guides/tracking-expected-returns-dashboard) covers what to do with the expected return figure once it is on screen.
 - [Using the DCF valuation grid](/guides/dcf-valuation-grid) is where the expected return and the valuation quarter are set.
 - [The consistency check](/guides/consistency-check) is the screen to visit when **Avg Price** looks wrong, since every holding column downstream of it inherits the error.
+- [Setting and reading target allocation](/guides/target-allocation) is where the target behind **Unallocated** is set, and covers why **Portfolio Weight** in the detail panel reads differently from it.

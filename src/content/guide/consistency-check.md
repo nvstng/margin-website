@@ -80,13 +80,13 @@ If you hold the same stock across more than one broker, the trading account pick
 
 ## Before you trust XIRR, gains or allocation
 
-An unresolved gap shows up well past this screen. The Unrealised Gains screen says outright that its long term and short term gains are worked out from the tradebook, adjusted for whichever corporate actions have been synced or recorded, and that where the tradebook and the demat holding disagree, the figures for that stock cannot be trusted until the gap is resolved. A gapped stock's LTCG and STCG columns are left blank, with a **Resolve** button where the figures would be, and its own **Needs Attention** card carries the same count this screen does. Wherever a stock's XIRR is shown, the same **Data gap** warning follows it.
+An unresolved gap shows up well past this screen. The Unrealised Gains screen says outright that its long term and short term gains are worked out from the tradebook, adjusted for whichever corporate actions have been synced or recorded, and that where the tradebook and the demat holding disagree, the figures for that stock cannot be trusted until the gap is resolved. A gapped stock still prints its LTCG and STCG figures, worked out over a share count that is wrong, with a **Resolve** button in its Gap column that leads back here, and its own **Needs Attention** card carries the same count this screen does. Wherever a stock's XIRR is shown, the same **Data gap** warning follows it.
 
 The cost your allocation screen compares against your target is drawn from the same trade history, so a stock whose cost is wrong because of an unrecorded split or bonus carries that error into its allocation gap too, even though nothing on that screen names it directly.
 
-![The Unrealised Gains screen banner explaining that gains come from the tradebook adjusted for synced or recorded corporate actions, and that a disagreement leaves the figures untrustworthy, with a gapped stock's LTCG and STCG columns left blank next to a Resolve button](../../assets/images/consistency-unrealised-gains-gap.webp)
+![The Unrealised Gains screen banner explaining that gains come from the tradebook adjusted for synced or recorded corporate actions, and that a disagreement leaves the figures untrustworthy, above rows carrying a red gap and a Resolve button](../../assets/images/consistency-unrealised-gains-gap.webp)
 
-*AMAGI carries a one share gap, so its LTCG and STCG columns are blank instead of wrong. Eleven of forty-seven stocks need attention here today.*
+*AMAGI's demat holds a share its tradebook never bought, so there is nothing unsold to price and both gain columns are empty. Eleven of forty-seven stocks need attention here today.*
 
 Clearing the table takes well under a minute for most portfolios, and the bulk tool above closes a year's worth of splits and bonuses in one pass. Afterwards you can read a return, a gain or an allocation gap without having to wonder whether a forgotten bonus is sitting underneath it.
 
