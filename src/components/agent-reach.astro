@@ -1,0 +1,83 @@
+---
+const sources = [
+  { title: 'Your files', lines: ['statements, notes, an annual', 'report PDF you keep locally'] },
+  { title: 'Spreadsheets', lines: ['the model you already keep,', 'with your own assumptions'] },
+  { title: 'Screener.in', lines: ['published fundamentals and', 'the growth history behind them'] },
+  { title: 'ValuePickr', lines: ['the thread on a company, and', 'what has changed in it'] },
+  { title: 'Your brokerage', lines: ['live holdings, the tradebook,', 'funds, dividends, and alerts'] },
+  { title: 'Search and news', lines: ['results dates, announcements,', 'filings, anything on the web'] },
+];
+
+const marginHolds = [
+  { title: 'What you own', lines: ['holdings and trades, at the', 'cost you actually paid'] },
+  { title: 'What it has returned', lines: ['XIRR, realised and unrealised', 'gains, tax if sold today'] },
+  { title: 'What it is worth to you', lines: ['a saved DCF per stock, and the', 'return it implies right now'] },
+  { title: 'What you are watching', lines: ['lists and boards, grouped the', 'way you group them'] },
+];
+
+const sourceY = (i: number) => 66 + i * 92;
+const chipY = (i: number) => 142 + i * 108;
+---
+
+<div class="overflow-x-auto -mx-6 px-6 lg:mx-0 lg:px-0">
+  <svg
+    viewBox="0 0 760 652"
+    class="w-full min-w-[720px] font-sans"
+    role="img"
+    aria-label="An agent in the middle, holding open your files, spreadsheets, Screener.in, ValuePickr, your brokerage and web search on one side, and Margin on the other, with what each source can hand over"
+  >
+    <defs>
+      <marker id="ar-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M 0 0 L 10 5 L 0 10 z" class="fill-muted" />
+      </marker>
+      <marker id="ar-arrow-gold" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M 0 0 L 10 5 L 0 10 z" class="fill-gold-400" />
+      </marker>
+    </defs>
+
+    <text x="128" y="30" text-anchor="middle" class="fill-gold-400 text-[11px] tracking-[0.2em] uppercase">Sources you already use</text>
+    <text x="128" y="48" text-anchor="middle" class="fill-muted text-[11px]">what each one can hand over</text>
+
+    {sources.map((source, i) => (
+      <>
+        <rect x="14" y={sourceY(i)} width="228" height="80" rx="10" class="fill-navy-800 stroke-border" />
+        <text x="128" y={sourceY(i) + 30} text-anchor="middle" class="fill-cream text-[16px] font-display font-semibold">{source.title}</text>
+        {source.lines.map((line, li) => (
+          <text x="128" y={sourceY(i) + 52 + li * 18} text-anchor="middle" class="fill-muted text-[12px]">{line}</text>
+        ))}
+        <line x1="242" y1={sourceY(i) + 40} x2="258" y2={sourceY(i) + 40} class="stroke-muted" stroke-width="1.5" />
+      </>
+    ))}
+
+    <line x1="258" y1="106" x2="258" y2="566" class="stroke-muted" stroke-width="1.5" />
+    <line x1="258" y1="336" x2="286" y2="336" class="stroke-muted" stroke-width="1.5" marker-end="url(#ar-arrow)" />
+
+    <rect x="286" y="271" width="150" height="130" rx="10" class="fill-navy-700 stroke-gold-400" stroke-opacity="0.5" />
+    <text x="361" y="309" text-anchor="middle" class="fill-cream text-[18px] font-display font-semibold">Your agent</text>
+    <text x="361" y="336" text-anchor="middle" class="fill-muted text-[11.5px]">holds them all open</text>
+    <text x="361" y="354" text-anchor="middle" class="fill-muted text-[11.5px]">in one session</text>
+    <text x="361" y="380" text-anchor="middle" class="fill-gold-300 text-[11.5px]">you compose the rest</text>
+
+    <line x1="436" y1="336" x2="500" y2="336" class="stroke-gold-400" stroke-opacity="0.6" stroke-width="1.5" marker-start="url(#ar-arrow-gold)" marker-end="url(#ar-arrow-gold)" />
+    <text x="468" y="310" text-anchor="middle" class="fill-muted text-[10.5px]">read</text>
+    <text x="468" y="323" text-anchor="middle" class="fill-muted text-[10.5px]">and write</text>
+
+    <rect x="500" y="66" width="246" height="540" rx="12" class="fill-navy-800 stroke-gold-400" stroke-opacity="0.4" />
+    <text x="623" y="102" text-anchor="middle" class="fill-cream text-[19px] font-display font-semibold">Margin</text>
+    <text x="623" y="124" text-anchor="middle" class="fill-muted text-[11.5px]">the record, and the arithmetic</text>
+
+    {marginHolds.map((item, i) => (
+      <>
+        <rect x="512" y={chipY(i)} width="222" height="96" rx="8" class="fill-navy-700 stroke-border" />
+        <text x="623" y={chipY(i) + 34} text-anchor="middle" class="fill-gold-300 text-[13px]">{item.title}</text>
+        {item.lines.map((line, li) => (
+          <text x="623" y={chipY(i) + 58 + li * 18} text-anchor="middle" class="fill-muted text-[11.5px]">{line}</text>
+        ))}
+      </>
+    ))}
+
+    <text x="623" y="588" text-anchor="middle" class="fill-muted text-[11px] italic">computed here, not by the agent</text>
+
+    <text x="380" y="636" text-anchor="middle" class="fill-muted text-[11.5px]">None of these sources can see each other, and the agent is the one piece that can hold several of them at once.</text>
+  </svg>
+</div>
