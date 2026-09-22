@@ -19,6 +19,7 @@ const guide = defineCollection({
     title: z.string(),
     description: z.string(),
     feature: z.string(),
+    stage: z.string(),
     order: z.number().default(0),
     updatedAt: z.coerce.date(),
     readingTime: z.string().optional(),

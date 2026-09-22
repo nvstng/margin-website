@@ -2,7 +2,8 @@
 title: "The consistency check"
 description: "How Margin reconciles your tradebook against your demat holding, names the splits and bonuses you never recorded, and why the gap it finds should be closed before you trust XIRR, gains or allocation."
 feature: "Data quality"
-order: 1
+stage: "Get your records in"
+order: 5
 updatedAt: 2026-09-21
 readingTime: "10 min read"
 ---

@@ -2,7 +2,8 @@
 title: "Qualitative screening"
 description: "Filtering stocks by the quality of the business rather than by numeric filters alone, using Margin's card-by-card screen and fast Yes / Maybe / No / Never verdicts."
 feature: "Screening"
-order: 1
+stage: "Research and value a stock"
+order: 2
 updatedAt: 2026-07-20
 readingTime: "5 min read"
 ---

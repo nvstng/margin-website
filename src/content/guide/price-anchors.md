@@ -2,6 +2,7 @@
 title: "Setting price anchors"
 description: "Creating Buy, Add, Reduce and Exit as price types, deriving each anchor from your own valuation instead of a round number, putting anchors on stocks you do not own yet, and reading them beside expected return on the dashboard."
 feature: "Anchors"
+stage: "Decide what to buy and sell"
 order: 1
 updatedAt: 2026-09-22
 readingTime: "10 min read"

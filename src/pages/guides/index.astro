@@ -4,17 +4,11 @@ import Layout from '../../layouts/layout.astro';
 import Nav from '../../components/nav.astro';
 import Footer from '../../components/footer.astro';
 import ConceptMap from '../../components/concept-map.astro';
+import { groupByStage } from '../../domain/guide';
 
-const guides = await getCollection('guide');
+const groups = groupByStage(await getCollection('guide'));
 
-const groups = [...new Map(
-  guides.map((g) => [g.data.feature, [] as typeof guides])
-).entries()].map(([feature]) => ({
-  feature,
-  items: guides
-    .filter((g) => g.data.feature === feature)
-    .sort((a, b) => a.data.order - b.data.order),
-}));
+const slugify = (stage: string) => stage.toLowerCase().replace(/[^a-z0-9]+/g, '-');
 ---
 
 <Layout
@@ -30,14 +24,28 @@ const groups = [...new Map(
         <p class="text-xs text-gold-400 tracking-widest uppercase mb-4">Guides</p>
         <h1 class="font-display text-5xl md:text-6xl font-light text-cream leading-tight mb-6">
           Learn Margin<br />
-          <em class="font-semibold not-italic">feature by feature</em>
+          <em class="font-semibold not-italic">in the order you use it</em>
         </h1>
-        <p class="text-muted text-lg leading-relaxed max-w-2xl">
+        <p class="text-muted text-lg leading-relaxed max-w-2xl mb-8">
           Walkthroughs of what each Margin feature does, the investing concept behind it, and
-          how to use it well. This is the product manual, written by people who invest. For
-          broader thinking on investing, see
+          how to use it well. They follow the path a portfolio takes through the product, from the
+          files your broker gives you to the tax on a sale you have not made yet. This is the
+          product manual, written by people who invest. For broader thinking on investing, see
           <a href="/blog" class="text-gold-400 hover:text-gold-300 transition-colors">Insights</a>.
         </p>
+
+        <div class="flex flex-wrap gap-2">
+          {groups.map((group, gi) => (
+            <a
+              href={`#${slugify(group.stage)}`}
+              class="flex items-center gap-2 px-3.5 py-1.5 text-sm text-muted border border-border rounded-full hover:border-gold-400/40 hover:text-cream transition-colors duration-200"
+            >
+              <span class="text-gold-400 text-xs">{gi + 1}</span>
+              {group.stage}
+              <span class="text-muted/50 text-xs">{group.items.length}</span>
+            </a>
+          ))}
+        </div>
       </div>
 
       <section class="reveal reveal-delay-1">
@@ -57,18 +65,38 @@ const groups = [...new Map(
     </div>
 
     <div class="max-w-4xl mx-auto px-6 lg:px-8">
-      <div class="space-y-16">
+      <div class="space-y-20">
         {groups.map((group, gi) => (
-          <section class={`reveal reveal-delay-${Math.min(gi + 1, 5)}`}>
-            <h2 class="font-display text-2xl font-light text-cream mb-6 gold-line">
-              {group.feature}
-            </h2>
-            <div class="space-y-4">
+          <section id={slugify(group.stage)} class={`reveal reveal-delay-${Math.min(gi + 1, 5)} scroll-mt-28`}>
+            <div class="flex items-baseline mb-3">
+              <span class="w-12 shrink-0 font-sans text-sm tabular-nums text-gold-400/70 tracking-widest">
+                {String(gi + 1).padStart(2, '0')}
+              </span>
+              <h2 class="font-display text-2xl font-light text-cream">
+                {group.stage}
+              </h2>
+            </div>
+            {group.blurb && (
+              <p class="text-muted text-base leading-relaxed max-w-2xl mb-7 pl-12">
+                {group.blurb}
+              </p>
+            )}
+
+            <ol class="space-y-4 ml-6 pl-6 border-l border-border pb-1">
               {group.items.map((guide) => (
-                <article class="group">
+                <li class="group relative">
+                  <span class="absolute -left-6 top-7 w-6 h-px bg-border group-hover:bg-gold-400/40 transition-colors duration-300"></span>
                   <a href={`/guides/${guide.slug}`} class="block bg-navy-800/30 border border-border hover:border-gold-400/30 rounded-xl p-6 transition-all duration-300 hover:bg-navy-800/50">
                     <div class="flex items-start justify-between gap-4">
                       <div>
+                        <div class="flex flex-wrap items-center gap-2 mb-3">
+                          <span class="px-2.5 py-0.5 text-[11px] text-gold-300/80 border border-gold-400/25 rounded-full">
+                            {guide.data.feature}
+                          </span>
+                          {guide.data.readingTime && (
+                            <span class="text-[11px] text-muted/60">{guide.data.readingTime}</span>
+                          )}
+                        </div>
                         <h3 class="font-display text-xl font-light text-cream group-hover:text-gold-200 transition-colors duration-200 mb-2 leading-snug">
                           {guide.data.title}
                         </h3>
@@ -81,9 +109,9 @@ const groups = [...new Map(
                       </svg>
                     </div>
                   </a>
-                </article>
+                </li>
               ))}
-            </div>
+            </ol>
           </section>
         ))}
       </div>

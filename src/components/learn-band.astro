@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
+import { inReadingOrder } from '../domain/guide';
 
 const [posts, guides, recipes] = await Promise.all([
   getCollection('blog'),
@@ -11,15 +12,15 @@ const latestPost = posts.sort(
   (a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime()
 )[0];
 
-const latestGuide = guides.sort((a, b) => a.data.order - b.data.order)[0];
+const firstGuide = inReadingOrder(guides)[0];
 
 const cards = [
   {
     eyebrow: 'Guides',
     meta: `${guides.length} guides`,
-    title: latestGuide.data.title,
-    body: latestGuide.data.description,
-    href: `/guides/${latestGuide.slug}`,
+    title: firstGuide.data.title,
+    body: firstGuide.data.description,
+    href: `/guides/${firstGuide.slug}`,
   },
   {
     eyebrow: 'Insights',

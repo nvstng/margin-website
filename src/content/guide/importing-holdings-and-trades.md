@@ -2,6 +2,7 @@
 title: "Importing holdings and trades"
 description: "How to bring your broker's holdings export and tradebook into Margin, what each file feeds, the generic CSV layouts for a broker Margin does not read yet, what a re-upload replaces and what it only adds to, and how to read the first errors."
 feature: "Import"
+stage: "Get your records in"
 order: 1
 updatedAt: 2026-09-22
 readingTime: "11 min read"

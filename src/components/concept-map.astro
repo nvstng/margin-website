@@ -9,7 +9,7 @@ const world = [
   { title: 'Government', lines: ['STT and stamp duty on the trade', 'capital gains tax on the sale'] },
 ];
 
-const chips = [
+const brokerHolds = [
   { title: 'Cash with the broker', note: 'money in, money out, charges' },
   { title: 'Demat holdings', note: 'the shares themselves' },
   { title: 'Trades', note: 'every buy and sell, settled' },
@@ -32,11 +32,19 @@ const computed = [
 ];
 
 const arrowLabels = ['money in, money out', 'dividend', 'your order'];
+
+const fileGlyph = (cx: number, top: number) => {
+  const x = cx - 9;
+  return {
+    body: `M ${x} ${top} H ${x + 11} L ${x + 18} ${top + 7} V ${top + 22} H ${x} Z`,
+    fold: `M ${x + 11} ${top} V ${top + 7} H ${x + 18}`,
+  };
+};
 ---
 
 <div class="overflow-x-auto -mx-6 px-6 lg:mx-0 lg:px-0">
   <svg
-    viewBox="0 0 960 858"
+    viewBox="0 0 960 764"
     class="w-full min-w-[760px] font-sans"
     role="img"
     aria-label="Your bank, the company, the exchange and the government meet at your brokerage; the brokerage exports a funds statement, holdings, tradebook and dividend statement, which Margin records as a ledger, holdings, trades and dividends, and from which it works out net invested, current value, lots and tax, and the dividends inside your return"
@@ -69,69 +77,64 @@ const arrowLabels = ['money in, money out', 'dividend', 'your order'];
       </>
     ))}
 
-    <rect x="24" y="182" width="680" height="126" rx="12" class="fill-navy-800 stroke-gold-400" fill-opacity="0.55" stroke-opacity="0.4" />
-    <text x="44" y="210" class="fill-cream text-[18px] font-display font-semibold">Your brokerage</text>
-    <text x="44" y="230" class="fill-muted text-[12px]">one trading account per broker login · Zerodha, Groww, Upstox, AngelOne or Other</text>
+    <rect x="24" y="182" width="680" height="112" rx="12" class="fill-navy-800 stroke-gold-400" fill-opacity="0.55" stroke-opacity="0.4" />
+    <text x="44" y="211" class="fill-cream text-[18px] font-display font-semibold">Your brokerage</text>
+    <text x="44" y="231" class="fill-muted text-[12px]">one trading account per broker login · Zerodha, Groww, Upstox, AngelOne or Other</text>
 
-    {chips.map((chip, i) => (
+    {brokerHolds.map((item, i) => (
       <>
-        <rect x={columnCentre[i] - 100} y="242" width="200" height="54" rx="8" class="fill-navy-700 stroke-border" />
-        <text x={columnCentre[i]} y="266" text-anchor="middle" class="fill-cream text-[14px]">{chip.title}</text>
-        <text x={columnCentre[i]} y="285" text-anchor="middle" class="fill-muted text-[11.5px]">{chip.note}</text>
+        <circle cx={columnCentre[i] - 92} cy="257" r="2" class="fill-gold-400" fill-opacity="0.65" />
+        <text x={columnCentre[i] - 82} y="261" class="fill-cream text-[13px]">{item.title}</text>
+        <text x={columnCentre[i] - 82} y="278" class="fill-muted text-[11.5px]">{item.note}</text>
       </>
     ))}
 
-    <path d="M 704 248 H 828 V 148" class="stroke-muted" fill="none" stroke-width="1.5" marker-end="url(#cm-arrow)" />
-    <text x="766" y="239" text-anchor="middle" class="fill-muted text-[12px]">charges and taxes</text>
+    <path d="M 704 250 H 828 V 148" class="stroke-muted" fill="none" stroke-width="1.5" marker-end="url(#cm-arrow)" />
+    <text x="766" y="241" text-anchor="middle" class="fill-muted text-[12px]">charges and taxes</text>
 
-    <path d="M 364 308 V 332 M 132 332 H 828" class="stroke-muted" fill="none" stroke-width="1.5" />
-    <text x="378" y="324" class="fill-muted text-[12px]">what your broker exports</text>
+    <path d="M 364 294 V 318 M 132 318 H 828" class="stroke-muted" fill="none" stroke-width="1.5" />
+    <text x="378" y="310" class="fill-muted text-[12px]">what your broker exports</text>
 
     {brokerFiles.map((file, i) => (
       <>
-        <line x1={columnCentre[i]} y1="332" x2={columnCentre[i]} y2="354" class="stroke-muted" stroke-width="1.5" marker-end="url(#cm-arrow)" />
-        <rect x={columnX[i]} y="358" width="216" height="80" rx="10" class="fill-navy-800 stroke-border" />
-        <text x={columnCentre[i]} y="387" text-anchor="middle" class="fill-cream text-[16px] font-display font-semibold">{file.title}</text>
+        <line x1={columnCentre[i]} y1="318" x2={columnCentre[i]} y2="340" class="stroke-muted" stroke-width="1.5" marker-end="url(#cm-arrow)" />
+        <path d={fileGlyph(columnCentre[i], 344).body} class="fill-navy-700 stroke-muted" stroke-opacity="0.65" stroke-width="1.25" />
+        <path d={fileGlyph(columnCentre[i], 344).fold} class="stroke-muted" fill="none" stroke-opacity="0.65" stroke-width="1.25" />
+        <text x={columnCentre[i]} y="386" text-anchor="middle" class="fill-cream text-[14.5px] font-display font-semibold">{file.title}</text>
         {file.notes.map((note, ni) => (
-          <text
-            x={columnCentre[i]}
-            y={file.notes.length === 1 ? 415 : 408 + ni * 17}
-            text-anchor="middle"
-            class="fill-muted text-[11.5px]"
-          >{note}</text>
+          <text x={columnCentre[i]} y={404 + ni * 17} text-anchor="middle" class="fill-muted text-[11.5px]">{note}</text>
         ))}
       </>
     ))}
 
-    <rect x="14" y="462" width="932" height="372" rx="14" class="fill-navy-800 stroke-border" fill-opacity="0.25" stroke-dasharray="5 5" />
-    <text x="32" y="488" class="fill-gold-400 text-[11.5px] tracking-[0.2em] uppercase">Margin</text>
+    <rect x="14" y="450" width="932" height="290" rx="14" class="fill-navy-800 stroke-border" fill-opacity="0.25" stroke-dasharray="5 5" />
+    <text x="32" y="476" class="fill-gold-400 text-[11.5px] tracking-[0.2em] uppercase">Margin</text>
 
     {records.map((record, i) => (
       <>
-        <line x1={columnCentre[i]} y1="438" x2={columnCentre[i]} y2="498" class="stroke-gold-400" stroke-opacity="0.5" stroke-width="1.5" marker-end="url(#cm-arrow-gold)" />
-        <rect x={columnX[i]} y="502" width="216" height="60" rx="10" class="fill-navy-700 stroke-gold-400" stroke-opacity="0.35" />
-        <text x={columnCentre[i]} y="539" text-anchor="middle" class="fill-cream text-[17px] font-display font-semibold">{record}</text>
+        <line x1={columnCentre[i]} y1="434" x2={columnCentre[i]} y2="484" class="stroke-gold-400" stroke-opacity="0.5" stroke-width="1.5" marker-end="url(#cm-arrow-gold)" />
+        <rect x={columnCentre[i] - 80} y="490" width="160" height="38" rx="19" class="fill-navy-700 stroke-gold-400" stroke-opacity="0.4" />
+        <text x={columnCentre[i]} y="515" text-anchor="middle" class="fill-cream text-[16px] font-display font-semibold">{record}</text>
       </>
     ))}
 
     {computed.map((box, i) => (
       <>
-        <line x1={columnCentre[i]} y1="562" x2={columnCentre[i]} y2="606" class="stroke-muted" stroke-width="1.5" marker-end="url(#cm-arrow)" />
-        <rect x={columnX[i]} y="610" width="216" height="106" rx="10" class="fill-navy-800 stroke-border" />
-        <text x={columnCentre[i]} y="640" text-anchor="middle" class="fill-gold-300 text-[14px]">{box.title}</text>
+        <line x1={columnCentre[i]} y1="528" x2={columnCentre[i]} y2="572" class="stroke-muted" stroke-width="1.5" marker-end="url(#cm-arrow)" />
+        <text x={columnCentre[i]} y="590" text-anchor="middle" class="fill-gold-300 text-[13px]">{box.title}</text>
         {box.lines.map((line, li) => (
-          <text x={columnCentre[i]} y={666 + li * 19} text-anchor="middle" class="fill-muted text-[11.5px]">{line}</text>
+          <text x={columnCentre[i]} y={612 + li * 19} text-anchor="middle" class="fill-muted text-[11.5px]">{line}</text>
         ))}
       </>
     ))}
 
-    <path d="M 364 588 H 596" class="stroke-muted" fill="none" stroke-width="1.5" stroke-dasharray="4 4" marker-start="url(#cm-arrow)" marker-end="url(#cm-arrow)" />
-    <text x="480" y="580" text-anchor="middle" class="fill-muted text-[12px]">consistency check</text>
+    <path d="M 364 550 H 596" class="stroke-muted" fill="none" stroke-width="1.5" stroke-dasharray="4 4" marker-start="url(#cm-arrow)" marker-end="url(#cm-arrow)" />
+    <text x="480" y="542" text-anchor="middle" class="fill-muted text-[12px]">consistency check</text>
 
-    <path d="M 480 742 V 728 H 364 V 721" class="stroke-muted" fill="none" stroke-width="1.5" marker-end="url(#cm-arrow)" />
-    <path d="M 480 742 V 728 H 596 V 721" class="stroke-muted" fill="none" stroke-width="1.5" marker-end="url(#cm-arrow)" />
-    <rect x="41" y="742" width="878" height="68" rx="10" class="fill-navy-800 stroke-border" stroke-dasharray="4 4" />
-    <text x="480" y="770" text-anchor="middle" class="fill-cream text-[14px]">Priced and adjusted from the exchange</text>
-    <text x="480" y="792" text-anchor="middle" class="fill-muted text-[11.5px]">the last quote, and every split, bonus and demerger applied to the lots and the cost behind them</text>
+    <path d="M 41 668 H 919" class="stroke-muted" fill="none" stroke-width="1.5" stroke-dasharray="4 4" stroke-opacity="0.7" />
+    <path d="M 364 668 V 646" class="stroke-muted" fill="none" stroke-width="1.5" marker-end="url(#cm-arrow)" />
+    <path d="M 596 668 V 646" class="stroke-muted" fill="none" stroke-width="1.5" marker-end="url(#cm-arrow)" />
+    <text x="480" y="694" text-anchor="middle" class="fill-cream text-[13.5px]">Priced and adjusted from the exchange</text>
+    <text x="480" y="715" text-anchor="middle" class="fill-muted text-[11.5px]">the last quote, and every split, bonus and demerger applied to the lots and the cost behind them</text>
   </svg>
 </div>

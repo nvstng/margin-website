@@ -2,6 +2,7 @@
 title: "The stock's story as a starting point of research"
 description: "Why reading a structured narrative of the business, its financial health and its recent story first gives context to every number you look at afterwards."
 feature: "Research"
+stage: "Research and value a stock"
 order: 1
 updatedAt: 2026-07-20
 readingTime: "6 min read"

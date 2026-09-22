@@ -2,7 +2,8 @@
 title: "When Margin cannot read your broker's file"
 description: "Which brokers' files Margin reads today for holdings, trades, dividends and the funds statement, why a broker is missing from the list, and how to send its format so it can be added."
 feature: "Uploads"
-order: 1
+stage: "Get your records in"
+order: 4
 updatedAt: 2026-09-21
 readingTime: "4 min read"
 ---

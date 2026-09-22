@@ -2,7 +2,8 @@
 title: "The funds statement, net invested and charges"
 description: "How to bring your broker's funds statement into Margin, what money in, money out and net invested each count, how to read the charges posted to your account, and why a missing year understates every total after it."
 feature: "Funds"
-order: 1
+stage: "Get your records in"
+order: 2
 updatedAt: 2026-09-21
 readingTime: "9 min read"
 ---

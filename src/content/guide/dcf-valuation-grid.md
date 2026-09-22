@@ -2,7 +2,8 @@
 title: "Using the DCF valuation grid"
 description: "A walkthrough of the DCF screen in Margin: which cells you can edit, what each assumption does to the answer, how the right-click fill down works, and what the panels below the grid control."
 feature: "Valuation"
-order: 1
+stage: "Research and value a stock"
+order: 3
 updatedAt: 2026-09-20
 readingTime: "10 min read"
 ---

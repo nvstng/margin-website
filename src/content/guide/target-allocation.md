@@ -2,7 +2,8 @@
 title: "Setting and reading target allocation"
 description: "How the Allocation screen turns a target cost per stock into a live gap against today's portfolio weight, why a winner can drift past its target without a new purchase, and how to use the gap to size a buy rather than trigger a sell."
 feature: "Allocation"
-order: 1
+stage: "Decide what to buy and sell"
+order: 2
 updatedAt: 2026-09-22
 readingTime: "9 min read"
 ---

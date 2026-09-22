@@ -2,7 +2,8 @@
 title: "Tax if sold today"
 description: "The Unrealised Gains screen prices a sale you have not made: every holding's gain split into short term and long term, the tax each band would attract at today's rates, and a preview of any quantity you are thinking of selling."
 feature: "Tax"
-order: 1
+stage: "Track the portfolio"
+order: 3
 updatedAt: 2026-09-22
 readingTime: "9 min read"
 ---

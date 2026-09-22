@@ -2,7 +2,8 @@
 title: "Dividends, by financial year and on the ex-date"
 description: "How a dividend statement goes into Margin one financial year at a time, what re-uploading a year replaces, why the ex-date is the date kept, how each payout enters XIRR, and what to do with rows that match no stock."
 feature: "Dividends"
-order: 1
+stage: "Get your records in"
+order: 3
 updatedAt: 2026-09-22
 readingTime: "10 min read"
 ---

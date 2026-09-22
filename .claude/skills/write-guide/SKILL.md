@@ -52,13 +52,14 @@ Frontmatter, matching the schema exactly:
 title: "Using the DCF valuation grid"
 description: "One or two sentences. Shown on the guides index card and as the meta description."
 feature: "Valuation"
-order: 1
+stage: "Research and value a stock"
+order: 3
 updatedAt: 2026-09-20
 readingTime: "10 min read"
 ---
 ```
 
-`feature` groups guides on the index page, so reuse an existing value when the feature fits one (`Dashboard`, `Screening`, `Valuation`, ...). `order` sorts within the group. `readingTime` is roughly 200 words a minute.
+`stage` groups guides on the index page into the four steps of `src/domain/guide.ts`: `Get your records in`, `Research and value a stock`, `Decide what to buy and sell`, `Track the portfolio`. Use one of those; a new stage needs an entry in `STAGE_ORDER` and a blurb in `stageBlurbs`. `order` sorts within the stage and sets the previous/next links on the guide page, so renumber the neighbours when you insert a guide in the middle. `feature` is the label chip on the card and the eyebrow on the guide, so reuse an existing value when the feature fits one (`Dashboard`, `Screening`, `Valuation`, ...). `readingTime` is roughly 200 words a minute.
 
 Structure the body in screen order, the order a user meets things, not the order the code defines them. A guide for a data entry screen usually runs:
 

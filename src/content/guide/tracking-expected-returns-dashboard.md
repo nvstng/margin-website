@@ -2,7 +2,8 @@
 title: "Tracking expected returns via the dashboard"
 description: "How the Margin dashboard reads your valuation assumptions against the current price to give an expected return for each holding, and how to use that figure when you review the portfolio."
 feature: "Dashboard"
-order: 1
+stage: "Track the portfolio"
+order: 2
 updatedAt: 2026-07-20
 readingTime: "5 min read"
 ---

@@ -2,7 +2,8 @@
 title: "Reading the dashboard columns"
 description: "What each dashboard column is computed from, how to add a price anchor or a reverse DCF return as a column of your own, how sorting and the trading account picker narrow the table, and how to read the allocation gap, the anchor and the expected return on one row together."
 feature: "Dashboard"
-order: 2
+stage: "Track the portfolio"
+order: 1
 updatedAt: 2026-09-21
 readingTime: "14 min read"
 ---
