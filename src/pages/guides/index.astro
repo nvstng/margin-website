@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import Layout from '../../layouts/layout.astro';
 import Nav from '../../components/nav.astro';
 import Footer from '../../components/footer.astro';
+import ConceptMap from '../../components/concept-map.astro';
 
 const guides = await getCollection('guide');
 
@@ -39,6 +40,23 @@ const groups = [...new Map(
         </p>
       </div>
 
+      <section class="reveal reveal-delay-1">
+        <h2 class="font-display text-2xl font-light text-cream mb-4 gold-line">
+          How the pieces fit together
+        </h2>
+        <p class="text-muted text-base leading-relaxed max-w-2xl">
+          Your money, your shares and your tax all sit with parties outside Margin, and each one
+          leaves a file behind. Margin keeps those four files as four records, and every figure in
+          the guides below is worked out from them.
+        </p>
+      </section>
+    </div>
+
+    <div class="max-w-6xl mx-auto px-6 lg:px-8 mb-20 mt-8 reveal reveal-delay-1">
+      <ConceptMap />
+    </div>
+
+    <div class="max-w-4xl mx-auto px-6 lg:px-8">
       <div class="space-y-16">
         {groups.map((group, gi) => (
           <section class={`reveal reveal-delay-${Math.min(gi + 1, 5)}`}>
