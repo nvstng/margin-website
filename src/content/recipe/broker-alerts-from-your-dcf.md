@@ -11,9 +11,9 @@ writes: "Creates, updates and removes alerts in your broker account"
 
 A watchlist tells you a price moved, but not whether the move made the stock worth buying, because the price you would buy at depends on what you think the business is worth, and that number sits in your valuation and not in your broker.
 
-This recipe carries it across. Every stock you track in Margin has a saved DCF. That DCF implies a return at any given price, so it also implies the price at which the return would reach whatever threshold you use. An agent can compute that price for each stock and write it into your broker as an alert.
+Every stock you track in Margin has a saved DCF, and that DCF implies a return at any given price, so it also implies the price at which the return would reach whatever threshold you use. This recipe has an agent compute that price for each stock and write it into your broker as an alert.
 
-## Two halves, one of which needs no computation
+## Prices you set yourself, and prices to solve for
 
 Stocks on a watch list carry a valuation, and the alert price has to be derived from it. Stocks you hold often carry a price you set yourself, and Margin returns those directly:
 
@@ -29,7 +29,7 @@ Each entry carries `userPrices`, the BUY IF ABOVE and BUY IF BELOW prices you en
 
 Read the saved projection, feed its assumptions back into the compute endpoint, and read the response. Each projected year carries the intrinsic value with and without terminal value, and `expectedReturnFromProfit` and `expectedReturnFromCashFlow`, the annualised return implied if the stock is held to that year.
 
-The intrinsic value at a given year is a function of the assumptions and not of today's quote, which is what makes the inversion straightforward: the return implied at a price falls as the price rises, so the price delivering a target annualised return over a chosen holding period follows from the intrinsic value at that year. Recomputing rather than reading a stored figure matters because the saved projection was priced against the quote of the day it was saved, and `priceAsOf` in the fresh response tells you how current the comparison is.
+The intrinsic value at a given year is a function of the assumptions and not of today's quote, which is what makes the inversion straightforward: the return implied at a price falls as the price rises, so the price delivering a target annualised return over a chosen holding period follows from the intrinsic value at that year. Recomputing instead of reading a stored figure matters because the saved projection was priced against the quote of the day it was saved, and `priceAsOf` in the fresh response tells you how current the comparison is.
 
 ## Reconcile, do not recreate
 

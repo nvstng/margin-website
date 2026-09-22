@@ -15,7 +15,7 @@ Dividends are paid into your bank account and never appear in a holdings file, s
 
     POST /web/dividends/upload/csv
 
-The file comes from the broker's console, where it usually sits with the interest statement under a name like Dividends and Interest. Upload it as it comes off the console rather than reshaping it.
+The file comes from the broker's console, where it usually sits with the interest statement under a name like Dividends and Interest. Upload it as it comes off the console, without reshaping it.
 
 ## The stocks it cannot place
 

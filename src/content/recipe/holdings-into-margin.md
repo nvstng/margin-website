@@ -89,8 +89,8 @@ go ahead.
 ## 6. Verify
 
 Read `GET /web/holdings` again and compare against step 3, matching on `isin` and
-not on `stockSymbol`. Report what actually changed rather than repeating the
+not on `stockSymbol`. Report what actually changed instead of repeating the
 response's own counts.
 ```
 
-The instruction to fetch `llms.txt` on every run is doing real work. Margin's contract has changed under skills written against it before, and a skill carrying its own copy of the endpoints breaks in ways that are hard to spot.
+The instruction to fetch `llms.txt` on every run is there because Margin's contract has changed under skills written against it before, and a skill carrying its own copy of the endpoints breaks in ways that are hard to spot.

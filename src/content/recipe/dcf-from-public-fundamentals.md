@@ -9,9 +9,9 @@ connects: ["Public fundamentals", "Margin"]
 writes: "Saves a forward projection against one stock"
 ---
 
-The spreadsheet recipe assumes you already have a model. This one is for the first pass on a company you have just started looking at, where building a sheet before you know whether the business is worth your time is the wrong order of work.
+The spreadsheet recipe assumes you already have a model. This one is for the first pass on a company you have just started looking at, where building a sheet before you know whether the business deserves one is the wrong order of work.
 
-The mechanics are the same as the spreadsheet route. Margin computes, the agent carries assumptions across, and the save stores what came back. What changes is where the base year comes from and how the forward assumptions get set.
+The mechanics are the same as the spreadsheet route, with Margin computing while the agent carries assumptions across and the save stores what came back. What changes is where the base year comes from and how the forward assumptions get set.
 
 ## Reading the base year, setting the forward years
 
@@ -84,6 +84,6 @@ each time.
     POST /web/stockOfInterest/track/{stockId}
     POST /web/projection/stockOfInterest
 
-A first pass often should not be saved at all. Ask rather than assuming the run
+A first pass often should not be saved at all. Ask instead of assuming the run
 ends in a write.
 ```

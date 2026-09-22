@@ -22,7 +22,7 @@ Broker trading APIs are built for placing orders, so their trade endpoints usual
 
 Both are multipart. `files` takes up to ten files of ten megabytes each, so several years and several accounts can go in one request. `brokerageName` is exactly one of `Zerodha`, `AngelOne`, `Groww`, `Upstox` or `Other`.
 
-The response is a progress stream of concatenated JSON objects rather than a single document, and the last one carries a `data` field with `insertedTradesCount` per financial year, `insertedStocks`, and `stocksNotFound` for rows skipped because the stock is unknown. A skill should read the final object and summarise those three, because an upload that reports success while skipping forty rows is the case you most need to catch.
+The response is a progress stream of concatenated JSON objects and not a single document, and the last one carries a `data` field with `insertedTradesCount` per financial year, `insertedStocks`, and `stocksNotFound` for rows skipped because the stock is unknown. A skill should read the final object and summarise those three, because an upload that reports success while skipping forty rows is the case you most need to catch.
 
 ## An upload adds, it does not replace
 

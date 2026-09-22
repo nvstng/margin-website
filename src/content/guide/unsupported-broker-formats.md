@@ -24,7 +24,7 @@ Every upload in Margin starts by asking which brokerage the file came from, beca
 
 In every case it is because Margin has not been shown that broker's file format yet. A layout gets added once someone sends in a real export, so the list above grows one statement at a time.
 
-Formats also drift. A broker can rename a column or change a date format between one year's export and the next, and the first person to download the new version sees an upload refused. That goes in through the same route as a new broker.
+A broker can also rename a column or change a date format between one year's export and the next, and the first person to download the new version sees an upload refused. A changed format goes in through the same route as a new broker.
 
 ## What to send
 

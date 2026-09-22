@@ -15,7 +15,7 @@ The screen sits under **Portfolio** and then **Ledger** in the top navigation. U
 
 Margin reads one financial year per file, and the file must carry the broker's own **Opening Balance** and **Closing Balance** lines, because those two figures are what every row is checked against. For a supported brokerage the upload dialog tells you where the file is downloaded from, and it goes in exactly as the broker exports it. [When Margin cannot read your broker's file](/guides/unsupported-broker-formats) lists the supported brokerages.
 
-Download every year you have held the account. A year left out leaves a hole in the record rather than a rough approximation of it, and the section on years on record explains what that does to the totals.
+Download every year you have held the account. A year left out leaves a hole in the record, and the section on years on record explains what that hole does to the totals.
 
 ## Which trading account the file belongs to
 
@@ -105,7 +105,7 @@ Margin keeps no balances, so the only completeness check it can run is a gap bet
 
 *One brokerage with two years on record and a gap between them. The bin icon at the end of each row clears that year.*
 
-A gap distorts more than that year's row. Net invested, the cumulative column, average a year and the money-weighted return on the return side are all summed from the rows on record, so whatever moved in or out during the missing year is absent from every total after it. Upload the missing year and the totals correct themselves.
+Net invested, the cumulative column, average a year and the money-weighted return on the return side are all summed from the rows on record, so whatever moved in or out during the missing year is absent from every total after it, and not only from that year's row. Upload the missing year and the totals correct themselves.
 
 Nothing can be said about years before the earliest one uploaded. A second note on the **Net Investment** tab says the totals cover the years on record and are not lifetime figures. If you moved money in before your first uploaded year, that money is not in net invested.
 
@@ -121,6 +121,6 @@ Clearing a year from **Years On Record** is the only way to undo a file sent und
 ## Where to go next
 
 - The same rows drive the money-weighted return on your rupees, the return side of the ledger, which is a separate guide.
-- Net invested says what went in. What the holdings are expected to earn from here is the [dashboard](/guides/tracking-expected-returns-dashboard).
+- Net invested says what went in, and the [dashboard](/guides/tracking-expected-returns-dashboard) says what the holdings are expected to earn from here.
 - Trades and dividends go in through their own uploads, and the [tradebook](/recipes/tradebook-into-margin) and [dividends](/recipes/dividends-into-margin) recipes cover having an agent do it.
 - If your broker is not read yet, [When Margin cannot read your broker's file](/guides/unsupported-broker-formats) says how to send its format.

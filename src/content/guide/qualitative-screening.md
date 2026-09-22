@@ -7,9 +7,9 @@ updatedAt: 2026-07-20
 readingTime: "5 min read"
 ---
 
-Screening by numbers is what most of us fall back on, because a numeric filter is the only thing that runs across thousands of listed companies. A P/E below some threshold, or revenue growth above another, becomes the way in simply because it is the filter that can be applied at that scale.
+A numeric filter is the only thing that runs across thousands of listed companies, so a P/E below some threshold, or revenue growth above another, becomes the way in simply because it can be applied at that scale.
 
-Two questions go unanswered when you do this. The first is what the filter drops. Every threshold has false negatives, good businesses excluded because they did not fit the particular numbers you picked. The second is why the filter should surface good companies at all, given that no number describes what makes a business worth owning. Low P/E, low PEG and high growth each turn up some companies worth your time and many that are not, because the same figure can come from a strong business or a broken one.
+A numeric filter leaves two questions unanswered. The first is what it drops, since every threshold has false negatives, good businesses excluded because they did not fit the particular numbers you picked. The second is why it should surface good companies at all, given that no number describes what makes a business worth owning. Low P/E, low PEG and high growth each turn up some companies worth your time and many that are not, because the same figure can come from a strong business or a broken one.
 
 A numeric screen is therefore a way of avoiding the harder work, which is getting into enough detail about a company to judge it. Qualitative screening is that harder work done quickly enough to run across the whole market, and it asks whether this is the kind of business you want before you get to the exact price, growth, margins and the rest of the numbers.
 
@@ -19,7 +19,7 @@ What decides a long term outcome sits outside any filter: the durability of the 
 
 Qualitative screening is the habit of forming that judgement quickly across many companies, and what it buys you is coverage. A business you never look at is an opportunity you never had, so the aim is to pass every listed company through this first human test.
 
-The rough arithmetic is manageable. At 2 minutes a stock, and often far less since many get rejected in 15 to 30 seconds, you clear 15 stocks in under 30 minutes. Do that daily and every listed company goes through the screen inside a year. Margin's workflow exists to make that pace possible.
+At 2 minutes a stock, and often far less since many get rejected in 15 to 30 seconds, you clear 15 stocks in under 30 minutes, and at that pace every listed company goes through the screen inside a year. Margin's workflow exists to make that pace possible.
 
 ## How Margin's screen works
 
@@ -34,7 +34,7 @@ Margin remembers every call and picks up where you left off. Everything you mark
 
 ## Using it well
 
-Screen in short, frequent sessions rather than long ones, and make the judgements quickly. If a card makes you hesitate for more than a few seconds, take the hesitation as your answer, mark it Maybe and move on.
+Screen in short, frequent sessions instead of long ones, and make the judgements quickly. If a card makes you hesitate for more than a few seconds, take the hesitation as your answer, mark it Maybe and move on.
 
 The screen is built for your phone, so you can do it casually, a few cards while you wait for something, and still make steady progress through the market.
 

@@ -85,7 +85,7 @@ Writing rules for guides:
 - Name the control exactly as the UI labels it, in bold: **Apply to years below**, **Show NPV & Intrinsic Value Columns**.
 - Say why a control exists when the code makes the reason clear. "Growth % has no fill down, by design" is worth more than listing which columns have it.
 - Do not invent behaviour. If you are unsure whether something is saved, grep the save handler.
-- No em-dashes, no "Not X but Y", no short epigram closers. Audit for these before finishing.
+- The Writing Style rules in the global `~/.claude/CLAUDE.md` apply. Run the [style audit](#style-audit) before finishing.
 
 ### 4. Capture screenshots
 
@@ -142,18 +142,54 @@ Then open `http://localhost:3201/guides/<slug>` and check:
 - clicking an image opens it enlarged
 - the guide appears under the right feature heading on `/guides`
 
-Audit the prose mechanically before calling it done, since rereading misses these: grep for em-dashes, for "not ... but" and "rather than" constructions, for sentences opening with "That", and for paragraphs whose last sentence is under eight words and reads as a verdict.
+Run the [style audit](#style-audit).
 
 ### 8. Report
 
 Do not commit. Summarise what was written, the images captured, the home page link, and state plainly that nothing in the app was saved.
+
+## Style audit
+
+The Writing Style rules in the global `~/.claude/CLAUDE.md` apply to every guide. Rereading misses the constructions they ban, so run these from the repo root before calling a guide done.
+
+```bash
+grep -rn "—" src/content src/components src/pages
+grep -rn "rather than" src/content | wc -l
+grep -rniE "(is|are) the [a-z]+ worth [a-z]+ing" src/content
+grep -rniE "the (right|useful|same|whole) shape" src/content
+grep -rnE "\bis not [a-z ]{3,30}, (but|it is)\b" src/content
+grep -rnE "(^|\. )That (is|was|leaves|makes|means)\b" src/content
+```
+
+Then grep `src/content/` for two or three distinctive phrases from the new guide, to catch one you have already used in another.
+
+Epigram closers and setup sentences need a script:
+
+```bash
+python3 - src/content/guide/<slug>.md <<'EOF'
+import re, sys
+s = re.sub(r'^---\n.*?\n---\n', '', open(sys.argv[1]).read(), flags=re.S)
+s = re.sub(r'```[\s\S]*?```', '', s)
+for para in s.split('\n\n'):
+    p = para.strip()
+    if not p or p[0] in '#-*!|> ': continue
+    sents = [x.strip() for x in re.split(r'(?<=[.?!])\s+', p) if x.strip()]
+    if len(sents) > 1 and len(sents[-1].split()) < 8:
+        print(f"closer ({len(sents[-1].split())}w) {sents[-1]}")
+    for i, sent in enumerate(sents[:-1]):
+        if len(sent.split()) <= 7:
+            print(f"setup  ({len(sent.split())}w) {sent}  ->  {sents[i+1][:60]}")
+EOF
+```
+
+A closer that is a question or a colon introducing a list is fine. A setup line that states a fact on its own ("The table opens sorted by stock symbol.") is fine; one that only promises the next sentence ("The real mechanics are narrower.") goes.
 
 ## Example: what a good section looks like
 
 ```markdown
 ## Filling a value down the years
 
-Typing the same margin into ten rows is the part of a DCF that goes wrong quietly. The grid gives you three ways to avoid it, on the Margin, Ratio, Rate, Multiplier and Shares increase columns.
+Typing the same margin into ten rows by hand is where a DCF picks up errors you never notice. The grid gives you three ways to avoid it, on the Margin, Ratio, Rate, Multiplier and Shares increase columns.
 
 **1. Ctrl/Cmd+Enter while editing**
 
@@ -170,4 +206,4 @@ Typing the same margin into ten rows is the part of a DCF that goes wrong quietl
 *Right-clicking Year 3's margin. The menu also shows the Ctrl/Cmd+Enter shortcut for the same action.*
 ```
 
-Notice: the section opens with why the feature exists, each method is a numbered bold label with two bullets, the control names match the UI, and the image sits where the reader first needs it.
+Notice: the section opens with why the feature exists, each method is a numbered bold label with two bullets, the control names match the UI, and the image sits where the reader first needs it. The opening sentence states the failure plainly.

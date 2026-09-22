@@ -7,7 +7,7 @@ updatedAt: 2026-09-21
 readingTime: "10 min read"
 ---
 
-Margin builds your cost, your gains, your XIRR and your allocation from the trades on record, not from what your broker shows you are holding today. Those two should agree. Add up every buy and sell in your tradebook and it should land on exactly the quantity your demat account holds. The consistency check is where Margin compares the two and tells you where they don't.
+Margin builds your cost, your gains, your XIRR and your allocation from the trades on record, not from what your broker shows you are holding today, so the two have to agree: add up every buy and sell in your tradebook and it should land on exactly the quantity your demat account holds. The consistency check is where Margin compares the two and tells you where they don't.
 
 The screen carries a **Work in progress** label, and Margin says so plainly on it. Treat what it reports as a lead to investigate, not a settled number. It can only name a cause for a stock whose corporate actions have been synced against the exchange feeds, and some kinds of gap it cannot see in the data at all. Act on what it does find anyway, because a gap keeps distorting your numbers until you close it.
 
@@ -28,7 +28,7 @@ The table's **Held**, **Per Trades** and **Gap** columns are the whole reconcili
 
 Four summary cards sit above the table: how many stocks were checked, how many need attention, how many corporate actions are still waiting to be recorded, and how many stocks have never had their corporate actions synced against the exchange feeds at all. The last figure matters on its own, separately from the gap count, because a stock with no synced action data can be hiding a split or bonus the check has not even looked for yet.
 
-Two controls narrow what you see. **Only stocks needing attention** is on by default and hides everything that already reconciles. **Corporate action** filters to stocks with a particular pending action type, split against bonus against demerger against buyback, and its counts follow whichever attention setting is on. Each row ends in a **Resolve** or **Review** button that takes you to that stock's own screen, Resolve when there is a gap to close and Review when the stock only has something worth reading.
+**Only stocks needing attention** is on by default and hides everything that already reconciles, and **Corporate action** filters to stocks with a particular pending action type, split against bonus against demerger against buyback, and its counts follow whichever attention setting is on. Each row ends in a **Resolve** or **Review** button that takes you to that stock's own screen, Resolve when there is a gap to close and Review when the stock only has something worth reading.
 
 ![The Consistency table with the Held, Per Trades and Gap columns, a mix of stocks with no pending action and others carrying a filled Bonus, Buyback or Split chip](../../assets/images/consistency-portfolio-table.webp)
 
@@ -44,7 +44,7 @@ Where a corporate action feed has been synced for the stock, the picture is diff
 
 A split or a bonus does not touch your tradebook. Nothing about it looks like a buy or a sell, so unless you enter it yourself, your trade history keeps counting the shares you had before the corporate action while your demat account holds the shares you have after it, and the two drift apart by exactly the ratio.
 
-The damage goes past the quantity. Average cost is computed from quantity too, so a 1:1 bonus that is never recorded leaves your tradebook holding twice the real price per share, which understates every gain calculated from it and, on the sell side, overstates the tax paid. Margin names each corporate action by the type the exchange feed reports, shown as a chip carrying its label, its ex date and its ratio, for example a Split chip reading its ratio as a multiple. An outlined chip with a check mark has been recorded; a filled one is still waiting.
+Average cost is computed from quantity too, so a 1:1 bonus that is never recorded leaves your tradebook holding twice the real price per share, which understates every gain calculated from it and, on the sell side, overstates the tax paid. Margin names each corporate action by the type the exchange feed reports, shown as a chip carrying its label, its ex date and its ratio, for example a Split chip reading its ratio as a multiple. An outlined chip with a check mark has been recorded; a filled one is still waiting.
 
 ## Recording a corporate action for one stock
 
@@ -80,7 +80,7 @@ If you hold the same stock across more than one broker, the trading account pick
 
 ## Before you trust XIRR, gains or allocation
 
-An unresolved gap shows up well past this screen. The Unrealised Gains screen says outright that its long term and short term gains are worked out from the tradebook, adjusted for whichever corporate actions have been synced or recorded, and that where the tradebook and the demat holding disagree, the figures for that stock cannot be trusted until the gap is resolved. It shows no number in place of a wrong one: a gapped stock's LTCG and STCG columns are left blank, with a **Resolve** button where the figures would be, and its own **Needs Attention** card carries the same count this screen does. Wherever a stock's XIRR is shown, the same **Data gap** warning follows it.
+An unresolved gap shows up well past this screen. The Unrealised Gains screen says outright that its long term and short term gains are worked out from the tradebook, adjusted for whichever corporate actions have been synced or recorded, and that where the tradebook and the demat holding disagree, the figures for that stock cannot be trusted until the gap is resolved. A gapped stock's LTCG and STCG columns are left blank, with a **Resolve** button where the figures would be, and its own **Needs Attention** card carries the same count this screen does. Wherever a stock's XIRR is shown, the same **Data gap** warning follows it.
 
 The cost your allocation screen compares against your target is drawn from the same trade history, so a stock whose cost is wrong because of an unrecorded split or bonus carries that error into its allocation gap too, even though nothing on that screen names it directly.
 

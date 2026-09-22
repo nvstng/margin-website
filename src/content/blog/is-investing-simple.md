@@ -61,11 +61,11 @@ During the period of re-rating the investor makes returns from re-rating as well
 
 ### High Growth
 
-The second path is simpler to state: find a business growing earnings at 25 to 30% and hold it. At a stable PE your returns track the earnings growth directly, with no re-rating needed.
+The second path is to find a business growing earnings at 25 to 30% and hold it. At a stable PE your returns track the earnings growth directly, with no re-rating needed.
 
-The difficulty is in everything around that statement. Businesses sustaining 25 to 30% earnings growth for 10 or more years are rare, and identifying one before the market has priced in the growth is the hard part, because by the time the growth is obvious the PE has already expanded and much of the return is behind you. Doing that requires deep understanding of the business model, the competitive dynamics, and the size of the addressable market relative to where the company currently sits.
+Businesses sustaining 25 to 30% earnings growth for 10 or more years are rare, and identifying one before the market has priced in the growth is the hard part, because by the time the growth is obvious the PE has already expanded and much of the return is behind you. Doing that requires deep understanding of the business model, the competitive dynamics, and the size of the addressable market relative to where the company currently sits.
 
-Then there is the holding problem. Any business growing that fast will go through stretches that feel alarming, whether from a competitive threat, a macro headwind or a bad quarter. The conviction needed to hold through those periods comes from the analytical work done upfront, and an investor who has not done that work tends to sell at the worst possible time.
+Holding is its own problem, because any business growing that fast will go through stretches that feel alarming, whether from a competitive threat, a macro headwind or a bad quarter. The conviction needed to hold through those periods comes from the analytical work done upfront, and an investor who has not done that work tends to sell at the worst possible time.
 
 Finally, high growth does not last forever. At some point the business runs out of runway and the growth rate moderates, and recognising that inflection and acting on it is a separate skill from identifying the business in the first place.
 

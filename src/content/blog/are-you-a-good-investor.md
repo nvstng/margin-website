@@ -36,7 +36,7 @@ Consider another investor who is not as good, but holds the same conviction in o
 
 *Green: investor look-back XIRR. Blue: index look-back XIRR.*
 
-The early years are where this gets difficult. Around year 2, this investor's look-back XIRR briefly rises above the index, so for that window the evidence appears to say the active approach is working, when it is not. The early volatility is what creates these crossings, and one in year 2 has no way to tell whether that outperformance is signal or noise.
+Around year 2, this investor's look-back XIRR briefly rises above the index, so for that window the evidence appears to say the active approach is working, when it is not. The early volatility is what creates these crossings, and one in year 2 has no way to tell whether that outperformance is signal or noise.
 
 So for many years one may simply not know whether what one has is skill or only confidence. Conviction is necessary and it is not sufficient, and the realized outcome over a long period is the only reliable evidence.
 

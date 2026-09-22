@@ -11,7 +11,7 @@ writes: "Saves a forward projection against one stock"
 
 If you value stocks, the model is probably already in a spreadsheet, with years of assumptions in a layout you trust. Moving one of those into Margin by hand is an hour of typing per company, which is why valuations stay in the sheet and the portfolio never sees them.
 
-An agent can read the sheet and make the calls. What it must not do is compute anything.
+An agent can read the sheet and make the calls, as long as it computes nothing itself.
 
 ## The agent never computes the valuation
 
@@ -36,7 +36,7 @@ The body has four parts, and the units are where a mapping usually goes wrong:
 
 ## Saving it
 
-Saving needs a `stockOfInterestId` rather than a stock id, and one call resolves it:
+Saving needs a `stockOfInterestId` and not a stock id, and one call resolves it:
 
     POST /web/stockOfInterest/track/{stockId}
     POST /web/projection/stockOfInterest
