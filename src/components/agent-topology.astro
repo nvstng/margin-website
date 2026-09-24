@@ -20,10 +20,10 @@ const dots = {
 };
 ---
 
-<div class="overflow-x-auto -mx-6 px-6 lg:mx-0 lg:px-0">
+<div class="overflow-x-auto rounded-2xl border border-navy-600 bg-navy-800 p-4 lg:p-6">
   <svg
     viewBox="0 0 720 1050"
-    class="w-full min-w-[720px] font-sans"
+    class="w-full min-w-[720px] lg:min-w-0 font-sans"
     role="img"
     aria-label="How you, the agent on your machine, your broker and Margin connect"
   >
@@ -36,16 +36,16 @@ const dots = {
       </marker>
     </defs>
 
-    <rect x="282" y="34" width="428" height="290" rx="14" class="fill-navy-800 stroke-border" fill-opacity="0.25" stroke-dasharray="5 5" />
+    <rect x="282" y="34" width="428" height="290" rx="14" class="fill-navy-900 stroke-navy-400" fill-opacity="0.5" stroke-dasharray="5 5" />
     <text x="298" y="58" class="fill-gold-400 text-[12px] tracking-[0.2em] uppercase">Your machine</text>
 
-    <rect x="70" y="80" width="160" height="100" rx="10" class="fill-navy-800 stroke-gold-400" stroke-opacity="0.4" />
+    <rect x="70" y="80" width="160" height="100" rx="10" class="fill-navy-700 stroke-gold-400" stroke-opacity="0.65" />
     <text x="150" y="113" text-anchor="middle" class="fill-cream text-[19px] font-display font-semibold">You</text>
     <text x="150" y="137" text-anchor="middle" class="fill-muted text-[12.5px]">prompt the agent</text>
     <text x="150" y="154" text-anchor="middle" class="fill-muted text-[12.5px]">read each diff</text>
     <text x="150" y="171" text-anchor="middle" class="fill-muted text-[12.5px]">say go ahead</text>
 
-    <rect x="300" y="70" width="400" height="110" rx="10" class="fill-navy-800 stroke-border" />
+    <rect x="300" y="70" width="400" height="110" rx="10" class="fill-navy-700 stroke-navy-400" />
     <text x="500" y="103" text-anchor="middle" class="fill-cream text-[19px] font-display font-semibold">AI agent</text>
     <text x="500" y="127" text-anchor="middle" class="fill-muted text-[13px]">Claude Code, Codex or any agent</text>
     <text x="500" y="145" text-anchor="middle" class="fill-muted text-[13px]">on your subscription, not Margin's</text>
@@ -56,10 +56,10 @@ const dots = {
     <line x1="300" y1="130" x2="230" y2="130" class="stroke-muted" stroke-width="1.5" marker-end="url(#arrow-muted)" />
     <text x="265" y="150" text-anchor="middle" class="fill-muted text-[12px]">the diff</text>
 
-    <path d="M 500 180 V 206 M 366 206 H 634 M 366 206 V 232 M 500 206 V 232 M 634 206 V 232" class="stroke-border" fill="none" stroke-width="1.5" />
+    <path d="M 500 180 V 206 M 366 206 H 634 M 366 206 V 232 M 500 206 V 232 M 634 206 V 232" class="stroke-navy-400" fill="none" stroke-width="1.5" />
     {machineTools.map((tool) => (
       <>
-        <rect x={tool.x} y="232" width="120" height="72" rx="8" class="fill-navy-800 stroke-border" />
+        <rect x={tool.x} y="232" width="120" height="72" rx="8" class="fill-navy-700 stroke-navy-400" />
         <text x={tool.x + 60} y="263" text-anchor="middle" class="fill-cream text-[14px]">{tool.title}</text>
         <text x={tool.x + 60} y="284" text-anchor="middle" class="fill-muted text-[12px]">{tool.note}</text>
       </>
@@ -69,7 +69,7 @@ const dots = {
     <line x1="500" y1="304" x2="500" y2="384" class="stroke-muted" stroke-width="1.5" marker-start="url(#arrow-muted)" marker-end="url(#arrow-muted)" />
     <text x="512" y="350" class="fill-muted text-[12px]">your login, never sent to Margin</text>
 
-    <rect x="335" y="384" width="330" height="84" rx="10" class="fill-navy-800 stroke-border" />
+    <rect x="335" y="384" width="330" height="84" rx="10" class="fill-navy-700 stroke-navy-400" />
     <text x="500" y="415" text-anchor="middle" class="fill-cream text-[17px] font-display font-semibold">Your broker</text>
     <text x="500" y="441" text-anchor="middle" class="fill-muted text-[12.5px]">Zerodha · Groww · Upstox · AngelOne</text>
 
@@ -77,10 +77,10 @@ const dots = {
     <text x="246" y="440" text-anchor="end" class="fill-gold-400 text-[12px]">read · write</text>
     <text x="246" y="462" text-anchor="end" class="fill-gold-400 text-[12px]">computed figures</text>
 
-    <rect x="100" y="508" width="610" height="480" rx="14" class="fill-navy-800 stroke-border" fill-opacity="0.25" stroke-dasharray="5 5" />
+    <rect x="100" y="508" width="610" height="480" rx="14" class="fill-navy-900 stroke-navy-400" fill-opacity="0.5" stroke-dasharray="5 5" />
     <text x="118" y="532" class="fill-gold-400 text-[12px] tracking-[0.2em] uppercase">Margin</text>
 
-    <rect x="155" y="552" width="500" height="112" rx="10" class="fill-navy-800 stroke-gold-400" stroke-opacity="0.4" />
+    <rect x="155" y="552" width="500" height="112" rx="10" class="fill-navy-700 stroke-gold-400" stroke-opacity="0.65" />
     <text x="405" y="585" text-anchor="middle" class="fill-cream text-[19px] font-display font-semibold">API</text>
     <text x="405" y="609" text-anchor="middle" class="fill-muted text-[13px]">go.marginapp.in</text>
     <text x="405" y="627" text-anchor="middle" class="fill-muted text-[13px]">reads free, writes checked first</text>
@@ -88,7 +88,7 @@ const dots = {
 
     <line x1="405" y1="664" x2="405" y2="700" class="stroke-muted" stroke-width="1.5" marker-start="url(#arrow-muted)" marker-end="url(#arrow-muted)" />
 
-    <rect x="155" y="700" width="500" height="124" rx="10" class="fill-navy-800 stroke-border" />
+    <rect x="155" y="700" width="500" height="124" rx="10" class="fill-navy-700 stroke-navy-400" />
     <text x="405" y="731" text-anchor="middle" class="fill-cream text-[18px] font-display font-semibold">Your data</text>
     <text x="405" y="756" text-anchor="middle" class="fill-muted text-[12.5px]">holdings · trades · dividends</text>
     <text x="405" y="774" text-anchor="middle" class="fill-muted text-[12.5px]">funds statement · valuations</text>
@@ -97,7 +97,7 @@ const dots = {
 
     <line x1="405" y1="824" x2="405" y2="860" class="stroke-muted" stroke-width="1.5" marker-start="url(#arrow-muted)" marker-end="url(#arrow-muted)" />
 
-    <rect x="155" y="860" width="500" height="104" rx="10" class="fill-navy-800 stroke-border" />
+    <rect x="155" y="860" width="500" height="104" rx="10" class="fill-navy-700 stroke-navy-400" />
     <text x="405" y="891" text-anchor="middle" class="fill-cream text-[18px] font-display font-semibold">Web app</text>
     <text x="405" y="916" text-anchor="middle" class="fill-muted text-[12.5px]">the same figures, and the operations closed to a token:</text>
     <text x="405" y="936" text-anchor="middle" class="fill-muted text-[12.5px]">clearing, deleting, reading row by row</text>

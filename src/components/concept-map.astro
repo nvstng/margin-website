@@ -42,10 +42,10 @@ const fileGlyph = (cx: number, top: number) => {
 };
 ---
 
-<div class="overflow-x-auto -mx-6 px-6 lg:mx-0 lg:px-0">
+<div class="overflow-x-auto rounded-2xl border border-navy-600 bg-navy-800 p-4 lg:p-6">
   <svg
     viewBox="0 0 960 764"
-    class="w-full min-w-[760px] font-sans"
+    class="w-full min-w-[760px] lg:min-w-0 font-sans"
     role="img"
     aria-label="Your bank, the company, the exchange and the government meet at your brokerage; the brokerage exports a funds statement, holdings, tradebook and dividend statement, which Margin records as a ledger, holdings, trades and dividends, and from which it works out net invested, current value, lots and tax, and the dividends inside your return"
   >
@@ -62,7 +62,7 @@ const fileGlyph = (cx: number, top: number) => {
 
     {world.map((box, i) => (
       <>
-        <rect x={columnX[i]} y="48" width="216" height="94" rx="10" class="fill-navy-800 stroke-border" />
+        <rect x={columnX[i]} y="48" width="216" height="94" rx="10" class="fill-navy-700 stroke-navy-400" />
         <text x={columnCentre[i]} y="79" text-anchor="middle" class="fill-cream text-[18px] font-display font-semibold">{box.title}</text>
         {box.lines.map((line, li) => (
           <text x={columnCentre[i]} y={104 + li * 18} text-anchor="middle" class="fill-muted text-[12px]">{line}</text>
@@ -77,7 +77,7 @@ const fileGlyph = (cx: number, top: number) => {
       </>
     ))}
 
-    <rect x="24" y="182" width="680" height="112" rx="12" class="fill-navy-800 stroke-gold-400" fill-opacity="0.55" stroke-opacity="0.4" />
+    <rect x="24" y="182" width="680" height="112" rx="12" class="fill-navy-700 stroke-gold-400" stroke-opacity="0.65" />
     <text x="44" y="211" class="fill-cream text-[18px] font-display font-semibold">Your brokerage</text>
     <text x="44" y="231" class="fill-muted text-[12px]">one trading account per broker login · Zerodha, Groww, Upstox, AngelOne or Other</text>
 
@@ -98,7 +98,7 @@ const fileGlyph = (cx: number, top: number) => {
     {brokerFiles.map((file, i) => (
       <>
         <line x1={columnCentre[i]} y1="318" x2={columnCentre[i]} y2="340" class="stroke-muted" stroke-width="1.5" marker-end="url(#cm-arrow)" />
-        <path d={fileGlyph(columnCentre[i], 344).body} class="fill-navy-700 stroke-muted" stroke-opacity="0.65" stroke-width="1.25" />
+        <path d={fileGlyph(columnCentre[i], 344).body} class="fill-navy-600 stroke-muted" stroke-opacity="0.65" stroke-width="1.25" />
         <path d={fileGlyph(columnCentre[i], 344).fold} class="stroke-muted" fill="none" stroke-opacity="0.65" stroke-width="1.25" />
         <text x={columnCentre[i]} y="386" text-anchor="middle" class="fill-cream text-[14.5px] font-display font-semibold">{file.title}</text>
         {file.notes.map((note, ni) => (
@@ -107,13 +107,13 @@ const fileGlyph = (cx: number, top: number) => {
       </>
     ))}
 
-    <rect x="14" y="450" width="932" height="290" rx="14" class="fill-navy-800 stroke-border" fill-opacity="0.25" stroke-dasharray="5 5" />
+    <rect x="14" y="450" width="932" height="290" rx="14" class="fill-navy-900 stroke-navy-400" fill-opacity="0.5" stroke-dasharray="5 5" />
     <text x="32" y="476" class="fill-gold-400 text-[11.5px] tracking-[0.2em] uppercase">Margin</text>
 
     {records.map((record, i) => (
       <>
         <line x1={columnCentre[i]} y1="434" x2={columnCentre[i]} y2="484" class="stroke-gold-400" stroke-opacity="0.5" stroke-width="1.5" marker-end="url(#cm-arrow-gold)" />
-        <rect x={columnCentre[i] - 80} y="490" width="160" height="38" rx="19" class="fill-navy-700 stroke-gold-400" stroke-opacity="0.4" />
+        <rect x={columnCentre[i] - 80} y="490" width="160" height="38" rx="19" class="fill-navy-600 stroke-gold-400" stroke-opacity="0.65" />
         <text x={columnCentre[i]} y="515" text-anchor="middle" class="fill-cream text-[16px] font-display font-semibold">{record}</text>
       </>
     ))}
