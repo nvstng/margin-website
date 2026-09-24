@@ -1,0 +1,76 @@
+---
+const steps = [
+  { x: 10, n: 1, title: 'Fetch', sub: 'the contract', note: 'llms.txt', tone: 'gold' },
+  { x: 180, n: 2, title: 'Read', sub: 'both sides', note: 'broker · Margin', tone: 'emerald' },
+  { x: 350, n: 3, title: 'Show', sub: 'the diff', note: 'nothing written', tone: 'amber' },
+  { x: 610, n: 4, title: 'Write', sub: 'checked first', note: 'or rejected whole', tone: 'amber' },
+  { x: 780, n: 5, title: 'Verify', sub: 'read it back', note: 'match on ISIN', tone: 'emerald' },
+];
+
+const strokes = {
+  gold: 'stroke-gold-400',
+  emerald: 'stroke-emerald-400',
+  amber: 'stroke-amber-400',
+};
+
+const fills = {
+  gold: 'fill-gold-400',
+  emerald: 'fill-emerald-400',
+  amber: 'fill-amber-400',
+};
+
+const w = 120;
+const top = 70;
+const h = 110;
+const mid = top + h / 2;
+---
+
+<div class="overflow-x-auto rounded-2xl border border-navy-600 bg-navy-800 p-4 lg:p-6">
+  <svg
+    viewBox="0 0 910 330"
+    class="w-full min-w-[720px] lg:min-w-0 font-sans"
+    role="img"
+    aria-label="Every run: fetch the contract, read both sides, show the diff, wait for your go-ahead, write, then read back and verify. Without a go-ahead nothing is written."
+  >
+    <defs>
+      <marker id="loop-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M 0 0 L 10 5 L 0 10 z" class="fill-muted" />
+      </marker>
+      <marker id="loop-arrow-gold" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M 0 0 L 10 5 L 0 10 z" class="fill-gold-400" />
+      </marker>
+    </defs>
+
+    <text x="10" y="34" class="fill-gold-400 text-[12px] tracking-[0.2em] uppercase">Every run</text>
+
+    {steps.map((step) => (
+      <>
+        <rect x={step.x} y={top} width={w} height={h} rx="10" class={`fill-navy-700 ${strokes[step.tone as keyof typeof strokes]}`} stroke-opacity="0.6" />
+        <circle cx={step.x + 18} cy={top + 18} r="9" class={fills[step.tone as keyof typeof fills]} fill-opacity="0.2" />
+        <text x={step.x + 18} y={top + 22} text-anchor="middle" class="fill-cream text-[11px]">{step.n}</text>
+        <text x={step.x + w / 2} y={top + 52} text-anchor="middle" class="fill-cream text-[19px] font-display font-semibold">{step.title}</text>
+        <text x={step.x + w / 2} y={top + 72} text-anchor="middle" class="fill-muted text-[12.5px]">{step.sub}</text>
+        <text x={step.x + w / 2} y={top + 96} text-anchor="middle" class="fill-gold-300 text-[11.5px]">{step.note}</text>
+      </>
+    ))}
+
+    <line x1="130" y1={mid} x2="178" y2={mid} class="stroke-muted" stroke-width="1.5" marker-end="url(#loop-arrow)" />
+    <line x1="300" y1={mid} x2="348" y2={mid} class="stroke-muted" stroke-width="1.5" marker-end="url(#loop-arrow)" />
+    <line x1="470" y1={mid} x2="500" y2={mid} class="stroke-muted" stroke-width="1.5" marker-end="url(#loop-arrow)" />
+
+    <circle cx="540" cy={mid} r="38" class="fill-navy-600 stroke-gold-400" stroke-width="1.5" />
+    <text x="540" y={mid - 4} text-anchor="middle" class="fill-cream text-[17px] font-display font-semibold">You</text>
+    <text x="540" y={mid + 15} text-anchor="middle" class="fill-gold-300 text-[11.5px]">go ahead?</text>
+
+    <line x1="578" y1={mid} x2="608" y2={mid} class="stroke-gold-400" stroke-width="1.5" marker-end="url(#loop-arrow-gold)" />
+    <text x="593" y={mid - 10} text-anchor="middle" class="fill-gold-400 text-[11px]">yes</text>
+    <line x1="730" y1={mid} x2="778" y2={mid} class="stroke-muted" stroke-width="1.5" marker-end="url(#loop-arrow)" />
+
+    <line x1="540" y1={mid + 38} x2="540" y2="236" class="stroke-muted" stroke-width="1.5" stroke-dasharray="4 4" marker-end="url(#loop-arrow)" />
+    <text x="552" y="222" class="fill-muted text-[11px]">no</text>
+    <text x="540" y="256" text-anchor="middle" class="fill-muted text-[12.5px]">stop, nothing changes</text>
+
+    <path d={`M 840 ${top + h} V 300 H 70 V ${top + h + 2}`} class="stroke-navy-400" fill="none" stroke-width="1.5" stroke-dasharray="5 5" marker-end="url(#loop-arrow)" />
+    <text x="455" y="318" text-anchor="middle" class="fill-muted text-[12px] italic">the next run starts again from the contract</text>
+  </svg>
+</div>

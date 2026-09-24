@@ -5,8 +5,12 @@ import Nav from '../../components/nav.astro';
 import Footer from '../../components/footer.astro';
 import TokenScope from '../../components/token-scope.astro';
 import AgentTopology from '../../components/agent-topology.astro';
+import AgentLoop from '../../components/agent-loop.astro';
 import AgentReach from '../../components/agent-reach.astro';
 import GuideToc from '../../components/guide-toc.astro';
+import GuideVideo from '../../components/guide-video.astro';
+import videoPosterEn from '../../assets/images/video-agents-en.webp';
+import videoPosterHi from '../../assets/images/video-agents-hi.webp';
 import { groupByTask } from '../../domain/recipe';
 
 const SIGNUP_URL = 'https://go.marginapp.in';
@@ -14,6 +18,11 @@ const TOKENS_URL = 'https://go.marginapp.in/settings';
 const LLMS_URL = 'https://go.marginapp.in/llms.txt';
 
 const groups = groupByTask(await getCollection('recipe'));
+
+const videos = [
+  { language: 'en', youtubeId: 'LGeJ3uXkvg8', poster: videoPosterEn },
+  { language: 'hi', youtubeId: 'IZdRCyHhClE', poster: videoPosterHi },
+];
 
 const headings = [
   { depth: 2, slug: 'how-it-fits', text: 'How the pieces fit' },
@@ -69,7 +78,7 @@ const rules = [
         <p class="text-muted text-lg leading-relaxed max-w-2xl mb-6">
           Keeping a portfolio record honest takes a surprising amount of clerical work. Holdings go
           stale the week you buy something, a year of dividends sits in a console export until you
-          remember to fetch it, and the valuation you spent an evening on stays in a spreadsheet
+          remember to fetch it, and the valuation you spent an evening on stays in Excel or a spreadsheet
           because retyping it into anything else costs another hour. Old trades and dividends
           also arrive under symbols that have since been renamed or merged away, and each one
           means looking up what the company became before the row will load.
@@ -99,7 +108,7 @@ const rules = [
               <span class="w-2 h-2 rounded-full bg-amber-400 mt-1 shrink-0"></span>
               <span class="text-muted">
                 2 stocks added, 1 sold out, 4 quantities moved. Write them under
-                <span class="text-cream">Zerodha</span>, replacing what is there?
+                <span class="text-cream">Zerodha · Personal</span>, replacing what is there?
               </span>
             </div>
             <div class="rounded-lg bg-navy-950/60 border border-emerald-400/20 p-4 flex items-start gap-3">
@@ -109,6 +118,8 @@ const rules = [
           </div>
         </div>
       </div>
+
+      <GuideVideo title="Hand the repetitive part to an agent" videos={videos} />
 
       <section id="how-it-fits" class="reveal reveal-delay-2 mb-20 scroll-mt-28">
         <h2 class="font-display text-3xl font-light text-cream mb-4 gold-line">
@@ -122,6 +133,9 @@ const rules = [
           in to see the same figures and to do the few things a token is not allowed to.
         </p>
         <AgentTopology />
+        <div class="mt-12">
+          <AgentLoop />
+        </div>
       </section>
 
       <section id="reach" class="reveal mb-20 scroll-mt-28">

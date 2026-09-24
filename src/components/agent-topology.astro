@@ -4,20 +4,6 @@ const machineTools = [
   { x: 440, title: 'Browser', note: 'broker login' },
   { x: 574, title: 'Web search', note: 'filings, news' },
 ];
-
-const steps = [
-  { tone: 'gold', title: 'Fetch the contract', body: 'The agent reads llms.txt from Margin before anything else, so it works against the current API rather than a remembered copy.' },
-  { tone: 'emerald', title: 'Read both sides', body: 'It pulls holdings from your broker through your browser session, and the record Margin already holds through your token.' },
-  { tone: 'amber', title: 'Show you the diff', body: 'What differs is laid out as a proposed write and the agent stops there. Nothing has changed yet on either side.' },
-  { tone: 'amber', title: 'Write on your go-ahead', body: 'Margin checks the payload first, so a rejected write leaves the account exactly as it was.' },
-  { tone: 'emerald', title: 'Read back and verify', body: 'The agent reads the summary again and matches it against what it sent. The figures it reports are the ones the web app shows you.' },
-];
-
-const dots = {
-  gold: 'bg-gold-400',
-  emerald: 'bg-emerald-400',
-  amber: 'bg-amber-400',
-};
 ---
 
 <div class="overflow-x-auto rounded-2xl border border-navy-600 bg-navy-800 p-4 lg:p-6">
@@ -105,17 +91,4 @@ const dots = {
     <path d="M 76 180 V 1010 H 405 V 968" class="stroke-muted" fill="none" stroke-width="1.5" marker-end="url(#arrow-muted)" />
     <text x="405" y="1036" text-anchor="middle" class="fill-muted text-[12px]">sign in to check what the agent wrote, and for the operations closed to a token</text>
   </svg>
-</div>
-
-<div class="grid grid-cols-1 md:grid-cols-5 gap-4 mt-12">
-  {steps.map((step, i) => (
-    <div class="bg-navy-800/30 border border-border rounded-xl p-5">
-      <div class="flex items-center gap-2 mb-3">
-        <span class={`w-2 h-2 rounded-full ${dots[step.tone as keyof typeof dots]}`}></span>
-        <span class="text-[11px] text-muted tracking-widest uppercase">Step {i + 1}</span>
-      </div>
-      <h3 class="font-display text-lg text-cream mb-2 leading-snug">{step.title}</h3>
-      <p class="text-muted text-sm leading-relaxed">{step.body}</p>
-    </div>
-  ))}
 </div>

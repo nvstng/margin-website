@@ -1,12 +1,12 @@
 ---
 title: "Holdings from your broker into Margin"
-description: "Read live holdings from your broker and post them to Margin without downloading a CSV, using a brokerage name that replaces the right earlier import."
+description: "Read live holdings from your broker and post them to Margin without downloading a CSV, into the trading account that holds your earlier import."
 task: "Get your records in"
 order: 1
 updatedAt: 2026-09-17
 readingTime: "4 min read"
 connects: ["Broker", "Margin"]
-writes: "One holdings import, recorded under the brokerage name you send"
+writes: "One holdings import, recorded in the trading account you send"
 ---
 
 Holdings move every time you buy or sell, so the copy Margin holds goes stale between imports. The manual route is to open the broker's console, export the holdings file and upload it. An agent can skip the file entirely when your broker exposes holdings over an API or an MCP server, reading the current position list and posting it straight to Margin.
@@ -15,25 +15,29 @@ Holdings move every time you buy or sell, so the copy Margin holds goes stale be
 
     POST /web/stockOfInterest/upload/json
 
-The body carries the positions and a `brokerageName`, and everything else in this recipe follows from how that field behaves.
+The body carries the positions and a `tradingAccountId`, and everything else in this recipe follows from how that field behaves.
 
-## What the brokerage name decides
+## What the trading account decides
 
-An import replaces what is on record **under the brokerage name you send**, and leaves every other brokerage alone. Send a name you have not used before and the same portfolio is recorded a second time instead of replacing the first, with nothing in the response to tell you it happened. The `changes` count in the response covers only what moved under the name you sent, so it looks correct either way.
+An import replaces what is on record **in the trading account you send**, and leaves every other trading account alone. Send it to an account your earlier imports did not use and the same portfolio is recorded a second time instead of replacing the first, with nothing in the response to tell you it happened. The `changes` count in the response covers only the account the import landed in, so it looks correct either way.
 
 So the upload is not the first call to make:
 
-    GET /web/brokerage/summary
+    GET /web/tradingAccount
 
-The names it returns are the ones your earlier imports used, and matching is case-insensitive. When the summary does not settle which brokerage you meant, the agent should ask you rather than falling back to `Other`.
+Each account it returns carries its brokerage, the name you gave it in the web app and `holdingCount`, how many holdings are recorded in it now, which shows where your earlier imports sit. When exactly one account matches the broker the holdings came from, the agent sends its id. When two do, as with a personal account and a family account at the same broker, it asks you which one, naming each. When none does, it asks before adding one with `POST /web/tradingAccount`, since every such call opens a new account.
+
+Older skills send a `brokerageName` instead, and Margin still accepts it, but a name alone lands on the oldest trading account at that brokerage. For anyone with a second account at the same broker that is the wrong account, so a skill should send the id.
+
+Holdings recorded twice cannot be cleared with a token. You clear them in the web app, where Delete All on the dashboard can remove one brokerage's holdings and leave the rest, and importing again does not undo the duplicate.
 
 ## Checking it landed
 
-Read `GET /web/holdings` before the import as well as after, and compare the two. Match entries on `isin` and not on `stockSymbol`, because symbols get reused and renamed across listings while the ISIN stays put. A stock you do not hold has no entry at all, so an entry disappearing is a real change and not a quantity falling to zero.
+Read `GET /web/holdings` before the import as well as after, and compare the two. Match entries on `isin` and not on `stockSymbol`, because symbols get reused and renamed across listings while the ISIN stays put. A stock you do not hold has no entry at all, so an entry disappearing is a real change and not a quantity falling to zero. Each entry's `units` is your whole position across every account, and its `brokerages` list splits that by trading account, so compare what you sent against the entry carrying the account you imported into.
 
 ## Where an agent should stop and ask
 
-Getting your go-ahead matters more before the upload than before the read, since the read is free and repeatable while the write replaces a portfolio. A sensible skill shows you the diff it is about to cause and names the brokerage it will write under, then waits for you to approve it.
+Getting your go-ahead matters more before the upload than before the read, since the read is free and repeatable while the write replaces a portfolio. A sensible skill shows you the diff it is about to cause and names the trading account it will replace, then waits for you to approve it.
 
 ## A skill to start from
 
@@ -62,14 +66,16 @@ The token lives at `~/.margin/token` and starts with `mgn_`. Send it as
 `Authorization: Bearer <token>`. A 401 means it is revoked and the user mints a
 new one at https://go.marginapp.in/settings on the API Tokens tab.
 
-## 2. Decide the brokerage name before anything else
+## 2. Decide the trading account before anything else
 
-    GET /web/brokerage/summary
+    GET /web/tradingAccount
 
-An import replaces only what is on record under the name you send. A name that
-does not already appear here records a second copy of the portfolio, silently.
-When the summary does not settle which brokerage the user meant, ask. Never
-default to "Other".
+An import replaces only what is on record in the trading account you send. An
+account the earlier imports did not use records a second copy of the portfolio,
+silently. One account at the broker: use its id. Two: ask the user, naming each.
+None: ask before creating one with `POST /web/tradingAccount`. Send
+`tradingAccountId`, never `brokerageName`, which lands on the oldest account at
+that brokerage. Never default to "Other".
 
 ## 3. Read the holdings and the current record
 
@@ -79,7 +85,7 @@ diff at step 4 has a before.
 ## 4. Show the diff and wait
 
 Print what would change: stocks appearing, stocks disappearing, and units moving.
-Name the brokerage the upload will write under. Do not upload until the user says
+Name the trading account the upload will replace. Do not upload until the user says
 go ahead.
 
 ## 5. Upload
@@ -89,7 +95,7 @@ go ahead.
 ## 6. Verify
 
 Read `GET /web/holdings` again and compare against step 3, matching on `isin` and
-not on `stockSymbol`. Report what actually changed instead of repeating the
+not on `stockSymbol`, and reading the `brokerages` entry for the account you sent. Report what actually changed instead of repeating the
 response's own counts.
 ```
 

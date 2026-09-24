@@ -19,13 +19,15 @@ The file comes from the broker's console, where it usually sits with the interes
 
 ## The stocks it cannot place
 
-The response carries `stocksNotFound`, the payouts whose stock Margin could not match. Do not have the agent resolve them by similarity. A symbol that looks close is often a different company.
+When any row of the statement names a stock Margin cannot match, the upload writes nothing at all. The response comes back with `saved` false and the unmatched stocks listed under `stocksNotFound`, and the year stays exactly as it was. Recording only the matched rows would leave a year that looks complete while it understates your return, which is why Margin holds the whole upload back. Do not have the agent resolve the misses by similarity, since a symbol that looks close is often a different company.
 
 A statement from a few years back is full of symbols as they stood on the ex-date, and many of the misses are companies that have since renamed themselves or merged into another listing. Finding out where each one went is tedious by hand and easy to delegate. Have the agent search the exchange announcements and the news for what the old symbol became, then look the successor up in Margin:
 
     GET /web/stock/find/{text}
 
-Search by symbol, and by ISIN when the symbol finds nothing. Put each old symbol to the user alongside the successor and the filing that records the change, and let them choose, which is the same choice the Margin web app offers on this screen. A payout is cash, so recording a merged company's dividend against the listing it merged into loses nothing. Once the user has chosen, rewrite those rows in the file and upload it again; each upload rewrites the whole year, so the payouts already recorded are not doubled. When the search finds no successor, as with a company that was delisted outright, the skill should say so plainly instead of picking the nearest match.
+Search by symbol, and by ISIN when the symbol finds nothing. Put each old symbol to the user alongside the successor and the filing that records the change, and let them choose, which is the same choice the Margin web app offers on this screen. A payout is cash, so recording a merged company's dividend against the listing it merged into loses nothing.
+
+Once the user has chosen, upload the same file again without editing it, with `final` set to `true` and `stockSelections` carrying each choice as the `symbol` and `isin` from the `stocksNotFound` entry plus the Margin `stockId` the user picked. Rows whose stock was chosen go to that stock, and anything still unmatched is left out and reported again. Sending `final` is the user's decision to record the year without those rows, so the skill asks before it sends it and never sends it on the first upload. Each upload rewrites the whole year, so the payouts already recorded are not doubled. When the search finds no successor, as with a company that was delisted outright, the skill should say so plainly instead of picking the nearest match.
 
 ## Verifying without reading rows back
 
@@ -71,7 +73,11 @@ the downloaded file with it.
 
     POST /web/dividends/upload/csv
 
-Upload the file as it came off the console. Get the user's go-ahead first.
+Upload the file as it came off the console, under the trading account from
+`GET /web/tradingAccount` (ask when two accounts sit at the same brokerage).
+Get the user's go-ahead first. Never send `final` on this first upload.
+
+When `stocksNotFound` is not empty, `saved` is false and nothing was written.
 
 ## 3. Resolve what did not match
 
@@ -82,10 +88,14 @@ and mergers and find what it trades as now. Check the successor with:
     GET /web/stock/find/{isin}    when the symbol finds nothing
 
 **Never pick a match yourself.** Show the user each old symbol with its
-successor and the filing behind it, using AskUserQuestion. Rewrite the rows
-they confirm and upload the file again; the upload rewrites the year, so nothing
-doubles. When no successor turns up, say so; the listing was probably delisted
-and there is no stock to pick.
+successor and the filing behind it, using AskUserQuestion. When no successor
+turns up, say so; the listing was probably delisted and there is no stock to pick.
+
+Then upload the same file again, unedited, with `final=true` and
+`stockSelections` holding each confirmed `{symbol, isin, stockId}`, copying
+`symbol` and `isin` from the `stocksNotFound` entry. `final` records the year
+without any rows still unmatched, so ask before sending it. The upload rewrites
+the year, so nothing doubles.
 
 ## 4. Verify against the counts
 

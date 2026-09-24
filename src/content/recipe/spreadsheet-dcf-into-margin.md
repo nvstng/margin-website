@@ -1,6 +1,6 @@
 ---
-title: "A spreadsheet DCF into Margin"
-description: "Move a valuation you already keep in a spreadsheet into Margin, letting Margin compute every derived figure so the saved projection matches what the app shows."
+title: "A spreadsheet or Excel DCF into Margin"
+description: "Move a valuation you already keep in Excel or another spreadsheet into Margin, letting Margin compute every derived figure so the saved projection matches what the app shows."
 task: "Value a stock"
 order: 1
 updatedAt: 2026-09-17
@@ -9,7 +9,7 @@ connects: ["Spreadsheet", "Margin"]
 writes: "Saves a forward projection against one stock"
 ---
 
-If you value stocks, the model is probably already in a spreadsheet, with years of assumptions in a layout you trust. Moving one of those into Margin by hand is an hour of typing per company, which is why valuations stay in the sheet and the portfolio never sees them.
+If you value stocks, the model is probably already in Excel or another spreadsheet, with years of assumptions in a layout you trust. Moving one of those into Margin by hand is an hour of typing per company, which is why valuations stay in the sheet and the portfolio never sees them.
 
 An agent can read the sheet and make the calls, as long as it computes nothing itself.
 
