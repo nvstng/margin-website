@@ -3,8 +3,8 @@ title: "A year of dividends on record"
 description: "Pull the dividend statement from your broker's console and upload it to Margin, handling the stocks the matcher cannot place without guessing at them."
 task: "Get your records in"
 order: 3
-updatedAt: 2026-09-17
-readingTime: "4 min read"
+updatedAt: 2026-09-23
+readingTime: "5 min read"
 connects: ["Broker console", "Margin"]
 writes: "Records a financial year of dividends"
 ---
@@ -19,13 +19,13 @@ The file comes from the broker's console, where it usually sits with the interes
 
 ## The stocks it cannot place
 
-The response carries `stocksNotFound`, the payouts whose stock Margin could not match. Do not have the agent resolve them by similarity. A symbol that looks close is often a different company, and a symbol like `MODISNME6` is usually a delisted or renamed listing with no stock to pick at all.
+The response carries `stocksNotFound`, the payouts whose stock Margin could not match. Do not have the agent resolve them by similarity. A symbol that looks close is often a different company.
 
-Have it search and then ask:
+A statement from a few years back is full of symbols as they stood on the ex-date, and many of the misses are companies that have since renamed themselves or merged into another listing. Finding out where each one went is tedious by hand and easy to delegate. Have the agent search the exchange announcements and the news for what the old symbol became, then look the successor up in Margin:
 
     GET /web/stock/find/{text}
 
-Search each unmatched entry by symbol, and by ISIN when the symbol finds nothing. Put the candidates to the user and let them choose, which is the same choice the Margin web app offers on this screen. When a search returns nothing, the skill should say so plainly instead of picking the nearest match.
+Search by symbol, and by ISIN when the symbol finds nothing. Put each old symbol to the user alongside the successor and the filing that records the change, and let them choose, which is the same choice the Margin web app offers on this screen. A payout is cash, so recording a merged company's dividend against the listing it merged into loses nothing. Once the user has chosen, rewrite those rows in the file and upload it again; each upload rewrites the whole year, so the payouts already recorded are not doubled. When the search finds no successor, as with a company that was delisted outright, the skill should say so plainly instead of picking the nearest match.
 
 ## Verifying without reading rows back
 
@@ -44,7 +44,7 @@ name: dividends-to-margin
 description: Download the broker's dividend statement for a financial year and
   upload it to Margin (go.marginapp.in). Use when asked to import, sync or record
   dividends for an FY.
-allowed-tools: Bash(bash *), Bash(curl *), Bash(jq *), Bash(ls *), Bash(mv *), AskUserQuestion, Read
+allowed-tools: Bash(bash *), Bash(curl *), Bash(jq *), Bash(ls *), Bash(mv *), AskUserQuestion, WebSearch, Read, Write
 ---
 
 Download the dividend statement as CSV for the financial year and upload it to
@@ -75,14 +75,17 @@ Upload the file as it came off the console. Get the user's go-ahead first.
 
 ## 3. Resolve what did not match
 
-For each entry of `stocksNotFound`:
+For each entry of `stocksNotFound`, search the web for the old symbol's renames
+and mergers and find what it trades as now. Check the successor with:
 
     GET /web/stock/find/{symbol}
     GET /web/stock/find/{isin}    when the symbol finds nothing
 
-**Never pick a match yourself.** Put the candidates to the user with
-AskUserQuestion and let them choose. When both searches return nothing, say so;
-the listing is probably delisted or renamed and there is no stock to pick.
+**Never pick a match yourself.** Show the user each old symbol with its
+successor and the filing behind it, using AskUserQuestion. Rewrite the rows
+they confirm and upload the file again; the upload rewrites the year, so nothing
+doubles. When no successor turns up, say so; the listing was probably delisted
+and there is no stock to pick.
 
 ## 4. Verify against the counts
 

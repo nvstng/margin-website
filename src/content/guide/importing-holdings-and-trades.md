@@ -6,6 +6,13 @@ stage: "Get your records in"
 order: 1
 updatedAt: 2026-09-22
 readingTime: "11 min read"
+videos:
+  - language: en
+    youtubeId: O4OShXdaGr0
+    poster: ../../assets/images/video-importing-holdings-and-trades-en.webp
+  - language: hi
+    youtubeId: ZggRQQLLD8w
+    poster: ../../assets/images/video-importing-holdings-and-trades-hi.webp
 ---
 
 Everything Margin shows about your portfolio starts from two files your broker already produces: the holdings export, which says what you own today and at what average cost, and the tradebook, which lists every buy and sell that got you there. The two uploads share a dialog design and a trading account picker, and they differ in the one way that matters most, since a holdings upload replaces what the account held before while a trades upload only ever adds.
@@ -163,5 +170,5 @@ The three values that stop a file this way are a quantity or price that is not a
 - [Dashboard columns](/guides/dashboard-columns) reads the units and average cost the holdings file just supplied.
 - [The consistency check](/guides/consistency-check) compares the two uploads and names the splits and bonuses a tradebook never records.
 - [The funds statement, net invested and charges](/guides/funds-statement-ledger) is the third upload, for the money you moved in and out.
-- [Holdings from your broker into Margin](/recipes/holdings-into-margin) and [A financial year of trades into Margin](/recipes/tradebook-into-margin) cover the same uploads through the API, for an agent.
+- [Holdings from your broker into Margin](/agents/holdings-into-margin) and [A financial year of trades into Margin](/agents/tradebook-into-margin) cover the same uploads through the API, for an agent.
 - [When Margin cannot read your broker's file](/guides/unsupported-broker-formats) covers a broker missing from the list.

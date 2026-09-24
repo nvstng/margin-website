@@ -1,0 +1,106 @@
+---
+import type { ImageMetadata } from 'astro';
+import { Image } from 'astro:assets';
+
+interface Props {
+  title: string;
+  videos: { language: string; youtubeId: string; poster: ImageMetadata }[];
+}
+
+const { title, videos } = Astro.props;
+const LANGUAGE_NAMES: Record<string, string> = { en: 'English', hi: 'हिन्दी' };
+---
+
+<section class="guide-video reveal mb-12" aria-label="Video walkthrough">
+  <div class="flex items-center justify-between gap-4 mb-4">
+    <p class="text-xs text-gold-400 tracking-widest uppercase">Video walkthrough</p>
+    {videos.length > 1 && (
+      <div class="flex gap-1 rounded-lg border border-border p-1" role="tablist" aria-label="Video language">
+        {videos.map((video, i) => (
+          <button
+            type="button"
+            role="tab"
+            aria-selected={i === 0 ? 'true' : 'false'}
+            data-video-tab={video.youtubeId}
+            class="video-tab px-3 py-1 text-xs rounded-md text-muted transition-colors duration-200"
+          >
+            {LANGUAGE_NAMES[video.language] ?? video.language}
+          </button>
+        ))}
+      </div>
+    )}
+  </div>
+
+  {videos.map((video, i) => (
+    <div
+      class="video-facade relative rounded-xl overflow-hidden border border-border aspect-video bg-navy-950 cursor-pointer group"
+      data-video-id={video.youtubeId}
+      hidden={i > 0}
+    >
+      <Image
+        src={video.poster}
+        alt=""
+        widths={[640, 1280]}
+        sizes="(min-width: 768px) 768px, 100vw"
+        loading="lazy"
+        class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-300"
+      />
+      <button
+        type="button"
+        class="absolute inset-0 flex items-center justify-center"
+        aria-label={`Play ${title} in ${LANGUAGE_NAMES[video.language] ?? video.language}`}
+      >
+        <span class="flex items-center justify-center w-16 h-16 rounded-full bg-navy-900/80 border border-gold-400/40 group-hover:bg-gold-400 transition-colors duration-300">
+          <svg class="w-7 h-7 text-gold-400 group-hover:text-navy-900 transition-colors duration-300 translate-x-0.5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M8 5v14l11-7z" />
+          </svg>
+        </span>
+      </button>
+    </div>
+  ))}
+</section>
+
+<style>
+  .video-tab[aria-selected='true'] {
+    color: #060E1A;
+    background: #E8B84B;
+  }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('.guide-video').forEach((section) => {
+    const facades = section.querySelectorAll<HTMLElement>('.video-facade');
+    const tabs = section.querySelectorAll<HTMLButtonElement>('.video-tab');
+
+    const posters = new Map([...facades].map((facade) => [facade, [...facade.children]]));
+
+    facades.forEach((facade) => {
+      facade.addEventListener('click', () => {
+        if (facade.querySelector('iframe')) return;
+        const iframe = document.createElement('iframe');
+        iframe.src = `https://www.youtube-nocookie.com/embed/${facade.dataset.videoId}?autoplay=1&rel=0`;
+        iframe.title = 'YouTube video player';
+        iframe.allow = 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; web-share';
+        iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+        iframe.allowFullscreen = true;
+        iframe.className = 'w-full h-full';
+        facade.replaceChildren(iframe);
+        facade.classList.remove('cursor-pointer', 'group');
+      });
+    });
+
+    tabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        tabs.forEach((t) => t.setAttribute('aria-selected', String(t === tab)));
+        facades.forEach((facade) => {
+          const selected = facade.dataset.videoId === tab.dataset.videoTab;
+          if (!selected && facade.querySelector('iframe')) {
+            facade.replaceChildren(...(posters.get(facade) ?? []));
+            facade.classList.add('cursor-pointer', 'group');
+          }
+          facade.hidden = !selected;
+        });
+      });
+    });
+  });
+</script>

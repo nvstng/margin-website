@@ -123,5 +123,5 @@ Clearing a year from **Years On Record** is the only way to undo a file sent und
 
 - The same rows drive the money-weighted return on your rupees, the return side of the ledger, which is a separate guide.
 - Net invested says what went in, and the [dashboard](/guides/tracking-expected-returns-dashboard) says what the holdings are expected to earn from here.
-- Trades and dividends go in through their own uploads, and the [tradebook](/recipes/tradebook-into-margin) and [dividends](/recipes/dividends-into-margin) recipes cover having an agent do it.
+- Trades and dividends go in through their own uploads, and the [tradebook](/agents/tradebook-into-margin) and [dividends](/agents/dividends-into-margin) recipes cover having an agent do it.
 - If your broker is not read yet, [When Margin cannot read your broker's file](/guides/unsupported-broker-formats) says how to send its format.

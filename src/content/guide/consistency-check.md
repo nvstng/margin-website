@@ -94,5 +94,5 @@ Clearing the table takes well under a minute for most portfolios, and the bulk t
 ## Where to go next
 
 - [Tracking expected returns from the dashboard](/guides/tracking-expected-returns-dashboard) is one of the screens whose figures a reconciled portfolio makes trustworthy.
-- If a stock's gap traces back to a missing upload, [the funds statement, net invested and charges](/guides/funds-statement-ledger) and the [tradebook recipe](/recipes/tradebook-into-margin) cover getting your records complete.
+- If a stock's gap traces back to a missing upload, [the funds statement, net invested and charges](/guides/funds-statement-ledger) and the [tradebook recipe](/agents/tradebook-into-margin) cover getting your records complete.
 - If your broker's file will not upload at all, [When Margin cannot read your broker's file](/guides/unsupported-broker-formats) covers what to do.

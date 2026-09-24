@@ -24,6 +24,7 @@ const guide = defineCollection({
     updatedAt: z.coerce.date(),
     readingTime: z.string().optional(),
     ogImage: image().optional(),
+    videos: z.array(z.object({ language: z.string(), youtubeId: z.string(), poster: image() })).default([]),
   }),
 });
 

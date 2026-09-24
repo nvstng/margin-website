@@ -130,6 +130,6 @@ Deleting is also the way to correct a year uploaded under the wrong trading acco
 ## Where to go next
 
 - [When Margin cannot read your broker's file](/guides/unsupported-broker-formats) lists the brokerages read today and explains how to send a format that is missing.
-- [A year of dividends on record](/recipes/dividends-into-margin) covers the same upload through the API, for an agent doing it for you.
+- [A year of dividends on record](/agents/dividends-into-margin) covers the same upload through the API, for an agent doing it for you.
 - [The funds statement, net invested and charges](/guides/funds-statement-ledger) records the other half of the cash story, the money you moved in and out of the broker.
 - [Reading the dashboard columns](/guides/dashboard-columns) explains where XIRR lives once the dividends are on record.

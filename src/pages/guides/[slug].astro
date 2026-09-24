@@ -7,6 +7,7 @@ import SocialShare from '../../components/social-share.astro';
 import ProseStyles from '../../components/prose-styles.astro';
 import GuideToc from '../../components/guide-toc.astro';
 import ImageLightbox from '../../components/image-lightbox.astro';
+import GuideVideo from '../../components/guide-video.astro';
 import { inReadingOrder } from '../../domain/guide';
 
 export async function getStaticPaths() {
@@ -74,6 +75,8 @@ function formatDate(date: Date) {
           )}
         </div>
       </header>
+
+      {guide.data.videos.length > 0 && <GuideVideo title={guide.data.title} videos={guide.data.videos} />}
 
       <!-- Hero image -->
       {guide.data.ogImage && (

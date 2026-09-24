@@ -63,4 +63,4 @@ Dividends have no Other layout, so a dividend statement from a broker outside th
 ## Where to go next
 
 - [The funds statement, net invested and charges](/guides/funds-statement-ledger) walks through the funds upload, including the Other layout for it.
-- [Tradebook into Margin](/recipes/tradebook-into-margin) and [Dividends into Margin](/recipes/dividends-into-margin) cover the same uploads through the API, for agents.
+- [Tradebook into Margin](/agents/tradebook-into-margin) and [Dividends into Margin](/agents/dividends-into-margin) cover the same uploads through the API, for agents.

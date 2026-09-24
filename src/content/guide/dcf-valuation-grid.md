@@ -6,6 +6,13 @@ stage: "Research and value a stock"
 order: 3
 updatedAt: 2026-09-20
 readingTime: "10 min read"
+videos:
+  - language: en
+    youtubeId: qsX0tn_CFrE
+    poster: ../../assets/images/video-dcf-valuation-grid-en.webp
+  - language: hi
+    youtubeId: Pnn-gBIDzhw
+    poster: ../../assets/images/video-dcf-valuation-grid-hi.webp
 ---
 
 A DCF in Margin is one screen. The grid at the top holds the projection, one row per year. The panels below it hold the discount rate, the terminal value, the price you are valuing against, and your note. Everything recalculates in the browser as you type, so you can move an assumption and watch the intrinsic value move with it.
@@ -178,7 +185,7 @@ Both are saved with the valuation.
 The **Valued For** dropdown sits to the left of the grid buttons and holds the recent quarters.
 
 - It records the quarter whose results this valuation was built on.
-- It appears on the valuation card, in the DCF Valuations list, and next to the terminal year.
+- It appears on the valuation card, in the DCF Valuations list, and in the FY / TTM column of Year 0, the TTM year.
 - A valuation you open a year later still names the results it was built on, so you know whether the assumptions have been overtaken by two more quarters of numbers.
 
 ## Adding and removing years
@@ -221,7 +228,7 @@ The toolbar in the header handles bulk edits.
 - The **info icon** opens the format, with **Download current as CSV** inside it. Exporting the current valuation gives you a file already in the right layout to edit.
 - The file has four sections, `[valuation]`, `[ttm]`, `[terminal]` and `[projections]`. Every section except `[valuation]` is optional, so you can upload only the part you want to change. The screen resizes to the years present in `[projections]`.
 
-Building a model in a spreadsheet and bringing it in is covered in the [spreadsheet DCF recipe](/recipes/spreadsheet-dcf-into-margin).
+Building a model in a spreadsheet and bringing it in is covered in the [spreadsheet DCF recipe](/agents/spreadsheet-dcf-into-margin).
 
 ## Saving
 
