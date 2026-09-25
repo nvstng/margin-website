@@ -6,6 +6,13 @@ stage: "Get your records in"
 order: 5
 updatedAt: 2026-09-21
 readingTime: "10 min read"
+videos:
+  - language: en
+    youtubeId: yMb6DbVSnkA
+    poster: ../../assets/images/video-consistency-check-en.webp
+  - language: hi
+    youtubeId: KroQJImdNvA
+    poster: ../../assets/images/video-consistency-check-hi.webp
 ---
 
 Margin builds your cost, your gains, your XIRR and your allocation from the trades on record, not from what your broker shows you are holding today, so the two have to agree: add up every buy and sell in your tradebook and it should land on exactly the quantity your demat account holds. The consistency check is where Margin compares the two and tells you where they don't.
@@ -81,7 +88,7 @@ If you hold the same stock across more than one broker, the trading account pick
 
 ## Before you trust XIRR, gains or allocation
 
-An unresolved gap shows up well past this screen. The Unrealised Gains screen says outright that its long term and short term gains are worked out from the tradebook, adjusted for whichever corporate actions have been synced or recorded, and that where the tradebook and the demat holding disagree, the figures for that stock cannot be trusted until the gap is resolved. A gapped stock still prints its LTCG and STCG figures, worked out over a share count that is wrong, with a **Resolve** button in its Gap column that leads back here, and its own **Needs Attention** card carries the same count this screen does. Wherever a stock's XIRR is shown, the same **Data gap** warning follows it.
+An unresolved gap shows up well past this screen. The Unrealised Gains screen says outright that its long term and short term gains are worked out from the tradebook, adjusted for whichever corporate actions have been synced or recorded, and that where the tradebook and the demat holding disagree, the figures for that stock cannot be trusted until the gap is resolved. A gapped stock still prints its LTCG and STCG figures, worked out over a share count that is wrong, with a **Resolve** button in its Gap column that leads back here. The Gap column there measures the demat holding against the tradebook after synced and recorded corporate actions are applied, so its **Needs Attention** count can differ from this screen's in either direction. A synced bonus you have not recorded yet is flagged here but not there, because its gains already account for the bonus shares. A stock whose synced bonus or split gives the tradebook more shares than the demat holds is flagged there even when this screen shows it as reconciled. Wherever a stock's XIRR is shown, the same **Data gap** warning follows it.
 
 The cost your allocation screen compares against your target is drawn from the same trade history, so a stock whose cost is wrong because of an unrecorded split or bonus carries that error into its allocation gap too, even though nothing on that screen names it directly.
 
