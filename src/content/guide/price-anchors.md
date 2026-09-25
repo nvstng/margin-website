@@ -6,6 +6,13 @@ stage: "Decide what to buy and sell"
 order: 1
 updatedAt: 2026-09-22
 readingTime: "10 min read"
+videos:
+  - language: en
+    youtubeId: R6hTtCDjZ38
+    poster: ../../assets/images/video-price-anchors-en.webp
+  - language: hi
+    youtubeId: zLabt9jZSeY
+    poster: ../../assets/images/video-price-anchors-hi.webp
 ---
 
 An anchor is a price you decide on before the market reaches it, stored against the stock so that the decision is made while you are reading the business and not while the screen is moving. Margin keeps the number and reports one thing about it wherever the stock appears: how far the day's closing price sits from it, as a percentage, in a colour you chose for that side.
