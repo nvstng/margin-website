@@ -1,10 +1,16 @@
 ---
-import dashboardImage from '../assets/images/margin-dashboard.webp';
+import GuideVideo from './guide-video.astro';
+import videoPosterEn from '../assets/images/video-hero-en.webp';
+import videoPosterHi from '../assets/images/video-hero-hi.webp';
 
 const SIGNUP_URL = 'https://go.marginapp.in';
 const YOUTUBE_URL = 'https://www.youtube.com/@margin-fundamental';
 const brokerages = ['Zerodha', 'Groww', 'Upstox', 'AngelOne', 'Any broker, generic CSV'];
 const exchanges = ['NSE', 'BSE'];
+const videos = [
+  { language: 'en', youtubeId: 'XZ4_rnf8kl4', poster: videoPosterEn },
+  { language: 'hi', youtubeId: 'VoaU9n_OvMA', poster: videoPosterHi },
+];
 ---
 
 <section class="relative min-h-screen flex flex-col justify-center pt-24 pb-16 overflow-hidden">
@@ -18,15 +24,14 @@ const exchanges = ['NSE', 'BSE'];
       Built for Indian equity investors
     </div>
 
-    <h1 class="font-display text-5xl md:text-7xl lg:text-8xl font-light text-cream leading-tight tracking-tight mb-6">
-      Your personal<br />
-      <em class="font-semibold not-italic text-gold-400">Investment Cockpit</em>
+    <h1 class="font-display text-5xl md:text-6xl lg:text-7xl font-light text-cream leading-tight tracking-tight mb-6">
+      Leave the chores to Margin.<br />
+      <em class="font-semibold not-italic text-gold-400">Keep the judgement.</em>
     </h1>
 
     <p class="max-w-2xl mx-auto text-base md:text-lg text-muted leading-relaxed mb-10">
-      Value a business on your own assumptions and hold that valuation against the stock you
-      actually own. Read what the portfolio has really returned, over the period you choose,
-      with every dividend and every rupee you contributed counted on the date it happened.
+      Margin keeps your books and keeps your valuations, allocation and target prices in order,
+      so the decisions are all that's left to you. Your AI agent works from the same data.
     </p>
 
     <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-14">
@@ -49,23 +54,8 @@ const exchanges = ['NSE', 'BSE'];
       </a>
     </div>
 
-    <div class="relative mx-auto max-w-5xl rounded-xl border border-border bg-navy-800/60 backdrop-blur-sm overflow-hidden shadow-2xl shadow-black/50">
-      <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold-400/40 to-transparent"></div>
-      <div class="flex items-center gap-1.5 px-4 py-3 border-b border-border">
-        <span class="w-3 h-3 rounded-full bg-navy-600"></span>
-        <span class="w-3 h-3 rounded-full bg-navy-600"></span>
-        <span class="w-3 h-3 rounded-full bg-navy-600"></span>
-        <span class="ml-2 text-xs text-muted">margin · dashboard</span>
-      </div>
-      <img
-        src={dashboardImage.src}
-        alt="Margin dashboard"
-        width={dashboardImage.width}
-        height={dashboardImage.height}
-        fetchpriority="high"
-        decoding="async"
-        class="w-full"
-      />
+    <div class="mx-auto max-w-5xl text-left">
+      <GuideVideo title="What Margin does for you" videos={videos} label="Margin in two minutes" eager />
     </div>
 
     <div class="mt-10 flex flex-col items-center gap-3">

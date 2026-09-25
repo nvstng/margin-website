@@ -52,10 +52,10 @@ const tabs = [
     </div>
 
     <div class="reveal reveal-delay-1" data-tabs>
-      <div class="flex gap-1 p-1 rounded-lg bg-navy-800/60 border border-border mb-8 w-fit">
+      <div class="flex gap-1 p-1 rounded-lg bg-navy-800/60 border border-border mb-8 w-fit max-w-full overflow-x-auto">
         {tabs.map((tab, i) => (
           <button
-            class={`tab-btn px-5 py-2.5 text-sm font-medium rounded-md transition-all duration-200 ${i === 0 ? 'bg-navy-600 text-cream' : 'text-muted hover:text-ink'}`}
+            class={`tab-btn shrink-0 px-3 sm:px-5 py-2.5 text-sm font-medium rounded-md transition-all duration-200 ${i === 0 ? 'bg-navy-600 text-cream' : 'text-muted hover:text-ink'}`}
             data-tab={tab.id}
           >
             {tab.label}

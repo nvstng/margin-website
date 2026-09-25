@@ -54,7 +54,7 @@ The other route starts from the return you require instead of the value. Open th
 
 Expect the two figures to disagree. **Valuation Price** compares your value today against today's quote, while **Exp. Return** on the dashboard compares the value your projection reaches at the horizon year against the quote adjusted for net debt, annualised over those years. A stock quoted above its value today can still show a positive expected return, because the value is growing over the years you projected. Use the Valuation Price when you want the anchor to mean *worth this much now*, and the what-if price when you want it to mean *pays me enough from here*.
 
-The reverse DCF cannot be used this way. Its **Price** field is read only and always the live quote, so it tells you the growth rate the market is already asking of the business. Read it to decide whether that growth is believable, then set the anchor from the DCF.
+The reverse DCF cannot be used this way. Its **Price** field is read only and always the live quote, so it tells you what buying at today's quote would earn for the growth and exit PE you assume. Read it to decide whether the price is worth paying, then set the anchor from the DCF.
 
 ## Setting the price on one stock
 

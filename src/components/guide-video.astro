@@ -5,15 +5,17 @@ import { Image } from 'astro:assets';
 interface Props {
   title: string;
   videos: { language: string; youtubeId: string; poster: ImageMetadata }[];
+  label?: string;
+  eager?: boolean;
 }
 
-const { title, videos } = Astro.props;
+const { title, videos, label = 'Video walkthrough', eager = false } = Astro.props;
 const LANGUAGE_NAMES: Record<string, string> = { en: 'English', hi: 'हिन्दी' };
 ---
 
 <section class="guide-video reveal mb-12" aria-label="Video walkthrough">
   <div class="flex items-center justify-between gap-4 mb-4">
-    <p class="text-xs text-gold-400 tracking-widest uppercase">Video walkthrough</p>
+    <p class="text-xs text-gold-400 tracking-widest uppercase">{label}</p>
     {videos.length > 1 && (
       <div class="flex gap-1 rounded-lg border border-border p-1" role="tablist" aria-label="Video language">
         {videos.map((video, i) => (
@@ -42,7 +44,8 @@ const LANGUAGE_NAMES: Record<string, string> = { en: 'English', hi: 'हिन�
         alt=""
         widths={[640, 1280]}
         sizes="(min-width: 768px) 768px, 100vw"
-        loading="lazy"
+        loading={eager && i === 0 ? 'eager' : 'lazy'}
+        fetchpriority={eager && i === 0 ? 'high' : 'auto'}
         class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-300"
       />
       <button

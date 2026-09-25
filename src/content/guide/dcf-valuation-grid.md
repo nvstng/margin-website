@@ -245,5 +245,5 @@ Not saved: the what-if price.
 ## Where to go next
 
 - The saved valuation drives the expected return on your [dashboard](/guides/tracking-expected-returns-dashboard).
-- To work the other way round, starting from the price and solving for the growth it implies, use a Reverse DCF from the same Valuations page.
+- To work the other way round, starting from today's price and the growth you expect to read off an annual return, use a Reverse DCF from the same Valuations page.
 - To decide whether a business deserves this much work before you start, run it through [qualitative screening](/guides/qualitative-screening).

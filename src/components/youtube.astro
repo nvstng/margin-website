@@ -8,7 +8,7 @@ const videos = [
 ];
 ---
 
-<section class="py-24 lg:py-32">
+<section class="stock-stories py-24 lg:py-32">
   <div class="max-w-7xl mx-auto px-6 lg:px-8">
     <div class="relative rounded-2xl border border-border bg-navy-800/30 overflow-hidden">
       <div class="absolute inset-0 bg-dot-grid bg-dot-md opacity-50 pointer-events-none"></div>
@@ -83,7 +83,7 @@ const videos = [
 </section>
 
 <script>
-  document.querySelectorAll<HTMLElement>('.video-facade').forEach((facade) => {
+  document.querySelectorAll<HTMLElement>('.stock-stories .video-facade').forEach((facade) => {
     facade.addEventListener('click', () => {
       const id = facade.dataset.videoId;
       const iframe = document.createElement('iframe');

@@ -8,19 +8,19 @@ const SIGNUP_URL = 'https://go.marginapp.in';
       <div class="reveal">
         <p class="text-xs text-gold-400 tracking-widest uppercase mb-4">Reverse DCF</p>
         <h2 class="font-display text-4xl md:text-5xl font-light text-cream leading-tight mb-6">
-          Know the growth rate<br />
-          <em class="font-semibold not-italic">the market expects</em>
+          Know the return<br />
+          <em class="font-semibold not-italic">today's price leaves you</em>
         </h2>
         <p class="text-muted leading-relaxed mb-6">
-          Reverse DCF works backward from the price. Give it the holding period you have in
-          mind, the PE you are buying at and the PE you expect to sell at, and Margin returns
-          the earnings growth the current price is asking you to believe in.
+          Reverse DCF starts from the price. Enter the earnings per share and Margin divides the
+          price by it for the PE you would be buying at. Add the holding period you have in mind, the PE you
+          expect to sell at and the earnings growth you believe in, and Margin works out the
+          yearly return you would earn buying at that price.
         </p>
         <p class="text-muted leading-relaxed mb-8">
-          Set that against your own view of the business. When the implied rate is above what
-          you think the company can do, the price is doing the work rather than the earnings,
-          and the same calculation run the other way tells you the return your own growth
-          assumption would produce.
+          State the growth as a yearly rate, or as the EPS or profit you expect at the end of the
+          period, and Margin converts between them. When the return falls short of what you want
+          from the stock, the price already asks for more growth than you are prepared to assume.
         </p>
         <a
           href={SIGNUP_URL}
@@ -41,9 +41,9 @@ const SIGNUP_URL = 'https://go.marginapp.in';
             <div class="space-y-3 mb-6">
               {[
                 { label: 'Holding period', value: '5 yrs', sub: 'How long you intend to hold' },
-                { label: 'Starting PE', value: '30', sub: 'What you would buy at today' },
+                { label: 'Current PE', value: '30', sub: "Today's price over the EPS you enter" },
                 { label: 'Exit PE', value: '25', sub: 'What you expect to sell at' },
-                { label: 'Return you want', value: '15%', sub: 'Annualised' },
+                { label: 'EPS growth', value: '14%', sub: 'A year, or the EPS or profit you expect in year five' },
               ].map((row) => (
                 <div class="flex items-center justify-between py-3 border-b border-border/50">
                   <div>
@@ -55,13 +55,13 @@ const SIGNUP_URL = 'https://go.marginapp.in';
               ))}
             </div>
             <div class="rounded-lg bg-navy-950/60 border border-gold-400/20 p-5">
-              <p class="text-xs text-muted mb-1">Earnings growth this asks for</p>
-              <p class="font-display text-4xl font-semibold text-gold-400">18.4%</p>
-              <p class="text-xs text-muted mt-2">A year, every year, for the five years you hold it</p>
+              <p class="text-xs text-muted mb-1">Annualised return</p>
+              <p class="font-display text-4xl font-semibold text-gold-400">10.0%</p>
+              <p class="text-xs text-muted mt-2">A year, for the five years you hold it, if the growth and exit PE hold</p>
             </div>
             <div class="mt-4 flex items-center gap-2 text-xs text-muted">
               <span class="w-2 h-2 rounded-full bg-amber-400"></span>
-              Your thesis: 14%, so the price is asking for more than you expect
+              Short of the 15% you want from the stock
             </div>
           </div>
         </div>
