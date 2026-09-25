@@ -4,11 +4,9 @@ import Layout from '../../layouts/layout.astro';
 import Nav from '../../components/nav.astro';
 import Footer from '../../components/footer.astro';
 import ConceptMap from '../../components/concept-map.astro';
-import { groupByStage } from '../../domain/guide';
+import { groupByStage, stageAnchor } from '../../domain/guide';
 
 const groups = groupByStage(await getCollection('guide'));
-
-const slugify = (stage: string) => stage.toLowerCase().replace(/[^a-z0-9]+/g, '-');
 ---
 
 <Layout
@@ -37,7 +35,7 @@ const slugify = (stage: string) => stage.toLowerCase().replace(/[^a-z0-9]+/g, '-
         <div class="flex flex-wrap gap-2">
           {groups.map((group, gi) => (
             <a
-              href={`#${slugify(group.stage)}`}
+              href={`#${stageAnchor(group.stage)}`}
               class="flex items-center gap-2 px-3.5 py-1.5 text-sm text-muted border border-border rounded-full hover:border-gold-400/40 hover:text-cream transition-colors duration-200"
             >
               <span class="text-gold-400 text-xs">{gi + 1}</span>
@@ -67,7 +65,7 @@ const slugify = (stage: string) => stage.toLowerCase().replace(/[^a-z0-9]+/g, '-
     <div class="max-w-4xl mx-auto px-6 lg:px-8">
       <div class="space-y-20">
         {groups.map((group, gi) => (
-          <section id={slugify(group.stage)} class={`reveal reveal-delay-${Math.min(gi + 1, 5)} scroll-mt-28`}>
+          <section id={stageAnchor(group.stage)} class={`reveal reveal-delay-${Math.min(gi + 1, 5)} scroll-mt-28`}>
             <div class="flex items-baseline mb-3">
               <span class="w-12 shrink-0 font-sans text-sm tabular-nums text-gold-400/70 tracking-widest">
                 {String(gi + 1).padStart(2, '0')}

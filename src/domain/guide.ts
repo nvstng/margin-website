@@ -2,7 +2,7 @@ import type { CollectionEntry } from 'astro:content';
 
 type Guide = CollectionEntry<'guide'>;
 
-const STAGE_ORDER = [
+export const STAGE_ORDER = [
   'Get your records in',
   'Research and value a stock',
   'Decide what to buy and sell',
@@ -19,6 +19,8 @@ export const stageBlurbs: Record<string, string> = {
   'Track the portfolio':
     'What the dashboard is computing on each row, and what a sale today would cost you in tax.',
 };
+
+export const stageAnchor = (stage: string) => stage.toLowerCase().replace(/[^a-z0-9]+/g, '-');
 
 export function stageSequence(guides: Guide[]) {
   const extras = [...new Set(guides.map((guide) => guide.data.stage))]
