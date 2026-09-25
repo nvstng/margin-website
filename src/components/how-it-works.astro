@@ -1,43 +1,85 @@
 ---
-import uploadImage from '../assets/images/margin-upload.webp';
-import configureImage from '../assets/images/margin-configure.webp';
-import analyseImage from '../assets/images/margin-analyse.webp';
-import dashboardImage from '../assets/images/margin-dashboard.webp';
+import GuideVideo from './guide-video.astro';
+import allocationImage from '../assets/images/how-it-works-allocation.webp';
+import dashboardImage from '../assets/images/how-it-works-dashboard.webp';
+import importPosterEn from '../assets/images/video-importing-holdings-and-trades-en.webp';
+import importPosterHi from '../assets/images/video-importing-holdings-and-trades-hi.webp';
+import dcfPosterEn from '../assets/images/video-dcf-valuation-grid-en.webp';
+import dcfPosterHi from '../assets/images/video-dcf-valuation-grid-hi.webp';
+import agentsPosterEn from '../assets/images/video-agents-en.webp';
+import agentsPosterHi from '../assets/images/video-agents-hi.webp';
 
 const tabs = [
   {
-    id: 'upload',
-    label: 'Upload',
-    heading: 'Import from your broker',
-    body: 'Upload holdings and trade history from Zerodha, Groww, Upstox or AngelOne as CSV or Excel, and from any other broker through a generic CSV layout. Send several files from several accounts and Margin merges them. Dividends and the funds statement come in as uploads of their own.',
-    detail: 'Holdings and trades: Zerodha · Groww · Upstox · AngelOne · generic CSV. Dividends and funds statement: Zerodha today',
-    image: uploadImage,
-    guide: '/guides/importing-holdings-and-trades',
+    id: 'records',
+    label: 'Records',
+    heading: 'Bring in what your broker exports',
+    body: 'Pick the trading account, then upload its holdings and tradebook from Zerodha, Groww, Upstox or AngelOne, or from any other broker through the generic CSV layout. The dividend statement and the funds statement come in as uploads of their own, and the consistency check names any split or bonus the tradebook never recorded before you trust a return.',
+    detail: 'Several accounts, across brokers, read as one portfolio',
+    videos: [
+      { language: 'en', youtubeId: 'O4OShXdaGr0', poster: importPosterEn },
+      { language: 'hi', youtubeId: 'ZggRQQLLD8w', poster: importPosterHi },
+    ],
+    links: [
+      { label: 'Importing holdings and trades', href: '/guides/importing-holdings-and-trades' },
+      { label: 'The funds statement', href: '/guides/funds-statement-ledger' },
+      { label: 'The consistency check', href: '/guides/consistency-check' },
+    ],
   },
   {
-    id: 'configure',
-    label: 'Configure',
-    heading: 'Set up your investment framework',
-    body: 'Define your custom price anchors (Buy, Add, Reduce, Exit), set target allocation percentages, configure your discount rate, and tag stocks by theme or sector.',
-    detail: 'Takes about 5 minutes',
-    image: configureImage,
-    guide: '/guides/price-anchors',
+    id: 'value',
+    label: 'Value',
+    heading: 'Research a business and put a number on it',
+    body: 'Start from the stock’s story, and screen names card by card so the ones you mark Yes or Maybe land in your Screened list. Build a DCF on a grid that projects forward from the trailing twelve months, with the cells you can edit highlighted, or run a reverse DCF to read the growth today’s price already implies.',
+    detail: 'Every valuation is saved per stock, with a note on what you were underwriting',
+    videos: [
+      { language: 'en', youtubeId: 'qsX0tn_CFrE', poster: dcfPosterEn },
+      { language: 'hi', youtubeId: 'Pnn-gBIDzhw', poster: dcfPosterHi },
+    ],
+    links: [
+      { label: 'Using the DCF valuation grid', href: '/guides/dcf-valuation-grid' },
+      { label: 'The stock’s story as a starting point', href: '/guides/stock-story-research-starting-point' },
+      { label: 'Qualitative screening', href: '/guides/qualitative-screening' },
+    ],
   },
   {
-    id: 'analyse',
-    label: 'Analyse',
-    heading: 'Run valuations and dig into fundamentals',
-    body: 'Run DCF and Reverse DCF valuations per stock. Read XIRR, capital gains and tax over the period you choose, for one stock, any list, or the full portfolio, and read the money-weighted return on what you have actually contributed.',
-    detail: 'NSE fundamentals included',
-    image: analyseImage,
+    id: 'decide',
+    label: 'Decide',
+    heading: 'Set the prices you act at and the size you want',
+    body: 'Create your own price types, such as Buy, Add, Reduce and Exit, and derive each anchor from a valuation you saved. On the Allocation screen, set the target cost you are building towards and each stock’s share of it, and read the gap against today’s weight before you size the next buy.',
+    detail: 'Anchors work on stocks you do not own yet',
+    image: allocationImage,
+    imageAlt: 'The Allocation screen with target allocation and target cost beside current weight for each stock',
+    links: [
+      { label: 'Setting price anchors', href: '/guides/price-anchors' },
+      { label: 'Setting and reading target allocation', href: '/guides/target-allocation' },
+    ],
   },
   {
-    id: 'dashboard',
-    label: 'Dashboard',
-    heading: 'Read the whole portfolio in one place',
-    body: 'Read the expected return from each valuation, the allocation gap and your own price anchors on one row per holding, so the figure you act on is beside the assumption it came from.',
-    detail: 'Price anchors and reverse DCF return as columns you switch on',
+    id: 'track',
+    label: 'Track',
+    heading: 'Read the whole portfolio on one row per holding',
+    body: 'The dashboard puts the expected return from each saved valuation beside the unallocated amount and any price anchor you add as a column. The summary gives XIRR since inception, over a trailing stretch, a calendar year or a financial year, and the Unrealised Gains screen shows the tax a sale today would attract.',
+    detail: 'End-of-day prices from the NSE and BSE bhavcopy',
     image: dashboardImage,
+    imageAlt: 'The Margin dashboard with expected return and unallocated amount for each holding',
+    links: [
+      { label: 'Reading the dashboard columns', href: '/guides/dashboard-columns' },
+      { label: 'Tracking expected returns', href: '/guides/tracking-expected-returns-dashboard' },
+      { label: 'Tax if sold today', href: '/guides/tax-if-sold-today' },
+    ],
+  },
+  {
+    id: 'agent',
+    label: 'Automate',
+    heading: 'Hand the repeat work to your AI agent',
+    body: 'Create an API token in Settings and point an agent you run, such as Claude Code or Codex, at go.marginapp.in/llms.txt. It reads your broker and Margin side by side, shows you the difference, and writes only after you say go ahead.',
+    detail: 'Tokens can be revoked at any time',
+    videos: [
+      { language: 'en', youtubeId: 'LGeJ3uXkvg8', poster: agentsPosterEn },
+      { language: 'hi', youtubeId: 'IZdRCyHhClE', poster: agentsPosterHi },
+    ],
+    links: [{ label: 'Recipes for agents', href: '/agents' }],
   },
 ];
 ---
@@ -78,36 +120,44 @@ const tabs = [
               </h3>
               <p class="text-muted leading-relaxed mb-4">{tab.body}</p>
               <p class="text-xs text-gold-400 tracking-wide">{tab.detail}</p>
-              {tab.guide && (
-                <a
-                  href={tab.guide}
-                  class="inline-flex items-center gap-2 mt-4 text-sm text-muted hover:text-cream transition-colors group"
-                >
-                  Read the guide
-                  <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-                  </svg>
-                </a>
-              )}
+              <ul class="mt-6 flex flex-col gap-2 border-t border-border pt-5">
+                {tab.links.map((link) => (
+                  <li>
+                    <a
+                      href={link.href}
+                      class="inline-flex items-center gap-2 text-sm text-muted hover:text-cream transition-colors group"
+                    >
+                      {link.label}
+                      <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                      </svg>
+                    </a>
+                  </li>
+                ))}
+              </ul>
             </div>
             <div class="lg:col-span-3">
-              <div class="rounded-xl border border-border bg-navy-800/40 overflow-hidden">
-                <div class="flex items-center gap-1.5 px-4 py-3 border-b border-border">
-                  <span class="w-2.5 h-2.5 rounded-full bg-navy-600"></span>
-                  <span class="w-2.5 h-2.5 rounded-full bg-navy-600"></span>
-                  <span class="w-2.5 h-2.5 rounded-full bg-navy-600"></span>
-                  <span class="ml-2 text-xs text-muted">margin · {tab.label.toLowerCase()}</span>
+              {tab.videos ? (
+                <GuideVideo title={tab.heading} videos={tab.videos} />
+              ) : (
+                <div class="rounded-xl border border-border bg-navy-800/40 overflow-hidden">
+                  <div class="flex items-center gap-1.5 px-4 py-3 border-b border-border">
+                    <span class="w-2.5 h-2.5 rounded-full bg-navy-600"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-navy-600"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-navy-600"></span>
+                    <span class="ml-2 text-xs text-muted">margin · {tab.label.toLowerCase()}</span>
+                  </div>
+                  <img
+                    src={tab.image.src}
+                    alt={tab.imageAlt}
+                    width={tab.image.width}
+                    height={tab.image.height}
+                    loading="lazy"
+                    decoding="async"
+                    class="w-full"
+                  />
                 </div>
-                <img
-                  src={tab.image.src}
-                  alt={tab.label}
-                  width={tab.image.width}
-                  height={tab.image.height}
-                  loading="lazy"
-                  decoding="async"
-                  class="w-full"
-                />
-              </div>
+              )}
             </div>
           </div>
         ))}
@@ -133,6 +183,7 @@ const tabs = [
 
       panels.forEach((panel) => {
         const id = panel.getAttribute('data-panel');
+        if (id !== target) panel.querySelectorAll('.guide-video').forEach((video) => video.dispatchEvent(new Event('video:reset')));
         panel.classList.toggle('hidden', id !== target);
         panel.classList.toggle('block', id === target);
       });

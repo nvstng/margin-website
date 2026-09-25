@@ -92,15 +92,20 @@ const LANGUAGE_NAMES: Record<string, string> = { en: 'English', hi: 'हिन�
       });
     });
 
+    const restorePoster = (facade: HTMLElement) => {
+      if (!facade.querySelector('iframe')) return;
+      facade.replaceChildren(...(posters.get(facade) ?? []));
+      facade.classList.add('cursor-pointer', 'group');
+    };
+
+    section.addEventListener('video:reset', () => facades.forEach(restorePoster));
+
     tabs.forEach((tab) => {
       tab.addEventListener('click', () => {
         tabs.forEach((t) => t.setAttribute('aria-selected', String(t === tab)));
         facades.forEach((facade) => {
           const selected = facade.dataset.videoId === tab.dataset.videoTab;
-          if (!selected && facade.querySelector('iframe')) {
-            facade.replaceChildren(...(posters.get(facade) ?? []));
-            facade.classList.add('cursor-pointer', 'group');
-          }
+          if (!selected) restorePoster(facade);
           facade.hidden = !selected;
         });
       });
