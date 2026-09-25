@@ -4,7 +4,7 @@ description: "What each dashboard column is computed from, how to add a price an
 feature: "Dashboard"
 stage: "Track the portfolio"
 order: 1
-updatedAt: 2026-09-21
+updatedAt: 2026-09-25
 readingTime: "14 min read"
 ---
 
@@ -53,7 +53,7 @@ Both are blank until the stock has a saved valuation. A DCF whose expected retur
 
 ## Adding price anchors and the reverse DCF return
 
-The optional columns come from **Settings**, under **Price Types**. This section is only shown on a desktop-width screen. There are two groups, and each row has an **Add to dashboard** and an **Add to lists** checkbox, so a column can be on the dashboard, on your stock lists, on both or on neither.
+The optional columns come from **Settings**, under **Price Types**. This section is only shown on a desktop-width screen. There are two groups, and each row has a checkbox for the dashboard and one for your stock lists, labelled **Add to dashboard** and **Add to lists** on the standard rows and **Dashboard** and **Lists** on the custom ones, so a column can be on the dashboard, on your stock lists, on both or on neither.
 
 ![The Price Types settings screen with three standard price types, each with an Add to dashboard and Add to lists checkbox, and one custom price type named Test with red and green colours chosen and a warning on the green](../../assets/images/dashboard-price-type-columns.webp)
 
@@ -114,7 +114,7 @@ Filtering the dashboard by list or tag is done on a different screen. **Your Lis
 Two things differ from the dashboard:
 
 - The holding columns are hidden by default, because most lists hold stocks you do not own. **Show Holding Columns** brings them back for the rows that have a holding.
-- A price type appears here only if its **Add to lists** box is ticked, independently of its dashboard setting.
+- A price type appears here only if its **Add to lists** or **Lists** box is ticked, independently of its dashboard setting.
 
 The **Tags** column shows every tag on the stock, and the tag icon in the row's actions opens the dialog to add or remove them. There is no tag filter on either grid, so a tag is a label you can read and sort on, while a list is the tool for a set of stocks you want to look at on their own.
 

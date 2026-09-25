@@ -4,7 +4,7 @@ description: "Creating Buy, Add, Reduce and Exit as price types, deriving each a
 feature: "Anchors"
 stage: "Decide what to buy and sell"
 order: 1
-updatedAt: 2026-09-22
+updatedAt: 2026-09-25
 readingTime: "10 min read"
 videos:
   - language: en
@@ -55,7 +55,7 @@ A round number is easy to remember and has nothing behind it. The number with so
 
 *Current Price is the last quote. Valuation Price is what your own DCF says the share is worth today.*
 
-**Valuation Price** is the intrinsic value per share your DCF reaches for today, discounted back from the projection and the terminal value, on whichever basis that valuation sends to the dashboard, profit or cash flow. It moves only when you change the valuation, so it is a stable base to take a margin of safety from. A Buy anchor derived this way is the Valuation Price cut by the discount you want for being wrong, and you can put the cut in yourself with the percentage chips in the price dialog.
+**Valuation Price** is the intrinsic value per share your DCF reaches for today, discounted back from the projection and the terminal value, on whichever basis that valuation sends to the dashboard, profit or cash flow. It moves only when you change the valuation, so it is a stable base to take a margin of safety from. A Buy anchor derived this way is the Valuation Price cut by the discount you want for being wrong. Work the cut out yourself and type the result into the price dialog, because its percentage chips step from the current price or your average cost and never from the Valuation Price.
 
 The other route starts from the return you require instead of the value. Open the DCF, press **Show NPV & Intrinsic Value Columns** so the **EXPECTED RETURNS** group appears at the right of the grid, then change **Price** in the Enterprise Value section and watch the return for your horizon year move with it. Mark the price down until the return clears your hurdle, note that price, and leave the valuation without saving, since the what-if price is never saved with a DCF. The price you noted is the Buy anchor, and it answers a question the Valuation Price does not: what this share has to fall to before owning it pays you enough. [Using the DCF valuation grid](/guides/dcf-valuation-grid) covers the what-if price in full.
 
@@ -90,7 +90,7 @@ An anchor is most useful on a stock you have researched and not bought, and Marg
 
 *On a stock you have never traded there is no average cost, so the base is the current price alone and the Adjust from switch does not appear.*
 
-Two things follow from not holding the stock. The dialog offers only the current price as a base, since there is no average cost to work from. More importantly, the stock will never appear on the dashboard, which holds holdings only, so the anchor is visible only through a list. Tick **Add to lists** on the price type in Settings, or the column that carries the anchor will be missing from the only screen where these stocks show up. The generated **Not Currently Held** list collects every stock you track without a position, which makes it the natural place to watch a set of Buy anchors.
+Two things follow from not holding the stock. The dialog offers only the current price as a base, since there is no average cost to work from. More importantly, the stock will never appear on the dashboard, which holds holdings only, so the anchor is visible only through a list. Tick **Lists** on the price type in Settings, or the column that carries the anchor will be missing from the only screen where these stocks show up. The generated **Not Currently Held** list collects every stock you track without a position, which makes it the natural place to watch a set of Buy anchors.
 
 ## Reading the anchor beside expected return
 
