@@ -33,15 +33,15 @@ const background = `
 
 const text = `
 <svg xmlns="http://www.w3.org/2000/svg" width="${WIDTH}" height="${HEIGHT}">
-  <text x="96" y="330" font-family="Georgia, 'Times New Roman', serif" font-size="82" fill="#F2EBD9">
-    Your personal
+  <text x="96" y="330" font-family="Georgia, 'Times New Roman', serif" font-size="72" fill="#F2EBD9">
+    Leave the chores to Margin.
   </text>
-  <text x="96" y="424" font-family="Georgia, 'Times New Roman', serif" font-size="82" font-weight="bold" fill="#E8B84B">
-    Investment Cockpit
+  <text x="96" y="420" font-family="Georgia, 'Times New Roman', serif" font-size="72" font-weight="bold" fill="#E8B84B">
+    Keep the judgement.
   </text>
   <rect x="96" y="466" width="64" height="2" fill="#E8B84B"/>
   <text x="96" y="524" font-family="Helvetica, Arial, sans-serif" font-size="25" fill="#5A7A9E">
-    DCF valuation, XIRR by period, dividends and capital gains for NSE &amp; BSE
+    Records, valuations, allocation and target prices for NSE &amp; BSE investors
   </text>
 </svg>`;
 
