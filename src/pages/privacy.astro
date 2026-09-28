@@ -1,0 +1,273 @@
+---
+import Layout from '../layouts/layout.astro';
+import Nav from '../components/nav.astro';
+import Footer from '../components/footer.astro';
+import ProseStyles from '../components/prose-styles.astro';
+
+const LAST_UPDATED = '28 September 2026';
+const SUPPORT_EMAIL = 'support@marginapp.in';
+---
+
+<Layout
+  title="Privacy Policy · Margin"
+  description="What personal data Yuktibyte Products Private Limited collects through Margin, why, where it is kept, who it is shared with, and the rights you have over it."
+>
+  <Nav />
+  <ProseStyles />
+
+  <main class="pt-32 pb-24">
+    <div class="max-w-3xl mx-auto px-6 lg:px-8">
+
+      <div class="reveal mb-12">
+        <p class="text-xs text-gold-400 tracking-widest uppercase mb-4">Legal</p>
+        <h1 class="font-display text-5xl md:text-6xl font-light text-cream leading-tight mb-6">
+          Privacy <em class="font-semibold not-italic">Policy</em>
+        </h1>
+        <p class="text-muted text-lg leading-relaxed">
+          This policy explains what personal data we collect when you use Margin and the
+          marginapp.in websites, what we do with it, where it is kept, and how you can see, correct
+          or delete it. It is written to meet the Digital Personal Data Protection Act, 2023 and the
+          Information Technology Act, 2000.
+        </p>
+        <p class="text-xs text-muted/70 tracking-widest uppercase mt-6">Last updated {LAST_UPDATED}</p>
+      </div>
+
+      <div class="bg-navy-800/30 border border-gold-400/30 rounded-xl p-6 mb-16 reveal reveal-delay-1">
+        <p class="text-xs text-gold-400 tracking-widest uppercase mb-3">In brief</p>
+        <ul class="text-cream text-sm leading-relaxed space-y-2 list-disc pl-5">
+          <li>We sign you in with Google and receive your name, email address and Google account ID, nothing more.</li>
+          <li>Those identity fields are kept in a separate encrypted Privacy Vault, apart from your portfolio records.</li>
+          <li>We never ask for or store your broker login, and your funds statement file is read in your browser without being uploaded.</li>
+          <li>We do not sell your data, we do not show advertising, and we do not send your portfolio to AI model providers.</li>
+          <li>You can ask us to show you, correct or delete your data at any time.</li>
+        </ul>
+      </div>
+
+      <div class="prose-margin reveal">
+
+        <h2>1. Who is responsible for your data</h2>
+        <p>
+          Margin is operated by Yuktibyte Products Private Limited, a company incorporated in India
+          under CIN U62099KA2025PTC196482, with its registered office in Bengaluru, Karnataka. We
+          decide why and how your personal data is processed, which makes us the Data Fiduciary for
+          it under the Digital Personal Data Protection Act, 2023. In this policy, "we", "us" and
+          "our" mean Yuktibyte Products Private Limited.
+        </p>
+        <p>
+          This policy covers the application at go.marginapp.in, the websites at marginapp.in, and
+          the Margin API. It should be read with our <a href="/terms">Terms of Use</a>.
+        </p>
+
+        <h2>2. What we collect</h2>
+
+        <h3>Your identity, from Google sign-in</h3>
+        <p>
+          Margin has no passwords of its own. When you sign in or sign up with Google, we ask Google
+          only for your basic profile and email address, and Google gives us:
+        </p>
+        <ul>
+          <li>your name and email address;</li>
+          <li>your Google account ID, which we use to recognise you when you return;</li>
+          <li>the access and refresh tokens that Google issues for this sign-in, which we clear when you sign out.</li>
+        </ul>
+        <p>
+          We do not request access to your Gmail, contacts, Drive, calendar or any other Google
+          data, and we cannot read it.
+        </p>
+
+        <h3>Portfolio data you put into Margin</h3>
+        <p>
+          When you use the product, we store the records you enter or upload: holdings and trades,
+          dividends, the dated amounts from your funds statement, the names you give your trading
+          accounts, DCF and reverse DCF valuations, price anchors, target allocations, lists, tags,
+          notes, Screen decisions, and any feedback or ratings you send us. We use these only to
+          run Margin for you.
+        </p>
+        <p>
+          Your funds statement gets narrower treatment. Margin reads the file in your browser and
+          sends only the dates and amounts, so the file itself never reaches us. Sending the
+          description column is optional, and when you do send it, the server hashes each
+          description on arrival and keeps only the hash.
+        </p>
+        <p>
+          We never ask for, and never store, the username, password or PIN for your broker or
+          depository account.
+        </p>
+
+        <h3>Sign-in sessions and API tokens</h3>
+        <p>
+          Signing in creates a session that lasts 30 days. The API tokens you create in Settings
+          work in a similar way. For both, the server stores only a one-way hash of the token, so
+          someone reading our database could not use it to sign in as you.
+        </p>
+
+        <h3>Technical data</h3>
+        <p>
+          When something breaks in the app or on our server, an error report is sent to Sentry so
+          we can fix it. These reports carry the error, the page or endpoint it happened on, and
+          your browser and operating system. Before a report leaves your browser or our server, we
+          remove access tokens and sign-in codes from URLs, and we do not attach
+          your user details, cookies, request bodies or database values.
+        </p>
+        <p>
+          Our servers also keep ordinary access logs, including IP addresses and request times,
+          which we use to keep the service secure and to diagnose faults.
+        </p>
+
+        <h3>Visits to marginapp.in</h3>
+        <p>
+          The marketing website at marginapp.in uses Google Analytics to count visits and see which
+          pages people read. Google Analytics sets cookies in your browser and receives your IP
+          address and information about your device. The application at go.marginapp.in does not
+          run Google Analytics.
+        </p>
+
+        <h2>3. Why we use it</h2>
+        <p>
+          We process your personal data on the basis of the consent you give when you create an
+          account, and for the purposes that consent covers, which are the following:
+        </p>
+        <ul>
+          <li>to create your account, sign you in and keep your session secure;</li>
+          <li>to store your portfolio records and compute returns, capital gains, tax figures and valuations from them;</li>
+          <li>to answer your support requests and grievances;</li>
+          <li>to find and fix faults, and to protect the service against misuse;</li>
+          <li>to tell you about material changes to the service, these terms or this policy;</li>
+          <li>to meet obligations that Indian law places on us.</li>
+        </ul>
+        <p>
+          We do not use your data for advertising, we do not build profiles of you for anyone else,
+          and we do not sell or rent your personal data to anyone.
+        </p>
+
+        <h2>4. How we keep it</h2>
+        <p>
+          Your name, email address, Google account ID and trading account names are stored in a
+          Privacy Vault (<a href="https://databunker.org" target="_blank" rel="noopener noreferrer">Databunker</a>),
+          which encrypts them with keys kept apart from the main application database. The main
+          database holds your portfolio records against a random token, and that token cannot be
+          traced back to you without the vault. The vault runs on our own server and is not
+          reachable from the internet. <a href="/privacy-vault">How Privacy Vault protects you</a>
+          explains the design in more detail.
+        </p>
+        <p>
+          Our servers and databases are hosted with Amazon Web Services in the Mumbai region, and
+          traffic between your browser and Margin is encrypted in transit. Only the people who
+          operate Margin can access production systems, and they access your records only when
+          running the service or answering a request from you.
+        </p>
+
+        <h2>5. Who we share it with</h2>
+        <p>
+          We share personal data only with the service providers that run parts of Margin on our
+          behalf, and only as much as each one needs:
+        </p>
+        <ul>
+          <li><strong>Google</strong>, which authenticates you when you sign in with a Google account, and which runs Google Analytics on marginapp.in.</li>
+          <li><strong>Amazon Web Services</strong>, which hosts our servers and databases in Mumbai.</li>
+          <li><strong>Sentry</strong>, which receives the scrubbed error reports described in section 2 and stores them in the United States.</li>
+          <li><strong>YouTube</strong>, when you play a guide or story video embedded on our pages. YouTube may set its own cookies once you start a video.</li>
+        </ul>
+        <p>
+          We use AI models from OpenAI and Perplexity to process public information about listed
+          companies, such as earnings call announcements. We do not send your personal data or your
+          portfolio records to them.
+        </p>
+        <p>
+          If you create an API token and connect an AI agent or a script to Margin, that agent or
+          script reads your data on your instruction, and the provider behind it handles that data
+          under its own terms. You can revoke a token at any time from Settings.
+        </p>
+        <p>
+          We will disclose personal data to a government authority, regulator or court only where
+          Indian law requires us to. If Yuktibyte Products Private Limited is merged or acquired,
+          your data may pass to the new owner, who will remain bound by this policy until you are
+          told otherwise and given the chance to delete your account.
+        </p>
+
+        <h2>6. Data outside India</h2>
+        <p>
+          Your account and portfolio data, including the Privacy Vault and its backups, are stored
+          in the AWS Mumbai region. Two providers handle a limited amount of data outside India:
+          Sentry stores error reports in the United States, and Google may process sign-in and
+          Google Analytics data in any country where it runs servers. We transfer data only to countries that the Government of India has not restricted
+          under section 16 of the Digital Personal Data Protection Act, 2023.
+        </p>
+
+        <h2>7. Cookies and browser storage</h2>
+        <p>The application at go.marginapp.in keeps a small amount of data in your browser:</p>
+        <ul>
+          <li>a sign-in cookie and a matching entry in local storage, which keep you signed in and are removed when you sign out;</li>
+          <li>your light or dark theme preference;</li>
+          <li>your choice of layout on mobile, and which features you have already rated.</li>
+        </ul>
+        <p>
+          None of these are used for tracking or advertising. The marketing website sets the Google
+          Analytics cookies described in section 2, and you can block or delete them through your
+          browser settings without affecting how Margin works.
+        </p>
+
+        <h2>8. How long we keep it</h2>
+        <p>
+          We keep your identity and portfolio data for as long as your account is open. When you
+          ask us to delete your account, we delete your record from the Privacy Vault and your
+          portfolio records from the application database. Our database backups are kept for 7
+          days, so any copy of your data in them is gone within 7 days of the deletion. We keep
+          something beyond that only when a law requires us to, and only for as long as it
+          requires.
+        </p>
+        <p>
+          Sign-in sessions expire after 30 days. Server and access logs are rotated daily and
+          kept for no more than 15 days, and Sentry deletes error reports after 90 days.
+        </p>
+
+        <h2>9. Your rights</h2>
+        <p>Under the Digital Personal Data Protection Act, 2023, you have the right to:</p>
+        <ul>
+          <li>get a summary of the personal data we hold about you and of how we process it;</li>
+          <li>have inaccurate or incomplete personal data corrected, and out-of-date data updated;</li>
+          <li>withdraw your consent and have your personal data erased, which also closes your account;</li>
+          <li>have a grievance about our handling of your data resolved;</li>
+          <li>nominate another person to exercise these rights for you in the event of your death or incapacity.</li>
+        </ul>
+        <p>
+          To exercise any of these, write to <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a>
+          from the email address on your account. Withdrawing consent does not affect processing
+          that happened before you withdrew it. You can also sign out at any time, which clears the
+          Google tokens we hold for you, and you can remove Margin's access from your Google Account
+          under Security, then Third-party apps and services.
+        </p>
+        <p>
+          If you are not satisfied with our response to a grievance, you may complain to the Data
+          Protection Board of India.
+        </p>
+
+        <h2>10. Children</h2>
+        <p>
+          Margin is meant for adults. You must be at least 18 years old to create an account, and we
+          do not knowingly collect personal data from anyone younger. If you believe a child has
+          given us personal data, write to us and we will delete it.
+        </p>
+
+        <h2>11. Changes to this policy</h2>
+        <p>
+          When we change this policy, we will revise the date at the top of this page. If a change
+          affects how we use data you have already given us, we will notify you in the app or by
+          email before it takes effect and, where the law requires it, ask for your consent again.
+        </p>
+
+        <h2>12. Grievance Officer and contact</h2>
+        <p>
+          For any question about this policy, a request about your data, or a grievance, write to
+          the Grievance Officer, Yuktibyte Products Private Limited, Bengaluru, Karnataka, India, at
+          <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a>. We aim to acknowledge a
+          grievance within 24 hours and to resolve it within 15 days.
+        </p>
+
+      </div>
+
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

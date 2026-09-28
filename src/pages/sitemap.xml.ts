@@ -12,6 +12,7 @@ const staticPaths = [
   { path: '/company', priority: '0.5' },
   { path: '/privacy-vault', priority: '0.5' },
   { path: '/terms', priority: '0.3' },
+  { path: '/privacy', priority: '0.3' },
 ];
 
 function url(path: string, priority: string, lastmod?: Date) {
