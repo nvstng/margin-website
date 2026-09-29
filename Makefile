@@ -10,7 +10,7 @@ help:
 
 deploy:
 	npm run build
-	wrangler pages deploy dist --project-name margin-website
+	npx wrangler pages deploy dist --project-name margin-website
 
 free-my-port:
 	@pids=$$(lsof -ti tcp:$(PORT)); \
