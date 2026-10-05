@@ -72,6 +72,10 @@ The last four groups are hidden until you press **Show NPV & Intrinsic Value Col
 
 Keyboard navigation works across the grid. The cell selection is not drawn, so the cursor is easy to lose. Arrow keys and typing still move and edit normally.
 
+## How the calculation is checked
+
+Margin's DCF calculation is covered by automated tests. Each test runs a small valuation with known inputs and checks every figure Margin computes, from cash flow and discounting to the terminal value and expected return, against numbers worked out separately. The tests run on every change to Margin, so a change that breaks a calculation is caught before it reaches you.
+
 ## Filling a value down the years
 
 Typing the same margin into ten rows by hand is where a DCF picks up errors you never notice. The grid gives you three ways to avoid it, on the Margin, Ratio, Rate, Multiplier and Shares increase columns.
