@@ -1,4 +1,4 @@
-PORT ?= 3006
+PORT ?= 3201
 
 .PHONY: help deploy free-my-port
 
@@ -13,7 +13,7 @@ deploy:
 	npx wrangler pages deploy dist --project-name margin-website
 
 free-my-port:
-	@pids=$$(lsof -ti tcp:$(PORT)); \
+	@pids=$$(lsof -ti tcp:$(PORT) -sTCP:LISTEN); \
 	if [ -n "$$pids" ]; then \
 		echo "Killing process(es) $$pids on port $(PORT)"; \
 		kill -9 $$pids; \
