@@ -1,0 +1,280 @@
+---
+const problems = [
+  {
+    id: 'valuation',
+    label: 'Implied returns',
+    heading: 'Buy, hold, add, reduce or sell knowing the implied return',
+    problem:
+      'Whether to buy, hold, add or sell depends on what a stock’s valuation says at today’s price, and the price moves every day. With the DCF in a spreadsheet, the price in the broker app and the stock list somewhere else, you stitch the three together by hand. A stock bought for a 15 percent expected return may offer only 6 percent after a sharp rally, with nothing about the business changed, and it looks the same as a holding that is still working.',
+    solution:
+      'Margin keeps your holdings, your stock lists and a saved DCF for each stock together and reads them against the latest price. The dashboard shows the expected return each valuation implies today beside the Buy, Add, Reduce or Exit prices you set.',
+    sources: [
+      { title: 'Spreadsheet', sub: 'your DCF' },
+      { title: 'Broker app', sub: 'today’s price' },
+      { title: 'Watchlist', sub: 'stocks you follow' },
+    ],
+    hub: { title: 'Margin', sub: 'reads each valuation at the latest price' },
+    outcome: { title: 'Expected return', sub: 'beside Buy, Add, Reduce, Exit' },
+    links: [
+      { label: 'Tracking expected returns', href: '/guides/tracking-expected-returns-dashboard' },
+      { label: 'Setting price anchors', href: '/guides/price-anchors' },
+    ],
+  },
+  {
+    id: 'accounts',
+    label: 'Several demat accounts',
+    heading: 'One portfolio spread across several demat accounts',
+    problem:
+      'Many investors hold shares in more than one demat account across a family, often at different brokers. A stock held in two accounts is one holding of the combined quantity, and allocation, XIRR and tax all belong to the combined portfolio. Each broker app shows only its own account, so the whole picture never appears in any of them.',
+    solution:
+      'Margin brings every brokerage account into one portfolio and works out holdings, allocation, returns and tax across all of them. Each import stays in the trading account it came from, so a personal and a family account at the same broker remain distinct.',
+    sources: [
+      { title: 'Zerodha', sub: 'your account' },
+      { title: 'Groww', sub: 'a family account' },
+      { title: 'Upstox', sub: 'a family account' },
+    ],
+    hub: { title: 'Margin', sub: 'merges holdings across accounts' },
+    outcome: { title: 'One portfolio', sub: 'allocation, XIRR and tax' },
+    links: [
+      { label: 'Importing holdings and trades', href: '/guides/importing-holdings-and-trades' },
+      { label: 'Setting target allocation', href: '/guides/target-allocation' },
+    ],
+  },
+  {
+    id: 'returns',
+    label: 'Returns brokers miss',
+    heading: 'Performance the broker cannot report accurately',
+    problem:
+      'A dividend is paid into your bank account and never enters the return your broker reports, and a bonus issue that doubled your shares leaves the tradebook with half the quantity you hold. IPO allotments, splits, mergers and demergers drift the quantity and average cost on record away from what you hold, so the returns built on them are wrong.',
+    solution:
+      'Margin records dividends a financial year at a time and counts each one as cash returned on its ex-date. The consistency check compares your tradebook with your demat holding, names the corporate action behind each gap and records it as a trade, so XIRR and tax are worked out from records that match what you hold.',
+    sources: [
+      { title: 'Tradebook', sub: 'buys and sells' },
+      { title: 'Bank account', sub: 'dividends' },
+      { title: 'Corporate actions', sub: 'splits, bonuses, demergers' },
+    ],
+    hub: { title: 'Margin', sub: 'consistency check' },
+    outcome: { title: 'XIRR and tax', sub: 'from records that match' },
+    links: [
+      { label: 'The consistency check', href: '/guides/consistency-check' },
+      { label: 'Dividends by financial year', href: '/guides/dividends-by-financial-year' },
+      { label: 'Tax if sold today', href: '/guides/tax-if-sold-today' },
+    ],
+  },
+  {
+    id: 'routines',
+    label: 'Routines across tools',
+    heading: 'Routines that span several tools',
+    problem:
+      'Every quarter you copy a company’s numbers from Screener.in into a sheet to update its DCF, export holdings and trades from each broker and upload them, and read the ValuePickr thread on each company you hold to see what changed. Each step is manual copying between tools, slow to repeat across a portfolio and easy to get wrong.',
+    solution:
+      'Margin has an agent interface, so your own AI agent can read from and write to Margin while it works with the other tools, and you compose the routines you need. Each routine is written up as a recipe for agents.',
+    sources: [
+      { title: 'Screener.in', sub: 'fundamentals' },
+      { title: 'ValuePickr', sub: 'forum threads' },
+      { title: 'Broker', sub: 'holdings and alerts' },
+    ],
+    hub: { title: 'Your AI agent', sub: 'works across the tools' },
+    outcome: { title: 'Margin', sub: 'DCFs and holdings kept current' },
+    links: [
+      { label: 'Recipes for agents', href: '/agents' },
+      { label: 'A DCF from public fundamentals', href: '/agents/dcf-from-public-fundamentals' },
+    ],
+  },
+  {
+    id: 'dcf',
+    label: 'A DCF you can trust',
+    heading: 'A spreadsheet DCF can be wrong without showing it',
+    problem:
+      'A DCF built in Excel runs ten years or more of projections, each year a row of formulas built from the one before. One cell pointing at the wrong year, or a row not dragged down to the end, carries into every later year and changes the intrinsic value, and nothing on the sheet flags it. Every buy and sell decision taken from the sheet inherits the error.',
+    solution:
+      'In Margin you set only the assumptions for each year, and Margin computes sales, profit, cash flow, the discounted values, terminal value, intrinsic value and expected return. An automated test suite checks those calculations against worked numbers on every change to Margin.',
+    sources: [
+      { title: 'Growth and margin', sub: 'per year' },
+      { title: 'Tax rate', sub: 'per year' },
+      { title: 'Cash conversion', sub: 'per year' },
+    ],
+    hub: { title: 'Margin', sub: 'tested calculation' },
+    outcome: { title: 'Intrinsic value', sub: 'and expected return' },
+    links: [
+      { label: 'Using the DCF valuation grid', href: '/guides/dcf-valuation-grid' },
+      { label: 'How the calculation is checked', href: '/guides/dcf-valuation-grid#how-the-calculation-is-checked' },
+    ],
+  },
+];
+
+const col = { source: 10, hub: 290, outcome: 530 };
+const box = { source: { w: 190, h: 56 }, hub: { w: 170, h: 96 }, outcome: { w: 180, h: 96 } };
+const rows = [24, 102, 180];
+const mid = rows[1] + box.source.h / 2;
+const stack = { w: 340, h: 50, gap: 10, top: 24 };
+const stackEnd = stack.top + 3 * stack.h + 2 * stack.gap;
+const hubTop = stackEnd + 40;
+const outcomeTop = hubTop + 120;
+---
+
+<section class="py-24 lg:py-32 border-t border-border">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="mb-16 reveal">
+      <p class="text-xs text-gold-400 tracking-widest uppercase mb-3">Why Margin</p>
+      <h2 class="font-display text-4xl md:text-5xl font-light text-cream">
+        The problems Margin <em class="font-semibold not-italic">solves</em>
+      </h2>
+    </div>
+
+    <div class="reveal reveal-delay-1">
+      <div class="flex gap-1 p-1 rounded-lg bg-navy-800/60 border border-border mb-8 w-fit max-w-full overflow-x-auto">
+        {problems.map((p, i) => (
+          <button
+            class={`why-tab-btn shrink-0 px-3 sm:px-5 py-2.5 text-sm font-medium rounded-md transition-all duration-200 ${i === 0 ? 'bg-navy-600 text-cream' : 'text-muted hover:text-ink'}`}
+            data-tab={p.id}
+          >
+            {p.label}
+          </button>
+        ))}
+      </div>
+
+      {problems.map((p, i) => (
+        <div
+          class={`why-tab-panel ${i === 0 ? 'block' : 'hidden'} grid grid-cols-1 lg:grid-cols-5 gap-10`}
+          data-panel={p.id}
+        >
+          <div class="lg:col-span-2">
+            <h3 class="font-display text-3xl font-light text-cream mb-6 leading-tight">{p.heading}</h3>
+            <p class="text-xs text-muted tracking-widest uppercase mb-2">The problem</p>
+            <p class="text-muted leading-relaxed mb-6">{p.problem}</p>
+            <div class="border-l-2 border-gold-400/60 pl-4">
+              <p class="text-xs text-gold-400 tracking-widest uppercase mb-2">How Margin solves it</p>
+              <p class="text-ink leading-relaxed">{p.solution}</p>
+            </div>
+          </div>
+
+          <div class="lg:col-span-3 flex flex-col gap-6">
+            <div class="rounded-2xl border border-navy-600 bg-navy-800 p-4 lg:p-6">
+              <svg
+                viewBox="0 0 720 250"
+                class="hidden sm:block w-full font-sans"
+                role="img"
+                aria-label={`${p.sources.map((s) => s.title).join(', ')} come together in ${p.hub.title}, which gives you ${p.outcome.title.toLowerCase()} ${p.outcome.sub}.`}
+              >
+                <defs>
+                  <marker id={`why-arrow-${p.id}`} viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                    <path d="M 0 0 L 10 5 L 0 10 z" class="fill-muted" />
+                  </marker>
+                  <marker id={`why-arrow-gold-${p.id}`} viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                    <path d="M 0 0 L 10 5 L 0 10 z" class="fill-gold-400" />
+                  </marker>
+                </defs>
+
+                <text x={col.source} y="12" class="fill-muted text-[11px] tracking-[0.2em] uppercase">Where it lives today</text>
+                <text x={col.outcome} y="12" class="fill-gold-400 text-[11px] tracking-[0.2em] uppercase">What you read</text>
+
+                {p.sources.map((s, si) => (
+                  <>
+                    <rect x={col.source} y={rows[si]} width={box.source.w} height={box.source.h} rx="10" class="fill-navy-700 stroke-navy-400" stroke-dasharray="4 4" />
+                    <text x={col.source + 16} y={rows[si] + 24} class="fill-cream text-[15px] font-semibold">{s.title}</text>
+                    <text x={col.source + 16} y={rows[si] + 43} class="fill-muted text-[12px]">{s.sub}</text>
+                    <path
+                      d={`M ${col.source + box.source.w} ${rows[si] + box.source.h / 2} C ${col.source + box.source.w + 45} ${rows[si] + box.source.h / 2}, ${col.hub - 45} ${mid}, ${col.hub - 2} ${mid}`}
+                      class="stroke-muted"
+                      fill="none"
+                      stroke-width="1.5"
+                      marker-end={`url(#why-arrow-${p.id})`}
+                    />
+                  </>
+                ))}
+
+                <rect x={col.hub} y={mid - box.hub.h / 2} width={box.hub.w} height={box.hub.h} rx="12" class="fill-navy-600 stroke-gold-400" stroke-width="1.5" />
+                <text x={col.hub + box.hub.w / 2} y={mid - 6} text-anchor="middle" class="fill-cream text-[20px] font-display font-semibold">{p.hub.title}</text>
+                <foreignObject x={col.hub + 10} y={mid + 4} width={box.hub.w - 20} height="40">
+                  <p class="text-center text-[11.5px] leading-snug text-gold-300">{p.hub.sub}</p>
+                </foreignObject>
+
+                <line x1={col.hub + box.hub.w} y1={mid} x2={col.outcome - 2} y2={mid} class="stroke-gold-400" stroke-width="1.5" marker-end={`url(#why-arrow-gold-${p.id})`} />
+
+                <rect x={col.outcome} y={mid - box.outcome.h / 2} width={box.outcome.w} height={box.outcome.h} rx="12" class="fill-navy-700 stroke-gold-400" stroke-opacity="0.6" />
+                <text x={col.outcome + box.outcome.w / 2} y={mid - 6} text-anchor="middle" class="fill-cream text-[17px] font-display font-semibold">{p.outcome.title}</text>
+                <foreignObject x={col.outcome + 10} y={mid + 4} width={box.outcome.w - 20} height="40">
+                  <p class="text-center text-[11.5px] leading-snug text-muted">{p.outcome.sub}</p>
+                </foreignObject>
+              </svg>
+              <svg
+                viewBox={`0 0 ${stack.w} ${outcomeTop + 82}`}
+                class="sm:hidden w-full font-sans"
+                aria-hidden="true"
+              >
+                <defs>
+                  <marker id={`why-arrow-m-${p.id}`} viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                    <path d="M 0 0 L 10 5 L 0 10 z" class="fill-muted" />
+                  </marker>
+                  <marker id={`why-arrow-gold-m-${p.id}`} viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                    <path d="M 0 0 L 10 5 L 0 10 z" class="fill-gold-400" />
+                  </marker>
+                </defs>
+
+                <text x="1" y="12" class="fill-muted text-[11px] tracking-[0.2em] uppercase">Where it lives today</text>
+                {p.sources.map((s, si) => (
+                  <>
+                    <rect x="1" y={stack.top + si * (stack.h + stack.gap)} width={stack.w - 2} height={stack.h} rx="10" class="fill-navy-700 stroke-navy-400" stroke-dasharray="4 4" />
+                    <text x="16" y={stack.top + si * (stack.h + stack.gap) + 22} class="fill-cream text-[15px] font-semibold">{s.title}</text>
+                    <text x="16" y={stack.top + si * (stack.h + stack.gap) + 40} class="fill-muted text-[12px]">{s.sub}</text>
+                  </>
+                ))}
+
+                <line x1={stack.w / 2} y1={stackEnd + 4} x2={stack.w / 2} y2={hubTop - 2} class="stroke-muted" stroke-width="1.5" marker-end={`url(#why-arrow-m-${p.id})`} />
+
+                <rect x="40" y={hubTop} width={stack.w - 80} height="80" rx="12" class="fill-navy-600 stroke-gold-400" stroke-width="1.5" />
+                <text x={stack.w / 2} y={hubTop + 32} text-anchor="middle" class="fill-cream text-[20px] font-display font-semibold">{p.hub.title}</text>
+                <text x={stack.w / 2} y={hubTop + 56} text-anchor="middle" class="fill-gold-300 text-[12px]">{p.hub.sub}</text>
+
+                <line x1={stack.w / 2} y1={hubTop + 82} x2={stack.w / 2} y2={outcomeTop - 2} class="stroke-gold-400" stroke-width="1.5" marker-end={`url(#why-arrow-gold-m-${p.id})`} />
+                <text x={stack.w / 2 + 12} y={hubTop + 104} class="fill-gold-400 text-[11px] tracking-[0.2em] uppercase">What you read</text>
+
+                <rect x="40" y={outcomeTop} width={stack.w - 80} height="80" rx="12" class="fill-navy-700 stroke-gold-400" stroke-opacity="0.6" />
+                <text x={stack.w / 2} y={outcomeTop + 32} text-anchor="middle" class="fill-cream text-[18px] font-display font-semibold">{p.outcome.title}</text>
+                <text x={stack.w / 2} y={outcomeTop + 56} text-anchor="middle" class="fill-muted text-[12px]">{p.outcome.sub}</text>
+              </svg>
+            </div>
+
+            <ul class="flex flex-col gap-2">
+              {p.links.map((link) => (
+                <li>
+                  <a href={link.href} class="inline-flex items-center gap-2 text-sm text-muted hover:text-cream transition-colors group">
+                    {link.label}
+                    <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                    </svg>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  const buttons = document.querySelectorAll('.why-tab-btn');
+  const panels = document.querySelectorAll('.why-tab-panel');
+
+  buttons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const target = btn.getAttribute('data-tab');
+
+      buttons.forEach((b) => {
+        b.classList.remove('bg-navy-600', 'text-cream');
+        b.classList.add('text-muted');
+      });
+      btn.classList.add('bg-navy-600', 'text-cream');
+      btn.classList.remove('text-muted');
+
+      panels.forEach((panel) => {
+        const id = panel.getAttribute('data-panel');
+        panel.classList.toggle('hidden', id !== target);
+        panel.classList.toggle('block', id === target);
+      });
+    });
+  });
+</script>
