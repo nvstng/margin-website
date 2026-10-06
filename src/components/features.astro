@@ -1,5 +1,12 @@
 ---
 import { STAGE_ORDER, stageAnchor } from '../domain/guide';
+import HighlightFundsLedger from './highlight-funds-ledger.astro';
+import HighlightDividends from './highlight-dividends.astro';
+import Screen from './screen.astro';
+import ResearchLibrary from './research-library.astro';
+import HighlightDcf from './highlight-dcf.astro';
+import HighlightReverseDcf from './highlight-reverse-dcf.astro';
+import HighlightXirrTax from './highlight-xirr-tax.astro';
 
 const coreFeatures = [
   {
@@ -11,32 +18,11 @@ const coreFeatures = [
     badges: ['Zerodha', 'Groww', 'Upstox', 'AngelOne', 'Generic CSV'],
   },
   {
-    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0 1 15.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 0 1 3 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 0 0-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 0 1-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 0 0 3 15h-.75M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm3 0h.008v.008H18V10.5Zm-12 0h.008v.008H6V10.5Z" />`,
-    title: 'Dividends',
-    stage: 'Get your records in',
-    guide: '/guides/dividends-by-financial-year',
-    desc: 'Recorded a financial year at a time, and counted as cash returned on the ex-date so they are not left out of your return.',
-  },
-  {
-    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M7.5 21 3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" />`,
-    title: 'Funds & Net Investment',
-    stage: 'Get your records in',
-    guide: '/guides/funds-statement-ledger',
-    desc: 'Upload the funds statement to see money in, money out, what you are net invested, and the money-weighted return on it.',
-  },
-  {
     icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.57-.598-3.75h-.152c-3.196 0-6.1-1.25-8.25-3.286Z" />`,
     title: 'Consistency Check',
     stage: 'Get your records in',
     guide: '/guides/consistency-check',
     desc: 'Reconciles what your tradebook says you should hold against what the demat file says you do, and names the splits and bonuses that fell inside a holding period and were never recorded.',
-  },
-  {
-    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 0 0 6 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0 1 18 16.5h-2.25m-7.5 0h7.5m-7.5 0-1 3m8.5-3 1 3m0 0 .5 1.5m-.5-1.5h-9.5m0 0-.5 1.5m.75-9 3-3 2.148 2.148A12.061 12.061 0 0 1 16.5 7.605" />`,
-    title: 'Valuation',
-    stage: 'Research and value a stock',
-    guide: '/guides/dcf-valuation-grid',
-    desc: 'DCF and reverse DCF, with your own reference ratios beside the grid and a what-if price to stress an assumption without saving it.',
   },
   {
     icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />`,
@@ -64,18 +50,6 @@ const coreFeatures = [
     stage: 'Track the portfolio',
     guide: '/guides/dashboard-columns',
     desc: 'Each holding carries the expected return read off the valuation behind it, beside whichever price anchors you add as columns.',
-  },
-  {
-    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M7.5 14.25v2.25m3-4.5v4.5m3-6.75v6.75m3-9v9M6 20.25h12A2.25 2.25 0 0 0 20.25 18V6A2.25 2.25 0 0 0 18 3.75H6A2.25 2.25 0 0 0 3.75 6v12A2.25 2.25 0 0 0 6 20.25Z" />`,
-    title: 'Returns',
-    stage: 'Track the portfolio',
-    desc: 'XIRR since inception, or over a trailing stretch, a calendar year, or a financial year, asked of one stock, any list, or the whole portfolio.',
-  },
-  {
-    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M9 14.25l6-6m4.5-3.493V21.75l-3.75-1.5-3.75 1.5-3.75-1.5-3.75 1.5V4.757c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0c1.1.128 1.907 1.077 1.907 2.185ZM9.75 9h.008v.008H9.75V9Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm4.125 4.5h.008v.008h-.008V13.5Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />`,
-    title: 'Capital Gains & Tax',
-    stage: 'Track the portfolio',
-    desc: 'Short-term and long-term gains separated, each taxed at the rate in force on the date of the sale.',
   },
   {
     icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M12 3v17.25m0 0c-1.472 0-2.882.265-4.185.75M12 20.25c1.472 0 2.882.265 4.185.75M18.75 4.97A48.416 48.416 0 0 0 12 4.5c-2.291 0-4.545.16-6.75.47m13.5 0c1.01.143 2.01.317 3 .52m-3-.52 2.62 10.726c.122.499-.106 1.028-.589 1.202a5.988 5.988 0 0 1-2.031.352 5.988 5.988 0 0 1-2.031-.352c-.483-.174-.711-.703-.59-1.202L18.75 4.971Zm-16.5.52c.99-.203 1.99-.377 3-.52m0 0 2.62 10.726c.122.499-.106 1.028-.589 1.202a5.989 5.989 0 0 1-2.031.352 5.989 5.989 0 0 1-2.031-.352c-.483-.174-.711-.703-.59-1.202L5.25 4.971Z" />`,
@@ -120,59 +94,92 @@ const stageLines: Record<string, string> = {
     'Expected and realised return on every holding, with the tax a sale would attract today.',
 };
 
+const stageSections: Record<string, any[]> = {
+  'Get your records in': [HighlightFundsLedger, HighlightDividends],
+  'Research and value a stock': [Screen, ResearchLibrary, HighlightDcf, HighlightReverseDcf],
+  'Decide what to buy and sell': [],
+  'Track the portfolio': [HighlightXirrTax],
+};
+
 const stages = STAGE_ORDER.map((stage) => ({
   stage,
+  anchor: stageAnchor(stage),
   line: stageLines[stage],
+  sections: stageSections[stage],
   items: coreFeatures.filter((f) => f.stage === stage),
 }));
 
 const exchanges = ['NSE', 'BSE'];
 ---
 
-<section class="pt-32 pb-24 lg:pb-32">
+<section class="pt-32 pb-12">
   <div class="max-w-7xl mx-auto px-6 lg:px-8">
-    <div class="mb-16 reveal gold-line">
+    <div class="reveal gold-line">
       <p class="text-xs text-gold-400 tracking-widest uppercase mb-3">Capabilities</p>
       <h1 class="font-display text-4xl md:text-5xl font-light text-cream">
         What Margin<br /><em class="font-semibold not-italic">does</em>
       </h1>
     </div>
+  </div>
+</section>
 
-    <div class="reveal reveal-delay-1">
-      <div class="flex gap-1 p-1 rounded-lg bg-navy-800/60 border border-border mb-8 w-fit max-w-full overflow-x-auto">
+<div>
+  <nav class="sticky top-[72px] z-40 bg-navy-900/95 backdrop-blur-md border-y border-border" aria-label="Stages">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <ul class="flex gap-1 py-2 overflow-x-auto">
         {stages.map((group, gi) => (
-          <button
-            class={`feature-tab-btn shrink-0 px-3 sm:px-5 py-2.5 text-sm font-medium rounded-md transition-all duration-200 ${gi === 0 ? 'bg-navy-600 text-cream' : 'text-muted hover:text-ink'}`}
-            data-tab={stageAnchor(group.stage)}
-          >
-            {group.stage}
-          </button>
+          <li class="shrink-0">
+            <a
+              href={`#${group.anchor}`}
+              class="stage-link flex items-center gap-2 px-3 sm:px-4 py-2 text-sm font-medium rounded-md text-muted hover:text-ink transition-colors duration-200"
+              data-stage={group.anchor}
+            >
+              <span class="font-display text-gold-400/70 [font-variant-numeric:lining-nums]">{String(gi + 1).padStart(2, '0')}</span>
+              {group.stage}
+            </a>
+          </li>
         ))}
+      </ul>
+    </div>
+  </nav>
+
+  {stages.map((group, gi) => (
+    <div class="stage-chapter pt-24 lg:pt-32" data-stage={group.anchor}>
+      <header id={group.anchor} class="scroll-mt-40">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+          <div class="reveal grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-end pb-8 border-b border-border">
+            <div class="lg:col-span-7 flex items-baseline gap-6">
+              <p class="font-display text-5xl md:text-6xl font-light text-gold-400/70 leading-none [font-variant-numeric:lining-nums]">{String(gi + 1).padStart(2, '0')}</p>
+              <h2 class="font-display text-3xl md:text-4xl font-semibold text-cream">{group.stage}</h2>
+            </div>
+            <div class="lg:col-span-5">
+              <p class="text-sm text-muted leading-relaxed mb-4">{group.line}</p>
+              <a
+                href={`/guides#${group.anchor}`}
+                class="inline-flex items-center gap-2 text-xs text-gold-400 tracking-widest uppercase hover:text-gold-300 transition-colors group"
+              >
+                Guides for this stage
+                <svg class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div class="[&>section:first-child]:pt-12 lg:[&>section:first-child]:pt-16">
+        {group.sections.map((Section) => <Section />)}
       </div>
 
-      {stages.map((group, gi) => (
-        <div
-          class={`feature-tab-panel ${gi === 0 ? 'block' : 'hidden'} grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12`}
-          data-panel={stageAnchor(group.stage)}
-        >
-          <div class="lg:col-span-4">
-            <p class="font-display text-5xl font-light text-gold-400/70 leading-none mb-4 [font-variant-numeric:lining-nums]">{String(gi + 1).padStart(2, '0')}</p>
-            <h2 class="font-display text-2xl md:text-3xl font-semibold text-cream mb-3">{group.stage}</h2>
-            <p class="text-sm text-muted leading-relaxed max-w-sm mb-5">{group.line}</p>
-            <a
-              href={`/guides#${stageAnchor(group.stage)}`}
-              class="inline-flex items-center gap-2 text-xs text-gold-400 tracking-widest uppercase hover:text-gold-300 transition-colors group"
-            >
-              Guides for this stage
-              <svg class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-              </svg>
-            </a>
-          </div>
-
-          <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-4">
+      {group.items.length > 0 && (
+        <div class={`max-w-7xl mx-auto px-6 lg:px-8 ${group.sections.length > 0 ? 'pb-8' : 'pt-12 pb-8'}`}>
+          {group.sections.length > 0 && (
+            <p class="text-xs text-gold-400 tracking-widest uppercase mb-6 reveal">Also in this stage</p>
+          )}
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {group.items.map((f) => (
-              <div class="relative rounded-xl border border-border bg-navy-800/40 overflow-hidden flex flex-col group hover:border-gold-400/30 hover:bg-navy-800/70 transition-all duration-300">
+              <div class="reveal relative rounded-xl border border-border bg-navy-800/40 overflow-hidden flex flex-col group hover:border-gold-400/30 hover:bg-navy-800/70 transition-all duration-300">
                 <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold-400/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <div class="p-7 flex-1 flex flex-col gap-4">
                   <div class="flex items-center gap-4">
@@ -205,10 +212,14 @@ const exchanges = ['NSE', 'BSE'];
             ))}
           </div>
         </div>
-      ))}
+      )}
     </div>
+  ))}
+</div>
 
-    <div class="reveal mt-16 flex flex-col sm:flex-row sm:items-center gap-4 rounded-xl border border-border bg-navy-800/30 px-6 py-5">
+<section class="pt-24 pb-24 lg:pb-32">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="reveal flex flex-col sm:flex-row sm:items-center gap-4 rounded-xl border border-border bg-navy-800/30 px-6 py-5">
       <div class="flex gap-2 shrink-0">
         {exchanges.map((e) => (
           <span class="px-3 py-1 text-xs font-medium text-gold-400 border border-gold-400/20 rounded-full bg-gold-400/5">{e}</span>
@@ -238,25 +249,30 @@ const exchanges = ['NSE', 'BSE'];
 </section>
 
 <script>
-  const buttons = document.querySelectorAll('.feature-tab-btn');
-  const panels = document.querySelectorAll('.feature-tab-panel');
+  const links = document.querySelectorAll<HTMLElement>('.stage-link');
+  const chapters = document.querySelectorAll<HTMLElement>('.stage-chapter');
 
-  buttons.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const target = btn.getAttribute('data-tab');
-
-      buttons.forEach((b) => {
-        b.classList.remove('bg-navy-600', 'text-cream');
-        b.classList.add('text-muted');
-      });
-      btn.classList.add('bg-navy-600', 'text-cream');
-      btn.classList.remove('text-muted');
-
-      panels.forEach((panel) => {
-        const id = panel.getAttribute('data-panel');
-        panel.classList.toggle('hidden', id !== target);
-        panel.classList.toggle('block', id === target);
-      });
+  const setActive = (stage: string) => {
+    links.forEach((link) => {
+      const active = link.dataset.stage === stage;
+      link.classList.toggle('bg-navy-600', active);
+      link.classList.toggle('text-cream', active);
+      link.classList.toggle('text-muted', !active);
+      if (active) {
+        const list = link.closest('ul')!;
+        list.scrollTo({ left: link.offsetLeft - list.offsetLeft - 16, behavior: 'smooth' });
+      }
     });
-  });
+  };
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) setActive((entry.target as HTMLElement).dataset.stage!);
+      });
+    },
+    { rootMargin: '-45% 0px -50% 0px' },
+  );
+
+  chapters.forEach((chapter) => observer.observe(chapter));
 </script>
