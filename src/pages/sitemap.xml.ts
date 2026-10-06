@@ -5,6 +5,7 @@ const SITE = 'https://marginapp.in';
 
 const staticPaths = [
   { path: '/', priority: '1.0' },
+  { path: '/features', priority: '0.8' },
   { path: '/learn', priority: '0.8' },
   { path: '/agents', priority: '0.8' },
   { path: '/guides', priority: '0.8' },

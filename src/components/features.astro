@@ -129,21 +129,35 @@ const stages = STAGE_ORDER.map((stage) => ({
 const exchanges = ['NSE', 'BSE'];
 ---
 
-<section id="features" class="py-24 lg:py-32">
+<section class="pt-32 pb-24 lg:pb-32">
   <div class="max-w-7xl mx-auto px-6 lg:px-8">
     <div class="mb-16 reveal gold-line">
       <p class="text-xs text-gold-400 tracking-widest uppercase mb-3">Capabilities</p>
-      <h2 class="font-display text-4xl md:text-5xl font-light text-cream">
+      <h1 class="font-display text-4xl md:text-5xl font-light text-cream">
         What Margin<br /><em class="font-semibold not-italic">does</em>
-      </h2>
+      </h1>
     </div>
 
-    <div class="flex flex-col gap-16 lg:gap-20">
+    <div class="reveal reveal-delay-1">
+      <div class="flex gap-1 p-1 rounded-lg bg-navy-800/60 border border-border mb-8 w-fit max-w-full overflow-x-auto">
+        {stages.map((group, gi) => (
+          <button
+            class={`feature-tab-btn shrink-0 px-3 sm:px-5 py-2.5 text-sm font-medium rounded-md transition-all duration-200 ${gi === 0 ? 'bg-navy-600 text-cream' : 'text-muted hover:text-ink'}`}
+            data-tab={stageAnchor(group.stage)}
+          >
+            {group.stage}
+          </button>
+        ))}
+      </div>
+
       {stages.map((group, gi) => (
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
-          <div class="reveal lg:col-span-4 lg:sticky lg:top-28 self-start">
+        <div
+          class={`feature-tab-panel ${gi === 0 ? 'block' : 'hidden'} grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12`}
+          data-panel={stageAnchor(group.stage)}
+        >
+          <div class="lg:col-span-4">
             <p class="font-display text-5xl font-light text-gold-400/70 leading-none mb-4 [font-variant-numeric:lining-nums]">{String(gi + 1).padStart(2, '0')}</p>
-            <h3 class="font-display text-2xl md:text-3xl font-semibold text-cream mb-3">{group.stage}</h3>
+            <h2 class="font-display text-2xl md:text-3xl font-semibold text-cream mb-3">{group.stage}</h2>
             <p class="text-sm text-muted leading-relaxed max-w-sm mb-5">{group.line}</p>
             <a
               href={`/guides#${stageAnchor(group.stage)}`}
@@ -157,15 +171,15 @@ const exchanges = ['NSE', 'BSE'];
           </div>
 
           <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-4">
-            {group.items.map((f, i) => (
-              <div class={`reveal reveal-delay-${(i % 2) + 1} relative rounded-xl border border-border bg-navy-800/40 overflow-hidden flex flex-col group hover:border-gold-400/30 hover:bg-navy-800/70 transition-all duration-300`}>
+            {group.items.map((f) => (
+              <div class="relative rounded-xl border border-border bg-navy-800/40 overflow-hidden flex flex-col group hover:border-gold-400/30 hover:bg-navy-800/70 transition-all duration-300">
                 <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold-400/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <div class="p-7 flex-1 flex flex-col gap-4">
                   <div class="flex items-center gap-4">
                     <div class="w-11 h-11 shrink-0 rounded-lg border border-gold-400/20 bg-gold-400/5 flex items-center justify-center group-hover:border-gold-400/40 transition-colors duration-300">
                       <svg class="w-5 h-5 text-gold-400" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" set:html={f.icon} />
                     </div>
-                    <h4 class="font-display text-xl font-semibold text-cream">{f.title}</h4>
+                    <h3 class="font-display text-xl font-semibold text-cream">{f.title}</h3>
                   </div>
                   <p class="text-sm text-muted leading-relaxed">{f.desc}</p>
                   {f.badges && (
@@ -222,3 +236,27 @@ const exchanges = ['NSE', 'BSE'];
     </div>
   </div>
 </section>
+
+<script>
+  const buttons = document.querySelectorAll('.feature-tab-btn');
+  const panels = document.querySelectorAll('.feature-tab-panel');
+
+  buttons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const target = btn.getAttribute('data-tab');
+
+      buttons.forEach((b) => {
+        b.classList.remove('bg-navy-600', 'text-cream');
+        b.classList.add('text-muted');
+      });
+      btn.classList.add('bg-navy-600', 'text-cream');
+      btn.classList.remove('text-muted');
+
+      panels.forEach((panel) => {
+        const id = panel.getAttribute('data-panel');
+        panel.classList.toggle('hidden', id !== target);
+        panel.classList.toggle('block', id === target);
+      });
+    });
+  });
+</script>
