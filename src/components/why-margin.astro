@@ -1,4 +1,13 @@
 ---
+import GuideVideo from './guide-video.astro';
+import videoPosterEn from '../assets/images/video-why-margin-en.webp';
+import videoPosterHi from '../assets/images/video-why-margin-hi.webp';
+
+const videos = [
+  { language: 'en', youtubeId: 'jNqBkHEdvuA', poster: videoPosterEn },
+  { language: 'hi', youtubeId: 'U0ZHFQRMsd4', poster: videoPosterHi },
+];
+
 const problems = [
   {
     id: 'valuation',
@@ -115,11 +124,16 @@ const outcomeTop = hubTop + 120;
 
 <section class="py-24 lg:py-32 border-t border-border">
   <div class="max-w-7xl mx-auto px-6 lg:px-8">
-    <div class="mb-16 reveal">
-      <p class="text-xs text-gold-400 tracking-widest uppercase mb-3">Why Margin</p>
-      <h2 class="font-display text-4xl md:text-5xl font-light text-cream">
-        The problems Margin <em class="font-semibold not-italic">solves</em>
-      </h2>
+    <div class="mb-4 grid grid-cols-1 lg:grid-cols-5 gap-10 items-center">
+      <div class="lg:col-span-2 reveal">
+        <p class="text-xs text-gold-400 tracking-widest uppercase mb-3">Why Margin</p>
+        <h2 class="font-display text-4xl md:text-5xl font-light text-cream">
+          The problems Margin <em class="font-semibold not-italic">solves</em>
+        </h2>
+      </div>
+      <div class="lg:col-span-3">
+        <GuideVideo title="Why Margin" videos={videos} label="The five problems in three minutes" />
+      </div>
     </div>
 
     <div class="reveal reveal-delay-1">
