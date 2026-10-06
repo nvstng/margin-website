@@ -3,34 +3,34 @@
     font-family: 'Cormorant Garamond', Georgia, serif;
     font-size: 1.75rem;
     font-weight: 300;
-    color: #F2EBD9;
+    color: rgb(var(--cream));
     margin-top: 3rem;
     margin-bottom: 1rem;
     line-height: 1.3;
     padding-bottom: 0.5rem;
-    border-bottom: 1px solid #1A2D4A;
+    border-bottom: 1px solid rgb(var(--border));
     scroll-margin-top: 6rem;
   }
   .prose-margin h3 {
     font-family: 'Cormorant Garamond', Georgia, serif;
     font-size: 1.35rem;
     font-weight: 400;
-    color: #D8E4F0;
+    color: rgb(var(--ink));
     margin-top: 2rem;
     margin-bottom: 0.75rem;
   }
   .prose-margin p {
-    color: #8AABCC;
+    color: rgb(var(--soft));
     font-size: 1rem;
     line-height: 1.85;
     margin-bottom: 1.5rem;
   }
   .prose-margin strong {
-    color: #D8E4F0;
+    color: rgb(var(--ink));
     font-weight: 500;
   }
   .prose-margin em {
-    color: #D8E4F0;
+    color: rgb(var(--ink));
     font-style: italic;
   }
   .prose-margin ul {
@@ -39,7 +39,7 @@
     list-style: none;
   }
   .prose-margin ul li {
-    color: #8AABCC;
+    color: rgb(var(--soft));
     font-size: 1rem;
     line-height: 1.85;
     margin-bottom: 0.5rem;
@@ -50,7 +50,7 @@
     content: '—';
     position: absolute;
     left: -1.25rem;
-    color: #E8B84B;
+    color: rgb(var(--gold-400));
     font-size: 0.85rem;
   }
   .prose-margin ol {
@@ -59,39 +59,39 @@
     list-style: decimal;
   }
   .prose-margin ol li {
-    color: #8AABCC;
+    color: rgb(var(--soft));
     font-size: 1rem;
     line-height: 1.85;
     margin-bottom: 0.5rem;
     padding-left: 0.25rem;
   }
   .prose-margin ol li::marker {
-    color: #E8B84B;
+    color: rgb(var(--gold-400));
   }
   .prose-margin blockquote {
-    border-left: 2px solid #E8B84B;
+    border-left: 2px solid rgb(var(--gold-400));
     margin: 2rem 0;
     padding: 0.5rem 0 0.5rem 1.5rem;
-    background: rgba(10, 24, 40, 0.4);
+    background: rgb(var(--navy-800) / 0.4);
     border-radius: 0 8px 8px 0;
   }
   .prose-margin blockquote p {
     margin-bottom: 0;
-    color: #D8E4F0;
+    color: rgb(var(--ink));
     font-style: italic;
   }
   .prose-margin code {
     font-family: 'Sora', monospace;
     font-size: 0.875rem;
-    background: rgba(10, 24, 40, 0.8);
-    border: 1px solid #1A2D4A;
+    background: rgb(var(--navy-800) / 0.8);
+    border: 1px solid rgb(var(--border));
     border-radius: 4px;
     padding: 0.1em 0.4em;
-    color: #E8B84B;
+    color: rgb(var(--gold-400));
   }
   .prose-margin pre {
-    background: rgba(5, 16, 28, 0.9) !important;
-    border: 1px solid #1A2D4A;
+    background: rgb(var(--navy-950) / 0.9) !important;
+    border: 1px solid rgb(var(--border));
     border-radius: 8px;
     padding: 1.25rem 1.5rem;
     margin: 2rem 0;
@@ -111,14 +111,14 @@
   }
   .prose-margin hr {
     border: none;
-    border-top: 1px solid #1A2D4A;
+    border-top: 1px solid rgb(var(--border));
     margin: 2.5rem 0;
   }
   .prose-margin img {
     display: block;
     width: 100%;
     height: auto;
-    border: 1px solid #1A2D4A;
+    border: 1px solid rgb(var(--border));
     border-radius: 8px;
     background: #000;
     margin: 0;
@@ -132,15 +132,15 @@
     margin-top: 0;
   }
   .prose-margin p:has(img) + p:has(em:only-child) em {
-    color: #8AABCC;
+    color: rgb(var(--soft));
   }
   .prose-margin a {
-    color: #E8B84B;
+    color: rgb(var(--gold-400));
     text-decoration: underline;
-    text-decoration-color: rgba(232, 184, 75, 0.3);
+    text-decoration-color: rgb(var(--gold-400) / 0.3);
     transition: color 0.2s;
   }
   .prose-margin a:hover {
-    color: #F5D070;
+    color: rgb(var(--gold-300));
   }
 </style>

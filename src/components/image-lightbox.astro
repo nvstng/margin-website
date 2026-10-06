@@ -21,7 +21,7 @@
     justify-content: center;
     gap: 1rem;
     padding: 2rem;
-    background: rgba(3, 8, 15, 0.94);
+    background: rgb(var(--navy-950) / 0.94);
     cursor: zoom-out;
   }
   .lightbox[hidden] {
@@ -31,7 +31,7 @@
     max-width: 100%;
     max-height: calc(100vh - 7rem);
     object-fit: contain;
-    border: 1px solid #1A2D4A;
+    border: 1px solid rgb(var(--border));
     border-radius: 8px;
     background: #000;
   }
@@ -39,7 +39,7 @@
     margin: 0;
     font-size: 0.85rem;
     font-style: italic;
-    color: #8AABCC;
+    color: rgb(var(--soft));
     text-align: center;
     max-width: 60ch;
   }
@@ -54,16 +54,16 @@
     height: 2.5rem;
     font-size: 1.75rem;
     line-height: 1;
-    color: #8AABCC;
+    color: rgb(var(--soft));
     background: transparent;
-    border: 1px solid #1A2D4A;
+    border: 1px solid rgb(var(--border));
     border-radius: 999px;
     cursor: pointer;
     transition: color 0.2s, border-color 0.2s;
   }
   .lightbox-close:hover {
-    color: #E8B84B;
-    border-color: rgba(232, 184, 75, 0.4);
+    color: rgb(var(--gold-400));
+    border-color: rgb(var(--gold-400) / 0.4);
   }
 </style>
 

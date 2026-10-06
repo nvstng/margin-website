@@ -49,14 +49,84 @@ const canonicalUrl = new URL(Astro.url.pathname, origin).href;
       gtag('js', new Date());
       gtag('config', 'G-SXXHQ7MWRC');
     </script>
+    <script is:inline>
+      (() => {
+        const root = document.documentElement;
+        const prefersLight = matchMedia('(prefers-color-scheme: light)');
+        const apply = () => {
+          const mode = localStorage.getItem('theme') ?? 'auto';
+          root.dataset.themeMode = mode;
+          root.dataset.theme = mode === 'auto' ? (prefersLight.matches ? 'light' : 'dark') : mode;
+        };
+        window.setThemeMode = (mode) => {
+          if (mode === 'auto') localStorage.removeItem('theme');
+          else localStorage.setItem('theme', mode);
+          apply();
+        };
+        prefersLight.addEventListener('change', apply);
+        apply();
+      })();
+    </script>
+    <style is:global>
+      :root {
+        color-scheme: dark;
+        --navy-950: 3 8 15;
+        --navy-900: 6 14 26;
+        --navy-800: 10 24 40;
+        --navy-700: 15 34 64;
+        --navy-600: 22 46 88;
+        --navy-400: 42 74 128;
+        --navy-200: 90 122 170;
+        --gold-200: 249 228 168;
+        --gold-300: 245 208 112;
+        --gold-400: 232 184 75;
+        --gold-500: 201 154 46;
+        --gold-600: 160 120 32;
+        --emerald-400: 52 211 153;
+        --emerald-500: 16 185 129;
+        --amber-400: 251 191 36;
+        --red-400: 248 113 113;
+        --cream: 242 235 217;
+        --ink: 216 228 240;
+        --muted: 90 122 158;
+        --soft: 138 171 204;
+        --border: 26 45 74;
+      }
+      :root[data-theme='light'] {
+        color-scheme: light;
+        --navy-950: 234 228 214;
+        --navy-900: 250 247 240;
+        --navy-800: 241 236 224;
+        --navy-700: 230 223 207;
+        --navy-600: 217 208 188;
+        --navy-400: 169 159 136;
+        --navy-200: 111 106 92;
+        --gold-200: 110 79 12;
+        --gold-300: 133 96 15;
+        --gold-400: 154 111 18;
+        --gold-500: 176 132 37;
+        --gold-600: 201 154 46;
+        --emerald-400: 4 120 87;
+        --emerald-500: 5 150 105;
+        --amber-400: 180 83 9;
+        --red-400: 220 38 38;
+        --cream: 26 23 18;
+        --ink: 43 52 66;
+        --muted: 95 107 122;
+        --soft: 74 91 112;
+        --border: 221 213 196;
+      }
+      :root[data-theme='light'] .theme-logo {
+        filter: invert(1) hue-rotate(180deg);
+      }
+    </style>
     <style>
       * { box-sizing: border-box; }
-      html { color-scheme: dark; }
-      ::selection { background: rgba(232, 184, 75, 0.3); color: #F2EBD9; }
+      ::selection { background: rgb(var(--gold-400) / 0.3); color: rgb(var(--cream)); }
       ::-webkit-scrollbar { width: 6px; }
-      ::-webkit-scrollbar-track { background: #060E1A; }
-      ::-webkit-scrollbar-thumb { background: #1A2D4A; border-radius: 3px; }
-      ::-webkit-scrollbar-thumb:hover { background: #E8B84B; }
+      ::-webkit-scrollbar-track { background: rgb(var(--navy-900)); }
+      ::-webkit-scrollbar-thumb { background: rgb(var(--border)); border-radius: 3px; }
+      ::-webkit-scrollbar-thumb:hover { background: rgb(var(--gold-400)); }
 
       .reveal {
         opacity: 0;
@@ -78,7 +148,7 @@ const canonicalUrl = new URL(Astro.url.pathname, origin).href;
         display: block;
         width: 48px;
         height: 2px;
-        background: #E8B84B;
+        background: rgb(var(--gold-400));
         margin-top: 16px;
       }
     </style>

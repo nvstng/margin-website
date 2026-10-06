@@ -1,5 +1,6 @@
 ---
 import marginLogo from '../assets/images/margin-logo.png';
+import ThemeToggle from './theme-toggle.astro';
 
 const SIGNUP_URL = 'https://go.marginapp.in';
 ---
@@ -13,7 +14,7 @@ const SIGNUP_URL = 'https://go.marginapp.in';
           alt="Margin"
           width={marginLogo.width}
           height={marginLogo.height}
-          class="h-10 w-auto"
+          class="theme-logo h-10 w-auto"
         />
       </a>
 
@@ -26,6 +27,7 @@ const SIGNUP_URL = 'https://go.marginapp.in';
       </ul>
 
       <div class="flex items-center gap-4">
+        <ThemeToggle />
         <a
           href={SIGNUP_URL}
           class="hidden md:inline-flex items-center px-5 py-2 text-sm font-medium text-navy-900 bg-gold-400 hover:bg-gold-300 rounded transition-colors duration-200 tracking-wide"
