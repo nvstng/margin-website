@@ -4,8 +4,8 @@ import videoPosterEn from '../assets/images/video-why-margin-en.webp';
 import videoPosterHi from '../assets/images/video-why-margin-hi.webp';
 
 const videos = [
-  { language: 'en', youtubeId: 'jNqBkHEdvuA', poster: videoPosterEn },
-  { language: 'hi', youtubeId: 'U0ZHFQRMsd4', poster: videoPosterHi },
+  { language: 'en', youtubeId: 'SHekuk0WXWU', poster: videoPosterEn },
+  { language: 'hi', youtubeId: 'MBH61ofSZbY', poster: videoPosterHi },
 ];
 
 const problems = [
@@ -110,6 +110,26 @@ const problems = [
       { label: 'How the calculation is checked', href: '/guides/dcf-valuation-grid#how-the-calculation-is-checked' },
     ],
   },
+  {
+    id: 'research',
+    label: 'Research time',
+    heading: 'Researching a stock yourself takes too long',
+    problem:
+      'Understanding a stock means looking at its business, its competition, its financial health and its recent story, each a separate perspective with its own reading across annual reports, news and forum threads. Building conviction takes hours per stock, other participants have more time or a whole team, and there are thousands of listed stocks, so research time limits how many companies you can consider.',
+    solution:
+      'Margin researches each stock with AI along a framework used by professional investors and presents it as a stock story you can read or listen to as audio. The qualitative screen turns each story into a short card you clear with a Yes, Maybe, No or Never verdict, so you can pass far more of the market through a first look.',
+    sources: [
+      { title: 'Annual reports', sub: 'the business' },
+      { title: 'News and filings', sub: 'what changed lately' },
+      { title: 'Forums', sub: 'what others see' },
+    ],
+    hub: { title: 'Margin', sub: 'researches along one framework with AI' },
+    outcome: { title: 'Stock story', sub: 'to read or hear as audio' },
+    links: [
+      { label: 'The stock story as a starting point', href: '/guides/stock-story-research-starting-point' },
+      { label: 'Qualitative screening', href: '/guides/qualitative-screening' },
+    ],
+  },
 ];
 
 const col = { source: 10, hub: 290, outcome: 530 };
@@ -132,7 +152,7 @@ const outcomeTop = hubTop + 120;
         </h2>
       </div>
       <div class="lg:col-span-3">
-        <GuideVideo title="Why Margin" videos={videos} label="The five problems in three minutes" />
+        <GuideVideo title="Why Margin" videos={videos} label="Why Margin in three minutes" />
       </div>
     </div>
 

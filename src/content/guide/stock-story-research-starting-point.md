@@ -28,7 +28,7 @@ Alongside the story, the research library carries related reports: valuation nor
 
 ## How Margin does the work for you
 
-Building a picture of a business normally means going through many different sources across the internet and stitching them together yourself. Margin does that gathering for you and uses AI to assemble it into a full, coherent story of the business, so you start from a finished narrative rather than a pile of tabs.
+Building a picture of a business normally means going through many different sources across the internet and stitching them together yourself. Margin does that gathering for you and uses AI to assemble it into a full, coherent story of the business, so you start from a finished narrative rather than a pile of tabs. The research follows a framework used by professional investors, the same set of questions asked of every company and sharpened for each one, so each stock is looked at from the same perspectives, and the time a first pass takes no longer limits how many stocks you can consider.
 
 Each story is also available as audio, so you can take the research in while you commute or walk.
 
