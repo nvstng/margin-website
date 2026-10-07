@@ -2,6 +2,7 @@
 import Layout from '../layouts/layout.astro';
 import Nav from '../components/nav.astro';
 import Footer from '../components/footer.astro';
+import VaultComparison from '../components/vault-comparison.astro';
 ---
 
 <Layout
@@ -25,6 +26,10 @@ import Footer from '../components/footer.astro';
           keeps those fields in a Privacy Vault instead, behind their own encryption keys, so a
           leak of the main database hands over nothing that identifies you.
         </p>
+      </div>
+
+      <div class="mb-20 reveal">
+        <VaultComparison />
       </div>
 
       <div class="mb-20 reveal reveal-delay-1">

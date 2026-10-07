@@ -1,13 +1,11 @@
 ---
-import privacyVaultImage from '../assets/images/privacy-vault.webp';
+import SecurityFlow from './security-flow.astro';
 
 const points = [
-  'Your broker login credentials are never stored',
-  'Your funds statement is read in the browser, and the file itself is never uploaded',
-  'Row descriptions are optional, and hashed on arrival when you do send them',
-  'Sensitive data is encrypted with Privacy Vault (Databunker)',
-  'Only you can access your portfolio data',
-  'Trade files are processed and never exposed to third parties',
+  'We never store your broker login',
+  'Your broker’s funds statement is read on your computer and never uploaded',
+  'Your name and email are locked away from your portfolio',
+  'Only you can see your portfolio, and we never share it',
 ];
 ---
 
@@ -20,18 +18,11 @@ const points = [
           Your portfolio data<br />
           <em class="font-semibold not-italic">stays yours</em>
         </h2>
-        <p class="text-muted leading-relaxed mb-6">
-          We use Privacy Vault, a secure encrypted store, to protect personally identifiable
-          information like your name and email. Where a regular database would hold those fields
-          in the clear, Privacy Vault locks them with separate encryption keys.
-        </p>
         <p class="text-muted leading-relaxed mb-8">
-          The funds statement gets stricter treatment, because its description column carries your
-          client code, payment references and bank account. Margin reads that file in your browser
-          and sends only the dated amounts, so the file never leaves your machine. Sending the
-          description at all is your choice, and when you do, the server hashes it on arrival and
-          keeps only the hash. No endpoint returns the wording and there is no text search over the
-          ledger.
+          Margin needs your holdings and trades to do its job, and very little else about you. The
+          funds statement from your broker is read on your own computer, so the file and the bank
+          details in it never reach us. Your name and email are kept in a separate locked vault, so the portfolio
+          records on our side carry no name.
         </p>
         <ul class="space-y-3 mb-8">
           {points.map((point) => (
@@ -47,32 +38,15 @@ const points = [
           href="/privacy-vault"
           class="inline-flex items-center gap-2 text-sm text-gold-400 hover:text-gold-300 transition-colors duration-200"
         >
-          How Privacy Vault protects you
+          How we protect your details
           <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
           </svg>
         </a>
       </div>
 
-      <div class="reveal reveal-delay-2 flex justify-center">
-        <div class="relative w-72 h-72">
-          <div class="absolute inset-0 rounded-full border border-border animate-pulse opacity-30"></div>
-          <div class="absolute inset-6 rounded-full border border-gold-400/20 animate-pulse opacity-60" style="animation-delay: 0.5s"></div>
-          <div class="absolute inset-12 rounded-full border border-gold-400/30"></div>
-          <div class="absolute inset-0 flex items-center justify-center">
-            <div class="w-28 h-28 rounded-full bg-navy-800 border border-gold-400/30 flex items-center justify-center shadow-lg shadow-gold-400/10">
-              <img
-                src={privacyVaultImage.src}
-                alt="Privacy Vault"
-                width={privacyVaultImage.width}
-                height={privacyVaultImage.height}
-                loading="lazy"
-                decoding="async"
-                class="w-20 h-20 rounded-full object-cover opacity-80"
-              />
-            </div>
-          </div>
-        </div>
+      <div class="reveal reveal-delay-2">
+        <SecurityFlow />
       </div>
     </div>
   </div>

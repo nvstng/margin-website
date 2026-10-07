@@ -1,0 +1,49 @@
+<div class="overflow-x-auto rounded-2xl border border-navy-600 bg-navy-800 p-4 lg:p-6">
+  <svg
+    viewBox="0 0 680 310"
+    class="w-full min-w-[560px] font-sans"
+    role="img"
+    aria-label="In a traditional database a breach reads names, emails and holdings together. With Privacy Vault the database holds only a token, so a breach reads holdings with no identity attached."
+  >
+    <defs>
+      <marker id="vault-arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M 0 0 L 10 5 L 0 10 z" class="fill-red-400" />
+      </marker>
+    </defs>
+
+    <rect x="10" y="10" width="320" height="290" rx="14" class="fill-navy-900 stroke-navy-400" fill-opacity="0.5" stroke-dasharray="5 5" />
+    <text x="26" y="34" class="fill-muted text-[11px] tracking-[0.2em] uppercase">Traditional</text>
+
+    <rect x="30" y="52" width="280" height="140" rx="10" class="fill-navy-700 stroke-navy-400" />
+    <text x="170" y="82" text-anchor="middle" class="fill-cream text-[16px] font-display font-semibold">Application database</text>
+    <text x="170" y="112" text-anchor="middle" class="fill-cream text-[12.5px]">name · email</text>
+    <text x="170" y="134" text-anchor="middle" class="fill-muted text-[12.5px]">holdings · trades · amounts</text>
+    <text x="170" y="156" text-anchor="middle" class="fill-muted text-[12.5px]">joined by user id</text>
+
+    <line x1="170" y1="254" x2="170" y2="194" class="stroke-red-400" stroke-width="1.5" marker-end="url(#vault-arrow-red)" />
+    <text x="178" y="230" class="fill-red-400 text-[11px] uppercase tracking-[0.15em]">breach</text>
+    <text x="170" y="280" text-anchor="middle" class="fill-red-400 text-[12.5px]">reads name, email and holdings together</text>
+
+    <rect x="350" y="10" width="320" height="290" rx="14" class="fill-navy-900 stroke-navy-400" fill-opacity="0.5" stroke-dasharray="5 5" />
+    <text x="366" y="34" class="fill-gold-400 text-[11px] tracking-[0.2em] uppercase">With Privacy Vault</text>
+
+    <rect x="370" y="52" width="140" height="140" rx="10" class="fill-navy-700 stroke-navy-400" />
+    <text x="440" y="82" text-anchor="middle" class="fill-cream text-[16px] font-display font-semibold">App database</text>
+    <text x="440" y="112" text-anchor="middle" class="fill-gold-300 text-[12.5px]">token a3f8…</text>
+    <text x="440" y="134" text-anchor="middle" class="fill-muted text-[12.5px]">holdings</text>
+    <text x="440" y="156" text-anchor="middle" class="fill-muted text-[12.5px]">trades · amounts</text>
+
+    <line x1="510" y1="108" x2="526" y2="108" class="stroke-gold-400" stroke-width="1.5" stroke-dasharray="3 3" />
+
+    <rect x="526" y="52" width="130" height="140" rx="10" class="fill-navy-700 stroke-gold-400" stroke-opacity="0.65" />
+    <text x="591" y="82" text-anchor="middle" class="fill-cream text-[16px] font-display font-semibold">Privacy Vault</text>
+    <text x="591" y="112" text-anchor="middle" class="fill-gold-300 text-[12.5px]">token a3f8…</text>
+    <text x="591" y="134" text-anchor="middle" class="fill-cream text-[12.5px]">name · email</text>
+    <text x="591" y="156" text-anchor="middle" class="fill-muted text-[12.5px]">encrypted</text>
+    <text x="591" y="176" text-anchor="middle" class="fill-muted text-[12.5px]">own keys</text>
+
+    <line x1="440" y1="254" x2="440" y2="194" class="stroke-red-400" stroke-width="1.5" marker-end="url(#vault-arrow-red)" />
+    <text x="448" y="230" class="fill-red-400 text-[11px] uppercase tracking-[0.15em]">breach</text>
+    <text x="510" y="280" text-anchor="middle" class="fill-emerald-400 text-[12.5px]">reads tokens and holdings, no identity</text>
+  </svg>
+</div>
