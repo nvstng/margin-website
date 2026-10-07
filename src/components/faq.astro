@@ -11,11 +11,6 @@ const faqs = [
       'No. Prices come from the NSE and BSE end of day files, so they do not move during the session. Margin shows the date of the quote beside any value it reports, and it tells you when a total is missing a stock it has no price for.',
   },
   {
-    question: 'Which brokers can I import from?',
-    answer:
-      'Holdings and trades come in from Zerodha, Groww, Upstox and AngelOne as downloaded, and from any other broker through a generic CSV layout. Dividend statements are read from Zerodha today. The funds statement is read from Zerodha as downloaded, and from other brokers through a column mapping you set once.',
-  },
-  {
     question: 'I hold the same stock at two brokers. Does that work?',
     answer:
       'Yes. Send a file per account and Margin merges them, adding the quantities and averaging the cost by quantity. Each holding still shows the split by broker underneath, and you can ask for returns, gains and allocation one trading account at a time.',
