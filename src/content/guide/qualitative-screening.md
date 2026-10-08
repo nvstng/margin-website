@@ -1,10 +1,10 @@
 ---
 title: "Qualitative screening"
-description: "Filtering stocks by the quality of the business rather than by numeric filters alone, using Margin's card-by-card screen and fast Yes / Maybe / No / Never verdicts."
+description: "Filtering stocks by the quality of the business rather than by numeric filters alone, using Margin's card-by-card screen and fast Study / Track / Reject verdicts."
 feature: "Screening"
 stage: "Research and value a stock"
 order: 2
-updatedAt: 2026-07-20
+updatedAt: 2026-10-07
 readingTime: "5 min read"
 ---
 
@@ -26,17 +26,16 @@ At 2 minutes a stock, and often far less since many get rejected in 15 to 30 sec
 
 Margin presents this as a deck of quick stories. Each card is a short summary of one business and its industry: what it does, where it sits in its industry, its financial health, and its recent story. Reading one card is enough to decide whether the business is worth your time. You give a fast verdict on every card:
 
-- **Yes**, a business worth digging into
-- **Maybe**, interesting but you are unsure
-- **No**, not for you right now
-- **Never**, permanently out of your circle
+- **Study**, a business worth digging into
+- **Track**, interesting but not yet worth the deeper work, so you keep an eye on it
+- **Reject**, not for you
 
-Margin remembers every call and picks up where you left off. Everything you mark Yes or Maybe lands in your Screened list, ready for deeper work.
+Margin remembers every call and picks up where you left off. Every stock you give a verdict to lands under Reviewed, where you can filter to your Study names and start the deeper work.
 
 ## Using it well
 
-Screen in short, frequent sessions instead of long ones, and make the judgements quickly. If a card makes you hesitate for more than a few seconds, take the hesitation as your answer, mark it Maybe and move on.
+Screen in short, frequent sessions instead of long ones, and make the judgements quickly. If a card makes you hesitate for more than a few seconds, take the hesitation as your answer, mark it Track and move on.
 
 The screen is built for your phone, so you can do it casually, a few cards while you wait for something, and still make steady progress through the market.
 
-Revisit your Never calls once in a while. Businesses change, and a Never from two years ago may deserve a second look. Once a stock clears this qualitative pass, take it into the full research report and the [stock story](/guides/stock-story-research-starting-point).
+Revisit your Reject calls once in a while. Businesses change, and a Reject from two years ago may deserve a second look. Once a stock clears this qualitative pass, take it into the full research report and the [stock story](/guides/stock-story-research-starting-point).
